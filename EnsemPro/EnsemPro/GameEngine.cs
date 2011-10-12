@@ -57,7 +57,6 @@ namespace EnsemPro
             graphics.ApplyChanges();
 
             baton = new Baton();
-            notes = new NoteQueue();
             satisfaction = new SatisfactionQueue();
 
             base.Initialize();
@@ -73,7 +72,6 @@ namespace EnsemPro
 
             background = content.Load<Texture2D>("images\\background");
             baton.LoadContent(content);
-            notes.LoadContent(content);
             satisfaction.LoadContent(content);
 
             song = content.Load<Song>("images\\journey");
@@ -108,7 +106,17 @@ namespace EnsemPro
             if (Keyboard.GetState().IsKeyDown(Keys.R))
                 restart();
 
+            // Not sure if it's the best way to add stars, but here it is for now
+            if (GameEngine.counter % 2 == 0)
+            {
+                satisfaction.Add(baton.getPos());
+            }
+
+            baton.Update(gameTime);
+            satisfaction.Update(gameTime);
+
             base.Update(gameTime);
+
         }
 
         //DELETE
@@ -126,7 +134,6 @@ namespace EnsemPro
             spriteBatch.End();
 
             baton.Draw(spriteBatch);
-            notes.Draw(spriteBatch);
             satisfaction.Draw(spriteBatch);
 
             base.Draw(gameTime);
