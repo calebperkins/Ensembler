@@ -26,10 +26,12 @@ namespace EnsemPro
         ContentManager content;
 
         Song song;
-
+        
         Baton baton;
         NoteQueue notes;
         SatisfactionQueue satisfaction;
+
+        PlayLevel level;
 
         //DEL
         public static int counter = 400;
@@ -42,6 +44,7 @@ namespace EnsemPro
             graphics = new GraphicsDeviceManager(this);
             content = new ContentManager(Services);
             content.RootDirectory = "Content";
+            level = new PlayLevel();
         }
 
         /// <summary>
@@ -58,6 +61,7 @@ namespace EnsemPro
 
             baton = new Baton();
             satisfaction = new SatisfactionQueue();
+            level.start();
 
             base.Initialize();
         }
@@ -68,13 +72,16 @@ namespace EnsemPro
         /// </summary>
         protected override void LoadContent()
         {
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             background = content.Load<Texture2D>("images\\background");
             baton.LoadContent(content);
             satisfaction.LoadContent(content);
+            level.LoadContent(content);
 
-            song = content.Load<Song>("images\\journey");
+            song = content.Load<Song>("images\\b5");
+
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(song);
         }
@@ -106,14 +113,15 @@ namespace EnsemPro
             if (Keyboard.GetState().IsKeyDown(Keys.R))
                 restart();
 
-            baton.Update(gameTime);
-            satisfaction.Update(gameTime);
-
             // Not sure if it's the best way to add stars, but here it is for now
             if (GameEngine.counter % 2 == 0)
             {
                 satisfaction.Add(baton.getPos());
             }
+
+            baton.Update(gameTime);
+            satisfaction.Update(gameTime);
+            level.Update(gameTime);
 
             base.Update(gameTime);
 
@@ -135,6 +143,7 @@ namespace EnsemPro
 
             baton.Draw(spriteBatch);
             satisfaction.Draw(spriteBatch);
+            level.Draw(spriteBatch);
 
             base.Draw(gameTime);
         }
