@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace EnsemPro
 {
-    class Movement
+    public class Movement
     {
         public enum Type {
             Shake,
