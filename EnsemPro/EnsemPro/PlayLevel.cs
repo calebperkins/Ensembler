@@ -14,7 +14,11 @@ namespace EnsemPro
     public class PlayLevel
     {
         Texture2D shake;
+<<<<<<< HEAD
        // Queue<> actionQueue = new Queue<>();
+=======
+        Queue<Movement> actionQueue = new Queue<Movement>();
+>>>>>>> origin/master
 
         public PlayLevel()
         {
