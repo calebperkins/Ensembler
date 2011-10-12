@@ -26,15 +26,26 @@ namespace EnsemPro
             Sin,
         }
 
-        public Function(FunShape shape, Vector2 ori)
+        /// <summary>
+        /// Constructor for line
+        /// </summary>
+        /// <param name="shape"></param>
+        /// <param name="ori"></param>
+        public Function(FunShape shape, Vector2 ori, int slope)
         {
             if (shape != FunShape.Line) Console.WriteLine ("THIS IS Line, you called " + shape);
             this.shape = shape;
             pos = ori;
+            this.slope = slope;
         }
 
         public Vector2 getPos ()
         {
+            if (shape == FunShape.Line)
+            {
+                pos.X++;
+                pos.Y = pos.Y + slope;
+            }
             return pos;
         }
 
