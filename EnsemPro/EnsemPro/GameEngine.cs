@@ -26,7 +26,6 @@ namespace EnsemPro
         ContentManager content;
 
         Song song;
-        BatonController batonController;
         Baton baton;
         NoteQueue notes;
         SatisfactionQueue satisfaction;
@@ -69,10 +68,8 @@ namespace EnsemPro
             
             satisfaction = new SatisfactionQueue();
             level.start();
-            batonController = new BatonController(this);
-            Components.Add(batonController);
 
-            baton = new Baton(batonController);
+            baton = new Baton();
             base.Initialize();
         }
 
@@ -124,20 +121,19 @@ namespace EnsemPro
             if (Keyboard.GetState().IsKeyDown(Keys.R))
                 restart();
 
+            level.Update(gameTime);
+            baton.Update(gameTime);
+            satisfaction.Update(gameTime);
+
             // Not sure if it's the best way to add stars, but here it is for now
             if (GameEngine.counter % 2 == 0)
             {
                 satisfaction.Add(baton.getPos());
             }
-            level.Update(gameTime);
-            baton.Update(gameTime);
-            satisfaction.Update(gameTime);
 
             base.Update(gameTime);
 
         }
-
-        //DELETE
 
         /// <summary>
         /// This is called when the game should draw itself.
