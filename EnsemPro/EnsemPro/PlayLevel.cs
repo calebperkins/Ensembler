@@ -15,7 +15,6 @@ namespace EnsemPro
     public class PlayLevel
     {
         Stopwatch watch = new Stopwatch();
-        int start_time;
         int current_beat;
         int last_beat;
         // hardcoded for now
@@ -24,8 +23,15 @@ namespace EnsemPro
 
         SpriteFont font;
 
+        LinkedList<Movement> actionList;
+        HashSet<Movement> drawSet;
+
+        Movement current_act;
+
         public PlayLevel()
         {
+            actionList = new LinkedList<Movement>();
+            drawSet = new HashSet<Movement>();
         }
 
         public void LoadContent(ContentManager content)
@@ -35,30 +41,68 @@ namespace EnsemPro
         }
         public void start()
         {
+            actionList.AddLast(new Movement(Movement.Type.Shake, 1, 6, 1, 6));
+            actionList.AddLast(new Movement(Movement.Type.Noop, 7, 8, 7, 8));
+            actionList.AddLast(new Movement(Movement.Type.Shake, 9, 14, 9, 14));
+            actionList.AddLast(new Movement(Movement.Type.Noop, 15, 16, 15, 16));
+            actionList.AddLast(new Movement(Movement.Type.Wave, 17, 32, 17, 32, new Point(50, 50), new Point(180, 180), null));
             watch.Start();
         }
         
         public void Update(GameTime gameTime)
         {
             current_beat = (int)Math.Round((float)watch.ElapsedMilliseconds / (float)beatTime);
-            //TODO calculates the current beat here
+
             if (current_beat > last_beat)
             {
                 last_beat = current_beat;
+                
+                LinkedListNode<Movement> checkMove = actionList.First;
+
+                drawSet.RemoveWhere(expired);
+
+                while (checkMove != null)
+                {
+                    
+                    if (checkMove.Value.show_beat == current_beat)
+                    {
+                        drawSet.Add(checkMove.Value);
+                        checkMove = checkMove.Next;
+                    }
+                    else break;
+                }
+                
+                // check and remove the head of the list
+                if (actionList.First !=  null && actionList.First.Value.start_beat == current_beat)
+                {
+                    current_act = actionList.First.Value;
+                    actionList.RemoveFirst();
+                }
             }
 
         }
+
+        private bool expired(Movement m)
+        {
+            return m.fade_beat < current_beat;
+        }
+
         public void Draw(SpriteBatch spriteBatch)
-        {       spriteBatch.Begin();
+        {      
 
                 // Draw Hello World
                 string output = "beat " + current_beat;
                 // Find the center of the string
                 Vector2 FontOrigin = font.MeasureString(output) / 2;
                 // Draw the string
+                spriteBatch.Begin();    
                 spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.Black);
-
                 spriteBatch.End();
+                
+                foreach (Movement m in drawSet)
+                {
+                    m.Draw(spriteBatch);
+                }
           
         }
 

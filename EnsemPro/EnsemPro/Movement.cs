@@ -21,7 +21,7 @@ namespace EnsemPro
 
         static Texture2D circleTexture;
         static Texture2D shakeTexture;
-        static Vector2 shakePos = new Vector2(400, 300);
+        static Vector2 shakePos = new Vector2(200, 200);
 
         Type my_type;
 
@@ -99,23 +99,24 @@ namespace EnsemPro
             return my_type;
         }
 
-        public void Draw(SpriteBatch spriteBatch, int cur_beat)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            if (cur_beat >= show_beat && cur_beat <= fade_beat)
+            
+            if (getType() == Movement.Type.Shake)
             {
                 spriteBatch.Begin();
-                if (getType() == Movement.Type.Shake)
-                {
-                    spriteBatch.Draw(shakeTexture, shakePos, null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
-                }
-                else if (getType() == Movement.Type.Wave)
-                {
-                    spriteBatch.Draw(circleTexture, new Vector2(start_coordinate.X, start_coordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
-                    spriteBatch.Draw(circleTexture, new Vector2(end_coordinate.X, end_coordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
-                    // draw dotted lines?
-                }
+                spriteBatch.Draw(shakeTexture, shakePos, Color.White);
                 spriteBatch.End();
             }
+            else if (getType() == Movement.Type.Wave)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(circleTexture, new Vector2(start_coordinate.X, start_coordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.Draw(circleTexture, new Vector2(end_coordinate.X, end_coordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.End();
+                // draw dotted lines?
+            }
+            
         }
          
     }

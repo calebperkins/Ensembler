@@ -59,7 +59,7 @@ namespace EnsemPro
             graphics.PreferredBackBufferHeight = HEIGHT;
             graphics.ApplyChanges();
 
-            
+
             satisfaction = new SatisfactionQueue();
             level.start();
             batonController = new BatonController(this);
@@ -82,6 +82,7 @@ namespace EnsemPro
             baton.LoadContent(content);
             satisfaction.LoadContent(content);
             level.LoadContent(content);
+            Movement.LoadContent(content);
 
             song = content.Load<Song>("images\\b5complete");
 
@@ -115,16 +116,15 @@ namespace EnsemPro
 
             if (Keyboard.GetState().IsKeyDown(Keys.R))
                 restart();
-
-            baton.Update(gameTime);
-            satisfaction.Update(gameTime);
-            level.Update(gameTime);
-
             // Not sure if it's the best way to add stars, but here it is for now
             if (GameEngine.counter % 2 == 0)
             {
                 satisfaction.Add(baton.getPos());
             }
+
+            baton.Update(gameTime);
+            satisfaction.Update(gameTime);
+            level.Update(gameTime);
 
             base.Update(gameTime);
 
@@ -143,10 +143,10 @@ namespace EnsemPro
             spriteBatch.Begin();
             spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
             spriteBatch.End();
-
+            level.Draw(spriteBatch);
             baton.Draw(spriteBatch);
             satisfaction.Draw(spriteBatch);
-            level.Draw(spriteBatch);
+
 
             base.Draw(gameTime);
         }
