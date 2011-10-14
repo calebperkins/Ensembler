@@ -19,7 +19,18 @@ namespace EnsemPro
             Wave
         }
 
+        static Texture2D circleTexture;
+        static Texture2D shakeTexture;
+        static Vector2 shakePos = new Vector2(400, 300);
+
         Type my_type;
+
+        public static void LoadContent(ContentManager content)
+        {
+            circleTexture = content.Load<Texture2D>("images\\circle");
+            shakeTexture = content.Load<Texture2D>("images\\shake");
+
+        }
 
         public int start_beat
         {
@@ -28,6 +39,18 @@ namespace EnsemPro
         }
 
         public int end_beat
+        {
+            get;
+            set;
+        }
+
+        public int show_beat
+        {
+            get;
+            set;
+        }
+
+        public int fade_beat
         {
             get;
             set;
@@ -50,26 +73,49 @@ namespace EnsemPro
             set;
         }
 
-        public Movement(Movement.Type type, int sb, int eb)
+        public Movement(Movement.Type type, int sb, int eb, int show_b, int fade_b)
         {
             my_type = type;
             start_beat = sb;
             end_beat = eb;
+            show_beat = show_b;
+            fade_beat = fade_b;
         }
 
-        public Movement(Movement.Type type, int sb, int eb, Point sc, Point ec, Function f)
+        public Movement(Movement.Type type, int sb, int eb, int show_b, int fade_b, Point sc, Point ec, Function f)
         {
             my_type = type;
             start_beat = sb;
             end_beat = eb;
             start_coordinate = sc;
             end_coordinate = ec;
+            show_beat = show_b;
+            fade_beat = fade_b;
         }
 
         // returns the type of this movement
         public Type getType()
         {
             return my_type;
+        }
+
+        public void Draw(SpriteBatch spriteBatch, int cur_beat)
+        {
+            if (cur_beat >= show_beat && cur_beat <= fade_beat)
+            {
+                spriteBatch.Begin();
+                if (getType() == Movement.Type.Shake)
+                {
+                    spriteBatch.Draw(shakeTexture, shakePos, null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
+                }
+                else if (getType() == Movement.Type.Wave)
+                {
+                    spriteBatch.Draw(circleTexture, new Vector2(start_coordinate.X, start_coordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
+                    spriteBatch.Draw(circleTexture, new Vector2(end_coordinate.X, end_coordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
+                    // draw dotted lines?
+                }
+                spriteBatch.End();
+            }
         }
          
     }

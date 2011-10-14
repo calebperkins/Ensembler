@@ -56,7 +56,7 @@ namespace EnsemPro
                 // Find the center of the string
                 Vector2 FontOrigin = font.MeasureString(output) / 2;
                 // Draw the string
-                spriteBatch.DrawString(font, output, new Vector2(300, 300), Color.Black);
+                spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.Black);
 
                 spriteBatch.End();
           

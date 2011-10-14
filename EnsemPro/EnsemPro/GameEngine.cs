@@ -83,7 +83,7 @@ namespace EnsemPro
             satisfaction.LoadContent(content);
             level.LoadContent(content);
 
-            song = content.Load<Song>("images\\b5");
+            song = content.Load<Song>("images\\b5complete");
 
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(song);
