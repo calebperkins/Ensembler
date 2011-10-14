@@ -20,9 +20,19 @@ namespace EnsemPro
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public double getLineSlope(Vector2 start, Vector2 end)
+        public static double[,] getLinePosAndSlopes(Vector2 start, Vector2 end, int intervals)
         {
-            return ((end.Y - start.Y) / (end.X - start.X));
+            double [,] posAndSlopes = new double [intervals + 1, 2];
+            double slope = (end.Y - start.Y) / (end.X - start.X);
+            double incre = (end.X - start.X) / (double) intervals;
+            double curX = start.X;
+            for (int i = 0; i < (intervals + 1); i++)
+            {
+                posAndSlopes[i, 0] = curX + i * incre;
+                posAndSlopes[i, 1] = slope;
+                curX += incre;
+            }
+            return posAndSlopes;
         }
 
         /// <summary>
@@ -36,10 +46,10 @@ namespace EnsemPro
         /// <param name="endX"></param>
         /// <param name="intervals"></param>
         /// <returns></returns>
-        public double[] getParabolaSlopes(double verX, int a, int startX, int endX, int intervals)
+        public static double[] getParabolaSlopes(double verX, int a, int startX, int endX, int intervals)
         {
             double[] slopes = new double[intervals + 1];
-            double incre = (double) (endX - startX) / intervals;
+            double incre = (endX - startX) / (double) intervals;
             double curX = startX;
             for (int i = 0; i < slopes.Length; i++)
             {
@@ -49,7 +59,14 @@ namespace EnsemPro
             return slopes;
         }
 
-        public double[] getSinSlopes(int startX, int endX, int intervals)
+        /// <summary>
+        /// not done
+        /// </summary>
+        /// <param name="startX"></param>
+        /// <param name="endX"></param>
+        /// <param name="intervals"></param>
+        /// <returns></returns>
+        public static double[] getSinSlopes(int startX, int endX, int intervals)
         {
             double[] slopes = new double[intervals + 1];
             double incre = (double)(endX - startX) / intervals;

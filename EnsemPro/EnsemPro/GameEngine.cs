@@ -59,6 +59,11 @@ namespace EnsemPro
             graphics.PreferredBackBufferHeight = HEIGHT;
             graphics.ApplyChanges();
 
+            double [,] a = Function.getLinePosAndSlopes(new Vector2(0, 0), new Vector2(4, 4), 4);
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.WriteLine(a[i, 0] + " " + a[i, 1]);
+            }
             
             satisfaction = new SatisfactionQueue();
             level.start();
@@ -116,17 +121,17 @@ namespace EnsemPro
             if (Keyboard.GetState().IsKeyDown(Keys.R))
                 restart();
 
+            baton.Update(gameTime);
+            //batonController.Update(gameTime);
+            satisfaction.Update(gameTime);
+            level.Update(gameTime);
+
             // Not sure if it's the best way to add stars, but here it is for now
             if (GameEngine.counter % 2 == 0)
             {
                 satisfaction.Add(baton.getPos());
             }
 
-
-            baton.Update(gameTime);
-            satisfaction.Update(gameTime);
-            level.Update(gameTime);
-            
             base.Update(gameTime);
 
         }
