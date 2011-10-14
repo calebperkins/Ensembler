@@ -116,16 +116,17 @@ namespace EnsemPro
             if (Keyboard.GetState().IsKeyDown(Keys.R))
                 restart();
 
-            baton.Update(gameTime);
-            satisfaction.Update(gameTime);
-            level.Update(gameTime);
-
             // Not sure if it's the best way to add stars, but here it is for now
             if (GameEngine.counter % 2 == 0)
             {
                 satisfaction.Add(baton.getPos());
             }
 
+
+            baton.Update(gameTime);
+            satisfaction.Update(gameTime);
+            level.Update(gameTime);
+            
             base.Update(gameTime);
 
         }
