@@ -59,11 +59,13 @@ namespace EnsemPro
             graphics.PreferredBackBufferHeight = HEIGHT;
             graphics.ApplyChanges();
 
-            double [,] a = Function.getLinePosAndSlopes(new Vector2(0, 0), new Vector2(4, 4), 4);
-            for (int i = 0; i < a.Length; i++)
+            /* Written to test Function.cs
+            double [,] a = Function.getParabolaPosAndSlopes(new Vector2 (1,0), 1, 0, 2, 20);
+            for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine(a[i, 0] + " " + a[i, 1]);
+                Console.WriteLine(a[i, 0] + " " + a[i, 1] + " " + a[i, 2]);
             }
+            */
             
             satisfaction = new SatisfactionQueue();
             level.start();
