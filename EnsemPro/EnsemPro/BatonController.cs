@@ -1,22 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Storage;
+
 namespace EnsemPro
 {
-    public class BatonController
+    public class BatonController : GameComponent
     {
         WiimoteLib.Wiimote wm;
-        bool A;
         bool wii_activated;
+        Vector2 position;
 
-        public BatonController()
+        public BatonController(Game g) : base(g)
+        {
+            position = new Vector2();
+            wii_activated = false;
+        }
+
+        public override void Initialize()
         {
             try
             {
@@ -29,26 +29,30 @@ namespace EnsemPro
             {
                 wii_activated = false;
             }
-
-            A = false;
+            base.Initialize();
         }
 
-        public Vector2 getPos()
+        public override void Update(GameTime gameTime)
         {
             if (wii_activated)
             {
                 WiimoteLib.PointF ws = wm.WiimoteState.IRState.Midpoint;
-                A = wm.WiimoteState.ButtonState.A;
-                return new Vector2(800 * (1 - ws.X), 600 * ws.Y);
+                position.X = 800 * (1 - ws.X);
+                position.Y = 600 * ws.Y;
             }
             else
             {
                 MouseState ms = Mouse.GetState();
-                KeyboardState ks = Keyboard.GetState();
-                A = ks.IsKeyDown(Keys.A);
-                return new Vector2(Math.Max(Math.Min(GameEngine.WIDTH, ms.X), 0),
-                    Math.Max(Math.Min(GameEngine.HEIGHT, ms.Y), 0));
+                position.X = Math.Max(Math.Min(GameEngine.WIDTH, ms.X), 0);
+                position.Y = Math.Max(Math.Min(GameEngine.HEIGHT, ms.Y), 0);
             }
+            base.Update(gameTime);
         }
+
+        public Vector2 Position()
+        {
+            return position;
+        }
+
     }
 }

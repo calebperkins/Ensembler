@@ -20,10 +20,10 @@ namespace EnsemPro
         BatonController controller;
         Texture2D batonTexture;
 
-        public Baton()
+        public Baton(BatonController bg)
         {
             shadow = new Color(0, 0, 0, 128);
-            controller = new BatonController();
+            controller = bg;
         }
 
         public void LoadContent(ContentManager content)
@@ -33,7 +33,7 @@ namespace EnsemPro
 
         public void Update(GameTime gameTime)
         {
-            pos = controller.getPos();
+            pos = controller.Position();
         }
 
         public void Draw(SpriteBatch spriteBatch)

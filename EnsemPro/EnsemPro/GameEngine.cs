@@ -26,7 +26,7 @@ namespace EnsemPro
         ContentManager content;
 
         Song song;
-        
+        BatonController batonController;
         Baton baton;
         NoteQueue notes;
         SatisfactionQueue satisfaction;
@@ -59,10 +59,13 @@ namespace EnsemPro
             graphics.PreferredBackBufferHeight = HEIGHT;
             graphics.ApplyChanges();
 
-            baton = new Baton();
+            
             satisfaction = new SatisfactionQueue();
             level.start();
+            batonController = new BatonController(this);
+            Components.Add(batonController);
 
+            baton = new Baton(batonController);
             base.Initialize();
         }
 
