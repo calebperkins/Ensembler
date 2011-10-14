@@ -14,44 +14,51 @@ namespace EnsemPro
     //making this class on behalf of Caleb the lazy lead :P -- shuyan
     public class Function
     {
-        private Vector2 pos;
-        private FunShape shape;
-
-        // For line
-        private int slope = 0;
-
-        public enum FunShape {
-            Line,
-            Parabola,
-            Sin,
+        /// <summary>
+        /// Returns the slope of line starting from start and ending at end
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public double getLineSlope(Vector2 start, Vector2 end)
+        {
+            return ((end.Y - start.Y) / (end.X - start.X));
         }
 
         /// <summary>
-        /// Constructor for line
+        /// Returns slopes of parabola from the specified number of intervals.
+        /// Based on vertex form y = a * (x-h)^2 + k, and its derivative is 
+        /// 2 * a * (x-h), where h is verX.
         /// </summary>
-        /// <param name="shape"></param>
-        /// <param name="ori"></param>
-        public Function(FunShape shape, Vector2 ori, int slope)
+        /// <param name="vertex"></param>
+        /// <param name="a"></param>
+        /// <param name="startX"></param>
+        /// <param name="endX"></param>
+        /// <param name="intervals"></param>
+        /// <returns></returns>
+        public double[] getParabolaSlopes(double verX, int a, int startX, int endX, int intervals)
         {
-            if (shape != FunShape.Line) Console.WriteLine ("THIS IS Line, you called " + shape);
-            this.shape = shape;
-            pos = ori;
-            this.slope = slope;
-        }
-
-        public Vector2 getPos ()
-        {
-            if (shape == FunShape.Line)
+            double[] slopes = new double[intervals + 1];
+            double incre = (double) (endX - startX) / intervals;
+            double curX = startX;
+            for (int i = 0; i < slopes.Length; i++)
             {
-                pos.X++;
-                pos.Y = pos.Y + slope;
+                slopes[i] = 2 * a * (curX - verX);
+                curX += incre;
             }
-            return pos;
+            return slopes;
         }
 
-        public FunShape getShape()
+        public double[] getSinSlopes(int startX, int endX, int intervals)
         {
-            return shape;
+            double[] slopes = new double[intervals + 1];
+            double incre = (double)(endX - startX) / intervals;
+            double curX = startX;
+            for (int i = 0; i < slopes.Length; i++)
+            {
+
+            }
+            return slopes;
         }
     }
 }

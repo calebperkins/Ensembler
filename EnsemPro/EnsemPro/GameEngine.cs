@@ -121,10 +121,9 @@ namespace EnsemPro
             {
                 satisfaction.Add(baton.getPos());
             }
-
+            level.Update(gameTime);
             baton.Update(gameTime);
             satisfaction.Update(gameTime);
-            level.Update(gameTime);
 
             base.Update(gameTime);
 
