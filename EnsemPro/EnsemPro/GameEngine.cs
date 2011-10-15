@@ -16,6 +16,10 @@ namespace EnsemPro
     /// </summary>
     public class GameEngine : Microsoft.Xna.Framework.Game
     {
+        //DEL
+        public static int counter;
+        //DELETE
+
         public const int WIDTH = 800;
         public const int HEIGHT = 600;
 
@@ -27,6 +31,7 @@ namespace EnsemPro
 
         Song song;
         Baton baton;
+        SatisfactionQueue satisfaction;
 
         PlayLevel level;
 
@@ -58,7 +63,8 @@ namespace EnsemPro
                 Console.WriteLine(a[i, 0] + " " + a[i, 1] + " " + a[i, 2]);
             }
             */
-            
+
+            counter = 0;
             satisfaction = new SatisfactionQueue();
             level.start();
 
@@ -94,11 +100,6 @@ namespace EnsemPro
         protected override void UnloadContent()
         {
             content.Unload();
-
-            //DEL
-            counter = 400;
-            scounter = 0;
-            //DELETE
         }
 
         /// <summary>
@@ -119,11 +120,11 @@ namespace EnsemPro
             satisfaction.Update(gameTime);
 
             // Not sure if it's the best way to add stars, but here it is for now
-            if (GameEngine.counter % 2 == 0)
+            if (counter % 2 == 0)
             {
                 satisfaction.Add(baton.getPos());
             }
-
+            counter++;
             base.Update(gameTime);
 
         }
