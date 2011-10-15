@@ -17,7 +17,8 @@ namespace EnsemPro
         public enum Type
         {
             Line,
-            Parabola
+            Parabola,
+            Curve
         }
         
         const float INTERVAL_TIME = 1.0f / 60; // Time of each frame in seconds
@@ -104,6 +105,13 @@ namespace EnsemPro
 
                 //Console.WriteLine(pos[i].X + " " + pos[i].Y + " " + slopes[i]);
             }
+        }
+
+        public Function(Type type, Movement movement, int bpm, float offset)
+        {
+            if (type != Type.Curve) Console.WriteLine("Curve constructor called with type that is not Curve");
+
+
         }
 
         /// <summary>
