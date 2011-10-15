@@ -14,19 +14,15 @@ namespace EnsemPro
     public class Display
     {
         Movement lastMovement;
-        Movement nextMovement;
 
         Texture2D circleTexture;
         Texture2D shakeTexture;
 
         Vector2 shakePos;
 
-        int currBeat; // ?
-
-        public Display(Movement m, int cb)
+        public Display(Movement m)
         {
             lastMovement = m;
-            currBeat = cb;
             shakePos = new Vector2(400, 300); // stubbed
         }
 
@@ -37,28 +33,31 @@ namespace EnsemPro
 
         }
 
-        public void Update(Movement m, int cb)
+        public void Update(Movement m)
         {
-            currBeat = cb;
             Movement newMovement = m;
             if (newMovement != lastMovement)
             {
-                if (currBeat > lastMovement.end_beat)
-                {
-                    lastMovement = newMovement; // update movement to the next
-                    // get next movement
-                }
-                else
-                {
-
-                }
-                // NEEDS CHANGE
+                lastMovement = newMovement; // update movement
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            lastMovement.Draw(spriteBatch);
+            spriteBatch.Begin();
+            if (lastMovement.getType() == Movement.Type.Shake)
+            {
+                spriteBatch.Draw(shakeTexture, shakePos, null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
+            }
+            else if (lastMovement.getType() == Movement.Type.Wave)
+            {
+                Point startingCoords = lastMovement.start_coordinate;
+                Point endingCoords = lastMovement.end_coordinate;
+                spriteBatch.Draw(circleTexture, new Vector2(startingCoords.X, startingCoords.Y), null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.Draw(circleTexture, new Vector2(endingCoords.X, endingCoords.Y), null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
+                // draw dotted lines?
+            }
+            spriteBatch.End();
         }
     }
 }

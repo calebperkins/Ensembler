@@ -13,13 +13,8 @@ namespace EnsemPro
 {
     public class Movement
     {
-
-        Texture2D shakeTexture;
-        Texture2D circleTexture;
-
-        Vector2 shakePos;
-
-        public enum Type {
+        public enum Type
+        {
             Shake,
             Noop,
             Wave
@@ -57,7 +52,6 @@ namespace EnsemPro
         }
 
         public int fade_beat
-
         {
             get;
             set;
@@ -85,10 +79,6 @@ namespace EnsemPro
             my_type = type;
             start_beat = sb;
             end_beat = eb;
-        }
-
-        public Movement(Movement.Type type, int sb, int eb, int db, Point sc, Point ec, Function f)
-		{
             show_beat = show_b;
             fade_beat = fade_b;
         }
@@ -98,7 +88,6 @@ namespace EnsemPro
             my_type = type;
             start_beat = sb;
             end_beat = eb;
-            draw_beat = db;
             start_coordinate = sc;
             end_coordinate = ec;
             show_beat = show_b;
@@ -111,15 +100,9 @@ namespace EnsemPro
             return my_type;
         }
 
-        public void LoadContent(ContentManager content)
-        {
-            circleTexture = content.Load<Texture2D>("images\\circle");
-            shakeTexture = content.Load<Texture2D>("images\\shake");
-        }
-
         public void Draw(SpriteBatch spriteBatch)
         {
-            
+
             if (getType() == Movement.Type.Shake)
             {
                 spriteBatch.Begin();
@@ -136,6 +119,6 @@ namespace EnsemPro
             }
 
         }
-         
+
     }
 }
