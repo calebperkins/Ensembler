@@ -11,14 +11,18 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace EnsemPro
 {
+    // Fill this out. Placeholder for now.
+    public struct InputState
+    {
+        public Vector2 position;
+    }
+
     public class Baton
     {
         Color shadow;
         Vector2 pos;
         WiimoteLib.Wiimote wm;
         bool wii_activated;
-        //Vector2 position;
-        bool A;
 
         Texture2D batonTexture;
 
@@ -53,8 +57,8 @@ namespace EnsemPro
             if (wii_activated)
             {
                 WiimoteLib.PointF ws = wm.WiimoteState.IRState.Midpoint;
-                pos.X = 800 * (1 - ws.X);
-                pos.Y = 600 * ws.Y;
+                pos.X = GameEngine.WIDTH * (1 - ws.X);
+                pos.Y = GameEngine.HEIGHT * ws.Y;
             }
             else
             {
@@ -67,7 +71,7 @@ namespace EnsemPro
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(batonTexture, pos, null, !A ? Color.White : Color.Black, 0.0f, new Vector2(0, 0), 0.35f, SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(batonTexture, pos, null, Color.White, 0.0f, new Vector2(0, 0), 0.35f, SpriteEffects.None, 0.0f);
             spriteBatch.Draw(batonTexture, new Vector2(pos.X + 3.0f, pos.Y + 3.0f), null, shadow, 0.0f, new Vector2(0, 0), 0.35f, SpriteEffects.None, 0.0f);
             spriteBatch.End();
         }
