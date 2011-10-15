@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace EnsemPro
 {
+    // The stars following the baton
     public class SatisfactionQueue : ObQueue
     {
         const int MAX_AGE = 30;

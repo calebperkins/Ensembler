@@ -33,8 +33,14 @@ namespace EnsemPro
         {
             return new PlayLevel();
         }
-        
 
+        public static void lol()
+        {
+            //LinkedList<Movement> moves = new LinkedList<Movement>();
+            Function f1 = null;
+            Movement move1 = new Movement(Movement.Type.Wave, 1, 4, 1, 4, new Point(0, 0), new Point(4, 4), f1);
+            f1 = new Function(Function.Type.Parabola, move1, 60, 1, new Point (0,0));
+        }
 
 
     }

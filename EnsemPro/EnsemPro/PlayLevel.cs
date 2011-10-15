@@ -47,6 +47,8 @@ namespace EnsemPro
             actionList.AddLast(new Movement(Movement.Type.Noop, 15, 16, 15, 16));
             actionList.AddLast(new Movement(Movement.Type.Wave, 17, 32, 17, 32, new Point(50, 50), new Point(180, 180), null));
             watch.Start();
+
+            LevelParser.lol();
         }
         
         public void Update(GameTime gameTime)
@@ -64,7 +66,7 @@ namespace EnsemPro
                 while (checkMove != null)
                 {
                     
-                    if (checkMove.Value.show_beat == current_beat)
+                    if (checkMove.Value.showBeat == current_beat)
                     {
                         drawSet.Add(checkMove.Value);
                         checkMove = checkMove.Next;
@@ -73,7 +75,7 @@ namespace EnsemPro
                 }
                 
                 // check and remove the head of the list
-                if (actionList.First !=  null && actionList.First.Value.start_beat == current_beat)
+                if (actionList.First !=  null && actionList.First.Value.startBeat == current_beat)
                 {
                     current_act = actionList.First.Value;
                     actionList.RemoveFirst();
@@ -84,7 +86,7 @@ namespace EnsemPro
 
         private bool expired(Movement m)
         {
-            return m.fade_beat < current_beat;
+            return m.fadeBeat < current_beat;
         }
 
         public void Draw(SpriteBatch spriteBatch)

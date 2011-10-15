@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace EnsemPro
 {
+    // The notes that the baton followed in the gameplay prototype
     public class NoteQueue : ObQueue
     {
         const int MAX_AGE = 40;

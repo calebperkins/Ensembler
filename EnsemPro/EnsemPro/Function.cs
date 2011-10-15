@@ -13,76 +13,116 @@ namespace EnsemPro
 {
     public class Function
     {
+
+        public enum Type
+        {
+            Line,
+            Parabola
+        }
         
+        const float INTERVAL_TIME = 1.0f / 60; // Time of each frame in seconds
+        int numIntervals;
+        Type type;
+        Movement movement;
+
+        Vector2[] pos;
+        float[] slopes;
+
+
         /// <summary>
-        /// Returns a 2D array of coordinates and slopes of line from start to end with the
-        /// specified number of intervals. 
-        /// Note that the length of the longer dimension of returned array is number of intervals + 1.
-        /// For the second dimension, index 0 and 1 are x and y coordinates, and index 2 is the slope.
+        /// Constructor for Line
+        /// Line defined by startCoordinate and endCoordinate of movement
         /// </summary>
-        /// <param name="start"></param>
-        /// <param name="end"></param>
-        /// <param name="intervals"></param>
-        /// <returns></returns>
-        public static double[,] getLinePosAndSlopes(Vector2 start, Vector2 end, int intervals)
+        /// <param name="type"></param>
+        /// <param name="movement"></param>
+        public Function(Type type, Movement movement, int bpm)
         {
-            double [,] posAndSlopes = new double [intervals + 1, 3];
-            double slope = (end.Y - start.Y) / (end.X - start.X);
-            double incre = (end.X - start.X) / (double) intervals;
-            double curX = start.X;
-            for (int i = 0; i < (intervals + 1); i++)
+            if (type != Type.Line) Console.WriteLine("Line constructor called with type that is not line");
+            
+            // Same code as constructor for parabola
+            this.type = type;
+            this.movement = movement;
+            numIntervals = (int) ((movement.endBeat - movement.startBeat + 1) / (float) bpm * 60 / INTERVAL_TIME);
+            //Console.WriteLine("INTERVAL_TIME " + INTERVAL_TIME);
+            //Console.WriteLine("numIntervals " + numIntervals);
+
+            pos = new Vector2[numIntervals];
+            slopes = new float[numIntervals];
+
+            float incre = (movement.endCoordinate.X - movement.startCoordinate.X) / (float)numIntervals;
+            float curX = movement.startCoordinate.X;
+            //Same code as constructor for parabola
+
+            float curY = movement.startCoordinate.Y;
+            float slope = (movement.endCoordinate.Y - movement.startCoordinate.Y) / 
+                (movement.endCoordinate.X - movement.startCoordinate.X);
+            
+            for (int i = 0; i < numIntervals; i++)
             {
-                posAndSlopes[i, 0] = curX;
-                posAndSlopes[i, 1] = start.Y + i * slope;
-                posAndSlopes[i, 2] = slope;
+                pos[i].X = curX;
+                pos[i].Y = curY;
+                slopes[i] = slope;
                 curX += incre;
+                curY += incre * slope;
+
+                //Console.WriteLine(pos[i].X + " " + pos[i].Y + " " + slopes[i]);
             }
-            return posAndSlopes;
         }
 
         /// <summary>
-        /// Returns a 2D array of coordinates and slopes of parabola specified in vertex form
-        /// (y = a * (x - h) + k, where (h,k) is vertex) over the given intervals.
-        /// Note that the length of the longer dimension of returned array is number of intervals + 1.
-        /// For the second dimension, index 0 and 1 are x and y coordinates, and index 2 is the slope.
+        /// Constructor for parabola
+        /// Parabola defined through vertex form y = a (x - h)^2 + k, where a is vertical stretch factor and 
+        /// (h,k) is vertex
         /// </summary>
-        /// <param name="vertex"></param>
+        /// <param name="type"></param>
+        /// <param name="movement"></param>
         /// <param name="a"></param>
-        /// <param name="startX"></param>
-        /// <param name="endX"></param>
-        /// <param name="intervals"></param>
-        /// <returns></returns>
-        public static double[,] getParabolaPosAndSlopes(Vector2  vertex, int a, int startX, int endX, int intervals)
+        /// <param name="vertex"></param>
+        public Function(Type type, Movement movement,int bpm, float a, Point vertex)
         {
-            double[,] posAndSlopes = new double[intervals + 1, 3];
-            double incre = (endX - startX) / (double) intervals;
-            double curX = startX;
-            for (int i = 0; i < (intervals + 1); i++)
+            if (type != Type.Parabola) Console.WriteLine("Parabola constructor called with type that is not Parabola");
+
+            // Same code as constructor for line
+            this.type = type;
+            this.movement = movement;
+            numIntervals = (int)((movement.endBeat - movement.startBeat + 1) / (float)bpm * 60 / INTERVAL_TIME);
+            //Console.WriteLine("INTERVAL_TIME " + INTERVAL_TIME);
+            //Console.WriteLine("numIntervals " + numIntervals);
+
+            pos = new Vector2[numIntervals];
+            slopes = new float[numIntervals];
+
+            float incre = (movement.endCoordinate.X - movement.startCoordinate.X) / (float)numIntervals;
+            float curX = movement.startCoordinate.X;
+            //Same code as constructor for line
+
+            for (int i = 0; i < numIntervals; i++)
             {
-                posAndSlopes[i, 0] = curX;
-                posAndSlopes[i, 1] = a * Math.Pow(curX - vertex.X, 2) + vertex.Y;
-                posAndSlopes[i, 2] = 2 * a * (curX - vertex.X);
+                pos[i].X = curX;
+                pos[i].Y = a * (float) (Math.Pow(curX - vertex.X, 2)) + vertex.Y;
+                slopes[i] = 2 * a * (curX - vertex.X);
                 curX += incre;
+
+                //Console.WriteLine(pos[i].X + " " + pos[i].Y + " " + slopes[i]);
             }
-            return posAndSlopes;
         }
 
         /// <summary>
-        /// not done
+        /// Returns an array of Vector2 representing positions of line from movement's startCoordinate
+        /// to endCoordinate over the interval between endBeat and startBeat. 
         /// </summary>
-        /// <param name="startX"></param>
-        /// <param name="endX"></param>
-        /// <param name="intervals"></param>
         /// <returns></returns>
-        public static double[] getSinPosAndSlopes(int startX, int endX, int intervals)
+        public Vector2[] getPos()
         {
-            double[] slopes = new double[intervals + 1];
-            double incre = (double)(endX - startX) / intervals;
-            double curX = startX;
-            for (int i = 0; i < slopes.Length; i++)
-            {
+            return pos;
+        }
 
-            }
+        /// <summary>
+        /// Returns an array of slopes
+        /// </summary>
+        /// <returns></returns>
+        public float[] getSlopes()
+        {
             return slopes;
         }
     }
