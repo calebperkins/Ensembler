@@ -27,16 +27,9 @@ namespace EnsemPro
 
         Song song;
         Baton baton;
-        NoteQueue notes;
-        SatisfactionQueue satisfaction;
 
         PlayLevel level;
 
-        //DEL
-        public static int counter = 400;
-        public static int scounter = 0;
-        public static int numYays = 0;
-        //DELETE
 
         public GameEngine()
         {
