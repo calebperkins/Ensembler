@@ -18,9 +18,9 @@ namespace EnsemPro
         int current_beat;
         int last_beat;
         // hardcoded for now
-        int beatTime = 60000 / 100; 
-        Queue<Movement> actionQueue = new Queue<Movement>();
+        int beatTime = 60000 / 100;
 
+        int current_score;
         SpriteFont font;
 
         LinkedList<Movement> actionList;
