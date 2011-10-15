@@ -52,19 +52,11 @@ namespace EnsemPro
         /// </summary>
         protected override void Initialize()
         {
-            LevelParser.getLevel(content, "");
+            //LevelParser.getLevel(content, "");
 
             graphics.PreferredBackBufferWidth = WIDTH;
             graphics.PreferredBackBufferHeight = HEIGHT;
             graphics.ApplyChanges();
-
-            /* Written to test Function.cs
-            double [,] a = Function.getParabolaPosAndSlopes(new Vector2 (1,0), 1, 0, 2, 20);
-            for (int i = 0; i < 3; i++)
-            {
-                Console.WriteLine(a[i, 0] + " " + a[i, 1] + " " + a[i, 2]);
-            }
-            */
 
             counter = 0;
             satisfaction = new SatisfactionQueue();

@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace EnsemPro
 {
+    // Superclass of all the queues
     public abstract class ObQueue
     {
         public const int MAX_IN_QUEUE = 1024;
