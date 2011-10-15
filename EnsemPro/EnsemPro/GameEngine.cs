@@ -52,6 +52,8 @@ namespace EnsemPro
         /// </summary>
         protected override void Initialize()
         {
+            LevelParser.getLevel(content, "");
+
             graphics.PreferredBackBufferWidth = WIDTH;
             graphics.PreferredBackBufferHeight = HEIGHT;
             graphics.ApplyChanges();
