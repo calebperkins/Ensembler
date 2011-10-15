@@ -19,8 +19,18 @@ namespace EnsemPro
             Wave
         }
 
+        public enum State
+        {
+            Succeed,
+            Fail,
+            None
+        }
+
         static Texture2D circleTexture;
         static Texture2D shakeTexture;
+        static Texture2D traceTexture;
+        static Texture2D traceTexture_s;
+        static Texture2D traceTexture_f;
         static Vector2 shakePos = new Vector2(200, 200);
 
         Type myType;
@@ -29,7 +39,9 @@ namespace EnsemPro
         {
             circleTexture = content.Load<Texture2D>("images\\circle");
             shakeTexture = content.Load<Texture2D>("images\\shake");
-
+            traceTexture = content.Load<Texture2D>("images\\dot_normal");
+            traceTexture_s = content.Load<Texture2D>("images\\dot_win");
+            traceTexture_f = content.Load<Texture2D>("images\\dot_fail");
         }
 
         public int startBeat
@@ -91,6 +103,7 @@ namespace EnsemPro
             endCoordinate = ec;
             showBeat = show_b;
             fadeBeat = fade_b;
+            this.f = f;
         }
 
         // returns the type of this movement
@@ -114,7 +127,16 @@ namespace EnsemPro
                 spriteBatch.Draw(circleTexture, new Vector2(startCoordinate.X, startCoordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
                 spriteBatch.Draw(circleTexture, new Vector2(endCoordinate.X, endCoordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
                 spriteBatch.End();
-                // draw dotted lines?
+                if (f != null)
+                {
+                    foreach (Vector2 p in f.getPos())
+                    {
+                        Console.WriteLine("<");
+                        spriteBatch.Begin();
+                        spriteBatch.Draw(traceTexture, p, Color.White);
+                        spriteBatch.End();
+                    }
+                }
             }
             
         }

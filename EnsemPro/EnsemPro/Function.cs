@@ -11,9 +11,9 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace EnsemPro
 {
-    //making this class on behalf of Caleb the lazy lead :P -- shuyan
     public class Function
     {
+
         public enum Type
         {
             Line,
@@ -21,7 +21,7 @@ namespace EnsemPro
             Curve
         }
         
-        const float INTERVAL_TIME = 1.0f / 60; // Time of each frame in seconds
+        const float INTERVAL_TIME = 1.0f; // Time of each frame in seconds
         int numIntervals;
         Type type;
         Movement movement;
@@ -29,13 +29,18 @@ namespace EnsemPro
         Vector2[] pos;
         float[] slopes;
 
+        public Function()
+        {
+        }
+
+
         /// <summary>
         /// Constructor for Line
         /// Line defined by startCoordinate and endCoordinate of movement
         /// </summary>
         /// <param name="type"></param>
         /// <param name="movement"></param>
-        public Function(Type type, Movement movement, int bpm)
+        public void initialize(Type type, Movement movement, int bpm)
         {
             if (type != Type.Line) Console.WriteLine("Line constructor called with type that is not line");
             
@@ -65,7 +70,7 @@ namespace EnsemPro
                 curX += incre;
                 curY += incre * slope;
 
-                //Console.WriteLine(pos[i].X + " " + pos[i].Y + " " + slopes[i]);
+                Console.WriteLine(pos[i].X + " " + pos[i].Y + " " + slopes[i]);
             }
         }
 
@@ -78,7 +83,7 @@ namespace EnsemPro
         /// <param name="movement"></param>
         /// <param name="a"></param>
         /// <param name="vertex"></param>
-        public Function(Type type, Movement movement,int bpm, float a, Point vertex)
+        public void Parabola(Type type, Movement movement,int bpm, float a, Point vertex)
         {
             if (type != Type.Parabola) Console.WriteLine("Parabola constructor called with type that is not Parabola");
 
@@ -103,7 +108,7 @@ namespace EnsemPro
                 slopes[i] = 2 * a * (curX - vertex.X);
                 curX += incre;
 
-                //Console.WriteLine(pos[i].X + " " + pos[i].Y + " " + slopes[i]);
+                Console.WriteLine(pos[i].X + " " + pos[i].Y + " " + slopes[i]);
             }
         }
 
