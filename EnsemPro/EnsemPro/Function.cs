@@ -11,9 +11,9 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace EnsemPro
 {
-    //making this class on behalf of Caleb the lazy lead :P -- shuyan
     public class Function
     {
+        
         /// <summary>
         /// Returns a 2D array of coordinates and slopes of line from start to end with the
         /// specified number of intervals. 

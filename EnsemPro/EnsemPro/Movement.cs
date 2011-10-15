@@ -19,6 +19,13 @@ namespace EnsemPro
             Wave
         }
 
+        public enum State
+        {
+            Succeed,
+            Fail,
+            None
+        }
+
         static Texture2D circleTexture;
         static Texture2D shakeTexture;
         static Vector2 shakePos = new Vector2(200, 200);
@@ -75,7 +82,7 @@ namespace EnsemPro
 
         public Movement(Movement.Type type, int sb, int eb, int show_b, int fade_b)
         {
-            my_type = type;
+            my_type = type; 
             start_beat = sb;
             end_beat = eb;
             show_beat = show_b;
