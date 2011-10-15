@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace EnsemPro
 {
-    class Movement
+    public class Movement
     {
 
         Texture2D shakeTexture;
@@ -25,7 +25,18 @@ namespace EnsemPro
             Wave
         }
 
+        static Texture2D circleTexture;
+        static Texture2D shakeTexture;
+        static Vector2 shakePos = new Vector2(200, 200);
+
         Type my_type;
+
+        public static void LoadContent(ContentManager content)
+        {
+            circleTexture = content.Load<Texture2D>("images\\circle");
+            shakeTexture = content.Load<Texture2D>("images\\shake");
+
+        }
 
         public int start_beat
         {
@@ -39,8 +50,14 @@ namespace EnsemPro
             set;
         }
 
-        // The beat to draw this movement onto the screen prior to start_beat so player can get ready
-        public int draw_beat
+        public int show_beat
+        {
+            get;
+            set;
+        }
+
+        public int fade_beat
+
         {
             get;
             set;
@@ -63,15 +80,20 @@ namespace EnsemPro
             set;
         }
 
-        public Movement(Movement.Type type, int sb, int eb, int db)
+        public Movement(Movement.Type type, int sb, int eb, int show_b, int fade_b)
         {
             my_type = type;
             start_beat = sb;
             end_beat = eb;
-            draw_beat = db;
         }
 
         public Movement(Movement.Type type, int sb, int eb, int db, Point sc, Point ec, Function f)
+		{
+            show_beat = show_b;
+            fade_beat = fade_b;
+        }
+
+        public Movement(Movement.Type type, int sb, int eb, int show_b, int fade_b, Point sc, Point ec, Function f)
         {
             my_type = type;
             start_beat = sb;
@@ -79,6 +101,8 @@ namespace EnsemPro
             draw_beat = db;
             start_coordinate = sc;
             end_coordinate = ec;
+            show_beat = show_b;
+            fade_beat = fade_b;
         }
 
         // returns the type of this movement
@@ -95,18 +119,22 @@ namespace EnsemPro
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
-            if (my_type == Movement.Type.Shake)
+            
+            if (getType() == Movement.Type.Shake)
             {
-                spriteBatch.Draw(shakeTexture, shakePos, null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.Begin();
+                spriteBatch.Draw(shakeTexture, shakePos, Color.White);
+                spriteBatch.End();
             }
-            else if (my_type == Movement.Type.Wave)
+            else if (getType() == Movement.Type.Wave)
             {
-                spriteBatch.Draw(circleTexture, new Vector2(start_coordinate.X, start_coordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
-                spriteBatch.Draw(circleTexture, new Vector2(end_coordinate.X, end_coordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
-                // draw dotted lines according to function
+                spriteBatch.Begin();
+                spriteBatch.Draw(circleTexture, new Vector2(start_coordinate.X, start_coordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.Draw(circleTexture, new Vector2(end_coordinate.X, end_coordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.End();
+                // draw dotted lines?
             }
-            spriteBatch.End();
+
         }
          
     }

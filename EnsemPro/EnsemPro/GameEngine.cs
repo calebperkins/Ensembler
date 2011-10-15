@@ -26,7 +26,6 @@ namespace EnsemPro
         ContentManager content;
 
         Song song;
-        
         Baton baton;
         NoteQueue notes;
         SatisfactionQueue satisfaction;
@@ -59,10 +58,18 @@ namespace EnsemPro
             graphics.PreferredBackBufferHeight = HEIGHT;
             graphics.ApplyChanges();
 
-            baton = new Baton();
+            /* Written to test Function.cs
+            double [,] a = Function.getParabolaPosAndSlopes(new Vector2 (1,0), 1, 0, 2, 20);
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine(a[i, 0] + " " + a[i, 1] + " " + a[i, 2]);
+            }
+            */
+            
             satisfaction = new SatisfactionQueue();
             level.start();
 
+            baton = new Baton();
             base.Initialize();
         }
 
@@ -79,8 +86,9 @@ namespace EnsemPro
             baton.LoadContent(content);
             satisfaction.LoadContent(content);
             level.LoadContent(content);
+            Movement.LoadContent(content);
 
-            song = content.Load<Song>("images\\b5");
+            song = content.Load<Song>("images\\b5complete");
 
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(song);
@@ -113,21 +121,19 @@ namespace EnsemPro
             if (Keyboard.GetState().IsKeyDown(Keys.R))
                 restart();
 
+            level.Update(gameTime);
+            baton.Update(gameTime);
+            satisfaction.Update(gameTime);
+
             // Not sure if it's the best way to add stars, but here it is for now
             if (GameEngine.counter % 2 == 0)
             {
                 satisfaction.Add(baton.getPos());
             }
 
-            baton.Update(gameTime);
-            satisfaction.Update(gameTime);
-            level.Update(gameTime);
-
             base.Update(gameTime);
 
         }
-
-        //DELETE
 
         /// <summary>
         /// This is called when the game should draw itself.
@@ -140,10 +146,10 @@ namespace EnsemPro
             spriteBatch.Begin();
             spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
             spriteBatch.End();
-
+            level.Draw(spriteBatch);
             baton.Draw(spriteBatch);
             satisfaction.Draw(spriteBatch);
-            level.Draw(spriteBatch);
+
 
             base.Draw(gameTime);
         }

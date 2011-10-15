@@ -112,7 +112,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Baton.cs" />
+<<<<<<< HEAD
     <Compile Include="BatonController.cs" />
+=======
+>>>>>>> origin/master
     <Compile Include="Display.cs" />
     <Compile Include="Function.cs" />
     <Compile Include="Movement.cs" />
