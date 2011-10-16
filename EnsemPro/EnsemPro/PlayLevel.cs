@@ -30,12 +30,14 @@ namespace EnsemPro
 
         Movement current_act;
         Baton baton;
+        MovementEvaluator moveEval;
 
         public PlayLevel(Baton b)
         {
             actionList = new LinkedList<Movement>();
             drawSet = new HashSet<Movement>();
             baton = b;
+            moveEval = new MovementEvaluator();
         }
 
         public void LoadContent(ContentManager content)
@@ -87,6 +89,8 @@ namespace EnsemPro
                     current_act = actionList.First.Value;
                     actionList.RemoveFirst();
                 }
+
+                moveEval.Update(current_act, gameTime);
             }
 
         }

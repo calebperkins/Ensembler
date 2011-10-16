@@ -22,10 +22,9 @@ namespace EnsemPro
         Movement currentMovement;
 
 
-        public MovementEvaluator(Movement m)
+        public MovementEvaluator()
         {
           //  states = ?.GetEnumerator();
-            currentMovement = m;
         }
 
         /*Returns a floating number 0 to 1 which indicates how well the input is matching the movement */
@@ -51,10 +50,12 @@ namespace EnsemPro
             if (m != currentMovement) // new movement, compute score
             {
                 float score = Score(currentMovement, states, t);
-                if (score <= 0.3f && score != 0.0f){ // fail
+
+                // send score back to Movement
+                if (score <= 0.3f && score != 0.0f){
                     currentMovement.setState(Movement.State.Fail);
                 }
-                else if (score > 0.3f) // success
+                else if (score > 0.3f)
                 {
                     currentMovement.setState(Movement.State.Succeed);
                 }
