@@ -29,15 +29,56 @@ namespace EnsemPro
          * XmlTextReader is an implementation of XmlReader able to read xml from a file. 
          * It's recommended to use XmlReader.Create(file) instead of instantiating an XmlTextReader.
          */
-        public static PlayLevel getLevel(ContentManager content, String path)
+        public static void getLevel(ContentManager content, String path)
         {
-            return new PlayLevel();
-        }
+            LinkedList<Movement> moves = new LinkedList<Movement>();
+            Texture2D background;
+            Song song;
+            int bpm;
 
-        public static void lol()
-        {
-            //LinkedList<Movement> moves = new LinkedList<Movement>();
-           
+            XmlTextReader reader = new XmlTextReader("first.xml");
+            
+            while (reader.Read())
+            {
+                switch (reader.NodeType)
+                {
+                    case XmlNodeType.Element: // The node is an element.
+                        if (reader.Name == "background")
+                        {
+                            reader.Read();
+                            background = content.Load<Texture2D>(reader.Value);
+                            //Console.WriteLine(reader.Value);
+                        }
+                        else if (reader.Name == "song")
+                        {
+                            reader.Read();
+                            song = content.Load<Song>(reader.Value);
+                            //Console.WriteLine(reader.Value);
+                        }
+                        else if (reader.Name == "bpm")
+                        {
+                            reader.Read();
+                            bpm = Convert.ToInt32 (reader.Value);
+                            //Console.WriteLine("bpm " + bpm);
+                        }
+                        else if (reader.Name == "Movement")
+                        {
+
+                        }
+
+                        //while (reader.MoveToNextAttribute()) // Read the attributes.
+                            //Console.Write(" " + reader.Name + "='" + reader.Value + "'");
+                        break;
+                    case XmlNodeType.Text: //Display the text in each element.
+                        //Console.WriteLine(reader.Value);
+                        break;
+                    case XmlNodeType.EndElement: //Display the end of the element.
+                        //Console.Write("</" + reader.Name);
+                        //Console.WriteLine(">");
+                        break;
+                }
+            }
+
         }
 
 
