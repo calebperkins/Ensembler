@@ -18,9 +18,6 @@ namespace EnsemPro
         public const float PERFECT = 1.0f;
         public const float FAIL_THRESHOLD = 0.3f;
         public const float ACC_THRESHOLD = 0.0f;
-        /* A collection of input detections, which together form a movement */
-        IEnumerable<InputState> states;
-      //  IEnumerator statesIEnum;
 
         Movement currentMovement;
 
@@ -47,11 +44,24 @@ namespace EnsemPro
                     totalCounter++;
                 }
                 Console.WriteLine(scoreCounter);
-                return (float)(1);
+                if (totalCounter == 0)
+                    return scoreCounter;
+                return (float)(scoreCounter/totalCounter);
             }
             else if (m.getType() == Movement.Type.Wave)
             {
                 Function f = m.f;
+                switch (f.Form)
+                {
+                    case Function.Type.Line:
+                        break;
+                    case Function.Type.Parabola:
+                        break;
+                    case Function.Type.Curve:
+                        break;
+                    default:
+                        break;
+                }
                 return 0.0f;
             }
             else
@@ -61,11 +71,11 @@ namespace EnsemPro
             }
         }
 
-        public void Update(Movement m,IEnumerable<InputState> input,GameTime t)
+        public void Update(Movement m,IEnumerable<InputState> states, GameTime t)
         {
             if (m != currentMovement) // new movement, compute score
             {
-                float score = Score(currentMovement, input, t);
+                float score = Score(currentMovement, states, t);
 
                 // send score back to Movement
                 if (score <= FAIL_THRESHOLD && score != 0.0f){
