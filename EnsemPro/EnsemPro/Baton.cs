@@ -15,6 +15,7 @@ namespace EnsemPro
     public struct InputState
     {
         public Vector2 position;
+        public Vector2 velocity;
         public Vector2 acceleration;
     }
 
@@ -80,7 +81,9 @@ namespace EnsemPro
                 Vector2 velDiff = new Vector2(newVel.X-lastVel.X,newVel.Y-lastVel.Y); // change in velocity
                 Vector2 newAcc = new Vector2(velDiff.X / time, velDiff.Y / time); // new acceleration
 
-                i.acceleration = newAcc; // add to inputstate
+                // add to inputstate
+                i.velocity = newVel;
+                i.acceleration = newAcc; 
 
                 lastPos = pos; // update
                 lastVel = newVel;
