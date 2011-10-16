@@ -91,7 +91,7 @@ namespace EnsemPro
             set;
         }
 
-        public Movement(Movement.Type type, int sb, int eb, int show_b, int fade_b)
+        public Movement(Movement.Type type, int show_b, int sb, int eb, int fade_b)
         {
             myType = type;
             startBeat = sb;
@@ -101,7 +101,8 @@ namespace EnsemPro
             myState = State.None;
         }
 
-        public Movement(Movement.Type type, int sb, int eb, int show_b, int fade_b, Point sc, Point ec, Function f) : this (type, sb, eb, show_b, fade_b)
+        public Movement(Movement.Type type, int show_b, int sb, int eb, int fade_b, Point sc, Point ec, Function f)
+            : this(type, show_b, sb, eb, fade_b)
         {
             startCoordinate = sc; // Note that the coordinate assumes (0,0) is bottom left
             endCoordinate = ec;   // Note that the coordinate assumes (0,0) is bottom left
@@ -142,12 +143,11 @@ namespace EnsemPro
             return myState;
         }
 
-        public void Draw(SpriteBatch spriteBatch, float alpha)
+        public void Draw(SpriteBatch spriteBatch, float alpha, bool walk)
         {
             if (current_shake == null || current_circle == null || current_trace == null) setState(myState);
+            
             // setting the transparency
-            if (alpha > 0.5f) myState = State.Fail;
-            else myState = State.Succeed;
             Color transparency = Color.Lerp(Color.White, Color.Transparent, alpha);
 
             if (getType() == Movement.Type.Shake)
@@ -156,24 +156,45 @@ namespace EnsemPro
                 spriteBatch.Draw(current_shake, shakePos, transparency);
                 spriteBatch.End();
             }
+
             else if (getType() == Movement.Type.Wave)
             {
+                int count = 1;
                 if (f != null)
                 {
-                    foreach (Vector2 p in f.getPos())
+                    if (walk)
                     {
-                        Vector2 ori = new Vector2(p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
-                        spriteBatch.Begin();
-                        spriteBatch.Draw(current_trace, ori, transparency);
-                        spriteBatch.End();
+                        foreach (Vector2 p in f.getPos())
+                        {
+                            float index = count / (float)f.getSize();
+                            if (index < (1f - alpha))
+                            {
+                                count++;
+                                Vector2 ori = new Vector2(p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
+                                spriteBatch.Begin();
+                                spriteBatch.Draw(current_trace, ori,  transparency);
+                                spriteBatch.End();
+                            }
+                            else { break; }
+                        }
+                    }
+                    else // do not draw in "walking"  manner
+                    {
+                        foreach (Vector2 p in f.getPos())
+                        {
+                            Vector2 ori = new Vector2(p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
+                            spriteBatch.Begin();
+                            spriteBatch.Draw(current_trace, ori, transparency);
+                            spriteBatch.End();
+                        }
                     }
                 }
                 Vector2 origin = new Vector2(circleTexture.Width / 2, circleTexture.Height / 2);
                 spriteBatch.Begin();
                 spriteBatch.Draw(current_circle, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, transparency, 0.0f, origin, 1.0f, SpriteEffects.None, 0.0f);
+                if (!walk || count == f.getSize())
                 spriteBatch.Draw(current_circle, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, transparency, 0.0f, origin, 1.0f, SpriteEffects.None, 0.0f);
                 spriteBatch.End();
-
             }
 
         }
