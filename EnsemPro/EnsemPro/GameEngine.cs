@@ -61,7 +61,7 @@ namespace EnsemPro
             counter = 0;
             satisfaction = new SatisfactionQueue();
             baton = new Baton();
-            level = new PlayLevel();
+            level = new PlayLevel(baton);
             level.start();
             base.Initialize();
         }

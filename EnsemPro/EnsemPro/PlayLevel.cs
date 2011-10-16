@@ -29,11 +29,13 @@ namespace EnsemPro
         HashSet<Movement> drawSet;
 
         Movement current_act;
+        Baton baton;
 
-        public PlayLevel()
+        public PlayLevel(Baton b)
         {
             actionList = new LinkedList<Movement>();
             drawSet = new HashSet<Movement>();
+            baton = b;
         }
 
         public void LoadContent(ContentManager content)

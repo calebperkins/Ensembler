@@ -23,6 +23,7 @@ namespace EnsemPro
         Vector2 pos;
         WiimoteLib.Wiimote wm;
         bool wii_activated;
+        List<InputState> buffer = new List<InputState>();
 
         Texture2D batonTexture;
 
@@ -66,6 +67,9 @@ namespace EnsemPro
                 pos.X = Math.Max(Math.Min(GameEngine.WIDTH, ms.X), 0);
                 pos.Y = Math.Max(Math.Min(GameEngine.HEIGHT, ms.Y), 0);
             }
+            InputState i = new InputState();
+            i.position = pos;
+            buffer.Add(i);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -79,6 +83,16 @@ namespace EnsemPro
         public Vector2 getPos()
         {
             return pos;
+        }
+
+        public void Flush()
+        {
+            buffer.Clear();
+        }
+
+        public IEnumerable<InputState> Buffer()
+        {
+            return buffer;
         }
     }
 }
