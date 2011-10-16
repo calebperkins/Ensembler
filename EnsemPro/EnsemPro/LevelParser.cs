@@ -36,7 +36,7 @@ namespace EnsemPro
             Song song;
             int bpm;
 
-            XmlTextReader reader = new XmlTextReader("first.xml");
+            XmlTextReader reader = new XmlTextReader(path);
             
             while (reader.Read())
             {
@@ -47,19 +47,19 @@ namespace EnsemPro
                         {
                             reader.Read();
                             background = content.Load<Texture2D>(reader.Value);
-                            //Console.WriteLine(reader.Value);
+                            Console.WriteLine(reader.Value);
                         }
                         else if (reader.Name == "song")
                         {
                             reader.Read();
                             song = content.Load<Song>(reader.Value);
-                            //Console.WriteLine(reader.Value);
+                            Console.WriteLine(reader.Value);
                         }
                         else if (reader.Name == "bpm")
                         {
                             reader.Read();
                             bpm = Convert.ToInt32 (reader.Value);
-                            //Console.WriteLine("bpm " + bpm);
+                            Console.WriteLine("bpm " + bpm);
                         }
                         else if (reader.Name == "Movement")
                         {

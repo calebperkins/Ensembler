@@ -52,7 +52,7 @@ namespace EnsemPro
         /// </summary>
         protected override void Initialize()
         {
-            //LevelParser.getLevel(content, "");
+            LevelParser.getLevel(content, "first.xml");
 
             graphics.PreferredBackBufferWidth = WIDTH;
             graphics.PreferredBackBufferHeight = HEIGHT;

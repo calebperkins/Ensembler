@@ -36,7 +36,6 @@ namespace EnsemPro
             if (m.getType() == Movement.Type.Shake)
             {
                 int scoreCounter = 0;
-                int totalCounter = 0;
                 foreach (InputState state in input)
                 {
                     if (Math.Abs(state.acceleration.X) > ACC_THRESHOLD && Math.Abs(state.acceleration.Y) > ACC_THRESHOLD)
@@ -44,10 +43,9 @@ namespace EnsemPro
                         Console.WriteLine("acceleration is "+(new Vector2(state.acceleration.X,state.acceleration.Y)));
                         scoreCounter++;
                     }
-                    totalCounter++;
                 }
                 Console.WriteLine(scoreCounter);
-                return (float)(scoreCounter/totalCounter);
+                return (float)(scoreCounter/1);
             }
             else if (m.getType() == Movement.Type.Wave)
             {

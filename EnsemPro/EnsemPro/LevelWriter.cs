@@ -31,16 +31,16 @@ namespace EnsemPro
             bpm = "100"; // forgot the bpm of b5. please fill it in for me
             writeAtributes();
 
-            movementType = "";
-            startBeat = "";
-            endBeat = "";
-            showBeat = "";
-            fadeBeat = "";
-            startCoordinateX = ""; // only fill this out if movement is wave
-            startCoordinateY = ""; // only fill this out if movement is wave
-            endCoordinateX = ""; // only fill this out if movement is wave
-            endCoordinateY = ""; // only fill this out if movement is wave
-            amplitude = ""; // only fill this out if movement is wave
+            movementType = "wave";
+            startBeat = "1";
+            endBeat = "3";
+            showBeat = "2";
+            fadeBeat = "4";
+            startCoordinateX = "12"; // only fill this out if movement is wave
+            startCoordinateY = "12"; // only fill this out if movement is wave
+            endCoordinateX = "23"; // only fill this out if movement is wave
+            endCoordinateY = "23"; // only fill this out if movement is wave
+            amplitude = "6"; // only fill this out if movement is wave
             writeMovement();
 
             //ADD MORE MOVEMENTS HERE
