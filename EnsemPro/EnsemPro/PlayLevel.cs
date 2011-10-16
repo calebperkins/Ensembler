@@ -69,7 +69,7 @@ namespace EnsemPro
             {
                 last_beat = current_beat;
 
-                float score = moveEval.Score(current_act, baton.Buffer(), gameTime);
+                
                 baton.Flush();
                 
                 LinkedListNode<Movement> checkMove = actionList.First;
@@ -94,6 +94,9 @@ namespace EnsemPro
                     actionList.RemoveFirst();
                 }
 
+                float score = moveEval.Score(current_act, baton.Buffer(), gameTime);
+                current_score += (int)(score * 10);
+
                 moveEval.Update(current_act, gameTime);
             }
 
@@ -114,6 +117,7 @@ namespace EnsemPro
                 // Draw the string
                 spriteBatch.Begin();    
                 spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.Black);
+                spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.Black);
                 spriteBatch.End();
                 
                 foreach (Movement m in drawSet)
