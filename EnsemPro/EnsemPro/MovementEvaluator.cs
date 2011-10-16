@@ -44,6 +44,7 @@ namespace EnsemPro
                     totalCounter++;
                 }
                 Console.WriteLine("score counter is "+scoreCounter+"\n total counter is "+totalCounter);
+                
                 return (float)(totalCounter==0 ? 0.1f : (scoreCounter/totalCounter));
             }
             else if (m.getType() == Movement.Type.Wave)
