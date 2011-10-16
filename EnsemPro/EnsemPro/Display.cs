@@ -47,14 +47,14 @@ namespace EnsemPro
             spriteBatch.Begin();
             if (lastMovement.getType() == Movement.Type.Shake)
             {
-                spriteBatch.Draw(shakeTexture, shakePos, null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.Draw(shakeTexture, shakePos, null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
             }
             else if (lastMovement.getType() == Movement.Type.Wave)
             {
                 Point startingCoords = lastMovement.startCoordinate;
                 Point endingCoords = lastMovement.endCoordinate;
-                spriteBatch.Draw(circleTexture, new Vector2(startingCoords.X, startingCoords.Y), null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
-                spriteBatch.Draw(circleTexture, new Vector2(endingCoords.X, endingCoords.Y), null, Color.White, 0.0f, new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.Draw(circleTexture, new Vector2(startingCoords.X, startingCoords.Y), null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.Draw(circleTexture, new Vector2(endingCoords.X, endingCoords.Y), null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
                 // draw dotted lines?
             }
             spriteBatch.End();

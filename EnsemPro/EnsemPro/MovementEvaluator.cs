@@ -50,9 +50,19 @@ namespace EnsemPro
         {
             if (m != currentMovement) // new movement, compute score
             {
-                Score(currentMovement, states, t);
-                // send score to (playlevel) ?
-                //  reset states
+                float score = Score(currentMovement, states, t);
+                if (score <= 0.3f && score != 0.0f){ // fail
+                    currentMovement.setState(Movement.State.Fail);
+                }
+                else if (score > 0.3f) // success
+                {
+                    currentMovement.setState(Movement.State.Succeed);
+                }
+                else
+                { // noop, score = 0.0f
+                    currentMovement.setState(Movement.State.None);
+                }
+                //  reset IEnumerable<Input>states
                 currentMovement = m; // update movement
             }
             else
