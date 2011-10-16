@@ -30,14 +30,13 @@ namespace EnsemPro
         /*Returns a floating number 0 to 1 which indicates how well the input is matching the movement */
         public float Score(Movement m, IEnumerable<InputState> input, GameTime t)
         {
-            if (m == null)
-                return 1.0f;
             if (m.getType() == Movement.Type.Shake)
             {
                 return 0.0f;
             }
             else if (m.getType() == Movement.Type.Wave)
             {
+                Function f = m.f;
                 return 0.0f;
             }
             else
@@ -49,8 +48,6 @@ namespace EnsemPro
 
         public void Update(Movement m,GameTime t)
         {
-            if (m == null)
-                return;
             if (m != currentMovement) // new movement, compute score
             {
                 float score = Score(currentMovement, states, t);
