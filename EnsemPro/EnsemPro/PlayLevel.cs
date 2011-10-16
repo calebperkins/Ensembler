@@ -91,10 +91,7 @@ namespace EnsemPro
             if (current_beat > last_beat) // new beat
             {
                 last_beat = current_beat;
-
-                
-                baton.Flush();
-                
+          
                 LinkedListNode<Movement> checkMove = actionList.First;
 
                 drawSet.RemoveWhere(expired);
@@ -121,6 +118,7 @@ namespace EnsemPro
                 float score = moveEval.Score(current_act, baton.Buffer(), gameTime);
                 current_score += (int)(score * 10);
                 moveEval.Update(current_act, gameTime);
+                baton.Flush();
             }
 
         }
