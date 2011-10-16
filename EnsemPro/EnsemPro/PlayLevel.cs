@@ -46,40 +46,6 @@ namespace EnsemPro
         }
         public void Initialize(LinkedList<Movement> moves)
         {
-            /*
-            actionList.AddLast(new Movement(Movement.Type.Shake, 9, 14, 9, 14));
-            actionList.AddLast(new Movement(Movement.Type.Noop, 15, 16, 15, 16));*/
-            //actionList.AddLast(new Movement(Movement.Type.Wave, 17, 32, 17, 32, new Point(50, 50), new Point(180, 180), null));
-            // type, start beat, end beat, show beat, fade beat, start coordinate, end coordinate, 
-            /*
-            actionList.AddLast(new Movement(Movement.Type.Shake, 1, 1, 7, 7));
-
-            actionList.AddLast(new Movement(Movement.Type.Noop, 8, 8, 9, 9));
-
-            actionList.AddLast(new Movement(Movement.Type.Shake, 9, 9, 15, 15));
-
-            actionList.AddLast(new Movement(Movement.Type.Noop, 16, 16, 17, 18));
-
-            Function f1 = new Function();
-            Movement move1 = new Movement(Movement.Type.Wave, 17, 18, 19, 20, new Point(400, 400), new Point(400, 200), f1);
-            f1.InitializeCurve(Function.Type.Curve, move1, 100, 0);
-            actionList.AddLast(move1);
-
-            Function f2 = new Function();
-            Movement move2 = new Movement(Movement.Type.Wave, 18, 19, 20, 21, new Point(400, 200), new Point(600, 200), f2);
-            f2.InitializeCurve(Function.Type.Curve, move2, 100, 0);
-            actionList.AddLast(move2);
-
-            Function f3 = new Function();
-            Movement move3 = new Movement(Movement.Type.Wave, 19, 20, 21, 22, new Point(600, 200), new Point(200, 200), f3);
-            f3.InitializeCurve(Function.Type.Curve, move3, 100, 0);
-            actionList.AddLast(move3);
-
-            Function f4 = new Function();
-            Movement move4 = new Movement(Movement.Type.Wave, 20, 21, 22, 23, new Point(200, 200), new Point(400, 400), f4);
-            f4.InitializeCurve(Function.Type.Curve, move4, 100, 0);
-            actionList.AddLast(move4);
-            */
             actionList = moves;
             //moveEval = new MovementEvaluator(move1);
             watch.Start();
@@ -138,8 +104,8 @@ namespace EnsemPro
                 Vector2 FontOrigin = font.MeasureString(output) / 2;
                 // Draw the string
                 spriteBatch.Begin();    
-                spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.Black);
-                spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.Black);
+                spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.White);
+                spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.White);
                 spriteBatch.End();
 
             // sort it in ascending way
