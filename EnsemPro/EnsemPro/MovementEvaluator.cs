@@ -15,6 +15,8 @@ namespace EnsemPro
 {
     public class MovementEvaluator
     {
+        public const float PERFECT = 1.0f;
+        public const float FAIL_THRESHOLD = 0.3f;
         /* A collection of input detections, which together form a movement */
         IEnumerable<InputState> states;
       //  IEnumerator statesIEnum;
@@ -53,10 +55,10 @@ namespace EnsemPro
                 float score = Score(currentMovement, states, t);
 
                 // send score back to Movement
-                if (score <= 0.3f && score != 0.0f){
+                if (score <= FAIL_THRESHOLD && score != 0.0f){
                     currentMovement.setState(Movement.State.Fail);
                 }
-                else if (score > 0.3f)
+                else if (score > FAIL_THRESHOLD)
                 {
                     currentMovement.setState(Movement.State.Succeed);
                 }

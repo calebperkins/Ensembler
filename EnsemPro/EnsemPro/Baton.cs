@@ -15,6 +15,7 @@ namespace EnsemPro
     public struct InputState
     {
         public Vector2 position;
+        public Vector2 acceleration;
     }
 
     public class Baton
@@ -55,6 +56,7 @@ namespace EnsemPro
 
         public void Update(GameTime gameTime)
         {
+            InputState i = new InputState();
             if (wii_activated)
             {
                 WiimoteLib.PointF ws = wm.WiimoteState.IRState.Midpoint;
@@ -67,7 +69,6 @@ namespace EnsemPro
                 pos.X = Math.Max(Math.Min(GameEngine.WIDTH, ms.X), 0);
                 pos.Y = Math.Max(Math.Min(GameEngine.HEIGHT, ms.Y), 0);
             }
-            InputState i = new InputState();
             i.position = pos;
             buffer.Add(i);
         }
