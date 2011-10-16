@@ -44,13 +44,14 @@ namespace EnsemPro
             font = content.Load<SpriteFont>("images//Lucidia");
 
         }
-        public void Initialize()
+        public void Initialize(LinkedList<Movement> moves)
         {
             /*
             actionList.AddLast(new Movement(Movement.Type.Shake, 9, 14, 9, 14));
             actionList.AddLast(new Movement(Movement.Type.Noop, 15, 16, 15, 16));*/
             //actionList.AddLast(new Movement(Movement.Type.Wave, 17, 32, 17, 32, new Point(50, 50), new Point(180, 180), null));
             // type, start beat, end beat, show beat, fade beat, start coordinate, end coordinate, 
+            /*
             actionList.AddLast(new Movement(Movement.Type.Shake, 1, 1, 7, 7));
 
             actionList.AddLast(new Movement(Movement.Type.Noop, 8, 8, 9, 9));
@@ -78,9 +79,9 @@ namespace EnsemPro
             Movement move4 = new Movement(Movement.Type.Wave, 20, 21, 22, 23, new Point(200, 200), new Point(400, 400), f4);
             f4.InitializeCurve(Function.Type.Curve, move4, 100, 0);
             actionList.AddLast(move4);
-
-            LevelWriter.writeLevel();
-            moveEval = new MovementEvaluator(move1);
+            */
+            actionList = moves;
+            //moveEval = new MovementEvaluator(move1);
             watch.Start();
         }
         
@@ -115,9 +116,9 @@ namespace EnsemPro
                     actionList.RemoveFirst();
                 }
 
-                float score = moveEval.Score(current_act, baton.Buffer, gameTime);
-                current_score += (int)(score * 10);
-                moveEval.Update(current_act, baton.Buffer, gameTime);
+                //float score = moveEval.Score(current_act, baton.Buffer, gameTime);
+                //current_score += (int)(score * 10);
+                //moveEval.Update(current_act, baton.Buffer, gameTime);
                 baton.Flush();
             }
 
