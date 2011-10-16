@@ -80,7 +80,7 @@ namespace EnsemPro
             actionList.AddLast(move4);
 
             LevelWriter.writeLevel();
-            moveEval = new MovementEvaluator(move1);
+            //moveEval = new MovementEvaluator(move1);
             watch.Start();
         }
         
@@ -115,9 +115,9 @@ namespace EnsemPro
                     actionList.RemoveFirst();
                 }
 
-                float score = moveEval.Score(current_act, baton.Buffer(), gameTime);
-                current_score += (int)(score * 10);
-                moveEval.Update(current_act, gameTime);
+                //float score = moveEval.Score(current_act, baton.Buffer(), gameTime);
+                //current_score += (int)(score * 10);
+                //moveEval.Update(current_act, gameTime);
                 baton.Flush();
             }
 
