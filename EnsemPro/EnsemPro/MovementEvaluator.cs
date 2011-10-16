@@ -17,6 +17,7 @@ namespace EnsemPro
     {
         public const float PERFECT = 1.0f;
         public const float FAIL_THRESHOLD = 0.3f;
+        public const float ACC_THRESHOLD = 0.0f;
         /* A collection of input detections, which together form a movement */
         IEnumerable<InputState> states;
       //  IEnumerator statesIEnum;
@@ -34,7 +35,17 @@ namespace EnsemPro
         {
             if (m.getType() == Movement.Type.Shake)
             {
-                return 0.0f;
+                int scoreCounter = 0;
+                foreach (InputState state in input)
+                {
+                    if (Math.Abs(state.acceleration.X) > ACC_THRESHOLD && Math.Abs(state.acceleration.Y) > ACC_THRESHOLD)
+                    {
+                        Console.WriteLine("acceleration is "+(new Vector2(state.acceleration.X,state.acceleration.Y)));
+                        scoreCounter++;
+                    }
+                }
+                Console.WriteLine(scoreCounter);
+                return (float)(scoreCounter/1);
             }
             else if (m.getType() == Movement.Type.Wave)
             {
