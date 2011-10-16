@@ -96,9 +96,6 @@ namespace EnsemPro
 
                 float score = moveEval.Score(current_act, baton.Buffer(), gameTime);
                 current_score += (int)(score * 10);
-
-                Console.WriteLine("score " + current_score);
-
                 moveEval.Update(current_act, gameTime);
             }
 
@@ -119,6 +116,7 @@ namespace EnsemPro
                 // Draw the string
                 spriteBatch.Begin();    
                 spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.Black);
+                spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.Black);
                 spriteBatch.End();
                 
                 foreach (Movement m in drawSet)
