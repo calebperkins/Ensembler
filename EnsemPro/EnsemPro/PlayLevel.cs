@@ -37,7 +37,6 @@ namespace EnsemPro
             actionList = new LinkedList<Movement>();
             drawSet = new HashSet<Movement>();
             baton = b;
-            moveEval = new MovementEvaluator();
         }
 
         public void LoadContent(ContentManager content)
@@ -53,6 +52,7 @@ namespace EnsemPro
             Function f1 = new Function();
             //Movement move1 = new Movement(Movement.Type.Wave, 17, 32, 17, 32, new Point(100, 100), new Point(400, 400), f1);
             Movement move1 = new Movement(Movement.Type.Wave, 10, 15, 9, 16, new Point(200, 400), new Point(600, 400), f1);
+            moveEval = new MovementEvaluator(move1);
             f1.InitializeCurve(Function.Type.Curve, move1, 60, 100);
             actionList.AddLast(move1);
             watch.Start();
@@ -64,9 +64,12 @@ namespace EnsemPro
         {
             current_beat = (int)Math.Round((float)watch.ElapsedMilliseconds / (float)beatTime);
 
-            if (current_beat > last_beat)
+            if (current_beat > last_beat) // new beat
             {
                 last_beat = current_beat;
+
+                float score = moveEval.Score(current_act, baton.Buffer(), gameTime);
+                baton.Flush();
                 
                 LinkedListNode<Movement> checkMove = actionList.First;
 

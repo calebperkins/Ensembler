@@ -22,14 +22,16 @@ namespace EnsemPro
         Movement currentMovement;
 
 
-        public MovementEvaluator()
+        public MovementEvaluator(Movement m)
         {
-          //  states = ?.GetEnumerator();
+            currentMovement = m;
         }
 
         /*Returns a floating number 0 to 1 which indicates how well the input is matching the movement */
         public float Score(Movement m, IEnumerable<InputState> input, GameTime t)
         {
+            if (m == null)
+                return 1.0f;
             if (m.getType() == Movement.Type.Shake)
             {
                 return 0.0f;
@@ -47,6 +49,8 @@ namespace EnsemPro
 
         public void Update(Movement m,GameTime t)
         {
+            if (m == null)
+                return;
             if (m != currentMovement) // new movement, compute score
             {
                 float score = Score(currentMovement, states, t);
