@@ -74,7 +74,7 @@ namespace EnsemPro
             }
         }
 
-        public void Update(Movement m,GameTime t)
+        public void Update(Movement m,IEnumerable<InputState> states, GameTime t)
         {
             if (m != currentMovement) // new movement, compute score
             {

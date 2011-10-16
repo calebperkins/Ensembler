@@ -117,7 +117,7 @@ namespace EnsemPro
 
                 float score = moveEval.Score(current_act, baton.Buffer, gameTime);
                 current_score += (int)(score * 10);
-                moveEval.Update(current_act, gameTime);
+                moveEval.Update(current_act, baton.Buffer, gameTime);
                 baton.Flush();
             }
 
@@ -131,7 +131,7 @@ namespace EnsemPro
         public void Draw(SpriteBatch spriteBatch)
         {      
 
-                // Draw Hello World
+                // Draw beat and score
                 string output = "beat " + current_beat;
                 // Find the center of the string
                 Vector2 FontOrigin = font.MeasureString(output) / 2;
