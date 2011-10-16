@@ -44,7 +44,7 @@ namespace EnsemPro
             font = content.Load<SpriteFont>("images//Lucidia");
 
         }
-        public void start()
+        public void Initialize()
         {
             actionList.AddLast(new Movement(Movement.Type.Shake, 1, 6, 1, 6));
             actionList.AddLast(new Movement(Movement.Type.Noop, 7, 9, 7, 9));
@@ -69,7 +69,7 @@ namespace EnsemPro
             {
                 last_beat = current_beat;
 
-                float score = moveEval.Score(current_act, baton.Buffer(), gameTime);
+                
                 baton.Flush();
                 
                 LinkedListNode<Movement> checkMove = actionList.First;
@@ -93,6 +93,11 @@ namespace EnsemPro
                     current_act = actionList.First.Value;
                     actionList.RemoveFirst();
                 }
+
+                float score = moveEval.Score(current_act, baton.Buffer(), gameTime);
+                current_score += (int)(score * 10);
+
+                Console.WriteLine("score " + current_score);
 
                 moveEval.Update(current_act, gameTime);
             }

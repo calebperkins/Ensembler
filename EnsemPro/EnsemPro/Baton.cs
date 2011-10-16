@@ -80,7 +80,7 @@ namespace EnsemPro
             spriteBatch.End();
         }
 
-        public Vector2 getPos()
+        public Vector2 Position()
         {
             return pos;
         }

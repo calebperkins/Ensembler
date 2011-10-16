@@ -61,8 +61,9 @@ namespace EnsemPro
             counter = 0;
             satisfaction = new SatisfactionQueue();
             baton = new Baton();
+            baton.Initialize();
             level = new PlayLevel(baton);
-            level.start();
+            level.Initialize();
             base.Initialize();
         }
 
@@ -116,7 +117,7 @@ namespace EnsemPro
             // Not sure if it's the best way to add stars, but here it is for now
             if (counter % 2 == 0)
             {
-                satisfaction.Add(baton.getPos());
+                satisfaction.Add(baton.Position());
             }
             counter++;
             base.Update(gameTime);
