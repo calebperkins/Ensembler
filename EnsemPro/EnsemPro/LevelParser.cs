@@ -29,7 +29,7 @@ namespace EnsemPro
          * XmlTextReader is an implementation of XmlReader able to read xml from a file. 
          * It's recommended to use XmlReader.Create(file) instead of instantiating an XmlTextReader.
          */
-        public static void getLevel(ContentManager content, String path)
+        public static LinkedList<Movement> getLevel(ContentManager content, String path)
         {
             LinkedList<Movement> moves = new LinkedList<Movement>();
             Texture2D background = null;
@@ -80,6 +80,12 @@ namespace EnsemPro
                             else if (reader.Value == "noop") type = Movement.Type.Noop;
                             //Console.WriteLine(reader.Value);
                         }
+                        else if (reader.Name == "showBeat")
+                        {
+                            reader.Read();
+                            showBeat = Convert.ToInt32(reader.Value);
+                            //Console.WriteLine(reader.Value);
+                        }
                         else if (reader.Name == "startBeat")
                         {
                             reader.Read();
@@ -90,12 +96,6 @@ namespace EnsemPro
                         {
                             reader.Read();
                             endBeat = Convert.ToInt32(reader.Value);
-                            //Console.WriteLine(reader.Value);
-                        }
-                        else if (reader.Name == "showBeat")
-                        {
-                            reader.Read();
-                            showBeat = Convert.ToInt32(reader.Value);
                             //Console.WriteLine(reader.Value);
                         }
                         else if (reader.Name == "fadeBeat")
@@ -136,22 +136,33 @@ namespace EnsemPro
                         }
 
                         break;
-                    case XmlNodeType.Text: //Display the text in each element.
+                    case XmlNodeType.Text:
                         break;
                     case XmlNodeType.EndElement:
                         if (reader.Name == "Movement")
                         {
-                            Function function = new Function();
-                            Movement move = new Movement(type, showBeat, startBeat, endBeat, fadeBeat, 
-                                new Point(startCoordinateX,startCoordinateY), 
-                                new Point(endCoordinateX, endCoordinateY), function);
-                            function.InitializeCurve(Function.Type.Curve, move, bpm, amplitude);
+                            
+                            Movement move = null;
+                            if (type == Movement.Type.Wave)
+                            {
+                                Function function = new Function();
+                                move = new Movement(type, showBeat, startBeat, endBeat, fadeBeat,
+                                    new Point(startCoordinateX, startCoordinateY),
+                                    new Point(endCoordinateX, endCoordinateY), function);
+                                function.InitializeCurve(Function.Type.Curve, move, bpm, amplitude);
+                            }
+                            else 
+                            { 
+                                move = new Movement(type, showBeat, startBeat, endBeat, fadeBeat); 
+                            }
+
+                            
                             moves.AddLast(move);
 
                             if (type == Movement.Type.Nonsense) Console.WriteLine("NONSENSE");
-                            if (type == Movement.Type.Noop) Console.WriteLine(type + " " + startBeat + " " + endBeat + " " + showBeat + " " + fadeBeat);
-                            if (type == Movement.Type.Shake) Console.WriteLine(type + " " + startBeat + " " + endBeat + " " + showBeat + " " + fadeBeat);
-                            if (type == Movement.Type.Wave) Console.WriteLine(type + " " + startBeat + " " + endBeat + " " + showBeat + " " + fadeBeat + " / " + startCoordinateX + " " + startCoordinateY + " " + endCoordinateX + " " + endCoordinateY + " " + amplitude);
+                            if (type == Movement.Type.Noop) Console.WriteLine(type + " " + showBeat + " " + startBeat + " " + endBeat + " " + fadeBeat);
+                            if (type == Movement.Type.Shake) Console.WriteLine(type + " " + showBeat + " " + startBeat + " " + endBeat + " " + fadeBeat);
+                            if (type == Movement.Type.Wave) Console.WriteLine(type + " " + showBeat + " " + startBeat + " " + endBeat + " " + fadeBeat + " / " + startCoordinateX + " " + startCoordinateY + " " + endCoordinateX + " " + endCoordinateY + " " + amplitude);
                         }
                         else if (reader.Name == "root")
                         {
@@ -162,6 +173,8 @@ namespace EnsemPro
                         break;
                 }
             }
+            Console.WriteLine(moves.Count);
+            return moves;
 
         }
 
