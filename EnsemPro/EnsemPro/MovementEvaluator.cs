@@ -61,11 +61,11 @@ namespace EnsemPro
             }
         }
 
-        public void Update(Movement m,GameTime t)
+        public void Update(Movement m,IEnumerable<InputState> input,GameTime t)
         {
             if (m != currentMovement) // new movement, compute score
             {
-                float score = Score(currentMovement, states, t);
+                float score = Score(currentMovement, input, t);
 
                 // send score back to Movement
                 if (score <= FAIL_THRESHOLD && score != 0.0f){
