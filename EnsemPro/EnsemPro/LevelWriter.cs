@@ -28,7 +28,7 @@ namespace EnsemPro
 
             background = "images\\background";
             song = "images\\b5complete";
-            bpm = ""; // forgot the bpm of b5. please fill it in for me
+            bpm = "100"; // forgot the bpm of b5. please fill it in for me
             writeAtributes();
 
             movementType = "";
