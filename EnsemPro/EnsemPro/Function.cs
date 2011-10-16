@@ -21,7 +21,7 @@ namespace EnsemPro
             Curve
         }
         
-        const float INTERVAL_TIME = 1.0f; // Time of each frame in seconds
+        const float INTERVAL_TIME = 1.0f / 10; // Time of each frame in seconds
         int numIntervals;
         Type type;
         Movement movement;
@@ -195,5 +195,7 @@ namespace EnsemPro
         {
             return slopes;
         }
+
+        public int getSize() { return numIntervals; }
     }
 }
