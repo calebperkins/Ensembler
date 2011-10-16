@@ -61,8 +61,9 @@ namespace EnsemPro
             baton = new Baton();
             baton.Initialize();
             level = new PlayLevel(baton);
-            level.Initialize();
-            LevelParser.getLevel(content, "b5.xml");
+            LevelWriter.writeLevel();
+            LinkedList<Movement> moves = LevelParser.getLevel(content, "b5.xml");
+            level.Initialize(moves);
             base.Initialize();
         }
 
