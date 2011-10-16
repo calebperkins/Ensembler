@@ -47,6 +47,8 @@ namespace EnsemPro
                     totalCounter++;
                 }
                 Console.WriteLine(scoreCounter);
+                if (totalCounter == 0)
+                    return scoreCounter;
                 return (float)(scoreCounter/totalCounter);
             }
             else if (m.getType() == Movement.Type.Wave)
