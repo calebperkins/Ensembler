@@ -50,39 +50,52 @@ namespace EnsemPro
 
         public static void start()
         {
-            Console.WriteLine("<?xml version='1.0'?>");
-            Console.WriteLine("<root>");
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"result.txt"))
+            {
+                file.WriteLine("<?xml version='1.0'?>");
+                file.WriteLine("<root>");
+            }
         }
 
         public static void end()
         {
-            Console.WriteLine("</root>");
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"result.txt", true))
+            {
+                file.WriteLine("</root>");
+            }
         }
 
         public static void writeAtributes()
         {
-            Console.WriteLine("\t<background>" + background + "</background>");
-            Console.WriteLine("\t<song>" + song + "</song>");
-            Console.WriteLine("\t<bpm>" + bpm + "</bpm>");
-            Console.WriteLine();
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"result.txt", true))
+            {
+                file.WriteLine("\t<background>" + background + "</background>");
+                file.WriteLine("\t<song>" + song + "</song>");
+                file.WriteLine("\t<bpm>" + bpm + "</bpm>");
+                file.WriteLine();
+            }
         }
+
 
         public static void writeMovement()
         {
-            Console.WriteLine("\t<Movement type=\"" + movementType + "\">");
-            Console.WriteLine("\t\t<startBeat>" + startBeat + "</startBeat>");
-            Console.WriteLine("\t\t<endBeat>" + endBeat + "</endBeat>");
-            Console.WriteLine("\t\t<showBeat>" + showBeat + "</showBeat>");
-            Console.WriteLine("\t\t<fadeBeat>" + fadeBeat + "</fadeBeat>");
-            if (movementType == "wave") 
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"result.txt", true))
             {
-                Console.WriteLine("\t\t<startCoordinateX>" + startCoordinateX + "</startCoordinateX>");
-                Console.WriteLine("\t\t<startCoordinateY>" + startCoordinateY + "</startCoordinateY>");
-                Console.WriteLine("\t\t<endCoordinateX>" + endCoordinateX + "</endCoordinateX>");
-                Console.WriteLine("\t\t<endCoordinateY>" + endCoordinateY + "</endCoordinateY>");
-                Console.WriteLine("\t\t<amplitude>" + amplitude + "</amplitude>");
+                file.WriteLine("\t<Movement type=\"" + movementType + "\">");
+                file.WriteLine("\t\t<startBeat>" + startBeat + "</startBeat>");
+                file.WriteLine("\t\t<endBeat>" + endBeat + "</endBeat>");
+                file.WriteLine("\t\t<showBeat>" + showBeat + "</showBeat>");
+                file.WriteLine("\t\t<fadeBeat>" + fadeBeat + "</fadeBeat>");
+                if (movementType == "wave")
+                {
+                    file.WriteLine("\t\t<startCoordinateX>" + startCoordinateX + "</startCoordinateX>");
+                    file.WriteLine("\t\t<startCoordinateY>" + startCoordinateY + "</startCoordinateY>");
+                    file.WriteLine("\t\t<endCoordinateX>" + endCoordinateX + "</endCoordinateX>");
+                    file.WriteLine("\t\t<endCoordinateY>" + endCoordinateY + "</endCoordinateY>");
+                    file.WriteLine("\t\t<amplitude>" + amplitude + "</amplitude>");
+                }
+                file.WriteLine("\t</Movement>");
             }
-            Console.WriteLine("\t</Movement>");
         }
     }
 }
