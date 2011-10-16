@@ -48,7 +48,7 @@ namespace EnsemPro
             //actionList.AddLast(new Movement(Movement.Type.Wave, 17, 32, 17, 32, new Point(50, 50), new Point(180, 180), null));
             Function f1 = new Function();
             //Movement move1 = new Movement(Movement.Type.Wave, 17, 32, 17, 32, new Point(100, 100), new Point(400, 400), f1);
-            Movement move1 = new Movement(Movement.Type.Wave, 1, 32, 1, 32, new Point(400, 400), new Point(500, 400), f1);
+            Movement move1 = new Movement(Movement.Type.Wave, 1, 32, 1, 32, new Point(400, 400), new Point(400, 200), f1);
             f1.InitializeCurve(Function.Type.Curve, move1, 60, 100);
             actionList.AddLast(move1);
             watch.Start();
