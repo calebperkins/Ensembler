@@ -14,6 +14,8 @@ namespace EnsemPro
 {
     public class PlayLevel
     {
+
+        public const float INTERVAL_TIME = 1.0f;
         Stopwatch watch = new Stopwatch();
         int current_beat;
         int last_beat;
@@ -41,14 +43,12 @@ namespace EnsemPro
         }
         public void start()
         {
-            /*actionList.AddLast(new Movement(Movement.Type.Shake, 1, 6, 1, 6));
-            actionList.AddLast(new Movement(Movement.Type.Noop, 7, 8, 7, 8));
-            actionList.AddLast(new Movement(Movement.Type.Shake, 9, 14, 9, 14));
-            actionList.AddLast(new Movement(Movement.Type.Noop, 15, 16, 15, 16));*/
+            actionList.AddLast(new Movement(Movement.Type.Shake, 1, 6, 1, 6));
+            actionList.AddLast(new Movement(Movement.Type.Noop, 7, 9, 7, 9));
             //actionList.AddLast(new Movement(Movement.Type.Wave, 17, 32, 17, 32, new Point(50, 50), new Point(180, 180), null));
             Function f1 = new Function();
             //Movement move1 = new Movement(Movement.Type.Wave, 17, 32, 17, 32, new Point(100, 100), new Point(400, 400), f1);
-            Movement move1 = new Movement(Movement.Type.Wave, 1, 32, 1, 32, new Point(400, 400), new Point(500, 400), f1);
+            Movement move1 = new Movement(Movement.Type.Wave, 10, 15, 9, 16, new Point(200, 400), new Point(600, 400), f1);
             f1.InitializeCurve(Function.Type.Curve, move1, 60, 100);
             actionList.AddLast(move1);
             watch.Start();
@@ -108,7 +108,21 @@ namespace EnsemPro
                 
                 foreach (Movement m in drawSet)
                 {
-                    m.Draw(spriteBatch);
+                    // the following code is for controlling the alpha value, please do not change
+                    float alpha = 0f;
+                    if (m.startBeat > current_beat)
+                    {
+                        int total = (m.startBeat - m.showBeat) * beatTime;
+                        int elapsed = Math.Max(0,(int)watch.ElapsedMilliseconds - m.showBeat * beatTime);
+                        alpha = 1f - elapsed / (float)total;
+                    }
+                    else if (m.endBeat < current_beat)
+                    {
+                        int total = (m.fadeBeat - m.endBeat) * beatTime;
+                        int elapsed = Math.Max(0,(int)watch.ElapsedMilliseconds - m.endBeat * beatTime);
+                        alpha = elapsed / (float)total;
+                    }
+                    m.Draw(spriteBatch, alpha);
                 }
           
         }

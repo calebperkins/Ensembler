@@ -41,7 +41,7 @@ namespace EnsemPro
             graphics = new GraphicsDeviceManager(this);
             content = new ContentManager(Services);
             content.RootDirectory = "Content";
-            level = new PlayLevel();
+            
         }
 
         /// <summary>
@@ -60,9 +60,9 @@ namespace EnsemPro
 
             counter = 0;
             satisfaction = new SatisfactionQueue();
-            level.start();
-
             baton = new Baton();
+            level = new PlayLevel();
+            level.start();
             base.Initialize();
         }
 
