@@ -40,7 +40,7 @@ namespace EnsemPro
         /// </summary>
         /// <param name="type"></param>
         /// <param name="movement"></param>
-        public void initialize(Type type, Movement movement, int bpm)
+        public void initializeLine(Type type, Movement movement, int bpm)
         {
             if (type != Type.Line) Console.WriteLine("Line constructor called with type that is not line");
             
@@ -56,7 +56,7 @@ namespace EnsemPro
 
             float incre = (movement.endCoordinate.X - movement.startCoordinate.X) / (float)numIntervals;
             float curX = movement.startCoordinate.X;
-            //Same code as constructor for parabola
+            // Same code as constructor for parabola
 
             float curY = movement.startCoordinate.Y;
             float slope = (movement.endCoordinate.Y - movement.startCoordinate.Y) / 
@@ -83,7 +83,7 @@ namespace EnsemPro
         /// <param name="movement"></param>
         /// <param name="a"></param>
         /// <param name="vertex"></param>
-        public void Parabola(Type type, Movement movement,int bpm, float a, Point vertex)
+        public void InitializeParabola(Type type, Movement movement,int bpm, Point vertex)
         {
             if (type != Type.Parabola) Console.WriteLine("Parabola constructor called with type that is not Parabola");
 
@@ -99,7 +99,9 @@ namespace EnsemPro
 
             float incre = (movement.endCoordinate.X - movement.startCoordinate.X) / (float)numIntervals;
             float curX = movement.startCoordinate.X;
-            //Same code as constructor for line
+            // Same code as constructor for line
+
+            float a = (movement.endCoordinate.X-movement.startCoordinate.X)/(float) Math.Pow (movement.endCoordinate.X- movement.startCoordinate.X, 2);
 
             for (int i = 0; i < numIntervals; i++)
             {
@@ -108,20 +110,72 @@ namespace EnsemPro
                 slopes[i] = 2 * a * (curX - vertex.X);
                 curX += incre;
 
-                Console.WriteLine(pos[i].X + " " + pos[i].Y + " " + slopes[i]);
+                //Console.WriteLine(pos[i].X + " " + pos[i].Y + " " + slopes[i]);
             }
         }
-
-        public Function(Type type, Movement movement, int bpm, float offset)
+        
+        /// <summary>
+        /// Draws a curve between startCoordinate and endCoordinate of movement according to the max offset,
+        /// specified by amp. Drawn using a sine function with rotation
+        /// Note that both pos and slope have length of number of intervals + 1. This is for drawing purpose only.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="movement"></param>
+        /// <param name="bpm"></param>
+        /// <param name="amp"></param>
+        public void InitializeCurve(Type type, Movement movement, int bpm, float amp)
         {
             if (type != Type.Curve) Console.WriteLine("Curve constructor called with type that is not Curve");
 
+            this.type = type;
+            this.movement = movement;
+            numIntervals = (int)((movement.endBeat - movement.startBeat + 1) / (float)bpm * 60 / INTERVAL_TIME);
+            pos = new Vector2[numIntervals + 1];
+            slopes = new float[numIntervals + 1];
 
+            // Change coordinates so that (0,0) is bottom left
+            float oStartX = movement.startCoordinate.X;
+            float oStartY = movement.startCoordinate.Y;
+            float oEndX = movement.endCoordinate.X;
+            float oEndY = movement.endCoordinate.Y;
+
+            float curX = 0;
+
+            float length = Vector2.Distance(new Vector2(oStartX, oStartY), new Vector2(oEndX, oEndY));
+            float incre = length / numIntervals;        
+            float k = (float) (Math.PI / length);
+
+            for (int i = 0; i < (numIntervals + 1); i++)
+            {
+                // Unrotated coordinate and slope
+                float pX = curX + oStartX;
+                float pY = (float)(amp * Math.Sin(k * curX) + oStartY);
+                //float pSlope = (float)(amp * k * Math.Cos(k * curX - movement.startCoordinate.X));
+                
+                // Rotation angle
+                double theta = Math.Atan((oEndY - oStartY) / (oEndX - oStartX));
+                if (oEndX < oStartX) theta += Math.PI;
+
+                // Perform rotation
+                float rX = (float)(Math.Cos(theta) * (pX - oStartX) - Math.Sin(theta) * (pY - oStartY) + oStartX);
+                float rY = (float)(Math.Sin(theta) * (pX - oStartX) + Math.Cos(theta) * (pY - oStartY) + oStartY);
+                //slopes[i] =
+                
+                pos[i].X = rX;
+                pos[i].Y = GameEngine.HEIGHT - rY;
+                
+                //Console.WriteLine(theta);
+                //Console.WriteLine("rise " + (movement.endCoordinate.Y - movement.startCoordinate.Y));
+                //Console.WriteLine("run " + (movement.endCoordinate.X - movement.startCoordinate.X));
+                //Console.WriteLine("o " + pX + " " + pY);
+                //Console.WriteLine("n " + pos[i].X + " " + pos[i].Y);
+
+                curX += incre;
+            }
         }
 
         /// <summary>
-        /// Returns an array of Vector2 representing positions of line from movement's startCoordinate
-        /// to endCoordinate over the interval between endBeat and startBeat. 
+        /// Returns an array of Vector2 representing positions
         /// </summary>
         /// <returns></returns>
         public Vector2[] getPos()

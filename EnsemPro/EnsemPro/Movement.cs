@@ -99,8 +99,8 @@ namespace EnsemPro
             myType = type;
             startBeat = sb;
             endBeat = eb;
-            startCoordinate = sc;
-            endCoordinate = ec;
+            startCoordinate = sc; // Note that the coordinate assumes (0,0) is bottom left
+            endCoordinate = ec;   // Note that the coordinate assumes (0,0) is bottom left
             showBeat = show_b;
             fadeBeat = fade_b;
             this.f = f;
@@ -123,17 +123,18 @@ namespace EnsemPro
             }
             else if (getType() == Movement.Type.Wave)
             {
+                Vector2 origin = new Vector2(circleTexture.Width / 2, circleTexture.Height / 2);
                 spriteBatch.Begin();
-                spriteBatch.Draw(circleTexture, new Vector2(startCoordinate.X, startCoordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
-                spriteBatch.Draw(circleTexture, new Vector2(endCoordinate.X, endCoordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.Draw(circleTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.White, 0.0f, origin, 1.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.Draw(circleTexture, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, Color.Black, 0.0f, origin, 1.0f, SpriteEffects.None, 0.0f);
                 spriteBatch.End();
                 if (f != null)
                 {
                     foreach (Vector2 p in f.getPos())
                     {
-                        Console.WriteLine("<");
+                        Vector2 ori = new Vector2 (p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
                         spriteBatch.Begin();
-                        spriteBatch.Draw(traceTexture, p, Color.White);
+                        spriteBatch.Draw(traceTexture, ori, Color.White);
                         spriteBatch.End();
                     }
                 }
