@@ -55,6 +55,7 @@ namespace EnsemPro
             moveEval = new MovementEvaluator(move1);
             f1.InitializeCurve(Function.Type.Curve, move1, 60, 100);
             actionList.AddLast(move1);
+            moveEval = new MovementEvaluator(move1);
             watch.Start();
 
             LevelWriter.writeLevel();
