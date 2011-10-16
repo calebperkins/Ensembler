@@ -17,7 +17,7 @@ namespace EnsemPro
     {
         public const float PERFECT = 1.0f;
         public const float FAIL_THRESHOLD = 0.3f;
-        public const float ACC_THRESHOLD = 0.0f;
+        public const float ACC_THRESHOLD = 0.05f;
 
         Movement currentMovement;
         float localScore; // score for this movement
@@ -32,7 +32,6 @@ namespace EnsemPro
         {
             if (m.getType() == Movement.Type.Shake)
             {
-                Console.WriteLine("NEW MOVEMENT!");
                 int scoreCounter = 0;
                 int totalCounter = 0;
                 foreach (InputState state in input)
@@ -45,7 +44,9 @@ namespace EnsemPro
                     totalCounter++;
                 }
                 Console.WriteLine("score counter is "+scoreCounter+"\n total counter is "+totalCounter);
-                return (float)(totalCounter==0 ? 0.005f : (scoreCounter/totalCounter));
+
+                // if fewer than 20 moves, NOT SHAKING! => fail
+                return (totalCounter<20 ? 0.00005f : ((float)scoreCounter/(float)totalCounter));
             }
             else if (m.getType() == Movement.Type.Wave)
             {
@@ -74,6 +75,7 @@ namespace EnsemPro
         {
             if (m != currentMovement) // current movement is over, set state accordingly
             {
+                Console.WriteLine("NEW MOVEMENT!");
                 // send score back to Movement
                 if (localScore <= FAIL_THRESHOLD && score != 0.0f)
                 {
