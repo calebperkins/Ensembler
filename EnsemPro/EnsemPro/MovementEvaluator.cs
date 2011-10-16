@@ -43,10 +43,8 @@ namespace EnsemPro
                     }
                     totalCounter++;
                 }
-                Console.WriteLine(scoreCounter);
-                if (totalCounter == 0)
-                    return scoreCounter;
-                return (float)(scoreCounter/totalCounter);
+                Console.WriteLine("score counter is "+scoreCounter+"\n total counter is "+totalCounter);
+                return (float)(totalCounter==0 ? 0.1f : (scoreCounter/totalCounter));
             }
             else if (m.getType() == Movement.Type.Wave)
             {
@@ -89,12 +87,7 @@ namespace EnsemPro
                 { // noop, score = 0.0f
                     currentMovement.setState(Movement.State.None);
                 }
-                //  reset IEnumerable<Input>states
                 currentMovement = m; // update movement
-            }
-            else
-            {
-                // add input to states
             }
         }
     }
