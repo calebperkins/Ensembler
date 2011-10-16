@@ -15,6 +15,8 @@ namespace EnsemPro
     public struct InputState
     {
         public Vector2 position;
+        public Vector2 velocity;
+        public Vector2 acceleration;
     }
 
     public class Baton
@@ -23,6 +25,10 @@ namespace EnsemPro
         Vector2 pos;
         WiimoteLib.Wiimote wm;
         bool wii_activated;
+        List<InputState> buffer = new List<InputState>();
+
+        Vector2 lastPos; // used for shake evaluation
+        Vector2 lastVel;
 
         Texture2D batonTexture;
 
@@ -30,6 +36,8 @@ namespace EnsemPro
         {
             shadow = new Color(0, 0, 0, 128);
             wii_activated = false;
+            lastPos = new Vector2(0, 0);
+            lastVel = new Vector2(0, 0);
         }
 
         public void LoadContent(ContentManager content)
@@ -54,6 +62,7 @@ namespace EnsemPro
 
         public void Update(GameTime gameTime)
         {
+            InputState i = new InputState();
             if (wii_activated)
             {
                 WiimoteLib.PointF ws = wm.WiimoteState.IRState.Midpoint;
@@ -65,7 +74,22 @@ namespace EnsemPro
                 MouseState ms = Mouse.GetState();
                 pos.X = Math.Max(Math.Min(GameEngine.WIDTH, ms.X), 0);
                 pos.Y = Math.Max(Math.Min(GameEngine.HEIGHT, ms.Y), 0);
+
+                float time = gameTime.ElapsedGameTime.Milliseconds; // time elapsed since last update
+                Vector2 posDiff = new Vector2(pos.X - lastPos.X, pos.Y - lastPos.Y); // change in displacement
+                Vector2 newVel = new Vector2(posDiff.X / time, posDiff.Y / time); // new velocity
+                Vector2 velDiff = new Vector2(newVel.X-lastVel.X,newVel.Y-lastVel.Y); // change in velocity
+                Vector2 newAcc = new Vector2(velDiff.X / time, velDiff.Y / time); // new acceleration
+
+                // add to inputstate
+                i.velocity = newVel;
+                i.acceleration = newAcc; 
+
+                lastPos = pos; // update
+                lastVel = newVel;
             }
+            i.position = pos;
+            buffer.Add(i);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -76,9 +100,19 @@ namespace EnsemPro
             spriteBatch.End();
         }
 
-        public Vector2 getPos()
+        public Vector2 Position()
         {
             return pos;
+        }
+
+        public void Flush()
+        {
+            buffer.Clear();
+        }
+
+        public IEnumerable<InputState> Buffer()
+        {
+            return buffer;
         }
     }
 }
