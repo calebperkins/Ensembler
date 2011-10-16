@@ -20,50 +20,62 @@ namespace EnsemPro
             Wave
         }
 
+        public enum State
+        {
+            Succeed,
+            Fail,
+            None
+        }
+
         static Texture2D circleTexture;
         static Texture2D shakeTexture;
+        static Texture2D traceTexture;
+        static Texture2D traceTexture_s;
+        static Texture2D traceTexture_f;
         static Vector2 shakePos = new Vector2(200, 200);
 
-        Type my_type;
+        Type myType;
 
         public static void LoadContent(ContentManager content)
         {
             circleTexture = content.Load<Texture2D>("images\\circle");
             shakeTexture = content.Load<Texture2D>("images\\shake");
-
+            traceTexture = content.Load<Texture2D>("images\\dot_normal");
+            traceTexture_s = content.Load<Texture2D>("images\\dot_win");
+            traceTexture_f = content.Load<Texture2D>("images\\dot_fail");
         }
 
-        public int start_beat
+        public int startBeat
         {
             get;
             set;
         }
 
-        public int end_beat
+        public int endBeat
         {
             get;
             set;
         }
 
-        public int show_beat
+        public int showBeat
         {
             get;
             set;
         }
 
-        public int fade_beat
+        public int fadeBeat
         {
             get;
             set;
         }
 
         // null if not a wave
-        public Point start_coordinate
+        public Point startCoordinate
         {
             get;
             set;
         }
-        public Point end_coordinate
+        public Point endCoordinate
         {
             get;
             set;
@@ -76,28 +88,29 @@ namespace EnsemPro
 
         public Movement(Movement.Type type, int sb, int eb, int show_b, int fade_b)
         {
-            my_type = type;
-            start_beat = sb;
-            end_beat = eb;
-            show_beat = show_b;
-            fade_beat = fade_b;
+            myType = type;
+            startBeat = sb;
+            endBeat = eb;
+            showBeat = show_b;
+            fadeBeat = fade_b;
         }
 
         public Movement(Movement.Type type, int sb, int eb, int show_b, int fade_b, Point sc, Point ec, Function f)
         {
-            my_type = type;
-            start_beat = sb;
-            end_beat = eb;
-            start_coordinate = sc;
-            end_coordinate = ec;
-            show_beat = show_b;
-            fade_beat = fade_b;
+            myType = type;
+            startBeat = sb;
+            endBeat = eb;
+            startCoordinate = sc;
+            endCoordinate = ec;
+            showBeat = show_b;
+            fadeBeat = fade_b;
+            this.f = f;
         }
 
         // returns the type of this movement
         public Type getType()
         {
-            return my_type;
+            return myType;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -112,10 +125,19 @@ namespace EnsemPro
             else if (getType() == Movement.Type.Wave)
             {
                 spriteBatch.Begin();
-                spriteBatch.Draw(circleTexture, new Vector2(start_coordinate.X, start_coordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
-                spriteBatch.Draw(circleTexture, new Vector2(end_coordinate.X, end_coordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.Draw(circleTexture, new Vector2(startCoordinate.X, startCoordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.Draw(circleTexture, new Vector2(endCoordinate.X, endCoordinate.Y), null, Color.White, 0.0f, new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
                 spriteBatch.End();
-                // draw dotted lines?
+                if (f != null)
+                {
+                    foreach (Vector2 p in f.getPos())
+                    {
+                        Console.WriteLine("<");
+                        spriteBatch.Begin();
+                        spriteBatch.Draw(traceTexture, p, Color.White);
+                        spriteBatch.End();
+                    }
+                }
             }
 
         }

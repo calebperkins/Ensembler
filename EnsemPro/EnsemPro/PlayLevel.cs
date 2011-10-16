@@ -45,8 +45,15 @@ namespace EnsemPro
             actionList.AddLast(new Movement(Movement.Type.Noop, 7, 8, 7, 8));
             actionList.AddLast(new Movement(Movement.Type.Shake, 9, 14, 9, 14));
             actionList.AddLast(new Movement(Movement.Type.Noop, 15, 16, 15, 16));
-            actionList.AddLast(new Movement(Movement.Type.Wave, 17, 32, 17, 32, new Point(50, 50), new Point(180, 180), null));
+            //actionList.AddLast(new Movement(Movement.Type.Wave, 17, 32, 17, 32, new Point(50, 50), new Point(180, 180), null));
+            Function f1 = new Function();
+            Movement move1 = new Movement(Movement.Type.Wave, 17, 32, 17, 32, new Point(0, 0), new Point(400, 400), f1);
+            f1.Parabola(Function.Type.Parabola, move1, 60,(1.0f/400),new Point(0,0));
+            Console.WriteLine(move1.f == null);
+            actionList.AddLast(move1);
             watch.Start();
+
+            
         }
         
         public void Update(GameTime gameTime)
@@ -64,7 +71,7 @@ namespace EnsemPro
                 while (checkMove != null)
                 {
                     
-                    if (checkMove.Value.show_beat == current_beat)
+                    if (checkMove.Value.showBeat == current_beat)
                     {
                         drawSet.Add(checkMove.Value);
                         checkMove = checkMove.Next;
@@ -73,7 +80,7 @@ namespace EnsemPro
                 }
                 
                 // check and remove the head of the list
-                if (actionList.First !=  null && actionList.First.Value.start_beat == current_beat)
+                if (actionList.First !=  null && actionList.First.Value.startBeat == current_beat)
                 {
                     current_act = actionList.First.Value;
                     actionList.RemoveFirst();
@@ -84,7 +91,7 @@ namespace EnsemPro
 
         private bool expired(Movement m)
         {
-            return m.fade_beat < current_beat;
+            return m.fadeBeat < current_beat;
         }
 
         public void Draw(SpriteBatch spriteBatch)

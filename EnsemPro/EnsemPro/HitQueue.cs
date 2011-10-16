@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace EnsemPro
 {
+    // The notes with changed texture upon collision with baton in gameplay prototype
     public class HitQueue : ObQueue
     {
         public HitQueue(int maxAge) : base()
