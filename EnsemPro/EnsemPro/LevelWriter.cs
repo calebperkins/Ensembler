@@ -21,6 +21,7 @@ namespace EnsemPro
         static String endCoordinateX;
         static String endCoordinateY;
         static String amplitude;
+        static String fileName = "b5.xml";
 
         public static void writeLevel()
         {
@@ -43,6 +44,32 @@ namespace EnsemPro
             amplitude = "6"; // only fill this out if movement is wave
             writeMovement();
 
+            movementType = "wave";
+            startBeat = "10";
+            endBeat = "30";
+            showBeat = "20";
+            fadeBeat = "40";
+            startCoordinateX = "120"; // only fill this out if movement is wave
+            startCoordinateY = "120"; // only fill this out if movement is wave
+            endCoordinateX = "230"; // only fill this out if movement is wave
+            endCoordinateY = "230"; // only fill this out if movement is wave
+            amplitude = "60"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "shake";
+            startBeat = "100";
+            endBeat = "300";
+            showBeat = "200";
+            fadeBeat = "400";
+            writeMovement();
+
+            movementType = "noop";
+            startBeat = "1000";
+            endBeat = "3000";
+            showBeat = "2000";
+            fadeBeat = "4000";
+            writeMovement();
+
             //ADD MORE MOVEMENTS HERE
 
             end();
@@ -50,7 +77,7 @@ namespace EnsemPro
 
         public static void start()
         {
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"result.txt"))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(fileName))
             {
                 file.WriteLine("<?xml version='1.0'?>");
                 file.WriteLine("<root>");
@@ -59,7 +86,7 @@ namespace EnsemPro
 
         public static void end()
         {
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"result.txt", true))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(fileName, true))
             {
                 file.WriteLine("</root>");
             }
@@ -67,7 +94,7 @@ namespace EnsemPro
 
         public static void writeAtributes()
         {
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"result.txt", true))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(fileName, true))
             {
                 file.WriteLine("\t<background>" + background + "</background>");
                 file.WriteLine("\t<song>" + song + "</song>");
@@ -79,7 +106,7 @@ namespace EnsemPro
 
         public static void writeMovement()
         {
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"result.txt", true))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(fileName, true))
             {
                 file.WriteLine("\t<Movement type=\"" + movementType + "\">");
                 file.WriteLine("\t\t<startBeat>" + startBeat + "</startBeat>");

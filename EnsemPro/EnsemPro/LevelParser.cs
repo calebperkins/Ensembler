@@ -32,9 +32,20 @@ namespace EnsemPro
         public static void getLevel(ContentManager content, String path)
         {
             LinkedList<Movement> moves = new LinkedList<Movement>();
-            Texture2D background;
-            Song song;
-            int bpm;
+            Texture2D background = null;
+            Song song = null;
+            int bpm = 0;
+
+            Movement.Type type = Movement.Type.Nonsense;
+            int startBeat = 0;
+            int endBeat = 0;
+            int showBeat = 0;
+            int fadeBeat = 0;
+            int startCoordinateX = 0;
+            int startCoordinateY = 0;
+            int endCoordinateX = 0;
+            int endCoordinateY = 0;
+            float amplitude = 0;
 
             XmlTextReader reader = new XmlTextReader(path);
             
@@ -47,34 +58,107 @@ namespace EnsemPro
                         {
                             reader.Read();
                             background = content.Load<Texture2D>(reader.Value);
-                            Console.WriteLine(reader.Value);
+                            //Console.WriteLine(reader.Value);
                         }
                         else if (reader.Name == "song")
                         {
                             reader.Read();
                             song = content.Load<Song>(reader.Value);
-                            Console.WriteLine(reader.Value);
+                            //Console.WriteLine(reader.Value);
                         }
                         else if (reader.Name == "bpm")
                         {
                             reader.Read();
                             bpm = Convert.ToInt32 (reader.Value);
-                            Console.WriteLine("bpm " + bpm);
+                            //Console.WriteLine("bpm " + bpm);
                         }
                         else if (reader.Name == "Movement")
                         {
-
+                            reader.MoveToNextAttribute();
+                            if (reader.Value == "wave") type = Movement.Type.Wave;
+                            else if (reader.Value == "shake") type = Movement.Type.Shake;
+                            else if (reader.Value == "noop") type = Movement.Type.Noop;
+                            //Console.WriteLine(reader.Value);
+                        }
+                        else if (reader.Name == "startBeat")
+                        {
+                            reader.Read();
+                            startBeat = Convert.ToInt32(reader.Value);
+                            //Console.WriteLine(reader.Value);
+                        }
+                        else if (reader.Name == "endBeat")
+                        {
+                            reader.Read();
+                            endBeat = Convert.ToInt32(reader.Value);
+                            //Console.WriteLine(reader.Value);
+                        }
+                        else if (reader.Name == "showBeat")
+                        {
+                            reader.Read();
+                            showBeat = Convert.ToInt32(reader.Value);
+                            //Console.WriteLine(reader.Value);
+                        }
+                        else if (reader.Name == "fadeBeat")
+                        {
+                            reader.Read();
+                            fadeBeat = Convert.ToInt32(reader.Value);
+                            //Console.WriteLine(reader.Value);
+                        }
+                        else if (reader.Name == "startCoordinateX")
+                        {
+                            reader.Read();
+                            startCoordinateX = Convert.ToInt32(reader.Value);
+                            //Console.WriteLine(reader.Value);
+                        }
+                        else if (reader.Name == "startCoordinateY")
+                        {
+                            reader.Read();
+                            startCoordinateY = Convert.ToInt32(reader.Value);
+                            //Console.WriteLine(reader.Value);
+                        }
+                        else if (reader.Name == "endCoordinateX")
+                        {
+                            reader.Read();
+                            endCoordinateX = Convert.ToInt32(reader.Value);
+                            //Console.WriteLine(reader.Value);
+                        }
+                        else if (reader.Name == "endCoordinateY")
+                        {
+                            reader.Read();
+                            endCoordinateY = Convert.ToInt32(reader.Value);
+                            //Console.WriteLine(reader.Value);
+                        }
+                        else if (reader.Name == "amplitude")
+                        {
+                            reader.Read();
+                            amplitude = (float) Convert.ToDouble(reader.Value);
+                            //Console.WriteLine(reader.Value);
                         }
 
-                        //while (reader.MoveToNextAttribute()) // Read the attributes.
-                            //Console.Write(" " + reader.Name + "='" + reader.Value + "'");
                         break;
                     case XmlNodeType.Text: //Display the text in each element.
-                        //Console.WriteLine(reader.Value);
                         break;
-                    case XmlNodeType.EndElement: //Display the end of the element.
-                        //Console.Write("</" + reader.Name);
-                        //Console.WriteLine(">");
+                    case XmlNodeType.EndElement:
+                        if (reader.Name == "Movement")
+                        {
+                            Function function = new Function();
+                            Movement move = new Movement(type, showBeat, startBeat, endBeat, fadeBeat, 
+                                new Point(startCoordinateX,startCoordinateY), 
+                                new Point(endCoordinateX, endCoordinateY), function);
+                            function.InitializeCurve(Function.Type.Curve, move, bpm, amplitude);
+                            moves.AddLast(move);
+
+                            if (type == Movement.Type.Nonsense) Console.WriteLine("NONSENSE");
+                            if (type == Movement.Type.Noop) Console.WriteLine(type + " " + startBeat + " " + endBeat + " " + showBeat + " " + fadeBeat);
+                            if (type == Movement.Type.Shake) Console.WriteLine(type + " " + startBeat + " " + endBeat + " " + showBeat + " " + fadeBeat);
+                            if (type == Movement.Type.Wave) Console.WriteLine(type + " " + startBeat + " " + endBeat + " " + showBeat + " " + fadeBeat + " / " + startCoordinateX + " " + startCoordinateY + " " + endCoordinateX + " " + endCoordinateY + " " + amplitude);
+                        }
+                        else if (reader.Name == "root")
+                        {
+                            Console.WriteLine(background);
+                            Console.WriteLine(song);
+                            Console.WriteLine(bpm);
+                        }
                         break;
                 }
             }
