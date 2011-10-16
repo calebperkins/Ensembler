@@ -26,12 +26,17 @@ namespace EnsemPro
         bool wii_activated;
         List<InputState> buffer = new List<InputState>();
 
+        Vector2 lastPos; // used for shake evaluation
+        Vector2 lastVel;
+
         Texture2D batonTexture;
 
         public Baton()
         {
             shadow = new Color(0, 0, 0, 128);
             wii_activated = false;
+            lastPos = new Vector2(0, 0);
+            lastVel = new Vector2(0, 0);
         }
 
         public void LoadContent(ContentManager content)
@@ -68,6 +73,17 @@ namespace EnsemPro
                 MouseState ms = Mouse.GetState();
                 pos.X = Math.Max(Math.Min(GameEngine.WIDTH, ms.X), 0);
                 pos.Y = Math.Max(Math.Min(GameEngine.HEIGHT, ms.Y), 0);
+
+                float time = gameTime.ElapsedGameTime.Milliseconds; // time elapsed since last update
+                Vector2 posDiff = new Vector2(pos.X - lastPos.X, pos.Y - lastPos.Y); // change in displacement
+                Vector2 newVel = new Vector2(posDiff.X / time, posDiff.Y / time); // new velocity
+                Vector2 velDiff = new Vector2(newVel.X-lastVel.X,newVel.Y-lastVel.Y); // change in velocity
+                Vector2 newAcc = new Vector2(velDiff.X / time, velDiff.Y / time); // new acceleration
+
+                i.acceleration = newAcc; // add to inputstate
+
+                lastPos = pos; // update
+                lastVel = newVel;
             }
             i.position = pos;
             buffer.Add(i);
