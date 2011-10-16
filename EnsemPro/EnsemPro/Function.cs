@@ -150,7 +150,9 @@ namespace EnsemPro
                 // Unrotated coordinate and slope
                 float pX = curX + oStartX;
                 float pY = (float)(amp * Math.Sin(k * curX) + oStartY);
-                //float pSlope = (float)(amp * k * Math.Cos(k * curX - movement.startCoordinate.X));
+                float pSlope = (float)(amp * k * Math.Cos(k * curX));
+
+                float yInt = pY - pSlope * pX;
                 
                 // Rotation angle
                 double theta = Math.Atan((oEndY - oStartY) / (oEndX - oStartX));
@@ -159,16 +161,14 @@ namespace EnsemPro
                 // Perform rotation
                 float rX = (float)(Math.Cos(theta) * (pX - oStartX) - Math.Sin(theta) * (pY - oStartY) + oStartX);
                 float rY = (float)(Math.Sin(theta) * (pX - oStartX) + Math.Cos(theta) * (pY - oStartY) + oStartY);
-                //slopes[i] =
+                float oX = (float)(Math.Cos(theta) * (0 - oStartX) - Math.Sin(theta) * (yInt - oStartY) + oStartX);
+                float oY = (float)(Math.Sin(theta) * (0 - oStartX) + Math.Cos(theta) * (yInt - oStartY) + oStartY);
                 
                 pos[i].X = rX;
                 pos[i].Y = GameEngine.HEIGHT - rY;
+                slopes[i] = (rY - oY) / (rX - oX);
                 
-                //Console.WriteLine(theta);
-                //Console.WriteLine("rise " + (movement.endCoordinate.Y - movement.startCoordinate.Y));
-                //Console.WriteLine("run " + (movement.endCoordinate.X - movement.startCoordinate.X));
-                //Console.WriteLine("o " + pX + " " + pY);
-                //Console.WriteLine("n " + pos[i].X + " " + pos[i].Y);
+                //Console.WriteLine(slopes[i]);
 
                 curX += incre;
             }
