@@ -117,6 +117,7 @@
     <Compile Include="Function.cs" />
     <Compile Include="LevelWriter.cs" />
     <Compile Include="Movement.cs" />
+    <Compile Include="MovementEvaluator.cs" />
     <Compile Include="PlayLevel.cs" />
     <Compile Include="HitQueue.cs" />
     <Compile Include="NoteQueue.cs" />

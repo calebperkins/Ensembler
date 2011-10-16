@@ -13,7 +13,8 @@ namespace EnsemPro
 {
     public class Movement
     {
-        public enum Type {
+        public enum Type
+        {
             Shake,
             Noop,
             Wave
@@ -174,8 +175,8 @@ namespace EnsemPro
                 spriteBatch.End();
 
             }
-            
+
         }
-         
+
     }
 }
