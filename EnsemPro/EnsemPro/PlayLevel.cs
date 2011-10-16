@@ -35,7 +35,6 @@ namespace EnsemPro
         {
             actionList = new LinkedList<Movement>();
             drawSet = new HashSet<Movement>();
-            moveEval = new MovementEvaluator();
         }
 
         public void LoadContent(ContentManager content)
@@ -53,6 +52,7 @@ namespace EnsemPro
             Movement move1 = new Movement(Movement.Type.Wave, 10, 15, 9, 16, new Point(200, 400), new Point(600, 400), f1);
             f1.InitializeCurve(Function.Type.Curve, move1, 60, 100);
             actionList.AddLast(move1);
+            moveEval = new MovementEvaluator(move1);
             watch.Start();
 
             LevelWriter.writeLevel();

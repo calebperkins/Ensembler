@@ -22,8 +22,9 @@ namespace EnsemPro
         Movement currentMovement;
 
 
-        public MovementEvaluator()
+        public MovementEvaluator(Movement m)
         {
+            currentMovement = m;
           //  states = ?.GetEnumerator();
         }
 
