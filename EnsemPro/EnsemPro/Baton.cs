@@ -110,9 +110,9 @@ namespace EnsemPro
             buffer.Clear();
         }
 
-        public IEnumerable<InputState> Buffer()
+        public IEnumerable<InputState> Buffer
         {
-            return buffer;
+            get { return buffer; }
         }
     }
 }

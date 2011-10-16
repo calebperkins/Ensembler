@@ -50,6 +50,17 @@ namespace EnsemPro
             else if (m.getType() == Movement.Type.Wave)
             {
                 Function f = m.f;
+                switch (f.Form)
+                {
+                    case Function.Type.Line:
+                        break;
+                    case Function.Type.Parabola:
+                        break;
+                    case Function.Type.Curve:
+                        break;
+                    default:
+                        break;
+                }
                 return 0.0f;
             }
             else
@@ -59,7 +70,7 @@ namespace EnsemPro
             }
         }
 
-        public void Update(Movement m,GameTime t)
+        public void Update(Movement m,IEnumerable<InputState> states, GameTime t)
         {
             if (m != currentMovement) // new movement, compute score
             {

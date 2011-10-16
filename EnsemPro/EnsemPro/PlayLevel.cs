@@ -80,7 +80,7 @@ namespace EnsemPro
             actionList.AddLast(move4);
 
             LevelWriter.writeLevel();
-            //moveEval = new MovementEvaluator(move1);
+            moveEval = new MovementEvaluator(move1);
             watch.Start();
         }
         
@@ -94,7 +94,7 @@ namespace EnsemPro
           
                 LinkedListNode<Movement> checkMove = actionList.First;
 
-                drawSet.RemoveWhere(expired);
+                drawSet.RemoveWhere(Expired);
 
                 while (checkMove != null)
                 {
@@ -115,15 +115,15 @@ namespace EnsemPro
                     actionList.RemoveFirst();
                 }
 
-                //float score = moveEval.Score(current_act, baton.Buffer(), gameTime);
-                //current_score += (int)(score * 10);
-                //moveEval.Update(current_act, gameTime);
+                float score = moveEval.Score(current_act, baton.Buffer, gameTime);
+                current_score += (int)(score * 10);
+                moveEval.Update(current_act, baton.Buffer, gameTime);
                 baton.Flush();
             }
 
         }
 
-        private bool expired(Movement m)
+        private bool Expired(Movement m)
         {
             return m.fadeBeat < current_beat;
         }
@@ -131,7 +131,7 @@ namespace EnsemPro
         public void Draw(SpriteBatch spriteBatch)
         {      
 
-                // Draw Hello World
+                // Draw beat and score
                 string output = "beat " + current_beat;
                 // Find the center of the string
                 Vector2 FontOrigin = font.MeasureString(output) / 2;
