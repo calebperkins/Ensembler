@@ -33,6 +33,10 @@ namespace EnsemPro
         {
         }
 
+        public Type Form
+        {
+            get {return type;}
+        }
 
         /// <summary>
         /// Constructor for Line

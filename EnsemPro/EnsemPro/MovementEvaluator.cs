@@ -39,6 +39,17 @@ namespace EnsemPro
             else if (m.getType() == Movement.Type.Wave)
             {
                 Function f = m.f;
+                switch (f.Form)
+                {
+                    case Function.Type.Line:
+                        break;
+                    case Function.Type.Parabola:
+                        break;
+                    case Function.Type.Curve:
+                        break;
+                    default:
+                        break;
+                }
                 return 0.0f;
             }
             else

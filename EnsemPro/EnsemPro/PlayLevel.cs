@@ -74,7 +74,7 @@ namespace EnsemPro
                 
                 LinkedListNode<Movement> checkMove = actionList.First;
 
-                drawSet.RemoveWhere(expired);
+                drawSet.RemoveWhere(Expired);
 
                 while (checkMove != null)
                 {
@@ -94,14 +94,14 @@ namespace EnsemPro
                     actionList.RemoveFirst();
                 }
 
-                float score = moveEval.Score(current_act, baton.Buffer(), gameTime);
+                float score = moveEval.Score(current_act, baton.Buffer, gameTime);
                 current_score += (int)(score * 10);
                 moveEval.Update(current_act, gameTime);
             }
 
         }
 
-        private bool expired(Movement m)
+        private bool Expired(Movement m)
         {
             return m.fadeBeat < current_beat;
         }
