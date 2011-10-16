@@ -117,7 +117,11 @@ namespace EnsemPro
 
                 float score = moveEval.Score(current_act, baton.Buffer, gameTime);
                 current_score += (int)(score * 10);
-                moveEval.Update(current_act, baton.Buffer, gameTime);
+
+                Console.WriteLine("score is " + score);
+                Console.WriteLine("current_score is "+current_score);
+
+                moveEval.Update(current_act, score, gameTime);
 
                 baton.Flush();
             }

@@ -20,7 +20,7 @@ namespace EnsemPro
         public const float ACC_THRESHOLD = 0.0f;
 
         Movement currentMovement;
-
+        float localScore; // score for this movement
 
         public MovementEvaluator(Movement m)
         {
@@ -32,11 +32,12 @@ namespace EnsemPro
         {
             if (m.getType() == Movement.Type.Shake)
             {
+                Console.WriteLine("NEW MOVEMENT!");
                 int scoreCounter = 0;
                 int totalCounter = 0;
                 foreach (InputState state in input)
                 {
-                    if (Math.Abs(state.acceleration.X) > ACC_THRESHOLD && Math.Abs(state.acceleration.Y) > ACC_THRESHOLD)
+                    if (Math.Abs(state.acceleration.X) > ACC_THRESHOLD || Math.Abs(state.acceleration.Y) > ACC_THRESHOLD)
                     {
                         Console.WriteLine("acceleration is "+(new Vector2(state.acceleration.X,state.acceleration.Y)));
                         scoreCounter++;
@@ -44,7 +45,7 @@ namespace EnsemPro
                     totalCounter++;
                 }
                 Console.WriteLine("score counter is "+scoreCounter+"\n total counter is "+totalCounter);
-                return (float)(totalCounter==0 ? 0.1f : (scoreCounter/totalCounter));
+                return (float)(totalCounter==0 ? 0.005f : (scoreCounter/totalCounter));
             }
             else if (m.getType() == Movement.Type.Wave)
             {
@@ -69,25 +70,33 @@ namespace EnsemPro
             }
         }
 
-        public void Update(Movement m,IEnumerable<InputState> states, GameTime t)
+        public void Update(Movement m, float score, GameTime t)
         {
-            if (m != currentMovement) // new movement, compute score
+            if (m != currentMovement) // current movement is over, set state accordingly
             {
-                float score = Score(currentMovement, states, t);
-
                 // send score back to Movement
-                if (score <= FAIL_THRESHOLD && score != 0.0f){
+                if (localScore <= FAIL_THRESHOLD && score != 0.0f)
+                {
+                    Console.WriteLine("state is FAIL");
                     currentMovement.setState(Movement.State.Fail);
                 }
-                else if (score > FAIL_THRESHOLD)
+                else if (localScore > FAIL_THRESHOLD)
                 {
+                    Console.WriteLine("state is SUCCEED");
                     currentMovement.setState(Movement.State.Succeed);
                 }
                 else
-                { // noop, score = 0.0f
+                { // noop, localScore = 0.0f
+                    Console.WriteLine("state is NONE");
                     currentMovement.setState(Movement.State.None);
                 }
+
                 currentMovement = m; // update movement
+                localScore = 0.0f; // reset score
+            }
+            else
+            { // movement not done yet, keep adding the score
+                localScore += score;
             }
         }
     }
