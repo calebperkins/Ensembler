@@ -54,11 +54,13 @@ namespace EnsemPro
         public void Update(GameTime gameTime)
         {
             current_beat = (int)Math.Round((float)watch.ElapsedMilliseconds / (float)beatTime);
+            bool newMovement=false;
 
             if (current_beat > last_beat) // new beat
             {
                 last_beat = current_beat;
-          
+                newMovement = true;
+
                 LinkedListNode<Movement> checkMove = actionList.First;
 
                 drawSet.RemoveWhere(Expired);
@@ -81,13 +83,11 @@ namespace EnsemPro
                     current_act = actionList.First.Value;
                     actionList.RemoveFirst();
                 }
-
-               
-                float score = moveEval.Score(current_act, baton.Buffer, gameTime);
-                current_score += (int)(score * 10);
-                moveEval.Update(current_act, score, gameTime);
-                baton.Flush();
             }
+            float score = moveEval.Score(current_act, baton.Buffer, gameTime);
+            current_score += (int)(score * 10);
+            moveEval.Update(current_act, score, newMovement, gameTime);
+            baton.Flush();
 
         }
 

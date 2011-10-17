@@ -69,9 +69,9 @@ namespace EnsemPro
             }
         }
 
-        public void Update(Movement m, float score, GameTime t)
+        public void Update(Movement m, float score, bool newMovement, GameTime t)
         {
-            if (m != currentMovement) // current movement is over, set state accordingly
+            if (newMovement) // current movement is over, set state accordingly
             {
                 Console.WriteLine("NEW MOVEMENT!");
                 // send score back to Movement
