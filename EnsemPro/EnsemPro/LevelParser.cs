@@ -150,6 +150,7 @@ namespace EnsemPro
                                     new Point(startCoordinateX, startCoordinateY),
                                     new Point(endCoordinateX, endCoordinateY), function);
                                 function.InitializeCurve(Function.Type.Curve, move, bpm, amplitude);
+
                             }
                             else 
                             { 

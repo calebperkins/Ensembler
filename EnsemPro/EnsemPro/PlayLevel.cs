@@ -60,6 +60,7 @@ namespace EnsemPro
             {
                 last_beat = current_beat;
                 newMovement = true;
+                if (current_act != null && current_act.endBeat < current_beat) current_act = null;
 
                 LinkedListNode<Movement> checkMove = actionList.First;
 
@@ -83,13 +84,17 @@ namespace EnsemPro
                     current_act = actionList.First.Value;
                     actionList.RemoveFirst();
                 }
-                float score = moveEval.Score(current_act, baton.Buffer, gameTime);
-                float gainedScore = score * 10 - (float)score;
-            current_score += (int)(score * 10);
-            moveEval.Update(current_act, gainedScore, newMovement, gameTime);
-            baton.Flush();
+                if (current_act != null)
+                {
+                    float score = moveEval.Score(current_act, baton.Buffer, gameTime);
+                    float gainedScore = score * 10 - (float)score;
+                    if (actionList.First != null) // prevents score from endlessly increasing
+                        current_score += (int)(score * 10);
+                    baton.Flush();
+                    moveEval.Update(current_act, gainedScore, newMovement, gameTime);
+                }
+                
             }
-            
 
         }
 

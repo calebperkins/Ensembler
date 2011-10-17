@@ -48,24 +48,26 @@ namespace EnsemPro
             }
             else if (currentMovement.getType() == Movement.Type.Wave)
             {
-                return 0;
-                Function f = m.f;
-                float product = 0.0f;
+                Function f = currentMovement.f;
                 int count = 0;
+                int correct = 0;
                 
                 foreach (InputState _input in input)
                 {
+                    if (f == null) Console.WriteLine(currentMovement.getType() + " " + currentMovement.endBeat + " " + currentMovement.startBeat);
                     if (count >= f.Slopes.Length)
                         break;
-                    product += 1 - Math.Abs(_input.acceleration.Y / _input.acceleration.X - f.Slopes[count]) / Math.Abs(_input.acceleration.Y / _input.acceleration.X + f.Slopes[count]);
+                    float dist = Vector2.Distance(f.Positions[count], _input.position);
+                    if (dist < 150)
+                        correct++;
                     count++;
                 }
-                return product / (float) count;
+                return correct / (float) count;
             }
             else
             {
                 // movement type == noop
-                return -1.0f;
+                return 0.0f;
             }
         }
 
