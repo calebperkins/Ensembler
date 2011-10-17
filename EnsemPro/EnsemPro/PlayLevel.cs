@@ -47,7 +47,7 @@ namespace EnsemPro
         public void Initialize(LinkedList<Movement> moves)
         {
             actionList = moves;
-            //moveEval = new MovementEvaluator(move1);
+            moveEval = new MovementEvaluator(moves.First.Value);
             watch.Start();
         }
         
@@ -82,9 +82,10 @@ namespace EnsemPro
                     actionList.RemoveFirst();
                 }
 
-                //float score = moveEval.Score(current_act, baton.Buffer, gameTime);
-                //current_score += (int)(score * 10);
-                //moveEval.Update(current_act, baton.Buffer, gameTime);
+               
+                float score = moveEval.Score(current_act, baton.Buffer, gameTime);
+                current_score += (int)(score * 10);
+                moveEval.Update(current_act, score, gameTime);
                 baton.Flush();
             }
 
