@@ -15,8 +15,7 @@ namespace EnsemPro
 {
     public class MovementEvaluator
     {
-        public const float PERFECT = 1.0f;
-        public const float FAIL_THRESHOLD = 0.3f;
+        public const float FAIL_THRESHOLD = 0.4f;
         public const float ACC_THRESHOLD = 0.05f;
 
         Movement currentMovement;
@@ -38,7 +37,6 @@ namespace EnsemPro
                 {
                     if (Math.Abs(state.acceleration.X) > ACC_THRESHOLD || Math.Abs(state.acceleration.Y) > ACC_THRESHOLD)
                     {
-                        Console.WriteLine("acceleration is "+(new Vector2(state.acceleration.X,state.acceleration.Y)));
                         scoreCounter++;
                     }
                     totalCounter++;
@@ -50,34 +48,34 @@ namespace EnsemPro
             }
             else if (m.getType() == Movement.Type.Wave)
             {
+                return 0;
                 Function f = m.f;
-                switch (f.Form)
+                float product = 0.0f;
+                int count = 0;
+                
+                foreach (InputState _input in input)
                 {
-                    case Function.Type.Line:
+                    if (count >= f.Slopes.Length)
                         break;
-                    case Function.Type.Parabola:
-                        break;
-                    case Function.Type.Curve:
-                        break;
-                    default:
-                        break;
+                    product += 1 - Math.Abs(_input.acceleration.Y / _input.acceleration.X - f.Slopes[count]) / Math.Abs(_input.acceleration.Y / _input.acceleration.X + f.Slopes[count]);
+                    count++;
                 }
-                return 0.0f;
+                return product / (float) count;
             }
             else
             {
                 // movement type == noop
-                return 0.0f;
+                return -1.0f;
             }
         }
 
-        public void Update(Movement m, float score, GameTime t)
+        public void Update(Movement m, float score, bool newMovement, GameTime t)
         {
-            if (m != currentMovement) // current movement is over, set state accordingly
+            if (newMovement) // current movement is over, set state accordingly
             {
                 Console.WriteLine("NEW MOVEMENT!");
                 // send score back to Movement
-                if (localScore <= FAIL_THRESHOLD && score != 0.0f)
+                if (localScore <= FAIL_THRESHOLD && localScore >= 0.0f)
                 {
                     Console.WriteLine("state is FAIL");
                     currentMovement.setState(Movement.State.Fail);
@@ -88,7 +86,7 @@ namespace EnsemPro
                     currentMovement.setState(Movement.State.Succeed);
                 }
                 else
-                { // noop, localScore = 0.0f
+                { // noop, localScore is negative
                     Console.WriteLine("state is NONE");
                     currentMovement.setState(Movement.State.None);
                 }
@@ -97,8 +95,9 @@ namespace EnsemPro
                 localScore = 0.0f; // reset score
             }
             else
-            { // movement not done yet, keep adding the score
-                localScore += score;
+            { // movement not done yet, keep AVERAGING the score
+                localScore = (localScore == 0.0f ? score : (localScore + score)/2.0f);
+                Console.WriteLine("local score now is " + localScore);
             }
         }
     }

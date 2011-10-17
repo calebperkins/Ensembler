@@ -165,7 +165,7 @@ namespace EnsemPro
                 {
                     if (walk)
                     {
-                        foreach (Vector2 p in f.getPos())
+                        foreach (Vector2 p in f.Positions)
                         {
                             float index = count / (float)f.getSize();
                             if (index < (1f - alpha))
@@ -181,7 +181,7 @@ namespace EnsemPro
                     }
                     else // do not draw in "walking"  manner
                     {
-                        foreach (Vector2 p in f.getPos())
+                        foreach (Vector2 p in f.Positions)
                         {
                             Vector2 ori = new Vector2(p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
                             spriteBatch.Begin();

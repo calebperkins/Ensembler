@@ -171,6 +171,8 @@ namespace EnsemPro
                 pos[i].X = rX;
                 pos[i].Y = GameEngine.HEIGHT - rY;
                 slopes[i] = (rY - oY) / (rX - oX);
+                //if (float.IsNegativeInfinity(slopes[i]))
+                //    slopes[i] = float.MinValue;
                 
                 //Console.WriteLine(slopes[i]);
 
@@ -182,18 +184,18 @@ namespace EnsemPro
         /// Returns an array of Vector2 representing positions
         /// </summary>
         /// <returns></returns>
-        public Vector2[] getPos()
+        public Vector2[] Positions
         {
-            return pos;
+            get { return pos; }
         }
 
         /// <summary>
         /// Returns an array of slopes
         /// </summary>
         /// <returns></returns>
-        public float[] getSlopes()
+        public float[] Slopes
         {
-            return slopes;
+            get { return slopes; }
         }
 
         public int getSize() { return numIntervals; }
