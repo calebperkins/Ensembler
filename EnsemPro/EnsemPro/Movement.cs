@@ -18,7 +18,7 @@ namespace EnsemPro
             Shake,
             Noop,
             Wave,
-            Nonsense // for parser
+            Nonsense // for parseryy
         }
 
         public enum State

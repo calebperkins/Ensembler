@@ -83,11 +83,13 @@ namespace EnsemPro
                     current_act = actionList.First.Value;
                     actionList.RemoveFirst();
                 }
-            }
-            float score = moveEval.Score(current_act, baton.Buffer, gameTime);
+                float score = moveEval.Score(current_act, baton.Buffer, gameTime);
+                float gainedScore = score * 10 - (float)score;
             current_score += (int)(score * 10);
-            moveEval.Update(current_act, score, newMovement, gameTime);
+            moveEval.Update(current_act, gainedScore, newMovement, gameTime);
             baton.Flush();
+            }
+            
 
         }
 

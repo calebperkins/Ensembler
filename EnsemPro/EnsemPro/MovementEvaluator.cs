@@ -29,7 +29,7 @@ namespace EnsemPro
         /*Returns a floating number 0 to 1 which indicates how well the input is matching the movement */
         public float Score(Movement m, IEnumerable<InputState> input, GameTime t)
         {
-            if (m.getType() == Movement.Type.Shake)
+            if (currentMovement.getType() == Movement.Type.Shake)
             {
                 int scoreCounter = 0;
                 int totalCounter = 0;
@@ -46,7 +46,7 @@ namespace EnsemPro
                 // if fewer than 20 moves, NOT SHAKING! => fail
                 return (totalCounter<20 ? 0.00005f : ((float)scoreCounter/(float)totalCounter));
             }
-            else if (m.getType() == Movement.Type.Wave)
+            else if (currentMovement.getType() == Movement.Type.Wave)
             {
                 return 0;
                 Function f = m.f;
@@ -75,12 +75,12 @@ namespace EnsemPro
             {
                 Console.WriteLine("NEW MOVEMENT!");
                 // send score back to Movement
-                if (localScore <= FAIL_THRESHOLD && localScore >= 0.0f)
+                if (score <= FAIL_THRESHOLD && score >= 0.0f)
                 {
                     Console.WriteLine("state is FAIL");
                     currentMovement.setState(Movement.State.Fail);
                 }
-                else if (localScore > FAIL_THRESHOLD)
+                else if (score > FAIL_THRESHOLD)
                 {
                     Console.WriteLine("state is SUCCEED");
                     currentMovement.setState(Movement.State.Succeed);
@@ -93,11 +93,6 @@ namespace EnsemPro
 
                 currentMovement = m; // update movement
                 localScore = 0.0f; // reset score
-            }
-            else
-            { // movement not done yet, keep AVERAGING the score
-                localScore = (localScore == 0.0f ? score : (localScore + score)/2.0f);
-                Console.WriteLine("local score now is " + localScore);
             }
         }
     }
