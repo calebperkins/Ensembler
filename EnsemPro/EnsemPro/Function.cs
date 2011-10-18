@@ -7,7 +7,7 @@ namespace EnsemPro
     public class Function
     {
 
-        public enum Type
+        public enum Types
         {
             Line,
             Parabola,
@@ -16,7 +16,7 @@ namespace EnsemPro
         
         const float INTERVAL_TIME = 1.0f / 60; // Time of each frame in seconds
         int numIntervals;
-        Type type;
+        Types type;
         Movement movement;
 
         Vector2[] pos;
@@ -26,7 +26,7 @@ namespace EnsemPro
         {
         }
 
-        public Type Form
+        public Types Form
         {
             get {return type;}
         }
@@ -37,9 +37,9 @@ namespace EnsemPro
         /// </summary>
         /// <param name="type"></param>
         /// <param name="movement"></param>
-        public void initializeLine(Type type, Movement movement, int bpm)
+        public void InitializeLine(Types type, Movement movement, int bpm)
         {
-            if (type != Type.Line) Console.WriteLine("Line constructor called with type that is not line");
+            if (type != Types.Line) Console.WriteLine("Line constructor called with type that is not line");
             
             // Same code as constructor for parabola
             this.type = type;
@@ -80,9 +80,9 @@ namespace EnsemPro
         /// <param name="movement"></param>
         /// <param name="a"></param>
         /// <param name="vertex"></param>
-        public void InitializeParabola(Type type, Movement movement,int bpm, Point vertex)
+        public void InitializeParabola(Types type, Movement movement,int bpm, Point vertex)
         {
-            if (type != Type.Parabola) Console.WriteLine("Parabola constructor called with type that is not Parabola");
+            if (type != Types.Parabola) Console.WriteLine("Parabola constructor called with type that is not Parabola");
 
             // Same code as constructor for line
             this.type = type;
@@ -120,9 +120,9 @@ namespace EnsemPro
         /// <param name="movement"></param>
         /// <param name="bpm"></param>
         /// <param name="amp"></param>
-        public void InitializeCurve(Type type, Movement movement, int bpm, float amp)
+        public void InitializeCurve(Types type, Movement movement, int bpm, float amp)
         {
-            if (type != Type.Curve) Debug.WriteLine("Curve constructor called with type that is not Curve");
+            if (type != Types.Curve) Debug.WriteLine("Curve constructor called with type that is not Curve");
 
             this.type = type;
             this.movement = movement;

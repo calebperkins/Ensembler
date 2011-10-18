@@ -106,7 +106,7 @@ namespace EnsemPro
             buffer.Clear();
         }
 
-        public IEnumerable<InputState> Buffer
+        public ICollection<InputState> Buffer
         {
             get { return buffer; }
         }

@@ -6,7 +6,7 @@ namespace EnsemPro
 {
     public class Movement
     {
-        public enum Type
+        public enum Types
         {
             Shake,
             Noop,
@@ -14,7 +14,7 @@ namespace EnsemPro
             Nonsense // for parseryy
         }
 
-        public enum State
+        public enum States
         {
             Succeed,
             Fail,
@@ -32,9 +32,6 @@ namespace EnsemPro
         static Texture2D traceTexture_f;
         static Vector2 shakePos = new Vector2(130, 300);
 
-        Type myType;
-        State myState;
-
         public static void LoadContent(ContentManager content)
         {
             circleTexture = content.Load<Texture2D>("images\\circle");
@@ -42,6 +39,18 @@ namespace EnsemPro
             traceTexture = content.Load<Texture2D>("images\\dot_normal");
             traceTexture_s = content.Load<Texture2D>("images\\dot_win");
             traceTexture_f = content.Load<Texture2D>("images\\dot_fail");
+        }
+
+        public Types myType
+        {
+            get;
+            set;
+        }
+
+        public States myState
+        {
+            get;
+            set;
         }
 
         public int startBeat
@@ -85,17 +94,17 @@ namespace EnsemPro
             set;
         }
 
-        public Movement(Movement.Type type, int show_b, int sb, int eb, int fade_b)
+        public Movement(Movement.Types type, int show_b, int sb, int eb, int fade_b)
         {
             myType = type;
             startBeat = sb;
             endBeat = eb;
             showBeat = show_b;
             fadeBeat = fade_b;
-            myState = State.None;
+            myState = States.None;
         }
 
-        public Movement(Movement.Type type, int show_b, int sb, int eb, int fade_b, Point sc, Point ec, Function f)
+        public Movement(Movement.Types type, int show_b, int sb, int eb, int fade_b, Point sc, Point ec, Function f)
             : this(type, show_b, sb, eb, fade_b)
         {
             startCoordinate = sc; // Note that the coordinate assumes (0,0) is bottom left
@@ -103,38 +112,27 @@ namespace EnsemPro
             this.f = f;
         }
 
-        // returns the type of this movement
-        public Type getType()
-        {
-            return myType;
-        }
-
-        public void setState(State s){
+        public void setState(States s){
             myState = s;
-            // setting the texture
-            if (myState == State.Fail)
+            switch (myState)
             {
-                current_trace = traceTexture_f;
-                current_circle = circleTexture;
-                current_shake = shakeTexture;
-            }
-            else if (myState == State.Succeed)
-            {
-                current_trace = traceTexture_s;
-                current_circle = circleTexture;
-                current_shake = shakeTexture;
-            }
-            else
-            {
-                current_trace = traceTexture;
-                current_circle = circleTexture;
-                current_shake = shakeTexture;
+                case States.Fail:
+                    current_trace = traceTexture_f;
+                    current_circle = circleTexture;
+                    current_shake = shakeTexture;
+                    break;
+                case States.Succeed:
+                    current_trace = traceTexture_s;
+                    current_circle = circleTexture;
+                    current_shake = shakeTexture;
+                    break;
+                default:
+                    current_trace = traceTexture;
+                    current_circle = circleTexture;
+                    current_shake = shakeTexture;
+                    break;
             }
 
-        }
-
-        public State getState(){
-            return myState;
         }
 
         public void Draw(SpriteBatch spriteBatch, float alpha, bool walk)
@@ -144,12 +142,12 @@ namespace EnsemPro
             // setting the transparency
             Color transparency = Color.Lerp(Color.White, Color.Transparent, alpha);
 
-            if (getType() == Movement.Type.Shake)
+            if (myType == Movement.Types.Shake)
             {
                 spriteBatch.Draw(current_shake, shakePos, transparency);
             }
 
-            else if (getType() == Movement.Type.Wave)
+            else if (myType == Movement.Types.Wave)
             {
                 int count = 1;
                 if (f != null)

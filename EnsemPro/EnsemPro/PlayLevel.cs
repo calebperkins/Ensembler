@@ -82,7 +82,7 @@ namespace EnsemPro
                 }
                 if (current_act != null)
                 {
-                    float score = moveEval.Score(current_act, baton.Buffer, gameTime);
+                    float score = moveEval.Accuracy(current_act, baton.Buffer, gameTime);
                     float gainedScore = score * 10 - (float)score;
                     if (actionList.First != null) // prevents score from endlessly increasing
                         current_score += (int)(score * 10);

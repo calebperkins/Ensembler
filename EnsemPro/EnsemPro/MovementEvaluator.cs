@@ -19,47 +19,44 @@ namespace EnsemPro
         }
 
         /*Returns a floating number 0 to 1 which indicates how well the input is matching the movement */
-        public float Score(Movement m, IEnumerable<InputState> input, GameTime t)
+        public float Accuracy(Movement m, ICollection<InputState> inputs, GameTime t)
         {
-            if (currentMovement.getType() == Movement.Type.Shake)
+            switch (currentMovement.myType)
             {
-                int scoreCounter = 0;
-                int totalCounter = 0;
-                foreach (InputState state in input)
-                {
-                    if (Math.Abs(state.acceleration.X) > ACC_THRESHOLD || Math.Abs(state.acceleration.Y) > ACC_THRESHOLD)
+                case Movement.Types.Shake:
+                    int scoreCounter = 0;
+                    int totalCounter = 0;
+                    foreach (InputState state in inputs)
                     {
-                        scoreCounter++;
+                        if (Math.Abs(state.acceleration.X) > ACC_THRESHOLD || Math.Abs(state.acceleration.Y) > ACC_THRESHOLD)
+                        {
+                            scoreCounter++;
+                        }
+                        totalCounter++;
                     }
-                    totalCounter++;
-                }
-                Debug.WriteLine("score counter is "+scoreCounter+"\n total counter is "+totalCounter);
+                    Debug.WriteLine("score counter is " + scoreCounter + "\n total counter is " + totalCounter);
 
-                // if fewer than 20 moves, NOT SHAKING! => fail
-                return (totalCounter<20 ? 0.00005f : ((float)scoreCounter/(float)totalCounter));
-            }
-            else if (currentMovement.getType() == Movement.Type.Wave)
-            {
-                Function f = currentMovement.f;
-                int count = 0;
-                int correct = 0;
-                
-                foreach (InputState _input in input)
-                {
-                    if (f == null) Debug.WriteLine(currentMovement.getType() + " " + currentMovement.endBeat + " " + currentMovement.startBeat);
-                    if (count >= f.Slopes.Length)
-                        break;
-                    float dist = Vector2.Distance(f.Positions[count], _input.position);
-                    if (dist < 150)
-                        correct++;
-                    count++;
-                }
-                return correct / (float) count;
-            }
-            else
-            {
-                // movement type == noop
-                return 0.0f;
+                    // if fewer than 20 moves, NOT SHAKING! => fail
+                    return (totalCounter < 20 ? 0.00005f : ((float)scoreCounter / (float)totalCounter));
+                case Movement.Types.Wave:
+                    Function f = currentMovement.f;
+                    int count = 0;
+                    int correct = 0;
+
+                    //Debug.Assert(input.Count == f.Slopes.Length);
+
+                    foreach (InputState input in inputs)
+                    {
+                        if (count >= f.Slopes.Length)
+                            break;
+                        float dist = Vector2.Distance(f.Positions[count], input.position);
+                        if (dist < 150)
+                            correct++;
+                        count++;
+                    }
+                    return correct / (float)count;
+                default:
+                    return 0.0f;
             }
         }
 
@@ -72,17 +69,17 @@ namespace EnsemPro
                 if (score <= FAIL_THRESHOLD && score >= 0.0f)
                 {
                     Debug.WriteLine("state is FAIL");
-                    currentMovement.setState(Movement.State.Fail);
+                    currentMovement.setState(Movement.States.Fail);
                 }
                 else if (score > FAIL_THRESHOLD)
                 {
                     Debug.WriteLine("state is SUCCEED");
-                    currentMovement.setState(Movement.State.Succeed);
+                    currentMovement.setState(Movement.States.Succeed);
                 }
                 else
                 { // noop, localScore is negative
                     Debug.WriteLine("state is NONE");
-                    currentMovement.setState(Movement.State.None);
+                    currentMovement.setState(Movement.States.None);
                 }
 
                 currentMovement = m; // update movement

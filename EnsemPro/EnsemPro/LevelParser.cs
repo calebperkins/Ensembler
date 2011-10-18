@@ -30,7 +30,7 @@ namespace EnsemPro
             Song song = null;
             int bpm = 0;
 
-            Movement.Type type = Movement.Type.Nonsense;
+            Movement.Types type = Movement.Types.Nonsense;
             int startBeat = 0;
             int endBeat = 0;
             int showBeat = 0;
@@ -69,9 +69,9 @@ namespace EnsemPro
                         else if (reader.Name == "Movement")
                         {
                             reader.MoveToNextAttribute();
-                            if (reader.Value == "wave") type = Movement.Type.Wave;
-                            else if (reader.Value == "shake") type = Movement.Type.Shake;
-                            else if (reader.Value == "noop") type = Movement.Type.Noop;
+                            if (reader.Value == "wave") type = Movement.Types.Wave;
+                            else if (reader.Value == "shake") type = Movement.Types.Shake;
+                            else if (reader.Value == "noop") type = Movement.Types.Noop;
                             //Console.WriteLine(reader.Value);
                         }
                         else if (reader.Name == "showBeat")
@@ -137,13 +137,13 @@ namespace EnsemPro
                         {
                             
                             Movement move = null;
-                            if (type == Movement.Type.Wave)
+                            if (type == Movement.Types.Wave)
                             {
                                 Function function = new Function();
                                 move = new Movement(type, showBeat, startBeat, endBeat, fadeBeat,
                                     new Point(startCoordinateX, startCoordinateY),
                                     new Point(endCoordinateX, endCoordinateY), function);
-                                function.InitializeCurve(Function.Type.Curve, move, bpm, amplitude);
+                                function.InitializeCurve(Function.Types.Curve, move, bpm, amplitude);
 
                             }
                             else 
@@ -154,10 +154,10 @@ namespace EnsemPro
                             
                             moves.AddLast(move);
 
-                            if (type == Movement.Type.Nonsense) Console.WriteLine("NONSENSE");
-                            if (type == Movement.Type.Noop) Console.WriteLine(type + " " + showBeat + " " + startBeat + " " + endBeat + " " + fadeBeat);
-                            if (type == Movement.Type.Shake) Console.WriteLine(type + " " + showBeat + " " + startBeat + " " + endBeat + " " + fadeBeat);
-                            if (type == Movement.Type.Wave) Console.WriteLine(type + " " + showBeat + " " + startBeat + " " + endBeat + " " + fadeBeat + " / " + startCoordinateX + " " + startCoordinateY + " " + endCoordinateX + " " + endCoordinateY + " " + amplitude);
+                            if (type == Movement.Types.Nonsense) Console.WriteLine("NONSENSE");
+                            if (type == Movement.Types.Noop) Console.WriteLine(type + " " + showBeat + " " + startBeat + " " + endBeat + " " + fadeBeat);
+                            if (type == Movement.Types.Shake) Console.WriteLine(type + " " + showBeat + " " + startBeat + " " + endBeat + " " + fadeBeat);
+                            if (type == Movement.Types.Wave) Console.WriteLine(type + " " + showBeat + " " + startBeat + " " + endBeat + " " + fadeBeat + " / " + startCoordinateX + " " + startCoordinateY + " " + endCoordinateX + " " + endCoordinateY + " " + amplitude);
                         }
                         else if (reader.Name == "root")
                         {
