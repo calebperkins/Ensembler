@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -19,21 +18,16 @@ namespace EnsemPro
         SpriteBatch spriteBatch;
 
         Texture2D background;
-        ContentManager content;
 
         Song song;
         Baton baton;
         SatisfactionQueue satisfaction;
-
         PlayLevel level;
-
 
         public GameEngine()
         {
             graphics = new GraphicsDeviceManager(this);
-            content = new ContentManager(Services);
-            content.RootDirectory = "Content";
-            
+            Content.RootDirectory = "Content";
         }
 
         /// <summary>
@@ -48,12 +42,14 @@ namespace EnsemPro
             graphics.PreferredBackBufferHeight = HEIGHT;
             graphics.ApplyChanges();
 
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+
             satisfaction = new SatisfactionQueue();
-            baton = new Baton();
-            baton.Initialize();
+            baton = new Baton(this, spriteBatch);
+            Components.Add(baton);
             level = new PlayLevel(baton);
             LevelWriter.writeLevel();
-            LinkedList<Movement> moves = LevelParser.getLevel(content, "b5.xml");
+            LinkedList<Movement> moves = LevelParser.getLevel(Content, "b5.xml");
             level.Initialize(moves);
             base.Initialize();
         }
@@ -65,18 +61,16 @@ namespace EnsemPro
         protected override void LoadContent()
         {
 
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            background = Content.Load<Texture2D>("images\\background");
+            satisfaction.LoadContent(Content);
+            level.LoadContent(Content);
+            Movement.LoadContent(Content);
 
-            background = content.Load<Texture2D>("images\\background");
-            baton.LoadContent(content);
-            satisfaction.LoadContent(content);
-            level.LoadContent(content);
-            Movement.LoadContent(content);
-
-            song = content.Load<Song>("images\\b5complete");
+            song = Content.Load<Song>("images\\b5complete");
 
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(song);
+            base.LoadContent();
         }
 
         /// <summary>
@@ -85,7 +79,7 @@ namespace EnsemPro
         /// </summary>
         protected override void UnloadContent()
         {
-            content.Unload();
+            Content.Unload();
         }
 
         /// <summary>
@@ -102,7 +96,6 @@ namespace EnsemPro
                 Restart();
 
             level.Update(gameTime);
-            baton.Update(gameTime);
             satisfaction.Update(gameTime);
 
             // Not sure if it's the best way to add stars, but here it is for now
@@ -126,7 +119,6 @@ namespace EnsemPro
             spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
             
             level.Draw(spriteBatch);
-            baton.Draw(spriteBatch);
             satisfaction.Draw(spriteBatch);
 
 

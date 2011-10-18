@@ -15,7 +15,7 @@ namespace EnsemPro
         public Vector2 acceleration;
     }
 
-    public class Baton
+    public class Baton : DrawableGameComponent
     {
         Color shadow;
         Vector2 pos;
@@ -27,21 +27,24 @@ namespace EnsemPro
         Vector2 lastVel;
 
         Texture2D batonTexture;
+        SpriteBatch spriteBatch;
 
-        public Baton()
+        public Baton(Game g, SpriteBatch sb) : base(g)
         {
             shadow = new Color(0, 0, 0, 128);
             wii_activated = false;
             lastPos = new Vector2(0, 0);
             lastVel = new Vector2(0, 0);
+            spriteBatch = sb;
         }
 
-        public void LoadContent(ContentManager content)
+        protected override void LoadContent()
         {
-            batonTexture = content.Load<Texture2D>("images\\baton");
+            batonTexture = Game.Content.Load<Texture2D>("images\\baton");
+            base.LoadContent();
         }
 
-        public void Initialize()
+        public override void Initialize()
         {
             try
             {
@@ -54,9 +57,10 @@ namespace EnsemPro
             {
                 wii_activated = false;
             }
+            base.Initialize();
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             InputState i = new InputState();
             if (wii_activated)
@@ -90,7 +94,7 @@ namespace EnsemPro
             buffer.Add(i);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(GameTime t)
         {
             spriteBatch.Draw(batonTexture, pos, null, Color.White, 0.0f, new Vector2(0, 0), 0.35f, SpriteEffects.None, 0.0f);
             spriteBatch.Draw(batonTexture, new Vector2(pos.X + 3.0f, pos.Y + 3.0f), null, shadow, 0.0f, new Vector2(0, 0), 0.35f, SpriteEffects.None, 0.0f);
