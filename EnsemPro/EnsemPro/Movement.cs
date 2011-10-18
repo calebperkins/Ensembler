@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Storage;
 
 namespace EnsemPro
 {
@@ -165,7 +158,7 @@ namespace EnsemPro
                     {
                         foreach (Vector2 p in f.Positions)
                         {
-                            float index = count / (float)f.getSize();
+                            float index = count / (float)f.Size;
                             if (index < (1f - alpha))
                             {
                                 count++;
@@ -186,7 +179,7 @@ namespace EnsemPro
                 }
                 Vector2 origin = new Vector2(circleTexture.Width / 2, circleTexture.Height / 2);
                 spriteBatch.Draw(current_circle, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, transparency, 0.0f, origin, 1.0f, SpriteEffects.None, 0.0f);
-                if (!walk || count == f.getSize())
+                if (!walk || count == f.Size)
                 spriteBatch.Draw(current_circle, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, transparency, 0.0f, origin, 1.0f, SpriteEffects.None, 0.0f);
             }
 

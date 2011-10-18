@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Storage;
 
 namespace EnsemPro
 {
@@ -129,7 +122,7 @@ namespace EnsemPro
         /// <param name="amp"></param>
         public void InitializeCurve(Type type, Movement movement, int bpm, float amp)
         {
-            if (type != Type.Curve) Console.WriteLine("Curve constructor called with type that is not Curve");
+            if (type != Type.Curve) Debug.WriteLine("Curve constructor called with type that is not Curve");
 
             this.type = type;
             this.movement = movement;
@@ -198,6 +191,10 @@ namespace EnsemPro
             get { return slopes; }
         }
 
-        public int getSize() { return numIntervals; }
+        public int Size
+        {
+            get { return numIntervals; }
+        }
+
     }
 }

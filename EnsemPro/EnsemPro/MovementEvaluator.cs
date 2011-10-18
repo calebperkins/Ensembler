@@ -1,15 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Collections;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Storage;
-
 
 namespace EnsemPro
 {
@@ -41,7 +33,7 @@ namespace EnsemPro
                     }
                     totalCounter++;
                 }
-                Console.WriteLine("score counter is "+scoreCounter+"\n total counter is "+totalCounter);
+                Debug.WriteLine("score counter is "+scoreCounter+"\n total counter is "+totalCounter);
 
                 // if fewer than 20 moves, NOT SHAKING! => fail
                 return (totalCounter<20 ? 0.00005f : ((float)scoreCounter/(float)totalCounter));
@@ -54,7 +46,7 @@ namespace EnsemPro
                 
                 foreach (InputState _input in input)
                 {
-                    if (f == null) Console.WriteLine(currentMovement.getType() + " " + currentMovement.endBeat + " " + currentMovement.startBeat);
+                    if (f == null) Debug.WriteLine(currentMovement.getType() + " " + currentMovement.endBeat + " " + currentMovement.startBeat);
                     if (count >= f.Slopes.Length)
                         break;
                     float dist = Vector2.Distance(f.Positions[count], _input.position);
@@ -75,21 +67,21 @@ namespace EnsemPro
         {
             if (newMovement) // current movement is over, set state accordingly
             {
-                Console.WriteLine("NEW MOVEMENT!");
+                Debug.WriteLine("NEW MOVEMENT!");
                 // send score back to Movement
                 if (score <= FAIL_THRESHOLD && score >= 0.0f)
                 {
-                    Console.WriteLine("state is FAIL");
+                    Debug.WriteLine("state is FAIL");
                     currentMovement.setState(Movement.State.Fail);
                 }
                 else if (score > FAIL_THRESHOLD)
                 {
-                    Console.WriteLine("state is SUCCEED");
+                    Debug.WriteLine("state is SUCCEED");
                     currentMovement.setState(Movement.State.Succeed);
                 }
                 else
                 { // noop, localScore is negative
-                    Console.WriteLine("state is NONE");
+                    Debug.WriteLine("state is NONE");
                     currentMovement.setState(Movement.State.None);
                 }
 
