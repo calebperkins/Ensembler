@@ -111,9 +111,7 @@ namespace EnsemPro
                 // How much to rotate the image
                 //queue[idx].rotate -= 0.5f;
 
-                spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
                 spriteBatch.Draw(texture, queue[idx].pos, null, Color.White, 0.0f, origin, scale, SpriteEffects.None, 0);
-                spriteBatch.End();
             }
         }
 

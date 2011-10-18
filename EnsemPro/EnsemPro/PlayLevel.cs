@@ -111,10 +111,8 @@ namespace EnsemPro
                 // Find the center of the string
                 Vector2 FontOrigin = font.MeasureString(output) / 2;
                 // Draw the string
-                spriteBatch.Begin();    
                 spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.White);
                 spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.White);
-                spriteBatch.End();
 
             // sort it in ascending way
                 var drawing =

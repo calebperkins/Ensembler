@@ -117,7 +117,7 @@ namespace EnsemPro
             // Not sure if it's the best way to add stars, but here it is for now
             if (counter % 2 == 0)
             {
-                satisfaction.Add(baton.Position());
+                satisfaction.Add(baton.Position);
             }
             counter++;
             base.Update(gameTime);
@@ -134,13 +134,14 @@ namespace EnsemPro
 
             spriteBatch.Begin();
             spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
-            spriteBatch.End();
+            
             level.Draw(spriteBatch);
             baton.Draw(spriteBatch);
             satisfaction.Draw(spriteBatch);
 
 
             base.Draw(gameTime);
+            spriteBatch.End();
         }
 
         protected void restart()

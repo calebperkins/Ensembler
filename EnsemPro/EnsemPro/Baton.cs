@@ -96,15 +96,13 @@ namespace EnsemPro
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
             spriteBatch.Draw(batonTexture, pos, null, Color.White, 0.0f, new Vector2(0, 0), 0.35f, SpriteEffects.None, 0.0f);
             spriteBatch.Draw(batonTexture, new Vector2(pos.X + 3.0f, pos.Y + 3.0f), null, shadow, 0.0f, new Vector2(0, 0), 0.35f, SpriteEffects.None, 0.0f);
-            spriteBatch.End();
         }
 
-        public Vector2 Position()
+        public Vector2 Position
         {
-            return pos;
+            get { return pos; }
         }
 
         public void Flush()

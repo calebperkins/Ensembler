@@ -153,9 +153,7 @@ namespace EnsemPro
 
             if (getType() == Movement.Type.Shake)
             {
-                spriteBatch.Begin();
                 spriteBatch.Draw(current_shake, shakePos, transparency);
-                spriteBatch.End();
             }
 
             else if (getType() == Movement.Type.Wave)
@@ -172,9 +170,7 @@ namespace EnsemPro
                             {
                                 count++;
                                 Vector2 ori = new Vector2(p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
-                                spriteBatch.Begin();
                                 spriteBatch.Draw(current_trace, ori,  transparency);
-                                spriteBatch.End();
                             }
                             else { break; }
                         }
@@ -184,18 +180,14 @@ namespace EnsemPro
                         foreach (Vector2 p in f.Positions)
                         {
                             Vector2 ori = new Vector2(p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
-                            spriteBatch.Begin();
                             spriteBatch.Draw(current_trace, ori, transparency);
-                            spriteBatch.End();
                         }
                     }
                 }
                 Vector2 origin = new Vector2(circleTexture.Width / 2, circleTexture.Height / 2);
-                spriteBatch.Begin();
                 spriteBatch.Draw(current_circle, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, transparency, 0.0f, origin, 1.0f, SpriteEffects.None, 0.0f);
                 if (!walk || count == f.getSize())
                 spriteBatch.Draw(current_circle, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, transparency, 0.0f, origin, 1.0f, SpriteEffects.None, 0.0f);
-                spriteBatch.End();
             }
 
         }
