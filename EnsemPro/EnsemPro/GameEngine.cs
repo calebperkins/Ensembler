@@ -10,19 +10,15 @@ namespace EnsemPro
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class GameEngine : Microsoft.Xna.Framework.Game
+    public class GameEngine : Game
     {
-        //DEL
-        public static int counter;
-        //DELETE
-
         public const int WIDTH = 800;
         public const int HEIGHT = 600;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private static Texture2D background;
+        Texture2D background;
         ContentManager content;
 
         Song song;
@@ -52,7 +48,6 @@ namespace EnsemPro
             graphics.PreferredBackBufferHeight = HEIGHT;
             graphics.ApplyChanges();
 
-            counter = 0;
             satisfaction = new SatisfactionQueue();
             baton = new Baton();
             baton.Initialize();
@@ -101,7 +96,7 @@ namespace EnsemPro
         protected override void Update(GameTime gameTime)
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                this.Exit();
+                Exit();
 
             if (Keyboard.GetState().IsKeyDown(Keys.R))
                 Restart();
@@ -111,11 +106,10 @@ namespace EnsemPro
             satisfaction.Update(gameTime);
 
             // Not sure if it's the best way to add stars, but here it is for now
-            if (counter % 2 == 0)
+            if (gameTime.TotalGameTime.Ticks % 2 == 0)
             {
                 satisfaction.Add(baton.Position);
             }
-            counter++;
             base.Update(gameTime);
 
         }
