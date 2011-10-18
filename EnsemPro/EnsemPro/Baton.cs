@@ -68,6 +68,8 @@ namespace EnsemPro
                 WiimoteLib.PointF ws = wm.WiimoteState.IRState.Midpoint;
                 pos.X = GameEngine.WIDTH * (1 - ws.X);
                 pos.Y = GameEngine.HEIGHT * ws.Y;
+                WiimoteLib.Point3F acc = wm.WiimoteState.AccelState.Values;
+                i.acceleration = new Vector2(acc.X, acc.Y);
             }
             else
             {
