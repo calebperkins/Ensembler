@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace EnsemPro
 {
@@ -29,31 +32,45 @@ namespace EnsemPro
             bpm = "100"; // forgot the bpm of b5. please fill it in for me
             writeAtributes();
 
+            /*
+            movementType = "wave";
+            showBeat = "1";
+            startBeat = "1";
+            endBeat = "30";
+            fadeBeat = "30";
+            startCoordinateX = ""; // only fill this out if movement is wave
+            startCoordinateY = ""; // only fill this out if movement is wave
+            endCoordinateX = ""; // only fill this out if movement is wave
+            endCoordinateY = ""; // only fill this out if movement is wave
+            amplitude = ""; // only fill this out if movement is wave
+            writeMovement();
+            */
+
             movementType = "shake";
+            showBeat = "1";
             startBeat = "1";
             endBeat = "7";
-            showBeat = "1";
             fadeBeat = "7";
             writeMovement();
 
             movementType = "noop";
+            showBeat = "8";
             startBeat = "8";
             endBeat = "9";
-            showBeat = "8";
             fadeBeat = "9";
             writeMovement();
 
             movementType = "shake";
+            showBeat = "9";
             startBeat = "9";
             endBeat = "15";
-            showBeat = "9";
             fadeBeat = "15";
             writeMovement();
 
             movementType = "noop";
+            showBeat = "16";
             startBeat = "16";
             endBeat = "18";
-            showBeat = "16";
             fadeBeat = "17";
             writeMovement();
 
@@ -240,16 +257,16 @@ namespace EnsemPro
             writeMovement();
 
             movementType = "noop";
+            showBeat = "34";
             startBeat = "34";
             endBeat = "35";
-            showBeat = "34";
             fadeBeat = "35";
             writeMovement();
 
             movementType = "shake";
+            showBeat = "36";
             startBeat = "36";
             endBeat = "41";
-            showBeat = "36";
             fadeBeat = "41";
             writeMovement();
 
@@ -390,7 +407,7 @@ namespace EnsemPro
             showBeat = "52";
             startBeat = "53";
             endBeat = "54";
-            fadeBeat = "55";
+            fadeBeat = "54";
             startCoordinateX = "100"; // only fill this out if movement is wave
             startCoordinateY = "300"; // only fill this out if movement is wave
             endCoordinateX = "700"; // only fill this out if movement is wave
@@ -417,7 +434,7 @@ namespace EnsemPro
             fadeBeat = "57";
             startCoordinateX = "400"; // only fill this out if movement is wave
             startCoordinateY = "100"; // only fill this out if movement is wave
-            endCoordinateX = "400"; // only fill this out if movement is wave
+            endCoordinateX = "200"; // only fill this out if movement is wave
             endCoordinateY = "200"; // only fill this out if movement is wave
             amplitude = "0"; // only fill this out if movement is wave
             writeMovement();
@@ -427,9 +444,9 @@ namespace EnsemPro
             startBeat = "56";
             endBeat = "57";
             fadeBeat = "58";
-            startCoordinateX = "400"; // only fill this out if movement is wave
+            startCoordinateX = "200"; // only fill this out if movement is wave
             startCoordinateY = "200"; // only fill this out if movement is wave
-            endCoordinateX = "400"; // only fill this out if movement is wave
+            endCoordinateX = "600"; // only fill this out if movement is wave
             endCoordinateY = "300"; // only fill this out if movement is wave
             amplitude = "0"; // only fill this out if movement is wave
             writeMovement();
@@ -439,9 +456,9 @@ namespace EnsemPro
             startBeat = "57";
             endBeat = "58";
             fadeBeat = "59";
-            startCoordinateX = "400"; // only fill this out if movement is wave
+            startCoordinateX = "600"; // only fill this out if movement is wave
             startCoordinateY = "300"; // only fill this out if movement is wave
-            endCoordinateX = "400"; // only fill this out if movement is wave
+            endCoordinateX = "200"; // only fill this out if movement is wave
             endCoordinateY = "400"; // only fill this out if movement is wave
             amplitude = "0"; // only fill this out if movement is wave
             writeMovement();
@@ -451,9 +468,9 @@ namespace EnsemPro
             startBeat = "58";
             endBeat = "59";
             fadeBeat = "60";
-            startCoordinateX = "400"; // only fill this out if movement is wave
+            startCoordinateX = "200"; // only fill this out if movement is wave
             startCoordinateY = "400"; // only fill this out if movement is wave
-            endCoordinateX = "400"; // only fill this out if movement is wave
+            endCoordinateX = "600"; // only fill this out if movement is wave
             endCoordinateY = "500"; // only fill this out if movement is wave
             amplitude = "0"; // only fill this out if movement is wave
             writeMovement();
@@ -463,51 +480,51 @@ namespace EnsemPro
             startBeat = "59";
             endBeat = "60";
             fadeBeat = "61";
-            startCoordinateX = "400"; // only fill this out if movement is wave
+            startCoordinateX = "600"; // only fill this out if movement is wave
             startCoordinateY = "500"; // only fill this out if movement is wave
-            endCoordinateX = "400"; // only fill this out if movement is wave
+            endCoordinateX = "200"; // only fill this out if movement is wave
             endCoordinateY = "600"; // only fill this out if movement is wave
             amplitude = "0"; // only fill this out if movement is wave
             writeMovement();
 
             movementType = "shake";
+            showBeat = "60";
             startBeat = "60";
             endBeat = "62";
-            showBeat = "60";
             fadeBeat = "62";
             writeMovement();
 
             movementType = "noop";
+            showBeat = "63";
             startBeat = "63";
             endBeat = "64";
-            showBeat = "63";
             fadeBeat = "64";
             writeMovement();
 
             movementType = "shake";
+            showBeat = "64";
             startBeat = "64";
             endBeat = "66";
-            showBeat = "64";
             fadeBeat = "66";
             writeMovement();
 
             movementType = "noop";
+            showBeat = "66";
             startBeat = "67";
             endBeat = "68";
-            showBeat = "66";
             fadeBeat = "68";
             writeMovement();
 
 
             movementType = "shake";
+            showBeat = "68";
             startBeat = "68";
             endBeat = "70";
-            showBeat = "68";
             fadeBeat = "70";
             writeMovement();
 
             movementType = "wave";
-            showBeat = "71";
+            showBeat = "70";
             startBeat = "72";
             endBeat = "74";
             fadeBeat = "75";
@@ -522,7 +539,7 @@ namespace EnsemPro
             showBeat = "73";
             startBeat = "74";
             endBeat = "76";
-            fadeBeat = "77";
+            fadeBeat = "76";
             startCoordinateX = "400"; // only fill this out if movement is wave
             startCoordinateY = "600"; // only fill this out if movement is wave
             endCoordinateX = "600"; // only fill this out if movement is wave
@@ -543,7 +560,7 @@ namespace EnsemPro
             writeMovement();
 
             movementType = "wave";
-            showBeat = "79";
+            showBeat = "78";
             startBeat = "80";
             endBeat = "81";
             fadeBeat = "82";
@@ -556,7 +573,7 @@ namespace EnsemPro
 
 
             movementType = "wave";
-            showBeat = "80";
+            showBeat = "79";
             startBeat = "81";
             endBeat = "82";
             fadeBeat = "83";
@@ -569,7 +586,7 @@ namespace EnsemPro
 
 
             movementType = "wave";
-            showBeat = "81";
+            showBeat = "80";
             startBeat = "82";
             endBeat = "83";
             fadeBeat = "84";
@@ -684,7 +701,7 @@ namespace EnsemPro
             showBeat = "90";
             startBeat = "91";
             endBeat = "92";
-            fadeBeat = "93";
+            fadeBeat = "95";
             startCoordinateX = "600"; // only fill this out if movement is wave
             startCoordinateY = "500"; // only fill this out if movement is wave
             endCoordinateX = "200"; // only fill this out if movement is wave
@@ -696,7 +713,7 @@ namespace EnsemPro
             showBeat = "91";
             startBeat = "91";
             endBeat = "93";
-            fadeBeat = "94";
+            fadeBeat = "96";
             startCoordinateX = "200"; // only fill this out if movement is wave
             startCoordinateY = "500"; // only fill this out if movement is wave
             endCoordinateX = "500"; // only fill this out if movement is wave
@@ -705,10 +722,10 @@ namespace EnsemPro
             writeMovement();
 
             movementType = "wave";
-            showBeat = "93";
+            showBeat = "92";
             startBeat = "94";
             endBeat = "95";
-            fadeBeat = "96";
+            fadeBeat = "97";
             startCoordinateX = "500"; // only fill this out if movement is wave
             startCoordinateY = "100"; // only fill this out if movement is wave
             endCoordinateX = "400"; // only fill this out if movement is wave
@@ -717,9 +734,9 @@ namespace EnsemPro
             writeMovement();
 
             movementType = "wave";
-            showBeat = "94";
+            showBeat = "93";
             startBeat = "95";
-            endBeat = "97";
+            endBeat = "96";
             fadeBeat = "98";
             startCoordinateX = "400"; // only fill this out if movement is wave
             startCoordinateY = "600"; // only fill this out if movement is wave
@@ -727,6 +744,420 @@ namespace EnsemPro
             endCoordinateY = "100"; // only fill this out if movement is wave
             amplitude = "0"; // only fill this out if movement is wave
             writeMovement();
+
+            movementType = "wave";
+            showBeat = "94";
+            startBeat = "96";
+            endBeat = "98";
+            fadeBeat = "100";
+            startCoordinateX = "200"; // only fill this out if movement is wave
+            startCoordinateY = "100"; // only fill this out if movement is wave
+            endCoordinateX = "600"; // only fill this out if movement is wave
+            endCoordinateY = "500"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "97";
+            startBeat = "99";
+            endBeat = "100";
+            fadeBeat = "101";
+            startCoordinateX = "600"; // only fill this out if movement is wave
+            startCoordinateY = "500"; // only fill this out if movement is wave
+            endCoordinateX = "200"; // only fill this out if movement is wave
+            endCoordinateY = "500"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "99";
+            startBeat = "100";
+            endBeat = "101";
+            fadeBeat = "101";
+            startCoordinateX = "200"; // only fill this out if movement is wave
+            startCoordinateY = "500"; // only fill this out if movement is wave
+            endCoordinateX = "200"; // only fill this out if movement is wave
+            endCoordinateY = "100"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "100";
+            startBeat = "101";
+            endBeat = "102";
+            fadeBeat = "104";
+            startCoordinateX = "200"; // only fill this out if movement is wave
+            startCoordinateY = "100"; // only fill this out if movement is wave
+            endCoordinateX = "600"; // only fill this out if movement is wave
+            endCoordinateY = "100"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "101";
+            startBeat = "102";
+            endBeat = "103";
+            fadeBeat = "104";
+            startCoordinateX = "600"; // only fill this out if movement is wave
+            startCoordinateY = "100"; // only fill this out if movement is wave
+            endCoordinateX = "600"; // only fill this out if movement is wave
+            endCoordinateY = "200"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "102";
+            startBeat = "103";
+            endBeat = "104";
+            fadeBeat = "105";
+            startCoordinateX = "600"; // only fill this out if movement is wave
+            startCoordinateY = "200"; // only fill this out if movement is wave
+            endCoordinateX = "200"; // only fill this out if movement is wave
+            endCoordinateY = "200"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "103";
+            startBeat = "104";
+            endBeat = "105";
+            fadeBeat = "106";
+            startCoordinateX = "200"; // only fill this out if movement is wave
+            startCoordinateY = "200"; // only fill this out if movement is wave
+            endCoordinateX = "200"; // only fill this out if movement is wave
+            endCoordinateY = "300"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "104";
+            startBeat = "105";
+            endBeat = "106";
+            fadeBeat = "107";
+            startCoordinateX = "200"; // only fill this out if movement is wave
+            startCoordinateY = "300"; // only fill this out if movement is wave
+            endCoordinateX = "600"; // only fill this out if movement is wave
+            endCoordinateY = "300"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "105";
+            startBeat = "106";
+            endBeat = "107";
+            fadeBeat = "108";
+            startCoordinateX = "600"; // only fill this out if movement is wave
+            startCoordinateY = "300"; // only fill this out if movement is wave
+            endCoordinateX = "600"; // only fill this out if movement is wave
+            endCoordinateY = "400"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "106";
+            startBeat = "107";
+            endBeat = "108";
+            fadeBeat = "109";
+            startCoordinateX = "600"; // only fill this out if movement is wave
+            startCoordinateY = "400"; // only fill this out if movement is wave
+            endCoordinateX = "200"; // only fill this out if movement is wave
+            endCoordinateY = "400"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "107";
+            startBeat = "108";
+            endBeat = "109";
+            fadeBeat = "110";
+            startCoordinateX = "200"; // only fill this out if movement is wave
+            startCoordinateY = "400"; // only fill this out if movement is wave
+            endCoordinateX = "200"; // only fill this out if movement is wave
+            endCoordinateY = "500"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "108";
+            startBeat = "109";
+            endBeat = "110";
+            fadeBeat = "111";
+            startCoordinateX = "200"; // only fill this out if movement is wave
+            startCoordinateY = "500"; // only fill this out if movement is wave
+            endCoordinateX = "600"; // only fill this out if movement is wave
+            endCoordinateY = "500"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "109";
+            startBeat = "110";
+            endBeat = "111";
+            fadeBeat = "112";
+            startCoordinateX = "600"; // only fill this out if movement is wave
+            startCoordinateY = "500"; // only fill this out if movement is wave
+            endCoordinateX = "100"; // only fill this out if movement is wave
+            endCoordinateY = "100"; // only fill this out if movement is wave
+            amplitude = "70"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "110";
+            startBeat = "111";
+            endBeat = "112";
+            fadeBeat = "113";
+            startCoordinateX = "100"; // only fill this out if movement is wave
+            startCoordinateY = "100"; // only fill this out if movement is wave
+            endCoordinateX = "700"; // only fill this out if movement is wave
+            endCoordinateY = "100"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "111";
+            startBeat = "112";
+            endBeat = "113";
+            fadeBeat = "114";
+            startCoordinateX = "700"; // only fill this out if movement is wave
+            startCoordinateY = "100"; // only fill this out if movement is wave
+            endCoordinateX = "200"; // only fill this out if movement is wave
+            endCoordinateY = "500"; // only fill this out if movement is wave
+            amplitude = "-70"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "112";
+            startBeat = "113";
+            endBeat = "114";
+            fadeBeat = "115";
+            startCoordinateX = "200"; // only fill this out if movement is wave
+            startCoordinateY = "500"; // only fill this out if movement is wave
+            endCoordinateX = "600"; // only fill this out if movement is wave
+            endCoordinateY = "500"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "113";
+            startBeat = "114";
+            endBeat = "115";
+            fadeBeat = "116";
+            startCoordinateX = "600"; // only fill this out if movement is wave
+            startCoordinateY = "500"; // only fill this out if movement is wave
+            endCoordinateX = "100"; // only fill this out if movement is wave
+            endCoordinateY = "100"; // only fill this out if movement is wave
+            amplitude = "70"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "114";
+            startBeat = "115";
+            endBeat = "116";
+            fadeBeat = "117";
+            startCoordinateX = "100"; // only fill this out if movement is wave
+            startCoordinateY = "100"; // only fill this out if movement is wave
+            endCoordinateX = "700"; // only fill this out if movement is wave
+            endCoordinateY = "100"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "115";
+            startBeat = "116";
+            endBeat = "117";
+            fadeBeat = "118";
+            startCoordinateX = "700"; // only fill this out if movement is wave
+            startCoordinateY = "100"; // only fill this out if movement is wave
+            endCoordinateX = "200"; // only fill this out if movement is wave
+            endCoordinateY = "500"; // only fill this out if movement is wave
+            amplitude = "-70"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "116";
+            startBeat = "117";
+            endBeat = "118";
+            fadeBeat = "119";
+            startCoordinateX = "200"; // only fill this out if movement is wave
+            startCoordinateY = "500"; // only fill this out if movement is wave
+            endCoordinateX = "600"; // only fill this out if movement is wave
+            endCoordinateY = "500"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "117";
+            startBeat = "118";
+            endBeat = "119";
+            fadeBeat = "120";
+            startCoordinateX = "600"; // only fill this out if movement is wave
+            startCoordinateY = "500"; // only fill this out if movement is wave
+            endCoordinateX = "100"; // only fill this out if movement is wave
+            endCoordinateY = "100"; // only fill this out if movement is wave
+            amplitude = "70"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "118";
+            startBeat = "119";
+            endBeat = "120";
+            fadeBeat = "121";
+            startCoordinateX = "100"; // only fill this out if movement is wave
+            startCoordinateY = "100"; // only fill this out if movement is wave
+            endCoordinateX = "700"; // only fill this out if movement is wave
+            endCoordinateY = "100"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "119";
+            startBeat = "120";
+            endBeat = "121";
+            fadeBeat = "122";
+            startCoordinateX = "700"; // only fill this out if movement is wave
+            startCoordinateY = "100"; // only fill this out if movement is wave
+            endCoordinateX = "700"; // only fill this out if movement is wave
+            endCoordinateY = "500"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "120";
+            startBeat = "121";
+            endBeat = "122";
+            fadeBeat = "123";
+            startCoordinateX = "700"; // only fill this out if movement is wave
+            startCoordinateY = "500"; // only fill this out if movement is wave
+            endCoordinateX = "100"; // only fill this out if movement is wave
+            endCoordinateY = "500"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "121";
+            startBeat = "122";
+            endBeat = "123";
+            fadeBeat = "124";
+            startCoordinateX = "100"; // only fill this out if movement is wave
+            startCoordinateY = "500"; // only fill this out if movement is wave
+            endCoordinateX = "100"; // only fill this out if movement is wave
+            endCoordinateY = "100"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "122";
+            startBeat = "123";
+            endBeat = "124";
+            fadeBeat = "125";
+            startCoordinateX = "100"; // only fill this out if movement is wave
+            startCoordinateY = "100"; // only fill this out if movement is wave
+            endCoordinateX = "700"; // only fill this out if movement is wave
+            endCoordinateY = "100"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "123";
+            startBeat = "124";
+            endBeat = "125";
+            fadeBeat = "126";
+            startCoordinateX = "700"; // only fill this out if movement is wave
+            startCoordinateY = "100"; // only fill this out if movement is wave
+            endCoordinateX = "700"; // only fill this out if movement is wave
+            endCoordinateY = "500"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+
+            movementType = "wave";
+            showBeat = "124";
+            startBeat = "125";
+            endBeat = "126";
+            fadeBeat = "127";
+            startCoordinateX = "700"; // only fill this out if movement is wave
+            startCoordinateY = "500"; // only fill this out if movement is wave
+            endCoordinateX = "100"; // only fill this out if movement is wave
+            endCoordinateY = "500"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "shake";
+            showBeat = "126";
+            startBeat = "126";
+            endBeat = "128";
+            fadeBeat = "128";
+            writeMovement();
+
+            movementType = "noop";
+            showBeat = "128";
+            startBeat = "128";
+            endBeat = "131";
+            fadeBeat = "131";
+            writeMovement();
+
+            movementType = "shake";
+            showBeat = "131";
+            startBeat = "131";
+            endBeat = "133";
+            fadeBeat = "133";
+            writeMovement();
+
+            movementType = "noop";
+            showBeat = "133";
+            startBeat = "133";
+            endBeat = "134";
+            fadeBeat = "134";
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "134";
+            startBeat = "135";
+            endBeat = "137";
+            fadeBeat = "138";
+            startCoordinateX = "700"; // only fill this out if movement is wave
+            startCoordinateY = "500"; // only fill this out if movement is wave
+            endCoordinateX = "100"; // only fill this out if movement is wave
+            endCoordinateY = "100"; // only fill this out if movement is wave
+            amplitude = "70"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "136";
+            startBeat = "137";
+            endBeat = "138";
+            fadeBeat = "139";
+            startCoordinateX = "100"; // only fill this out if movement is wave
+            startCoordinateY = "500"; // only fill this out if movement is wave
+            endCoordinateX = "700"; // only fill this out if movement is wave
+            endCoordinateY = "100"; // only fill this out if movement is wave
+            amplitude = "-70"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "wave";
+            showBeat = "137";
+            startBeat = "138";
+            endBeat = "139";
+            fadeBeat = "140";
+            startCoordinateX = "400"; // only fill this out if movement is wave
+            startCoordinateY = "500"; // only fill this out if movement is wave
+            endCoordinateX = "400"; // only fill this out if movement is wave
+            endCoordinateY = "100"; // only fill this out if movement is wave
+            amplitude = "0"; // only fill this out if movement is wave
+            writeMovement();
+
+            movementType = "noop";
+            showBeat = "140";
+            startBeat = "140";
+            endBeat = "141";
+            fadeBeat = "141";
+            writeMovement();
+
+            //level ends
+
+
+
+            //ADD MORE MOVEMENTS HERE
 
             end();
         }
@@ -796,18 +1227,3 @@ endCoordinateY = ""; // only fill this out if movement is wave
 amplitude = ""; // only fill this out if movement is wave
 writeMovement();
 */
-
-/* EXAMPLE OF A WAVE MOVEMENT
-movementType = "wave";
-startBeat = "1";
-endBeat = "3";
-showBeat = "2";
-fadeBeat = "4";
-startCoordinateX = "12"; // only fill this out if movement is wave
-startCoordinateY = "12"; // only fill this out if movement is wave
-endCoordinateX = "23"; // only fill this out if movement is wave
-endCoordinateY = "23"; // only fill this out if movement is wave
-amplitude = "6"; // only fill this out if movement is wave
-writeMovement();
-*/
-
