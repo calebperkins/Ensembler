@@ -5,6 +5,7 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 
 namespace EnsemPro
 {
@@ -15,11 +16,12 @@ namespace EnsemPro
         Stopwatch watch = new Stopwatch();
         int current_beat;
         int last_beat;
-        // hardcoded for now
-        int beatTime = 60000 / 100;
+        int beatTime;
 
         int current_score;
+
         SpriteFont font;
+        Texture2D background;
 
         LinkedList<Movement> actionList;
         HashSet<Movement> drawSet;
@@ -39,18 +41,30 @@ namespace EnsemPro
         {
             font = content.Load<SpriteFont>("images//Lucidia");
 
+            DataTypes.LevelData data = content.Load<DataTypes.LevelData>("Levels/B5");
+            Song song = content.Load<Song>(data.SongAssetName);
+            MediaPlayer.IsRepeating = false;
+            MediaPlayer.Play(song);
+            background = content.Load<Texture2D>(data.Background);
+
+            foreach (DataTypes.MovementData md in data.Movements)
+            {
+                actionList.AddLast(new Movement(md));
+            }
+
+            beatTime = data.BPM;
+            moveEval = new MovementEvaluator(actionList.First.Value);
         }
-        public void Initialize(LinkedList<Movement> moves)
+        public void Initialize()
         {
-            actionList = moves;
-            moveEval = new MovementEvaluator(moves.First.Value);
+            
             watch.Start();
         }
-        
+
         public void Update(GameTime gameTime)
         {
             current_beat = (int)Math.Round((float)watch.ElapsedMilliseconds / (float)beatTime);
-            bool newMovement=false;
+            bool newMovement = false;
 
             if (current_beat > last_beat) // new beat
             {
@@ -64,7 +78,7 @@ namespace EnsemPro
 
                 while (checkMove != null)
                 {
-                    
+
                     if (checkMove.Value.showBeat == current_beat)
                     {
                         drawSet.Add(checkMove.Value);
@@ -73,9 +87,9 @@ namespace EnsemPro
                     else if (checkMove.Value.showBeat > current_beat) break;
                     else checkMove = checkMove.Next;
                 }
-                
+
                 // check and remove the head of the list
-                if (actionList.First !=  null && actionList.First.Value.startBeat == current_beat)
+                if (actionList.First != null && actionList.First.Value.startBeat == current_beat)
                 {
                     current_act = actionList.First.Value;
                     actionList.RemoveFirst();
@@ -89,7 +103,7 @@ namespace EnsemPro
                     baton.Flush();
                     moveEval.Update(current_act, gainedScore, newMovement, gameTime);
                 }
-                
+
             }
 
         }
@@ -100,43 +114,45 @@ namespace EnsemPro
         }
 
         public void Draw(SpriteBatch spriteBatch)
-        {      
+        {
+            // Draw background
+            spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
 
-                // Draw beat and score
-                string output = "beat " + current_beat;
-                // Find the center of the string
-                Vector2 FontOrigin = font.MeasureString(output) / 2;
-                // Draw the string
-                spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.White);
-                spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.White);
+            // Draw beat and score
+            string output = "beat " + current_beat;
+            // Find the center of the string
+            Vector2 FontOrigin = font.MeasureString(output) / 2;
+            // Draw the string
+            spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.White);
+            spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.White);
 
             // sort it in ascending way
-                var drawing =
-                from m in drawSet
-                orderby m.showBeat ascending
-                select m;  
-                foreach (Movement m in drawing)
+            var drawing =
+            from m in drawSet
+            orderby m.showBeat ascending
+            select m;
+            foreach (Movement m in drawing)
+            {
+                // the following code is for controlling the alpha value, please do not change
+                float alpha = 0f;
+                if (m.startBeat > current_beat)
                 {
-                    // the following code is for controlling the alpha value, please do not change
-                    float alpha = 0f;
-                    if (m.startBeat > current_beat)
-                    {
-                        int total = (m.startBeat - m.showBeat) * beatTime;
-                        int elapsed = Math.Max(0,(int)watch.ElapsedMilliseconds - m.showBeat * beatTime);
-                        alpha = 1f - elapsed / (float)total;
-                        m.Draw(spriteBatch, alpha, true);
-                    }
-                    else if (m.endBeat < current_beat)
-                    {
-                        int total = (m.fadeBeat - m.endBeat) * beatTime;
-                        int elapsed = Math.Max(0,(int)watch.ElapsedMilliseconds - m.endBeat * beatTime);
-                        alpha = elapsed / (float)total;
-                        m.Draw(spriteBatch, alpha, false);
-                    }
-                    else m.Draw(spriteBatch, alpha, false);
-                    
+                    int total = (m.startBeat - m.showBeat) * beatTime;
+                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.showBeat * beatTime);
+                    alpha = 1f - elapsed / (float)total;
+                    m.Draw(spriteBatch, alpha, true);
                 }
-   
+                else if (m.endBeat < current_beat)
+                {
+                    int total = (m.fadeBeat - m.endBeat) * beatTime;
+                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.endBeat * beatTime);
+                    alpha = elapsed / (float)total;
+                    m.Draw(spriteBatch, alpha, false);
+                }
+                else m.Draw(spriteBatch, alpha, false);
+
+            }
+
         }
 
     }
