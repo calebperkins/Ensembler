@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnsemPro", "EnsemPro\EnsemPro\EnsemPro.csproj", "{C87D0383-7523-4D4B-BEB8-68DC61C7BA56}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "EnsemProContent", "EnsemPro\EnsemProContent\EnsemProContent.contentproj", "{81B4C940-B261-49D4-BF51-7FF754B67067}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnsemProContent", "EnsemPro\EnsemProContent\EnsemProContent.contentproj", "{81B4C940-B261-49D4-BF51-7FF754B67067}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTypes", "DataTypes\DataTypes.csproj", "{57D880B7-17CB-41FA-825E-BB6408093DE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{C87D0383-7523-4D4B-BEB8-68DC61C7BA56}.Release|x86.Build.0 = Release|x86
 		{81B4C940-B261-49D4-BF51-7FF754B67067}.Debug|x86.ActiveCfg = Debug|x86
 		{81B4C940-B261-49D4-BF51-7FF754B67067}.Release|x86.ActiveCfg = Release|x86
+		{57D880B7-17CB-41FA-825E-BB6408093DE0}.Debug|x86.ActiveCfg = Debug|x86
+		{57D880B7-17CB-41FA-825E-BB6408093DE0}.Debug|x86.Build.0 = Debug|x86
+		{57D880B7-17CB-41FA-825E-BB6408093DE0}.Release|x86.ActiveCfg = Release|x86
+		{57D880B7-17CB-41FA-825E-BB6408093DE0}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

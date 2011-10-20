@@ -17,9 +17,8 @@ namespace EnsemPro
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Texture2D background;
+        
 
-        Song song;
         Baton baton;
         SatisfactionQueue satisfaction;
         PlayLevel level;
@@ -61,15 +60,12 @@ namespace EnsemPro
         protected override void LoadContent()
         {
 
-            background = Content.Load<Texture2D>("images\\background");
+            
             satisfaction.LoadContent(Content);
             level.LoadContent(Content);
             Movement.LoadContent(Content);
 
-            song = Content.Load<Song>("images\\b5complete");
-
-            MediaPlayer.IsRepeating = false;
-            MediaPlayer.Play(song);
+            
             base.LoadContent();
         }
 
@@ -115,9 +111,7 @@ namespace EnsemPro
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
-            spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
-            
+            spriteBatch.Begin();            
             level.Draw(spriteBatch);
             satisfaction.Draw(spriteBatch);
 

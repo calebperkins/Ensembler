@@ -1,9 +1,24 @@
-<?xml version='1.0'?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
-<note>
-<to>Tove</to>
-<from>Jani</from>
-<heading>Reminder</heading>
-<body>Don't forget me this weekend!</body>
-</note>
+  <Asset Type="DataTypes.LevelData">
+    <Title>Symphony No. 5</Title>
+    <BPM>600</BPM>
+    <SongAssetName>images\\b5complete</SongAssetName>
+    <Artist>Beethoven</Artist>
+    <Background>images\\background</Background>
+    <Movements>
+      <Item>
+        <Kind>Wave</Kind>
+        <StartBeat>1</StartBeat>
+        <EndBeat>5</EndBeat>
+        <ShowBeat>1</ShowBeat>
+        <FadeBeat>8</FadeBeat>
+        <StartX>300</StartX>
+        <StartY>200</StartY>
+        <EndX>200</EndX>
+        <EndY>400</EndY>
+        <A>0.0</A>
+      </Item>
+    </Movements>
+  </Asset>
 </XnaContent>
