@@ -112,10 +112,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Baton.cs" />
-    <Compile Include="LevelParser.cs" />
     <Compile Include="Display.cs" />
     <Compile Include="Function.cs" />
-    <Compile Include="LevelWriter.cs" />
     <Compile Include="Movement.cs" />
     <Compile Include="MovementEvaluator.cs" />
     <Compile Include="PlayLevel.cs" />

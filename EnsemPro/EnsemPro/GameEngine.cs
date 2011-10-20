@@ -47,9 +47,7 @@ namespace EnsemPro
             baton = new Baton(this, spriteBatch);
             Components.Add(baton);
             level = new PlayLevel(baton);
-            LevelWriter.writeLevel();
-            LinkedList<Movement> moves = LevelParser.getLevel(Content, "b5.xml");
-            level.Initialize(moves);
+            level.Initialize();
             base.Initialize();
         }
 

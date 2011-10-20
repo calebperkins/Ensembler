@@ -40,19 +40,24 @@ namespace EnsemPro
         public void LoadContent(ContentManager content)
         {
             font = content.Load<SpriteFont>("images//Lucidia");
-            
+
             DataTypes.LevelData data = content.Load<DataTypes.LevelData>("Levels/B5");
             Song song = content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(song);
             background = content.Load<Texture2D>(data.Background);
 
+            foreach (DataTypes.MovementData md in data.Movements)
+            {
+                actionList.AddLast(new Movement(md));
+            }
+
             beatTime = data.BPM;
+            moveEval = new MovementEvaluator(actionList.First.Value);
         }
-        public void Initialize(LinkedList<Movement> moves)
+        public void Initialize()
         {
-            actionList = moves;
-            moveEval = new MovementEvaluator(moves.First.Value);
+            
             watch.Start();
         }
 

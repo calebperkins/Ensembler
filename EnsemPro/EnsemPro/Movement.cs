@@ -94,22 +94,29 @@ namespace EnsemPro
             set;
         }
 
-        public Movement(Movement.Types type, int show_b, int sb, int eb, int fade_b)
+        public Movement(DataTypes.MovementData md)
         {
-            myType = type;
-            startBeat = sb;
-            endBeat = eb;
-            showBeat = show_b;
-            fadeBeat = fade_b;
+            startBeat = md.StartBeat;
+            endBeat = md.EndBeat;
+            showBeat = md.ShowBeat;
+            fadeBeat = md.FadeBeat;
             myState = States.None;
-        }
-
-        public Movement(Movement.Types type, int show_b, int sb, int eb, int fade_b, Point sc, Point ec, Function f)
-            : this(type, show_b, sb, eb, fade_b)
-        {
-            startCoordinate = sc; // Note that the coordinate assumes (0,0) is bottom left
-            endCoordinate = ec;   // Note that the coordinate assumes (0,0) is bottom left
-            this.f = f;
+            switch (md.Kind)
+            {
+                case "Wave":
+                    myType = Types.Wave;
+                    f = new Function();
+                    startCoordinate = new Point(md.StartX, md.StartY);
+                    endCoordinate = new Point(md.EndX, md.EndY);
+                    f.InitializeCurve(Function.Types.Curve, this, 100, md.A); // TODO: replace hard coded BPM
+                    break;
+                case "Shake":
+                    myType = Types.Shake;
+                    break;
+                default:
+                    myType = Types.Noop;
+                    break;
+            }
         }
 
         public void setState(States s){
