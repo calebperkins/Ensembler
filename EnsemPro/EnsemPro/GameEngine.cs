@@ -39,9 +39,9 @@ namespace EnsemPro
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            satisfaction = new SatisfactionQueue();
             baton = new Baton(this, spriteBatch);
             baton.DrawOrder = 1;
+            satisfaction = new SatisfactionQueue(baton);
             Components.Add(baton);
             level = new PlayLevel(this, baton, spriteBatch);
             level.DrawOrder = 0;
@@ -85,12 +85,6 @@ namespace EnsemPro
                 Restart();
 
             satisfaction.Update(gameTime);
-
-            // Not sure if it's the best way to add stars, but here it is for now
-            if (gameTime.TotalGameTime.Ticks % 2 == 0)
-            {
-                satisfaction.Add(baton.Position);
-            }
             base.Update(gameTime);
 
         }
