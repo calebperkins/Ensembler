@@ -7,12 +7,6 @@ namespace EnsemPro
     public class Function
     {
 
-        public enum Types
-        {
-            Line,
-            Curve
-        }
-
         const float INTERVAL_TIME = 1.0f / 60; // Time of each frame in seconds
         Movement movement;
 
@@ -37,56 +31,6 @@ namespace EnsemPro
             private set;
         }
 
-        public Function()
-        {
-        }
-
-        public Types Form
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Constructor for Line
-        /// Line defined by startCoordinate and endCoordinate of movement
-        /// </summary>
-        /// <param name="type"></param>
-        /// <param name="movement"></param>
-        public void InitializeLine(Types type, Movement movement, int bpm)
-        {
-            if (type != Types.Line) Debug.WriteLine("Line constructor called with type that is not line");
-
-            // Same code as constructor for parabola
-            Form = type;
-            this.movement = movement;
-            Size = (int)((movement.endBeat - movement.startBeat + 1) / (float)bpm * 60 / INTERVAL_TIME);
-            //Console.WriteLine("INTERVAL_TIME " + INTERVAL_TIME);
-            //Console.WriteLine("Size " + Size);
-
-            Positions = new Vector2[Size];
-            Slopes = new float[Size];
-
-            float incre = (movement.endCoordinate.X - movement.startCoordinate.X) / (float)Size;
-            float curX = movement.startCoordinate.X;
-            // Same code as constructor for parabola
-
-            float curY = movement.startCoordinate.Y;
-            float slope = (movement.endCoordinate.Y - movement.startCoordinate.Y) /
-                (movement.endCoordinate.X - movement.startCoordinate.X);
-
-            for (int i = 0; i < Size; i++)
-            {
-                Positions[i].X = curX;
-                Positions[i].Y = curY;
-                Slopes[i] = slope;
-                curX += incre;
-                curY += incre * slope;
-
-                Console.WriteLine(Positions[i].X + " " + Positions[i].Y + " " + Slopes[i]);
-            }
-        }
-
         /// <summary>
         /// Draws a curve between startCoordinate and endCoordinate of movement according to the max offset,
         /// specified by amp. Drawn using a sine function with rotation
@@ -96,11 +40,8 @@ namespace EnsemPro
         /// <param name="movement"></param>
         /// <param name="bpm"></param>
         /// <param name="amp"></param>
-        public void InitializeCurve(Types type, Movement movement, int bpm, float amp)
+        public Function(Movement movement, int bpm, float amp)
         {
-            if (type != Types.Curve) Debug.WriteLine("Curve constructor called with type that is not Curve");
-
-            Form = type;
             this.movement = movement;
             Size = (int)((movement.endBeat - movement.startBeat + 1) / (float)bpm * 60 / INTERVAL_TIME);
             Positions = new Vector2[Size + 1];

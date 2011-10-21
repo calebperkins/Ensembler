@@ -11,7 +11,6 @@ namespace EnsemPro
             Shake,
             Noop,
             Wave,
-            Nonsense // for parseryy
         }
 
         public enum States
@@ -105,10 +104,9 @@ namespace EnsemPro
             {
                 case "Wave":
                     myType = Types.Wave;
-                    f = new Function();
                     startCoordinate = new Point(md.StartX, md.StartY);
                     endCoordinate = new Point(md.EndX, md.EndY);
-                    f.InitializeCurve(Function.Types.Curve, this, 100, md.A); // TODO: replace hard coded BPM
+                    f = new Function(this, 100, md.A); // TODO: replace hard coded BPM
                     break;
                 case "Shake":
                     myType = Types.Shake;
