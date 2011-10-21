@@ -15,8 +15,6 @@ namespace EnsemPro
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        
-
         Baton baton;
         SatisfactionQueue satisfaction;
         PlayLevel level;
@@ -43,9 +41,11 @@ namespace EnsemPro
 
             satisfaction = new SatisfactionQueue();
             baton = new Baton(this, spriteBatch);
+            baton.DrawOrder = 1;
             Components.Add(baton);
-            level = new PlayLevel(baton);
-            level.Initialize();
+            level = new PlayLevel(this, baton, spriteBatch);
+            level.DrawOrder = 0;
+            Components.Add(level);
             base.Initialize();
         }
 
@@ -55,12 +55,9 @@ namespace EnsemPro
         /// </summary>
         protected override void LoadContent()
         {
-
             
             satisfaction.LoadContent(Content);
-            level.LoadContent(Content);
             Movement.LoadContent(Content);
-
             
             base.LoadContent();
         }
@@ -87,7 +84,6 @@ namespace EnsemPro
             if (Keyboard.GetState().IsKeyDown(Keys.R))
                 Restart();
 
-            level.Update(gameTime);
             satisfaction.Update(gameTime);
 
             // Not sure if it's the best way to add stars, but here it is for now
@@ -107,12 +103,9 @@ namespace EnsemPro
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();            
-            level.Draw(spriteBatch);
-            satisfaction.Draw(spriteBatch);
-
-
+            spriteBatch.Begin();
             base.Draw(gameTime);
+            satisfaction.Draw(spriteBatch);
             spriteBatch.End();
         }
 

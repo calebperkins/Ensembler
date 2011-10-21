@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace EnsemPro
 {
-    public class PlayLevel
+    public class PlayLevel : DrawableGameComponent
     {
 
         //public const float INTERVAL_TIME = 1.0f;
@@ -21,6 +21,7 @@ namespace EnsemPro
         int current_score;
 
         SpriteFont font;
+        SpriteBatch spriteBatch;
         Texture2D background;
 
         LinkedList<Movement> actionList;
@@ -30,22 +31,23 @@ namespace EnsemPro
         Baton baton;
         MovementEvaluator moveEval;
 
-        public PlayLevel(Baton b)
+        public PlayLevel(Game g, Baton b, SpriteBatch sb) : base(g)
         {
             actionList = new LinkedList<Movement>();
             drawSet = new HashSet<Movement>();
             baton = b;
+            spriteBatch = sb;
         }
 
-        public void LoadContent(ContentManager content)
+        protected override void LoadContent()
         {
-            font = content.Load<SpriteFont>("images//Lucidia");
+            font = Game.Content.Load<SpriteFont>("images//Lucidia");
 
-            DataTypes.LevelData data = content.Load<DataTypes.LevelData>("Levels/B5");
-            Song song = content.Load<Song>(data.SongAssetName);
+            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/B5");
+            Song song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(song);
-            background = content.Load<Texture2D>(data.Background);
+            background = Game.Content.Load<Texture2D>(data.Background);
 
             foreach (DataTypes.MovementData md in data.Movements)
             {
@@ -54,14 +56,16 @@ namespace EnsemPro
 
             beatTime = data.BPM;
             moveEval = new MovementEvaluator(actionList.First.Value);
-        }
-        public void Initialize()
-        {
-            
-            watch.Start();
+            base.LoadContent();
         }
 
-        public void Update(GameTime gameTime)
+        public override void Initialize()
+        {    
+            watch.Start();
+            base.Initialize();
+        }
+
+        public override void Update(GameTime gameTime)
         {
             current_beat = (int)Math.Round((float)watch.ElapsedMilliseconds / (float)beatTime);
             bool newMovement = false;
@@ -113,7 +117,7 @@ namespace EnsemPro
             return m.fadeBeat < current_beat;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(GameTime t)
         {
             // Draw background
             spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
