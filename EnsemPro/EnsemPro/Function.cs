@@ -10,17 +10,32 @@ namespace EnsemPro
         public enum Types
         {
             Line,
-            Parabola,
             Curve
         }
-        
+
         const float INTERVAL_TIME = 1.0f / 60; // Time of each frame in seconds
-        int numIntervals;
-        Types type;
         Movement movement;
 
-        Vector2[] pos;
-        float[] slopes;
+        /// <summary>
+        /// The number of intervals
+        /// </summary>
+        public int Size
+        {
+            get;
+            private set;
+        }
+
+        public Vector2[] Positions
+        {
+            get;
+            private set;
+        }
+
+        public float[] Slopes
+        {
+            get;
+            private set;
+        }
 
         public Function()
         {
@@ -28,7 +43,8 @@ namespace EnsemPro
 
         public Types Form
         {
-            get {return type;}
+            get;
+            private set;
         }
 
         /// <summary>
@@ -39,82 +55,42 @@ namespace EnsemPro
         /// <param name="movement"></param>
         public void InitializeLine(Types type, Movement movement, int bpm)
         {
-            if (type != Types.Line) Console.WriteLine("Line constructor called with type that is not line");
-            
+            if (type != Types.Line) Debug.WriteLine("Line constructor called with type that is not line");
+
             // Same code as constructor for parabola
-            this.type = type;
+            Form = type;
             this.movement = movement;
-            numIntervals = (int) ((movement.endBeat - movement.startBeat + 1) / (float) bpm * 60 / INTERVAL_TIME);
+            Size = (int)((movement.endBeat - movement.startBeat + 1) / (float)bpm * 60 / INTERVAL_TIME);
             //Console.WriteLine("INTERVAL_TIME " + INTERVAL_TIME);
-            //Console.WriteLine("numIntervals " + numIntervals);
+            //Console.WriteLine("Size " + Size);
 
-            pos = new Vector2[numIntervals];
-            slopes = new float[numIntervals];
+            Positions = new Vector2[Size];
+            Slopes = new float[Size];
 
-            float incre = (movement.endCoordinate.X - movement.startCoordinate.X) / (float)numIntervals;
+            float incre = (movement.endCoordinate.X - movement.startCoordinate.X) / (float)Size;
             float curX = movement.startCoordinate.X;
             // Same code as constructor for parabola
 
             float curY = movement.startCoordinate.Y;
-            float slope = (movement.endCoordinate.Y - movement.startCoordinate.Y) / 
+            float slope = (movement.endCoordinate.Y - movement.startCoordinate.Y) /
                 (movement.endCoordinate.X - movement.startCoordinate.X);
-            
-            for (int i = 0; i < numIntervals; i++)
+
+            for (int i = 0; i < Size; i++)
             {
-                pos[i].X = curX;
-                pos[i].Y = curY;
-                slopes[i] = slope;
+                Positions[i].X = curX;
+                Positions[i].Y = curY;
+                Slopes[i] = slope;
                 curX += incre;
                 curY += incre * slope;
 
-                Console.WriteLine(pos[i].X + " " + pos[i].Y + " " + slopes[i]);
+                Console.WriteLine(Positions[i].X + " " + Positions[i].Y + " " + Slopes[i]);
             }
         }
 
-        /// <summary>
-        /// Constructor for parabola
-        /// Parabola defined through vertex form y = a (x - h)^2 + k, where a is vertical stretch factor and 
-        /// (h,k) is vertex
-        /// </summary>
-        /// <param name="type"></param>
-        /// <param name="movement"></param>
-        /// <param name="a"></param>
-        /// <param name="vertex"></param>
-        public void InitializeParabola(Types type, Movement movement,int bpm, Point vertex)
-        {
-            if (type != Types.Parabola) Console.WriteLine("Parabola constructor called with type that is not Parabola");
-
-            // Same code as constructor for line
-            this.type = type;
-            this.movement = movement;
-            numIntervals = (int)((movement.endBeat - movement.startBeat + 1) / (float)bpm * 60 / INTERVAL_TIME);
-            //Console.WriteLine("INTERVAL_TIME " + INTERVAL_TIME);
-            //Console.WriteLine("numIntervals " + numIntervals);
-
-            pos = new Vector2[numIntervals];
-            slopes = new float[numIntervals];
-
-            float incre = (movement.endCoordinate.X - movement.startCoordinate.X) / (float)numIntervals;
-            float curX = movement.startCoordinate.X;
-            // Same code as constructor for line
-
-            float a = (movement.endCoordinate.X-movement.startCoordinate.X)/(float) Math.Pow (movement.endCoordinate.X- movement.startCoordinate.X, 2);
-
-            for (int i = 0; i < numIntervals; i++)
-            {
-                pos[i].X = curX;
-                pos[i].Y = a * (float) (Math.Pow(curX - vertex.X, 2)) + vertex.Y;
-                slopes[i] = 2 * a * (curX - vertex.X);
-                curX += incre;
-
-                //Console.WriteLine(pos[i].X + " " + pos[i].Y + " " + slopes[i]);
-            }
-        }
-        
         /// <summary>
         /// Draws a curve between startCoordinate and endCoordinate of movement according to the max offset,
         /// specified by amp. Drawn using a sine function with rotation
-        /// Note that both pos and slope have length of number of intervals + 1. This is for drawing purpose only.
+        /// Note that both Positions and slope have length of number of intervals + 1. This is for drawing purpose only.
         /// </summary>
         /// <param name="type"></param>
         /// <param name="movement"></param>
@@ -124,11 +100,11 @@ namespace EnsemPro
         {
             if (type != Types.Curve) Debug.WriteLine("Curve constructor called with type that is not Curve");
 
-            this.type = type;
+            Form = type;
             this.movement = movement;
-            numIntervals = (int)((movement.endBeat - movement.startBeat + 1) / (float)bpm * 60 / INTERVAL_TIME);
-            pos = new Vector2[numIntervals + 1];
-            slopes = new float[numIntervals + 1];
+            Size = (int)((movement.endBeat - movement.startBeat + 1) / (float)bpm * 60 / INTERVAL_TIME);
+            Positions = new Vector2[Size + 1];
+            Slopes = new float[Size + 1];
 
             // Change coordinates so that (0,0) is bottom left
             float oStartX = movement.startCoordinate.X;
@@ -139,10 +115,10 @@ namespace EnsemPro
             float curX = 0;
 
             float length = Vector2.Distance(new Vector2(oStartX, oStartY), new Vector2(oEndX, oEndY));
-            float incre = length / numIntervals;        
-            float k = (float) (Math.PI / length);
+            float incre = length / Size;
+            float k = (float)(Math.PI / length);
 
-            for (int i = 0; i < (numIntervals + 1); i++)
+            for (int i = 0; i < (Size + 1); i++)
             {
                 // Unrotated coordinate and slope
                 float pX = curX + oStartX;
@@ -150,7 +126,7 @@ namespace EnsemPro
                 float pSlope = (float)(amp * k * Math.Cos(k * curX));
 
                 float yInt = pY - pSlope * pX;
-                
+
                 // Rotation angle
                 double theta = Math.Atan((oEndY - oStartY) / (oEndX - oStartX));
                 if (oEndX < oStartX) theta += Math.PI;
@@ -160,41 +136,13 @@ namespace EnsemPro
                 float rY = (float)(Math.Sin(theta) * (pX - oStartX) + Math.Cos(theta) * (pY - oStartY) + oStartY);
                 float oX = (float)(Math.Cos(theta) * (0 - oStartX) - Math.Sin(theta) * (yInt - oStartY) + oStartX);
                 float oY = (float)(Math.Sin(theta) * (0 - oStartX) + Math.Cos(theta) * (yInt - oStartY) + oStartY);
-                
-                pos[i].X = rX;
-                pos[i].Y = GameEngine.HEIGHT - rY;
-                slopes[i] = (rY - oY) / (rX - oX);
-                //if (float.IsNegativeInfinity(slopes[i]))
-                //    slopes[i] = float.MinValue;
-                
-                //Console.WriteLine(slopes[i]);
+
+                Positions[i].X = rX;
+                Positions[i].Y = GameEngine.HEIGHT - rY;
+                Slopes[i] = (rY - oY) / (rX - oX);
 
                 curX += incre;
             }
         }
-
-        /// <summary>
-        /// Returns an array of Vector2 representing positions
-        /// </summary>
-        /// <returns></returns>
-        public Vector2[] Positions
-        {
-            get { return pos; }
-        }
-
-        /// <summary>
-        /// Returns an array of slopes
-        /// </summary>
-        /// <returns></returns>
-        public float[] Slopes
-        {
-            get { return slopes; }
-        }
-
-        public int Size
-        {
-            get { return numIntervals; }
-        }
-
     }
 }
