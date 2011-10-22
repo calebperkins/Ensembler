@@ -10,7 +10,10 @@ namespace EnsemPro
         public const float FAIL_THRESHOLD = 0.4f;
         public const float ACC_THRESHOLD = 0.05f;
 
+        //fdfdf/dfdf/df//dfdf
+
         Movement currentMovement;
+        float localScore; // score for this movement
 
         public MovementEvaluator(Movement m)
         {
