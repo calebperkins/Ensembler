@@ -41,13 +41,19 @@ namespace EnsemPro
                         }
                         return (float)correct / totalInput;
                     case Movement.Types.Wave:
-                        Function f = currentMovement.f;
+                        Vector2[] slopes = currentMovement.f.Slopes;
+                        float errorSum = 0.0f;
                         for (int i = 1; i < totalInput; i++)
                         {
-                            inputs[i].acceleration.Normalize();
-
+                            inputs[i].velocity.Normalize();
+                            Vector2 normVel = inputs[i].velocity;
+                            Vector2 slope = slopes[i];
+                            errorSum += (normVel.X - slope.X) * (normVel.X - slope.X) + (normVel.Y - slope.Y) * (normVel.Y - slope.Y);
                         }
-                        
+                        float rmsError = (float)Math.Sqrt((double)errorSum / (double)(totalInput - 1));
+
+                        Console.WriteLine("RMS ERROR is " + rmsError);
+
                         /*
                         foreach (InputState input in inputs)
                         {
