@@ -81,7 +81,6 @@ namespace EnsemPro
                 }
 
                 currentMovement = m; // update movement
-                localScore = 0.0f; // reset score
             }
         }
     }
