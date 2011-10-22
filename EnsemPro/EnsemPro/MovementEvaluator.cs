@@ -18,7 +18,7 @@ namespace EnsemPro
         }
 
         /*Returns a floating number 0 to 1 which indicates how well the input is matching the movement */
-        public float Accuracy(Movement m, ICollection<InputState> inputs, GameTime t)
+        public float Accuracy(Movement m, List<InputState> inputs, GameTime t)
         {
             int totalInput = inputs.Count;
             int correct = 0;
@@ -32,13 +32,17 @@ namespace EnsemPro
                 switch (currentMovement.myType)
                 {
                     case Movement.Types.Shake:
-                        foreach (InputState state in inputs)
+                        for (int i = 0; i < totalInput; i++)
                         {
-                            if (Math.Abs(state.acceleration.X) > ACC_THRESHOLD || Math.Abs(state.acceleration.Y) > ACC_THRESHOLD)
-                            {
-                                correct++;
-                            }
+                            Console.WriteLine(inputs[i].acceleration);
                         }
+                            foreach (InputState state in inputs)
+                            {
+                                if (Math.Abs(state.acceleration.X) > ACC_THRESHOLD || Math.Abs(state.acceleration.Y) > ACC_THRESHOLD)
+                                {
+                                    correct++;
+                                }
+                            }
                         return (float)correct / totalInput;
                     case Movement.Types.Wave:
                         Function f = currentMovement.f;

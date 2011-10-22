@@ -43,7 +43,7 @@ namespace EnsemPro
         {
             font = Game.Content.Load<SpriteFont>("images//Lucidia");
 
-            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/B5");
+            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/b5short");
             Song song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(song);
