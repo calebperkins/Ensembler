@@ -32,20 +32,23 @@ namespace EnsemPro
                 switch (currentMovement.myType)
                 {
                     case Movement.Types.Shake:
-                        for (int i = 0; i < totalInput; i++)
+                        foreach (InputState state in inputs)
                         {
-                            Console.WriteLine(inputs[i].acceleration);
-                        }
-                            foreach (InputState state in inputs)
+                            if (Math.Abs(state.acceleration.X) > ACC_THRESHOLD || Math.Abs(state.acceleration.Y) > ACC_THRESHOLD)
                             {
-                                if (Math.Abs(state.acceleration.X) > ACC_THRESHOLD || Math.Abs(state.acceleration.Y) > ACC_THRESHOLD)
-                                {
-                                    correct++;
-                                }
+                                correct++;
                             }
+                        }
                         return (float)correct / totalInput;
                     case Movement.Types.Wave:
                         Function f = currentMovement.f;
+                        for (int i = 1; i < totalInput; i++)
+                        {
+                            inputs[i].acceleration.Normalize();
+
+                        }
+                        
+                        /*
                         foreach (InputState input in inputs)
                         {
                             if (totalInput >= f.Slopes.Length)
@@ -54,6 +57,7 @@ namespace EnsemPro
                             if (dist < 150)
                                 correct++;
                         }
+                         * */
                         return correct / (float)totalInput;
 
                     default: // no movement
