@@ -75,22 +75,24 @@ namespace EnsemPro
                 MouseState ms = Mouse.GetState();
                 pos.X = Math.Max(Math.Min(GameEngine.WIDTH, ms.X), 0);
                 pos.Y = Math.Max(Math.Min(GameEngine.HEIGHT, ms.Y), 0);
-
-                float time = gameTime.ElapsedGameTime.Milliseconds; // time elapsed since last update
-                Vector2 posDiff = new Vector2(pos.X - lastPos.X, pos.Y - lastPos.Y); // change in displacement
-                Vector2 newVel = new Vector2(posDiff.X / time, posDiff.Y / time); // new velocity
-                Vector2 velDiff = new Vector2(newVel.X-lastVel.X,newVel.Y-lastVel.Y); // change in velocity
-                Vector2 newAcc = new Vector2(velDiff.X / time, velDiff.Y / time); // new acceleration
-
-                // add to inputstate
-                i.velocity = newVel;
-                i.acceleration = newAcc; 
-
-                lastPos = pos; // update
-                lastVel = newVel;
             }
+            float time = gameTime.ElapsedGameTime.Milliseconds; // time elapsed since last update
+            Vector2 posDiff = new Vector2(pos.X - lastPos.X, pos.Y - lastPos.Y); // change in displacement
+            Vector2 newVel = new Vector2(posDiff.X / time, posDiff.Y / time); // new velocity
+            Vector2 velDiff = new Vector2(newVel.X-lastVel.X,newVel.Y-lastVel.Y); // change in velocity
+            Vector2 newAcc = new Vector2(velDiff.X / time, velDiff.Y / time); // new acceleration
+
+            // add to inputstate
+            i.velocity = newVel;
+            i.acceleration = (wii_activated ? i.acceleration : newAcc); 
             i.position = pos;
-            buffer.Add(i);
+
+            if (posDiff.X > 3.0f || posDiff.Y > 3.0f) // add only only if the baton has moved at least a decent amount of distance 
+            {
+                buffer.Add(i);
+            }
+            lastPos = pos; // update
+            lastVel = newVel;
         }
 
         public override void Draw(GameTime t)

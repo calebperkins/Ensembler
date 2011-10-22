@@ -11,7 +11,6 @@ namespace EnsemPro
         public const float ACC_THRESHOLD = 0.05f;
 
         Movement currentMovement;
-        float localScore; // score for this movement
 
         public MovementEvaluator(Movement m)
         {
