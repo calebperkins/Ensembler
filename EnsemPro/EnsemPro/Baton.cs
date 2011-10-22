@@ -89,7 +89,7 @@ namespace EnsemPro
             i.acceleration = (wii_activated ? i.acceleration : newAcc); 
             i.position = pos;
 
-            Console.WriteLine(posDiff.X + " " + posDiff.Y);
+            //Console.WriteLine(posDiff.X + " " + posDiff.Y);
 
             if (Math.Abs (posDiff.X) > POS_DIFF_THRESHOLD || Math.Abs(posDiff.Y) > POS_DIFF_THRESHOLD) // add only only if the baton has moved at least a decent amount of distance 
             {

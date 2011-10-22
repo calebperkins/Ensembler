@@ -9,6 +9,7 @@ namespace EnsemPro
     {
         public const float FAIL_THRESHOLD = 0.4f;
         public const float ACC_THRESHOLD = 0.05f;
+        public const float MAGIC_WAVE_THRESHOLD = 0.6f / .5f;
 
         Movement currentMovement;
 
@@ -22,7 +23,7 @@ namespace EnsemPro
         {
             int totalInput = inputs.Count;
             int correct = 0;
-            if (totalInput < 20) // if not many inputs, player hasn't moved that much => FAIL
+            if (totalInput < (currentMovement.myType == Movement.Types.Shake ? 20 :5)) // if not many inputs, player hasn't moved that much => FAIL
             {
                 Console.WriteLine("YAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
                 return 0.00005f;
@@ -45,15 +46,18 @@ namespace EnsemPro
                         float errorSum = 0.0f;
                         for (int i = 1; i < totalInput; i++)
                         {
-                            inputs[i].velocity.Normalize();
-                            Vector2 normVel = inputs[i].velocity;
+                            Console.WriteLine("slope is "+ slopes[i]);
+                            
+                            Vector2 normVel = Vector2.Normalize(inputs[i].velocity);
+                            Console.WriteLine("after normalize "+normVel);
                             Vector2 slope = slopes[i];
                             errorSum += (normVel.X - slope.X) * (normVel.X - slope.X) + (normVel.Y - slope.Y) * (normVel.Y - slope.Y);
                         }
                         float rmsError = (float)Math.Sqrt((double)errorSum / (double)(totalInput - 1));
 
-                        Console.WriteLine("RMS ERROR is " + rmsError);
-
+                        Console.WriteLine("RMS ERROR is " + rmsError + "TOTAL INPUT " + totalInput);
+                        Console.WriteLine("RETURNS " + (1 - rmsError * MAGIC_WAVE_THRESHOLD));
+                        return (1 - rmsError * MAGIC_WAVE_THRESHOLD);
                         /*
                         foreach (InputState input in inputs)
                         {
@@ -63,8 +67,8 @@ namespace EnsemPro
                             if (dist < 150)
                                 correct++;
                         }
-                         * */
-                        return correct / (float)totalInput;
+                        
+                        return correct / (float)totalInput; */
 
                     default: // no movement
                         return 0.0f;
@@ -78,7 +82,7 @@ namespace EnsemPro
             {
                 Debug.WriteLine("NEW MOVEMENT!");
                 // send score back to Movement
-                if (score <= FAIL_THRESHOLD && score >= 0.0f)
+                if (score <= FAIL_THRESHOLD)
                 {
                     Debug.WriteLine("state is FAIL");
                     currentMovement.setState(Movement.States.Fail);

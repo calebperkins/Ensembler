@@ -80,7 +80,8 @@ namespace EnsemPro
 
                 Positions[i].X = rX;
                 Positions[i].Y = GameEngine.HEIGHT - rY;
-                Slopes[i] = Vector2.Normalize(new Vector2(rX - oX, rY - oY));
+                //Slopes[i] = Vector2.Normalize(new Vector2(rX - oX, rY - oY));
+                Slopes[i] = Vector2.Normalize(new Vector2(oEndX - oStartX, oStartY - oEndY));
 
                 curX += incre;
             }
