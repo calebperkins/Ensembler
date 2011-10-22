@@ -28,6 +28,8 @@ namespace EnsemPro
         Texture2D batonTexture;
         SpriteBatch spriteBatch;
 
+        const float POS_DIFF_THRESHOLD = 5.0f;
+
         public Baton(Game g, SpriteBatch sb) : base(g)
         {
             shadow = new Color(0, 0, 0, 128);
@@ -87,7 +89,9 @@ namespace EnsemPro
             i.acceleration = (wii_activated ? i.acceleration : newAcc); 
             i.position = pos;
 
-            if (posDiff.X > 3.0f || posDiff.Y > 3.0f) // add only only if the baton has moved at least a decent amount of distance 
+            Console.WriteLine(posDiff.X + " " + posDiff.Y);
+
+            if (Math.Abs (posDiff.X) > POS_DIFF_THRESHOLD || Math.Abs(posDiff.Y) > POS_DIFF_THRESHOLD) // add only only if the baton has moved at least a decent amount of distance 
             {
                 buffer.Add(i);
             }

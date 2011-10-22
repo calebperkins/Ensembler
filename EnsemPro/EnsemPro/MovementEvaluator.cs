@@ -22,9 +22,9 @@ namespace EnsemPro
         {
             int totalInput = inputs.Count;
             int correct = 0;
-
             if (totalInput < 20) // if not many inputs, player hasn't moved that much => FAIL
             {
+                Console.WriteLine("YAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
                 return 0.00005f;
             }
             else
