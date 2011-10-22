@@ -87,7 +87,7 @@ namespace EnsemPro
             i.acceleration = (wii_activated ? i.acceleration : newAcc); 
             i.position = pos;
 
-            if (posDiff.X > 3.0f || posDiff.Y > 3.0f) // add only only if the baton has moved at least a decent amount of distance 
+            if (Math.Abs(posDiff.X) > 5.0f || Math.Abs(posDiff.Y) > 5.0f) // add only only if the baton has moved at least a decent amount of distance 
             {
                 buffer.Add(i);
             }
@@ -111,7 +111,7 @@ namespace EnsemPro
             buffer.Clear();
         }
 
-        public ICollection<InputState> Buffer
+        public List<InputState> Buffer
         {
             get { return buffer; }
         }
