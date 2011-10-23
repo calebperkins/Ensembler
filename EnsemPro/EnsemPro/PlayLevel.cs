@@ -17,7 +17,7 @@ namespace EnsemPro
         int current_beat;
         int last_beat;
         int beatTime;
-
+int c = 0;
         int current_score;
 
         SpriteFont font;
@@ -46,7 +46,7 @@ namespace EnsemPro
         {
             font = Game.Content.Load<SpriteFont>("images//Lucidia");
 
-            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/B5");
+            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/b5short");
             Song song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(song);
@@ -75,13 +75,16 @@ namespace EnsemPro
         {
             current_beat = (int)Math.Round((float)watch.ElapsedMilliseconds / (float)beatTime);
             bool newMovement = false;
-
+            
             if (current_beat > last_beat) // new beat
             {
                 last_beat = current_beat;
-                newMovement = true;
-                if (current_act != null && current_act.endBeat < current_beat) current_act = null;
-
+                if (current_act != null && current_act.endBeat < current_beat)
+                {
+                    current_act = null;
+                    
+                    
+                }
                 LinkedListNode<Movement> checkMove = actionList.First;
 
                 drawSet.RemoveWhere(Expired);
@@ -102,16 +105,21 @@ namespace EnsemPro
                 if (actionList.First != null && actionList.First.Value.startBeat == current_beat)
                 {
                     current_act = actionList.First.Value;
-                    actionList.RemoveFirst();
-                }
+                    actionList.RemoveFirst();c++;newMovement = true;
+                }Console.WriteLine("this is movement " + c);
                 if (current_act != null)
                 {
+                    
                     float score = moveEval.Accuracy(current_act, baton.Buffer, gameTime);
                     float gainedScore = score * 10 - (float)score;
                     if (actionList.First != null) // prevents score from endlessly increasing
                         current_score += (int)(score * 10);
-                    baton.Flush();
-                    moveEval.Update(current_act, gainedScore, newMovement, gameTime);
+                    Console.WriteLine("number of inputs " + baton.Buffer.Count);
+                    if (newMovement) {baton.Flush();
+                    Console.WriteLine("new movement! number of inputs" + baton.Buffer.Count);
+                    } 
+                    Console.WriteLine("score passed to moveEval's update is " + score);
+                    moveEval.Update(current_act, score, newMovement, gameTime);
                 }
 
             }

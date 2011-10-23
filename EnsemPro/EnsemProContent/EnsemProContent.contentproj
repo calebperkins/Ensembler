@@ -152,6 +152,13 @@
   <ItemGroup>
     <Compile Include="Characters\alice_map.xml">
       <Name>alice_map</Name>
+	  <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+	</Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Levels\b5short.xml">
+      <Name>b5short</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>

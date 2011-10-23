@@ -25,7 +25,7 @@ namespace EnsemPro
             private set;
         }
 
-        public float[] Slopes
+        public Vector2[] Slopes
         {
             get;
             private set;
@@ -45,7 +45,7 @@ namespace EnsemPro
             this.movement = movement;
             Size = (int)((movement.endBeat - movement.startBeat + 1) / (float)bpm * 60 / INTERVAL_TIME);
             Positions = new Vector2[Size + 1];
-            Slopes = new float[Size + 1];
+            Slopes = new Vector2[Size + 1];
 
             // Change coordinates so that (0,0) is bottom left
             float oStartX = movement.startCoordinate.X;
@@ -80,7 +80,8 @@ namespace EnsemPro
 
                 Positions[i].X = rX;
                 Positions[i].Y = GameEngine.HEIGHT - rY;
-                Slopes[i] = (rY - oY) / (rX - oX);
+                //Slopes[i] = Vector2.Normalize(new Vector2(rX - oX, rY - oY));
+                Slopes[i] = Vector2.Normalize(new Vector2(oEndX - oStartX, oStartY - oEndY));
 
                 curX += incre;
             }
