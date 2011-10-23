@@ -47,6 +47,7 @@ namespace EnsemPro
             level.DrawOrder = 0;
             Components.Add(level);
             base.Initialize();
+            level.Start();
         }
 
         /// <summary>

@@ -17,7 +17,7 @@ namespace EnsemPro
         int current_beat;
         int last_beat;
         int beatTime;
-int c = 0;
+        int c = 0;
         int current_score;
 
         SpriteFont font;
@@ -61,8 +61,16 @@ int c = 0;
 
         public override void Initialize()
         {    
-            watch.Start();
+
             base.Initialize();
+        }
+
+        public void Start()
+        {
+
+            current_beat = 0;
+            last_beat = -1;
+            watch.Start();
         }
 
         public override void Update(GameTime gameTime)
@@ -72,11 +80,11 @@ int c = 0;
             
             if (current_beat > last_beat) // new beat
             {
+                
                 last_beat = current_beat;
                 if (current_act != null && current_act.endBeat < current_beat)
                 {
-                    current_act = null;
-                    
+                    current_act = null; 
                     
                 }
                 LinkedListNode<Movement> checkMove = actionList.First;
@@ -100,7 +108,9 @@ int c = 0;
                 {
                     current_act = actionList.First.Value;
                     actionList.RemoveFirst();c++;newMovement = true;
-                }Console.WriteLine("this is movement " + c);
+                }
+               // Console.WriteLine("this is movement " + c);
+                
                 if (current_act != null)
                 {
                     
@@ -108,11 +118,11 @@ int c = 0;
                     float gainedScore = score * 10 - (float)score;
                     if (actionList.First != null) // prevents score from endlessly increasing
                         current_score += (int)(score * 10);
-                    Console.WriteLine("number of inputs " + baton.Buffer.Count);
+                  //  Console.WriteLine("number of inputs " + baton.Buffer.Count);
                     if (newMovement) {baton.Flush();
-                    Console.WriteLine("new movement! number of inputs" + baton.Buffer.Count);
+                 ///  Console.WriteLine("new movement! number of inputs" + baton.Buffer.Count);
                     } 
-                    Console.WriteLine("score passed to moveEval's update is " + score);
+                 //   Console.WriteLine("score passed to moveEval's update is " + score);
                     moveEval.Update(current_act, score, newMovement, gameTime);
                 }
 
@@ -152,16 +162,22 @@ int c = 0;
                     int total = (m.startBeat - m.showBeat) * beatTime;
                     int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.showBeat * beatTime);
                     alpha = 1f - elapsed / (float)total;
-                    m.Draw(spriteBatch, alpha, true);
+                    m.Draw(spriteBatch, alpha, 0);
                 }
-                else if (m.endBeat < current_beat)
+                else if (m.endBeat > current_beat)
+                {
+                    int total = (m.endBeat - m.startBeat) * beatTime;
+                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.startBeat * beatTime);
+                    alpha = 1f - elapsed / (float)total;
+                    m.Draw(spriteBatch, alpha, 1);
+                }
+                else
                 {
                     int total = (m.fadeBeat - m.endBeat) * beatTime;
                     int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.endBeat * beatTime);
                     alpha = elapsed / (float)total;
-                    m.Draw(spriteBatch, alpha, false);
+                    m.Draw(spriteBatch, alpha, 2);
                 }
-                else m.Draw(spriteBatch, alpha, false);
 
             }
 
