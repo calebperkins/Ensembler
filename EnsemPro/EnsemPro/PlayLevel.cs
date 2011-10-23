@@ -17,7 +17,7 @@ namespace EnsemPro
         int current_beat;
         int last_beat;
         int beatTime;
-int c = 0;
+        int c = 0;
         int current_score;
 
         SpriteFont font;
@@ -31,12 +31,15 @@ int c = 0;
         Baton baton;
         MovementEvaluator moveEval;
 
+        List<Musician> musicians = new List<Musician>();
+
         public PlayLevel(Game g, Baton b, SpriteBatch sb) : base(g)
         {
             actionList = new LinkedList<Movement>();
             drawSet = new HashSet<Movement>();
             baton = b;
             spriteBatch = sb;
+            DrawOrder = 0;
         }
 
         protected override void LoadContent()
@@ -51,8 +54,14 @@ int c = 0;
 
             foreach (DataTypes.MovementData md in data.Movements)
             {
+                md.AssertValid();
                 actionList.AddLast(new Movement(md));
             }
+
+            // TODO: put this in XML
+            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/alice_sprite", "Characters/alice_map", new Vector2(400), 10));
+            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/Johannes_sprite", "Characters/Johannes_map", new Vector2(200, 400), 20));
+            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/Lance_sprite", "Characters/Lance_map", new Vector2(100, 400), 20));
 
             beatTime = data.BPM;
             moveEval = new MovementEvaluator(actionList.First.Value);
@@ -61,8 +70,16 @@ int c = 0;
 
         public override void Initialize()
         {    
-            watch.Start();
+
             base.Initialize();
+        }
+
+        public void Start()
+        {
+
+            current_beat = 0;
+            last_beat = -1;
+            watch.Start();
         }
 
         public override void Update(GameTime gameTime)
@@ -72,11 +89,11 @@ int c = 0;
             
             if (current_beat > last_beat) // new beat
             {
+                
                 last_beat = current_beat;
                 if (current_act != null && current_act.endBeat < current_beat)
                 {
-                    current_act = null;
-                    
+                    current_act = null; 
                     
                 }
                 LinkedListNode<Movement> checkMove = actionList.First;
@@ -100,7 +117,9 @@ int c = 0;
                 {
                     current_act = actionList.First.Value;
                     actionList.RemoveFirst();c++;newMovement = true;
-                }Console.WriteLine("this is movement " + c);
+                }
+               // Console.WriteLine("this is movement " + c);
+                
                 if (current_act != null)
                 {
                     
@@ -108,11 +127,11 @@ int c = 0;
                     float gainedScore = score * 10 - (float)score;
                     if (actionList.First != null) // prevents score from endlessly increasing
                         current_score += (int)(score * 10);
-                    Console.WriteLine("number of inputs " + baton.Buffer.Count);
+                  //  Console.WriteLine("number of inputs " + baton.Buffer.Count);
                     if (newMovement) {baton.Flush();
-                    Console.WriteLine("new movement! number of inputs" + baton.Buffer.Count);
+                 ///  Console.WriteLine("new movement! number of inputs" + baton.Buffer.Count);
                     } 
-                    Console.WriteLine("score passed to moveEval's update is " + score);
+                 //   Console.WriteLine("score passed to moveEval's update is " + score);
                     moveEval.Update(current_act, score, newMovement, gameTime);
                 }
 
@@ -123,6 +142,20 @@ int c = 0;
         private bool Expired(Movement m)
         {
             return m.fadeBeat < current_beat;
+        }
+
+        protected override void OnEnabledChanged(object sender, EventArgs args)
+        {
+            if (Enabled)
+            {
+                MediaPlayer.Resume();
+            }
+            else
+            {
+                MediaPlayer.Pause();
+            }
+            
+            base.OnEnabledChanged(sender, args);
         }
 
         public override void Draw(GameTime t)
@@ -138,6 +171,11 @@ int c = 0;
             spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.White);
             spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.White);
 
+            foreach (Musician m in musicians)
+            {
+                m.Draw(t);
+            }
+
             // sort it in ascending way
             var drawing =
             from m in drawSet
@@ -152,16 +190,22 @@ int c = 0;
                     int total = (m.startBeat - m.showBeat) * beatTime;
                     int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.showBeat * beatTime);
                     alpha = 1f - elapsed / (float)total;
-                    m.Draw(spriteBatch, alpha, true);
+                    m.Draw(spriteBatch, alpha, 0);
                 }
-                else if (m.endBeat < current_beat)
+                else if (m.endBeat > current_beat)
+                {
+                    int total = (m.endBeat - m.startBeat) * beatTime;
+                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.startBeat * beatTime);
+                    alpha = 1f - elapsed / (float)total;
+                    m.Draw(spriteBatch, alpha, 1);
+                }
+                else
                 {
                     int total = (m.fadeBeat - m.endBeat) * beatTime;
                     int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.endBeat * beatTime);
                     alpha = elapsed / (float)total;
-                    m.Draw(spriteBatch, alpha, false);
+                    m.Draw(spriteBatch, alpha, 2);
                 }
-                else m.Draw(spriteBatch, alpha, false);
 
             }
 

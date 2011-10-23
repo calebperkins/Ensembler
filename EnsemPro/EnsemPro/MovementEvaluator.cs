@@ -25,7 +25,7 @@ namespace EnsemPro
             int correct = 0;
             if (totalInput < (currentMovement.myType == Movement.Types.Shake ? 20 :5)) // if not many inputs, player hasn't moved that much => FAIL
             {
-                Console.WriteLine("YAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
+                //Console.WriteLine("YAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
                 return 0.00005f;
             }
             else
@@ -46,17 +46,17 @@ namespace EnsemPro
                         float errorSum = 0.0f;
                         for (int i = 1; i < totalInput; i++)
                         {
-                            Console.WriteLine("slope is "+ slopes[i]);
+                            //Console.WriteLine("slope is "+ slopes[i]);
                             
                             Vector2 normVel = Vector2.Normalize(inputs[i].velocity);
-                            Console.WriteLine("after normalize "+normVel);
+                            //Console.WriteLine("after normalize "+normVel);
                             Vector2 slope = slopes[i];
                             errorSum += (normVel.X - slope.X) * (normVel.X - slope.X) + (normVel.Y - slope.Y) * (normVel.Y - slope.Y);
                         }
                         float rmsError = (float)Math.Sqrt((double)errorSum / (double)(totalInput - 1));
 
-                        Console.WriteLine("RMS ERROR is " + rmsError + "TOTAL INPUT " + totalInput);
-                        Console.WriteLine("RETURNS " + (1 - rmsError * MAGIC_WAVE_THRESHOLD));
+                        //Console.WriteLine("RMS ERROR is " + rmsError + "TOTAL INPUT " + totalInput);
+                        //Console.WriteLine("RETURNS " + (1 - rmsError * MAGIC_WAVE_THRESHOLD));
                         return (1 - rmsError * MAGIC_WAVE_THRESHOLD);
                         /*
                         foreach (InputState input in inputs)
@@ -80,21 +80,21 @@ namespace EnsemPro
         {
             if (newMovement) // current movement is over, set state accordingly
             {
-                Debug.WriteLine("NEW MOVEMENT!");
+                //Debug.WriteLine("NEW MOVEMENT!");
                 // send score back to Movement
                 if (score <= FAIL_THRESHOLD)
                 {
-                    Debug.WriteLine("state is FAIL");
+                   // Debug.WriteLine("state is FAIL");
                     currentMovement.setState(Movement.States.Fail);
                 }
                 else if (score > FAIL_THRESHOLD)
                 {
-                    Debug.WriteLine("state is SUCCEED");
+                //    Debug.WriteLine("state is SUCCEED");
                     currentMovement.setState(Movement.States.Succeed);
                 }
                 else
                 { // noop, localScore is negative
-                    Debug.WriteLine("state is NONE");
+                //    Debug.WriteLine("state is NONE");
                     currentMovement.setState(Movement.States.None);
                 }
 

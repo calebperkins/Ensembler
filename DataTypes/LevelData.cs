@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
+using System.Diagnostics;
 
 namespace DataTypes
 {
@@ -25,6 +26,26 @@ namespace DataTypes
 
         [ContentSerializer(Optional = true)]
         public float A;
+
+        /// <summary>
+        /// Run sanity checks to make sure this is a valid movement.
+        /// </summary>
+        public void AssertValid()
+        {
+            Debug.Assert(ShowBeat > 0, ToString(), "ShowBeat must > 0");
+            Debug.Assert(StartBeat > 0, ToString(), "StartBeat must > 0");
+            Debug.Assert(EndBeat > 0, ToString(), "EndBeat must > 0");
+            Debug.Assert(FadeBeat > 0, ToString(), "FadeBeat must > 0");
+            Debug.Assert(ShowBeat <= StartBeat, ToString(), "ShowBeat <= StartBeat");
+            Debug.Assert(StartBeat < EndBeat, ToString(), "StartBeat must < EndBeat");
+            // Doesn't seem to be working
+            //Debug.Assert(EndBeat <= FadeBeat, ToString(), "EndBeat must <= FadeBeat");
+        }
+
+        public override string ToString()
+        {
+            return Kind + "/" + StartBeat; 
+        }
     }
 
     public class LevelData

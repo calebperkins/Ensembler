@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+<Asset Type="System.Collections.Generic.Dictionary[System.String, Microsoft.Xna.Framework.Rectangle]">
+<Item><Key>violinstf0000</Key><Value>0 0 140 187</Value></Item>
+<Item><Key>violinstf0001</Key><Value>141 0 140 187</Value></Item>
+<Item><Key>violinstf0002</Key><Value>282 0 140 187</Value></Item>
+<Item><Key>violinstf0003</Key><Value>0 188 140 187</Value></Item>
+<Item><Key>violinstf0004</Key><Value>141 188 140 187</Value></Item>
+<Item><Key>violinstf0005</Key><Value>282 188 140 187</Value></Item>
+<Item><Key>violinstf0006</Key><Value>423 0 140 187</Value></Item>
+<Item><Key>violinstf0007</Key><Value>564 0 140 187</Value></Item>
+<Item><Key>violinstf0008</Key><Value>423 188 140 187</Value></Item>
+<Item><Key>violinstf0009</Key><Value>705 0 140 187</Value></Item>
+<Item><Key>violinstf0010</Key><Value>564 188 140 187</Value></Item>
+<Item><Key>violinstf0011</Key><Value>846 0 140 187</Value></Item>
+<Item><Key>violinstf0012</Key><Value>705 188 140 187</Value></Item>
+<Item><Key>violinstf0013</Key><Value>846 188 140 187</Value></Item>
+<Item><Key>violinstf0014</Key><Value>0 376 140 187</Value></Item>
+</Asset>
+</XnaContent>
