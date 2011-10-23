@@ -42,7 +42,7 @@ namespace EnsemPro
                         }
                         return (float)correct / totalInput;
                     case Movement.Types.Wave:
-                        Vector2[] slopes = currentMovement.f.Slopes;
+                        Vector2[] slopes = currentMovement.f.Slope(totalInput);
                         float errorSum = 0.0f;
                         for (int i = 1; i < totalInput; i++)
                         {

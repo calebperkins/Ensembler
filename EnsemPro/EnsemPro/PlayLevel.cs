@@ -43,7 +43,7 @@ int c = 0;
         {
             font = Game.Content.Load<SpriteFont>("images//Lucidia");
 
-            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/b5short");
+            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/B5");
             Song song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(song);

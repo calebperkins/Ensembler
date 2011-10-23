@@ -10,6 +10,12 @@ namespace EnsemPro
         const float INTERVAL_TIME = 1.0f / 60; // Time of each frame in seconds
         Movement movement;
 
+        Vector2 startPos = new Vector2(0,0);
+        Vector2 midPos = new Vector2(0,0);
+        Vector2 endPos = new Vector2(0,0);
+        Vector2 shiftPos = new Vector2(0, 0);
+        bool isStraightLine = false;
+
         /// <summary>
         /// The number of intervals
         /// </summary>
@@ -36,7 +42,6 @@ namespace EnsemPro
         /// specified by amp. Drawn using a sine function with rotation
         /// Note that both Positions and slope have length of number of intervals + 1. This is for drawing purpose only.
         /// </summary>
-        /// <param name="type"></param>
         /// <param name="movement"></param>
         /// <param name="bpm"></param>
         /// <param name="amp"></param>
@@ -48,43 +53,108 @@ namespace EnsemPro
             Slopes = new Vector2[Size + 1];
 
             // Change coordinates so that (0,0) is bottom left
-            float oStartX = movement.startCoordinate.X;
-            float oStartY = movement.startCoordinate.Y;
-            float oEndX = movement.endCoordinate.X;
-            float oEndY = movement.endCoordinate.Y;
+            // Original start and ending positions specified by XML
+            Vector2 oStartPos = new Vector2(movement.startCoordinate.X, movement.startCoordinate.Y);
+            Vector2 oEndPos = new Vector2(movement.endCoordinate.X, movement.endCoordinate.Y);
+            shiftPos = oStartPos;
+            endPos = oEndPos - shiftPos;
 
-            float curX = 0;
-
-            float length = Vector2.Distance(new Vector2(oStartX, oStartY), new Vector2(oEndX, oEndY));
-            float incre = length / Size;
-            float k = (float)(Math.PI / length);
-
-            for (int i = 0; i < (Size + 1); i++)
+            if (amp == 0)
             {
-                // Unrotated coordinate and slope
-                float pX = curX + oStartX;
-                float pY = (float)(amp * Math.Sin(k * curX) + oStartY);
-                float pSlope = (float)(amp * k * Math.Cos(k * curX));
-
-                float yInt = pY - pSlope * pX;
+                isStraightLine = true;
+                Position();
+            }
+            else
+            {
+                Vector2 endPosPrime = new Vector2(Vector2.Distance(oStartPos, oEndPos), 0);
+                Vector2 midPosPrime = new Vector2(endPosPrime.X / 2, 2 * amp);
 
                 // Rotation angle
-                double theta = Math.Atan((oEndY - oStartY) / (oEndX - oStartX));
-                if (oEndX < oStartX) theta += Math.PI;
+                double theta = Math.Atan((oEndPos.Y - oStartPos.Y) / (oEndPos.X - oStartPos.X));
+                if (oEndPos.X < oStartPos.X) theta += Math.PI;
 
-                // Perform rotation
-                float rX = (float)(Math.Cos(theta) * (pX - oStartX) - Math.Sin(theta) * (pY - oStartY) + oStartX);
-                float rY = (float)(Math.Sin(theta) * (pX - oStartX) + Math.Cos(theta) * (pY - oStartY) + oStartY);
-                float oX = (float)(Math.Cos(theta) * (0 - oStartX) - Math.Sin(theta) * (yInt - oStartY) + oStartX);
-                float oY = (float)(Math.Sin(theta) * (0 - oStartX) + Math.Cos(theta) * (yInt - oStartY) + oStartY);
+                double midPosX = Math.Cos(theta) * midPosPrime.X - Math.Sin(theta) * midPosPrime.Y;
+                double midPosY = Math.Sin(theta) * midPosPrime.X + Math.Cos(theta) * midPosPrime.Y;
+                midPos = new Vector2((float)midPosX, (float)midPosY);
 
-                Positions[i].X = rX;
-                Positions[i].Y = GameEngine.HEIGHT - rY;
-                //Slopes[i] = Vector2.Normalize(new Vector2(rX - oX, rY - oY));
-                Slopes[i] = Vector2.Normalize(new Vector2(oEndX - oStartX, oStartY - oEndY));
+                Position();
 
-                curX += incre;
+                /*Console.WriteLine("OSTART " + oStartPos);
+                Console.WriteLine("OEND " + oEndPos);
+                Console.WriteLine("START " + startPos);
+                Console.WriteLine("END " + endPos);
+                Console.WriteLine("END' " + endPosPrime);
+                Console.WriteLine("MID' " + midPosPrime);
+                Console.WriteLine("THETA " + theta);
+                Console.WriteLine("MID " + midPos);
+                Console.WriteLine();*/
             }
+        }
+        /// <summary>
+        /// Set each value in the position array to the appropriate value
+        /// </summary>
+        /// <param name="startPos">P0 of the Bezier curve</param>
+        /// <param name="midPos">P1 of the Bezier curve</param>
+        /// <param name="endPos">P2 of the Bezier curve</param>
+        /// <param name="size">Number of intervals over which to draw the curve</param>
+        /// <param name="isStraightline">True if the curve is a straight line</param>
+        public void Position()
+        {
+            float t = 0;
+            float incre = 1 / (float)Size;
+            if (isStraightLine) // straight line
+            {
+                for (int i = 0; i < Size + 1; i++)
+                {
+                    Positions[i] = new Vector2((1 - t) * startPos.X + t * endPos.X + shiftPos.X,
+                                   GameEngine.HEIGHT - ((1 - t) * startPos.Y + t * endPos.Y + shiftPos.Y));
+                    t += incre;
+                }
+            }
+            else // curve
+            {
+                for (int i = 0; i < Size + 1; i++)
+                {
+                    Positions[i] = new Vector2((1 - t * t) * startPos.X + 2 * (1 - t) * t * midPos.X + t * t * endPos.X + shiftPos.X,
+                                               GameEngine.HEIGHT - ((1 - t * t) * startPos.Y + 2 * (1 - t) * t * midPos.Y + t * t * endPos.Y + shiftPos.Y));
+                    t += incre;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Compute the an array of slope 
+        /// </summary>
+        /// <param name="size">Number of intervals over which to compute the slopes</param>
+        /// <param name="isStraightline">True if the curve is a straight line</param>
+        public Vector2[] Slope(int size)
+        {
+            if (isStraightLine) // straight line
+            {
+                Vector2 slope = new Vector2(endPos.X - startPos.X, startPos.Y - endPos.Y);
+                for (int i = 0; i < size + 1; i++)
+                {
+                    Slopes[i] = slope;
+                }
+            }
+            else // curve
+            {
+                float t = 0;
+                float incre = 1 / (float)size;
+                Vector2 lastPos = new Vector2((1 - t * t) * startPos.X + 2 * (1 - t) * t * midPos.X + t * t * endPos.X,
+                                               (1 - t * t) * startPos.Y + 2 * (1 - t) * t * midPos.Y + t * t * endPos.Y);
+                t += incre;
+                Slopes[0] = new Vector2(0, 0); // this value is never used in movement evaluator
+                for (int i = 1; i < size + 1; i++)
+                {
+                    Vector2 newPos = new Vector2((1 - t * t) * startPos.X + 2 * (1 - t) * t * midPos.X + t * t * endPos.X,
+                                               (1 - t * t) * startPos.Y + 2 * (1 - t) * t * midPos.Y + t * t * endPos.Y);
+                    Vector2 posDiff = new Vector2(newPos.X - lastPos.X, newPos.Y - lastPos.Y);
+                    Slopes[i] = new Vector2(posDiff.X / incre, -posDiff.Y / incre);
+                    t += incre;
+                }
+            }
+            return Slopes;
         }
     }
 }
