@@ -31,8 +31,7 @@ int c = 0;
         Baton baton;
         MovementEvaluator moveEval;
 
-        Texture2D violinist_texture;
-        Rectangle[] violinist_map;
+        List<Musician> musicians = new List<Musician>();
 
         public PlayLevel(Game g, Baton b, SpriteBatch sb) : base(g)
         {
@@ -58,8 +57,10 @@ int c = 0;
                 actionList.AddLast(new Movement(md));
             }
 
-            violinist_texture = Game.Content.Load<Texture2D>("Characters/alice_sprite");
-            violinist_map = Game.Content.Load<Dictionary<string, Rectangle>>("Characters/alice_map").Values.ToArray();
+            // TODO: put this in XML
+            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/alice_sprite", "Characters/alice_map", new Vector2(400), 10));
+            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/Johannes_sprite", "Characters/Johannes_map", new Vector2(200, 400), 20));
+            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/Lance_sprite", "Characters/Lance_map", new Vector2(100, 400), 20));
 
             beatTime = data.BPM;
             moveEval = new MovementEvaluator(actionList.First.Value);
@@ -159,8 +160,10 @@ int c = 0;
             spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.White);
             spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.White);
 
-            Rectangle src = violinist_map[(int) (t.TotalGameTime.TotalSeconds*10) % violinist_map.Length];
-            spriteBatch.Draw(violinist_texture, new Vector2(400), src, Color.White);
+            foreach (Musician m in musicians)
+            {
+                m.Draw(t);
+            }
 
             // sort it in ascending way
             var drawing =
