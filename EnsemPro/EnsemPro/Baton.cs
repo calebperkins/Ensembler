@@ -37,6 +37,7 @@ namespace EnsemPro
             lastPos = new Vector2(0, 0);
             lastVel = new Vector2(0, 0);
             spriteBatch = sb;
+            DrawOrder = 1;
         }
 
         protected override void LoadContent()

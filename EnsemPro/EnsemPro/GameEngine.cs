@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Threading;
 
 namespace EnsemPro
 {
@@ -18,6 +19,8 @@ namespace EnsemPro
         Baton baton;
         SatisfactionQueue satisfaction;
         PlayLevel level;
+        PauseScreen pauseScreen;
+        KeyboardState lastState = Keyboard.GetState();
 
         public GameEngine()
         {
@@ -40,12 +43,13 @@ namespace EnsemPro
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             baton = new Baton(this, spriteBatch);
-            baton.DrawOrder = 1;
             satisfaction = new SatisfactionQueue(baton);
             Components.Add(baton);
             level = new PlayLevel(this, baton, spriteBatch);
-            level.DrawOrder = 0;
             Components.Add(level);
+
+            pauseScreen = new PauseScreen(this, spriteBatch);
+            Components.Add(pauseScreen);
             base.Initialize();
         }
 
@@ -78,11 +82,11 @@ namespace EnsemPro
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            KeyboardState currentState = Keyboard.GetState();
+            if (lastState.IsKeyUp(Keys.P) && currentState.IsKeyDown(Keys.P))
+                PauseOrResume();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.R))
-                Restart();
+            lastState = Keyboard.GetState();
 
             satisfaction.Update(gameTime);
             base.Update(gameTime);
@@ -95,11 +99,10 @@ namespace EnsemPro
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
             spriteBatch.Begin();
             base.Draw(gameTime);
-            satisfaction.Draw(spriteBatch);
+            if (level.Visible)
+                satisfaction.Draw(spriteBatch);
             spriteBatch.End();
         }
 
@@ -108,6 +111,16 @@ namespace EnsemPro
             UnloadContent();
             Initialize();
             LoadContent();
+        }
+
+        public void PauseOrResume()
+        {
+            baton.Enabled = !level.Enabled;
+            level.Enabled = !level.Enabled;
+            baton.Visible = !baton.Visible;
+            level.Visible = !level.Visible;
+            pauseScreen.Enabled = !pauseScreen.Enabled;
+            pauseScreen.Visible = !pauseScreen.Visible;
         }
     }
 }

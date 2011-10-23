@@ -40,6 +40,7 @@ int c = 0;
             drawSet = new HashSet<Movement>();
             baton = b;
             spriteBatch = sb;
+            DrawOrder = 0;
         }
 
         protected override void LoadContent()
@@ -129,6 +130,20 @@ int c = 0;
         private bool Expired(Movement m)
         {
             return m.fadeBeat < current_beat;
+        }
+
+        protected override void OnEnabledChanged(object sender, EventArgs args)
+        {
+            if (Enabled)
+            {
+                MediaPlayer.Resume();
+            }
+            else
+            {
+                MediaPlayer.Pause();
+            }
+            
+            base.OnEnabledChanged(sender, args);
         }
 
         public override void Draw(GameTime t)
