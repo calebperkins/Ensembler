@@ -31,6 +31,9 @@ namespace EnsemPro
         Baton baton;
         MovementEvaluator moveEval;
 
+        Texture2D violinist_texture;
+        Rectangle[] violinist_map;
+
         public PlayLevel(Game g, Baton b, SpriteBatch sb) : base(g)
         {
             actionList = new LinkedList<Movement>();
@@ -53,6 +56,9 @@ namespace EnsemPro
             {
                 actionList.AddLast(new Movement(md));
             }
+
+            violinist_texture = Game.Content.Load<Texture2D>("Characters/alice_sprite");
+            violinist_map = Game.Content.Load<Dictionary<string, Rectangle>>("Characters/alice_map").Values.ToArray();
 
             beatTime = data.BPM;
             moveEval = new MovementEvaluator(actionList.First.Value);
@@ -129,6 +135,9 @@ namespace EnsemPro
             // Draw the string
             spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.White);
             spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.White);
+
+            Rectangle src = violinist_map[(int) (t.TotalGameTime.TotalSeconds*10) % violinist_map.Length];
+            spriteBatch.Draw(violinist_texture, new Vector2(400), src, Color.White);
 
             // sort it in ascending way
             var drawing =
