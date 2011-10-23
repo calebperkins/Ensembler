@@ -54,6 +54,7 @@ int c = 0;
 
             foreach (DataTypes.MovementData md in data.Movements)
             {
+                md.AssertValid();
                 actionList.AddLast(new Movement(md));
             }
 
