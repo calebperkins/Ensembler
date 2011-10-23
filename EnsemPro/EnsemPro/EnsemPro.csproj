@@ -114,6 +114,9 @@
     <Compile Include="Baton.cs" />
     <Compile Include="Display.cs" />
     <Compile Include="Function.cs" />
+    <Compile Include="Musician.cs" />
+    <Compile Include="PauseScreen.cs" />
+    <Compile Include="ScreenManager.cs" />
     <Compile Include="Movement.cs" />
     <Compile Include="MovementEvaluator.cs" />
     <Compile Include="PlayLevel.cs" />

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+<Asset Type="System.Collections.Generic.Dictionary[System.String, Microsoft.Xna.Framework.Rectangle]">
+<Item><Key>character20000</Key><Value>0 0 140 187</Value></Item>
+<Item><Key>character20001</Key><Value>141 0 140 187</Value></Item>
+<Item><Key>character20002</Key><Value>282 0 140 187</Value></Item>
+<Item><Key>character20003</Key><Value>0 188 140 187</Value></Item>
+<Item><Key>character20004</Key><Value>141 188 140 187</Value></Item>
+<Item><Key>character20005</Key><Value>282 188 140 187</Value></Item>
+<Item><Key>character20006</Key><Value>423 0 140 187</Value></Item>
+<Item><Key>character20007</Key><Value>564 0 140 187</Value></Item>
+<Item><Key>character20008</Key><Value>423 188 140 187</Value></Item>
+<Item><Key>character20009</Key><Value>705 0 140 187</Value></Item>
+<Item><Key>character20010</Key><Value>564 188 140 187</Value></Item>
+<Item><Key>character20011</Key><Value>846 0 140 187</Value></Item>
+<Item><Key>character20012</Key><Value>705 188 140 187</Value></Item>
+<Item><Key>character20013</Key><Value>846 188 140 187</Value></Item>
+<Item><Key>character20014</Key><Value>0 376 140 187</Value></Item>
+<Item><Key>character20015</Key><Value>141 376 140 187</Value></Item>
+<Item><Key>character20016</Key><Value>0 564 140 187</Value></Item>
+<Item><Key>character20017</Key><Value>282 376 140 187</Value></Item>
+<Item><Key>character20018</Key><Value>141 564 140 187</Value></Item>
+<Item><Key>character20019</Key><Value>0 752 140 187</Value></Item>
+<Item><Key>character20020</Key><Value>423 376 140 187</Value></Item>
+<Item><Key>character20021</Key><Value>282 564 140 187</Value></Item>
+<Item><Key>character20022</Key><Value>141 752 140 187</Value></Item>
+<Item><Key>character20023</Key><Value>564 376 140 187</Value></Item>
+<Item><Key>character20024</Key><Value>423 564 140 187</Value></Item>
+<Item><Key>character20025</Key><Value>282 752 140 187</Value></Item>
+<Item><Key>character20026</Key><Value>705 376 140 187</Value></Item>
+<Item><Key>character20027</Key><Value>564 564 140 187</Value></Item>
+<Item><Key>character20028</Key><Value>423 752 140 187</Value></Item>
+<Item><Key>character20029</Key><Value>846 376 140 187</Value></Item>
+<Item><Key>character20030</Key><Value>705 564 140 187</Value></Item>
+</Asset>
+</XnaContent>

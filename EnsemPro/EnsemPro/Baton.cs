@@ -37,11 +37,12 @@ namespace EnsemPro
             lastPos = new Vector2(0, 0);
             lastVel = new Vector2(0, 0);
             spriteBatch = sb;
+            DrawOrder = 1;
         }
 
         protected override void LoadContent()
         {
-            batonTexture = Game.Content.Load<Texture2D>("images\\baton");
+            batonTexture = Game.Content.Load<Texture2D>("Images\\baton");
             base.LoadContent();
         }
 

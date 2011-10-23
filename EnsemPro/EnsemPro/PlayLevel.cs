@@ -31,12 +31,15 @@ namespace EnsemPro
         Baton baton;
         MovementEvaluator moveEval;
 
+        List<Musician> musicians = new List<Musician>();
+
         public PlayLevel(Game g, Baton b, SpriteBatch sb) : base(g)
         {
             actionList = new LinkedList<Movement>();
             drawSet = new HashSet<Movement>();
             baton = b;
             spriteBatch = sb;
+            DrawOrder = 0;
         }
 
         protected override void LoadContent()
@@ -51,8 +54,14 @@ namespace EnsemPro
 
             foreach (DataTypes.MovementData md in data.Movements)
             {
+                md.AssertValid();
                 actionList.AddLast(new Movement(md));
             }
+
+            // TODO: put this in XML
+            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/alice_sprite", "Characters/alice_map", new Vector2(400), 10));
+            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/Johannes_sprite", "Characters/Johannes_map", new Vector2(200, 400), 20));
+            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/Lance_sprite", "Characters/Lance_map", new Vector2(100, 400), 20));
 
             beatTime = data.BPM;
             moveEval = new MovementEvaluator(actionList.First.Value);
@@ -135,6 +144,20 @@ namespace EnsemPro
             return m.fadeBeat < current_beat;
         }
 
+        protected override void OnEnabledChanged(object sender, EventArgs args)
+        {
+            if (Enabled)
+            {
+                MediaPlayer.Resume();
+            }
+            else
+            {
+                MediaPlayer.Pause();
+            }
+            
+            base.OnEnabledChanged(sender, args);
+        }
+
         public override void Draw(GameTime t)
         {
             // Draw background
@@ -147,6 +170,11 @@ namespace EnsemPro
             // Draw the string
             spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.White);
             spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.White);
+
+            foreach (Musician m in musicians)
+            {
+                m.Draw(t);
+            }
 
             // sort it in ascending way
             var drawing =

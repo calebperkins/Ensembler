@@ -42,94 +42,94 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\dot.png">
+    <Compile Include="Images\dot.png">
       <Name>dot</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="images\flower.png">
+    <Compile Include="Images\flower.png">
       <Name>flower</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="images\heart.bmp">
+    <Compile Include="Images\heart.bmp">
       <Name>heart</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="images\note_blue.png">
+    <Compile Include="Images\note_blue.png">
       <Name>note_blue</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="images\note_yellow.bmp">
+    <Compile Include="Images\note_yellow.bmp">
       <Name>note_yellow</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="images\journey.mp3">
+    <Compile Include="Images\journey.mp3">
       <Name>journey</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>
-    <Compile Include="images\star.bmp">
+    <Compile Include="Images\star.bmp">
       <Name>star</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="images\baton.png">
+    <Compile Include="Images\baton.png">
       <Name>baton</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\Background.jpg">
+    <Compile Include="Images\Background.jpg">
       <Name>Background</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\Lucidia.bmp">
+    <Compile Include="Images\Lucidia.bmp">
       <Name>Lucidia</Name>
       <Importer>TextureImporter</Importer>
       <Processor>FontTextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\circle.png">
+    <Compile Include="Images\circle.png">
       <Name>circle</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\b5complete.mp3">
+    <Compile Include="Images\b5complete.mp3">
       <Name>b5complete</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\shake.png">
+    <Compile Include="Images\shake.png">
       <Name>shake</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\dot_fail.png">
+    <Compile Include="Images\dot_fail.png">
       <Name>dot_fail</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="images\dot_normal.png">
+    <Compile Include="Images\dot_normal.png">
       <Name>dot_normal</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="images\dot_win.png">
+    <Compile Include="Images\dot_win.png">
       <Name>dot_win</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -150,6 +150,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Characters\alice_map.xml">
+      <Name>alice_map</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Levels\b5short.xml">
       <Name>b5short</Name>
       <Importer>XmlImporter</Importer>
@@ -159,6 +166,13 @@
   <ItemGroup>
     <Compile Include="images\ring.png">
       <Name>ring</Name>
+	  <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+	</Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Characters\alice_sprite.png">
+      <Name>alice_sprite</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -166,6 +180,13 @@
   <ItemGroup>
     <Compile Include="images\sparkle.png">
       <Name>sparkle</Name>
+	  <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+	</Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Characters\Johannes_sprite.png">
+      <Name>Johannes_sprite</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -180,6 +201,20 @@
   <ItemGroup>
     <Compile Include="images\aquarium.png">
       <Name>aquarium</Name>
+	  <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+	</Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Characters\Johannes_map.xml">
+      <Name>Johannes_map</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Characters\Lance_sprite.png">
+      <Name>Lance_sprite</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -196,6 +231,13 @@
       <Name>line</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+	</Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Characters\Lance_map.xml">
+      <Name>Lance_map</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
