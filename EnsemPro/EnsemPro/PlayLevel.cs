@@ -46,7 +46,7 @@ namespace EnsemPro
         {
             font = Game.Content.Load<SpriteFont>("images//Lucidia");
 
-            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/B5");
+            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/b5-edited");
             Song song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(song);
@@ -122,11 +122,10 @@ namespace EnsemPro
                 
                 if (current_act != null)
                 {
-                    
+
                     float score = moveEval.Accuracy(current_act, baton.Buffer, gameTime);
-                    float gainedScore = score * 10 - (float)score;
                     if (actionList.First != null) // prevents score from endlessly increasing
-                        current_score += (int)(score * 10);
+                        current_score += (int)(Math.Max(score,0) * 10);
                   //  Console.WriteLine("number of inputs " + baton.Buffer.Count);
                     if (newMovement) {baton.Flush();
                  ///  Console.WriteLine("new movement! number of inputs" + baton.Buffer.Count);

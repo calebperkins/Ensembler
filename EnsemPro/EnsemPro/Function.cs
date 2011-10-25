@@ -131,7 +131,7 @@ namespace EnsemPro
         {
             if (isStraightLine) // straight line
             {
-                Vector2 slope = new Vector2(endPos.X - startPos.X, startPos.Y - endPos.Y);
+                Vector2 slope = Vector2.Normalize(new Vector2(endPos.X - startPos.X, startPos.Y - endPos.Y));
                 for (int i = 0; i < size + 1; i++)
                 {
                     Slopes[i] = slope;
@@ -139,6 +139,7 @@ namespace EnsemPro
             }
             else // curve
             {
+              //  Console.WriteLine("\n\nNEW CURVE----------------------");
                 float t = 0;
                 float incre = 1 / (float)size;
                 Vector2 lastPos = new Vector2((1 - t * t) * startPos.X + 2 * (1 - t) * t * midPos.X + t * t * endPos.X,
@@ -150,7 +151,8 @@ namespace EnsemPro
                     Vector2 newPos = new Vector2((1 - t * t) * startPos.X + 2 * (1 - t) * t * midPos.X + t * t * endPos.X,
                                                (1 - t * t) * startPos.Y + 2 * (1 - t) * t * midPos.Y + t * t * endPos.Y);
                     Vector2 posDiff = new Vector2(newPos.X - lastPos.X, newPos.Y - lastPos.Y);
-                    Slopes[i] = new Vector2(posDiff.X / incre, -posDiff.Y / incre);
+                    Slopes[i] = Vector2.Normalize(new Vector2(posDiff.X / incre, -posDiff.Y / incre));
+                  //  Console.WriteLine("slope is " + (Vector2.Normalize(new Vector2(posDiff.X / incre, -posDiff.Y / incre))));
                     t += incre;
                 }
             }

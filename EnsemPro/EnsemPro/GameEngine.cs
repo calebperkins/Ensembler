@@ -86,6 +86,8 @@ namespace EnsemPro
             KeyboardState currentState = Keyboard.GetState();
             if (lastState.IsKeyUp(Keys.P) && currentState.IsKeyDown(Keys.P))
                 PauseOrResume();
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
 
             lastState = Keyboard.GetState();
 

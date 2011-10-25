@@ -167,9 +167,9 @@
   <ItemGroup>
     <Compile Include="images\ring.png">
       <Name>ring</Name>
-	  <Importer>TextureImporter</Importer>
+      <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-	</Compile>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Characters\alice_sprite.png">
@@ -181,9 +181,9 @@
   <ItemGroup>
     <Compile Include="images\sparkle.png">
       <Name>sparkle</Name>
-	  <Importer>TextureImporter</Importer>
+      <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-	</Compile>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Characters\Johannes_sprite.png">
@@ -202,9 +202,9 @@
   <ItemGroup>
     <Compile Include="images\aquarium.png">
       <Name>aquarium</Name>
-	  <Importer>TextureImporter</Importer>
+      <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-	</Compile>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Characters\Johannes_map.xml">
@@ -232,11 +232,18 @@
       <Name>line</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-	</Compile>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Characters\Lance_map.xml">
       <Name>Lance_map</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Levels\b5-edited.xml">
+      <Name>b5-edited</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
