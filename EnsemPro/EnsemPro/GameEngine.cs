@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Threading;
 
 namespace EnsemPro
 {
@@ -16,7 +15,7 @@ namespace EnsemPro
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Baton baton;
+        BatonView baton;
         SatisfactionQueue satisfaction;
         PlayLevel level;
         PauseScreen pauseScreen;
@@ -42,10 +41,21 @@ namespace EnsemPro
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            baton = new Baton(this, spriteBatch);
-            satisfaction = new SatisfactionQueue(baton);
+            InputBuffer buffer = new InputBuffer();
+
+            try
+            {
+                Components.Add(new WiiController(this, buffer));
+            }
+            catch (WiimoteLib.WiimoteNotFoundException)
+            {
+                Components.Add(new MouseController(this, buffer));
+            }
+
+            baton = new BatonView(this, spriteBatch, buffer);
+            satisfaction = new SatisfactionQueue(buffer);
             Components.Add(baton);
-            level = new PlayLevel(this, baton, spriteBatch);
+            level = new PlayLevel(this, baton, buffer, spriteBatch);
             Components.Add(level);
 
             pauseScreen = new PauseScreen(this, spriteBatch);

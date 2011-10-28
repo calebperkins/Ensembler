@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using Microsoft.Xna.Framework;
 
 namespace EnsemPro
@@ -19,7 +17,7 @@ namespace EnsemPro
         }
 
         /*Returns a floating number 0 to 1 which indicates how well the input is matching the movement */
-        public float Accuracy(Movement m, List<InputState> inputs, GameTime t)
+        public float Accuracy(Movement m, InputBuffer inputs, GameTime t)
         {
             int totalInput = inputs.Count;
             int correct = 0;
