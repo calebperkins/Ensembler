@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 
 namespace EnsemPro
 {
@@ -7,12 +7,12 @@ namespace EnsemPro
     public class SatisfactionQueue : ObQueue
     {
         const int MAX_AGE = 30;
-        Baton baton;
+        InputBuffer buf;
 
-        public SatisfactionQueue(Baton b) : base()
+        public SatisfactionQueue(InputBuffer b) : base()
         {
             maxAge = MAX_AGE;
-            baton = b;
+            buf = b;
         }
 
 
@@ -26,7 +26,7 @@ namespace EnsemPro
             base.Update(gameTime);
             // Not sure if it's the best way to add stars, but here it is for now
             if (gameTime.TotalGameTime.Ticks % 2 == 0)
-                Add(baton.Position);
+                Add(buf.CurrentPosition);
         }
     }
 }

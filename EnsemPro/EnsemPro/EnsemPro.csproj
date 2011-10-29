@@ -111,9 +111,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Baton.cs" />
+    <Compile Include="BatonView.cs" />
     <Compile Include="Display.cs" />
     <Compile Include="Function.cs" />
+    <Compile Include="InputBuffer.cs" />
+    <Compile Include="InputController.cs" />
+    <Compile Include="InputState.cs" />
+    <Compile Include="LevelSelector.cs" />
+    <Compile Include="MouseController.cs" />
     <Compile Include="Musician.cs" />
     <Compile Include="PauseScreen.cs" />
     <Compile Include="ScreenManager.cs" />
@@ -127,6 +132,7 @@
     <Compile Include="GameEngine.cs" />
     <Compile Include="ObQueue.cs" />
     <Compile Include="SatisfactionQueue.cs" />
+    <Compile Include="WiiController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

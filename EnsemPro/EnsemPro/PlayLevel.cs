@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 
@@ -28,18 +27,20 @@ namespace EnsemPro
         HashSet<Movement> drawSet;
 
         Movement current_act;
-        Baton baton;
+        BatonView baton;
         MovementEvaluator moveEval;
+        InputBuffer buffer;
 
         List<Musician> musicians = new List<Musician>();
 
-        public PlayLevel(Game g, Baton b, SpriteBatch sb) : base(g)
+        public PlayLevel(Game g, BatonView b, InputBuffer buf, SpriteBatch sb) : base(g)
         {
             actionList = new LinkedList<Movement>();
             drawSet = new HashSet<Movement>();
             baton = b;
             spriteBatch = sb;
             DrawOrder = 0;
+            buffer = buf;
         }
 
         protected override void LoadContent()
@@ -123,16 +124,14 @@ namespace EnsemPro
                 if (current_act != null)
                 {
 
-                    float score = moveEval.Accuracy(current_act, baton.Buffer, gameTime);
+                    float score = moveEval.Accuracy(current_act, buffer, gameTime);
                     if (actionList.First != null) // prevents score from endlessly increasing
-                        current_score += (int)(Math.Max(score, 0) * 10);
-                    //  Console.WriteLine("number of inputs " + baton.Buffer.Count);
-                    if (newMovement)
-                    {
-                        baton.Flush();
-                        ///  Console.WriteLine("new movement! number of inputs" + baton.Buffer.Count);
-                    }
-                    //   Console.WriteLine("score passed to moveEval's update is " + score);
+                        current_score += (int)(Math.Max(score,0) * 10);
+                  //  Console.WriteLine("number of inputs " + baton.Buffer.Count);
+                    if (newMovement) {buffer.Clear();
+                 ///  Console.WriteLine("new movement! number of inputs" + baton.Buffer.Count);
+                    } 
+                 //   Console.WriteLine("score passed to moveEval's update is " + score);
                     moveEval.Update(current_act, score, newMovement, gameTime);
                 }
 
