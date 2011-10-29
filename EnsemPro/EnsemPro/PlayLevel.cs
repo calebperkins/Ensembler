@@ -71,7 +71,7 @@ namespace EnsemPro
                 {
                     lastBeatTime = md.NewBPM;
                 }
-                actionList.AddLast(new Movement(md, lastBeatTime));
+                actionList.AddLast(new Movement(md, md.NewBPM));
             }
 
             // TODO: put this in XML

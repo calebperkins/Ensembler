@@ -49,6 +49,7 @@ namespace EnsemPro
                     else
                     {
                         Vector2[] slopes = currentMovement.f.Slope(totalInput - 1);
+                        Console.WriteLine("TOTALINPUT " + (totalInput - 1));
                         float errorSum = 0.0f;
                         for (int i = 1; i < totalInput; i++)
                         {
