@@ -253,6 +253,7 @@
       <Name>ScoreFont</Name>
       <Importer>TextureImporter</Importer>
       <Processor>FontTextureProcessor</Processor>
+	</Compile>
     <Compile Include="Levels\ControlB5.xml">
       <SubType>Designer</SubType>
       <Name>ControlB5</Name>

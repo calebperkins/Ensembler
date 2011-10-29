@@ -49,7 +49,7 @@ namespace EnsemPro
         {
             font = Game.Content.Load<SpriteFont>("images//ScoreFont");
 
-            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/b5-edited");
+            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/ControlB5");
             Song song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(song);
@@ -115,8 +115,6 @@ namespace EnsemPro
                     else checkMove = checkMove.Next;
                 }
 
-                bool continueCheck = false;
-
                 do
                 {
                     // check and remove the head of the list
@@ -132,13 +130,14 @@ namespace EnsemPro
                         else
                         {
                             beat_sum = current_beat;
+                            beatTime = 60000 /  current_act.BPM;
+                            actionList.RemoveFirst();
                             watch.Restart();
-                            beatTime = current_act.BPM;
-                            continueCheck = true;
                         }
                     }
+                    else break;
                     // Console.WriteLine("this is movement " + c);
-                } while (continueCheck);
+                } while (true);
 
                 if (current_act != null)
                 {

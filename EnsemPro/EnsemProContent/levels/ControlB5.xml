@@ -2,7 +2,7 @@
 <XnaContent>
   <Asset Type="DataTypes.LevelData">
     <Title>Symphony No. 5</Title>
-    <BPM>600</BPM>
+    <BPM>100</BPM>
     <SongAssetName>images\\b5complete</SongAssetName>
     <Artist>Beethoven</Artist>
     <Background>images\\background</Background>
@@ -13,7 +13,7 @@
         <StartBeat>1</StartBeat>
         <EndBeat>1</EndBeat>
         <FadeBeat>1</FadeBeat>
-        <NewBPM>100</NewBPM>
+        <NewBPM>50</NewBPM>
       </Item>
       <Item>
         <Kind>Shake</Kind>

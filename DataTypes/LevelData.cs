@@ -40,7 +40,7 @@ namespace DataTypes
             Debug.Assert(EndBeat > 0, ToString(), "EndBeat must > 0");
             Debug.Assert(FadeBeat > 0, ToString(), "FadeBeat must > 0");
             Debug.Assert(ShowBeat <= StartBeat, ToString(), "ShowBeat <= StartBeat");
-            Debug.Assert(StartBeat < EndBeat, ToString(), "StartBeat must < EndBeat");
+            Debug.Assert((StartBeat < EndBeat || Kind == "Control"), ToString(), "StartBeat must < EndBeat if not a control type");
             // Doesn't seem to be working
             //Debug.Assert(EndBeat <= FadeBeat, ToString(), "EndBeat must <= FadeBeat");
         }
