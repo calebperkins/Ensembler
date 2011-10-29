@@ -52,10 +52,7 @@ namespace EnsemPro
                         float errorSum = 0.0f;
                         for (int i = 1; i < totalInput; i++)
                         {
-                            //Console.WriteLine("slope is "+ slopes[i]);
-
                             Vector2 normVel = Vector2.Normalize(inputs[i].velocity);
-                            //Console.WriteLine("after normalize "+normVel);
                             Vector2 slope = slopes[i];
                             errorSum += (normVel.X - slope.X) * (normVel.X - slope.X) + (normVel.Y - slope.Y) * (normVel.Y - slope.Y);
                         }
