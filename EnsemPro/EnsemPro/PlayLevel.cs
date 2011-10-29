@@ -55,7 +55,7 @@ namespace EnsemPro
         {
             font = Game.Content.Load<SpriteFont>("images//ScoreFont");
 
-            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/ControlB5");
+            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/b5-edited");
             Song song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(song);
@@ -208,9 +208,9 @@ namespace EnsemPro
                 (gainedScore > 0 ? Color.YellowGreen : (gainedScore < 0 ? Color.Red : Color.White)));
             if (comboCount >= 2) 
             {
-                if (gainedScore > 0)
+                if (gainedScore > 0) // only add combo bonus when the last movement is successful
                 {
-                    spriteBatch.DrawString(font, "+ " + comboCount + " combo bonus", new Vector2(460, 30), Color.Violet, 0.0f, new Vector2(0, 0), 0.6f, SpriteEffects.None, 0.0f);
+                    spriteBatch.DrawString(font, "+ " + comboCount + " combo bonus", new Vector2(460, 30), Color.Violet, 0.0f, new Vector2(0, 0), 0.75f, SpriteEffects.None, 0.0f);
                 }
                 spriteBatch.DrawString(font, comboCount + " Combo", new Vector2(650, 0), Color.White); 
             }
