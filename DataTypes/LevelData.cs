@@ -27,6 +27,9 @@ namespace DataTypes
         [ContentSerializer(Optional = true)]
         public float A;
 
+        [ContentSerializer(Optional = true)]
+        public int NewBPM;
+
         /// <summary>
         /// Run sanity checks to make sure this is a valid movement.
         /// </summary>

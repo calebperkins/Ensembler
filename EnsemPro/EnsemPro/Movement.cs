@@ -12,6 +12,7 @@ namespace EnsemPro
             Shake,
             Noop,
             Wave,
+            Control
         }
 
         public enum States
@@ -87,6 +88,12 @@ namespace EnsemPro
             set;
         }
 
+        public int BPM
+        {
+            get;
+            set;
+        }
+
         // null if not a wave
         public Point startCoordinate
         {
@@ -121,6 +128,10 @@ namespace EnsemPro
                     break;
                 case "Shake":
                     myType = Types.Shake;
+                    break;
+                case "Control":
+                    myType = Types.Control;
+                    BPM = md.NewBPM;
                     break;
                 default:
                     myType = Types.Noop;
