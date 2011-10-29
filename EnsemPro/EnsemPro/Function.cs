@@ -46,7 +46,6 @@ namespace EnsemPro
         /// <param name="amp"></param>
         public Function(Movement movement, int bpm, float amp)
         {
-            Console.WriteLine(bpm);
             this.movement = movement;
             Size = (int)((movement.endBeat - movement.startBeat + 1) / (float)bpm * 60 / INTERVAL_TIME);
             Positions = new Vector2[Size + 1];
@@ -123,8 +122,6 @@ namespace EnsemPro
             {
                 
                 Vector2 slope = Vector2.Normalize(new Vector2(endPos.X - startPos.X, startPos.Y - endPos.Y));
-                Console.WriteLine("\t\tSIZE GIVEN " + size);
-                Console.WriteLine("\tarray size " + Slopes.Length);
                 for (int i = 0; i < size + 1; i++)
                 {
                     Slopes[i] = slope;
