@@ -61,7 +61,7 @@ namespace EnsemPro
                         }
                         float rmsError = (float)Math.Sqrt((double)errorSum / (double)(totalInput - 1));
                         float accuracy = (1 - rmsError * MAGIC_WAVE_THRESHOLD);
-                        return (accuracy > 0 ? accuracy : -0.3f);
+                        return (accuracy > FAIL_THRESHOLD ? accuracy : -0.3f);
                     }
                 default:
                     return 0.0f;
