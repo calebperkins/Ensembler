@@ -133,7 +133,7 @@ namespace EnsemPro
                         {
                             beat_sum = current_beat;
                             watch.Restart();
-                            beatTime = current_act.newBpm;
+                            beatTime = current_act.BPM;
                             continueCheck = true;
                         }
                     }

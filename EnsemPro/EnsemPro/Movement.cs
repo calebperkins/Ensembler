@@ -13,6 +13,7 @@ namespace EnsemPro
             Noop,
             Wave,
             Control,
+
         }
 
         public enum States
@@ -88,7 +89,8 @@ namespace EnsemPro
             set;
         }
 
-        public int newBpm
+        public int BPM
+
         {
             get;
             set;
@@ -131,7 +133,7 @@ namespace EnsemPro
                     break;
                 case "Control":
                     myType = Types.Control;
-                    newBpm = md.newBpm;
+                    BPM = md.NewBPM;
                     break;
                 default:
                     myType = Types.Noop;
