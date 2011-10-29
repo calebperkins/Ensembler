@@ -2,7 +2,7 @@
 <XnaContent>
   <Asset Type="DataTypes.LevelData">
     <Title>Symphony No. 5</Title>
-    <BPM>600</BPM>
+    <BPM>100</BPM>
     <SongAssetName>images\\b5complete</SongAssetName>
     <Artist>Beethoven</Artist>
     <Background>images\\background</Background>
