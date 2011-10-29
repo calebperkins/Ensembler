@@ -113,7 +113,7 @@ namespace EnsemPro
             set;
         }
 
-        public Movement(DataTypes.MovementData md)
+        public Movement(DataTypes.MovementData md, int lastBPM)
         {
             startBeat = md.StartBeat - 1;
             endBeat = md.EndBeat - 1;
@@ -126,7 +126,7 @@ namespace EnsemPro
                     myType = Types.Wave;
                     startCoordinate = new Point(md.StartX, md.StartY);
                     endCoordinate = new Point(md.EndX, md.EndY);
-                    f = new Function(this, 100, md.A); // TODO: replace hard coded BPM
+                    f = new Function(this, lastBPM, md.A);
                     break;
                 case "Shake":
                     myType = Types.Shake;

@@ -61,18 +61,24 @@ namespace EnsemPro
             MediaPlayer.Play(song);
             background = Game.Content.Load<Texture2D>(data.Background);
 
+            beatTime = 60000 / data.BPM;
+
+            int lastBeatTime = beatTime;
             foreach (DataTypes.MovementData md in data.Movements)
             {
                 md.AssertValid();
-                actionList.AddLast(new Movement(md));
+                if (md.NewBPM > 0)
+                {
+                    lastBeatTime = md.NewBPM;
+                }
+                actionList.AddLast(new Movement(md, lastBeatTime));
             }
 
             // TODO: put this in XML
             musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/alice_sprite", "Characters/alice_map", new Vector2(400), 10));
             musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/Johannes_sprite", "Characters/Johannes_map", new Vector2(200, 400), 20));
             musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/Lance_sprite", "Characters/Lance_map", new Vector2(100, 400), 20));
-
-            beatTime = 60000 / data.BPM;
+            
             moveEval = new MovementEvaluator(actionList.First.Value);
             base.LoadContent();
         }
@@ -165,6 +171,7 @@ namespace EnsemPro
                     /** Add gainedScore to current_score.
                      * If there is a combo and the most recent score is non-negative (e.g. Shaking is succuessful), also add the current combo count to the score */
                     current_score += (gainedScore + (comboCount > 1 && gainedScore > 0 ? comboCount : 0));
+                    current_score = Math.Max(0, current_score);
                     if (newMovement) buffer.Clear();
                     moveEval.Update(current_act, score, newMovement, gameTime);
                 }
