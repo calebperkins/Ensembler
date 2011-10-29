@@ -18,6 +18,10 @@ namespace EnsemPro
         int beatTime;
         int c = 0;
         int current_score;
+        int gainedScore;
+        bool comboOn;
+        int comboCount;
+        int maxCombo;
 
         SpriteFont font;
         SpriteBatch spriteBatch;
@@ -41,6 +45,8 @@ namespace EnsemPro
             spriteBatch = sb;
             DrawOrder = 0;
             buffer = buf;
+            comboOn = false;
+            comboCount = -1;
         }
 
         protected override void LoadContent()
@@ -87,7 +93,6 @@ namespace EnsemPro
         {
             current_beat = (int)Math.Round((float)watch.ElapsedMilliseconds / (float)beatTime);
             bool newMovement = false;
-            
             if (current_beat > last_beat) // new beat
             {
                 
@@ -123,15 +128,26 @@ namespace EnsemPro
                 
                 if (current_act != null)
                 {
-
+                    Movement.Types type = current_act.myType;
                     float score = moveEval.Accuracy(current_act, buffer, gameTime);
-                    if (actionList.First != null) // prevents score from endlessly increasing
-                        current_score += (int)(Math.Max(score,0) * 10);
-                  //  Console.WriteLine("number of inputs " + baton.Buffer.Count);
-                    if (newMovement) {buffer.Clear();
-                 ///  Console.WriteLine("new movement! number of inputs" + baton.Buffer.Count);
-                    } 
-                 //   Console.WriteLine("score passed to moveEval's update is " + score);
+                    gainedScore = (int)(score * 10);
+
+                    /* Keep the combo on if it is now Wave and the most recent gainedScore is greater than FAIL_THRESHOLD (i.e. success continues),
+                     * or if combo is on before a Shake phase is entered,
+                     * otherwise break the combo. */
+                    comboOn = (gainedScore >= 4 && type == Movement.Types.Wave || comboOn && type==Movement.Types.Shake) ? true : false;
+
+                    /** Add to combo count if it is now Wave and combo is on,
+                     * else if it is now Wave but combo is broken, reset count to 0,
+                     * else if combo is on but a Shape or Noop phase is entered, keep the count until next Wave. */
+                    comboCount = comboOn && type == Movement.Types.Wave ? comboCount += 1 : (type == Movement.Types.Wave ? 0 : comboCount);
+                    if (comboCount > maxCombo) maxCombo = comboCount;
+                  //  if (actionList.First != null) // prevents score from endlessly increasing
+
+                    /** Add gainedScore to current_score.
+                     * If there is a combo and the most recent score is non-negative (e.g. Shaking is succuessful), also add the current combo count to the score */
+                    current_score += (gainedScore + (comboCount > 1 && gainedScore > 0 ? comboCount : 0));
+                    if (newMovement) buffer.Clear();
                     moveEval.Update(current_act, score, newMovement, gameTime);
                 }
 
@@ -170,6 +186,20 @@ namespace EnsemPro
             // Draw the string
             spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.White);
             spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.White);
+            spriteBatch.DrawString(font, (gainedScore >= 0 ? "+" : "") + gainedScore, new Vector2(460, 0), 
+                (gainedScore > 0 ? Color.YellowGreen : (gainedScore < 0 ? Color.Red : Color.White)));
+            if (comboCount >= 2) 
+            {
+                if (gainedScore > 0)
+                {
+                    spriteBatch.DrawString(font, "+ " + comboCount + " combo bonus", new Vector2(460, 30), Color.Violet, 0.0f, new Vector2(0, 0), 0.6f, SpriteEffects.None, 0.0f);
+                }
+                spriteBatch.DrawString(font, comboCount + " Combo", new Vector2(650, 0), Color.White); 
+            }
+            if (comboCount >= 10) spriteBatch.DrawString(font, "Great!", new Vector2(670, 30), Color.Tomato);
+            
+            // hard coded for now; should be "if song ends..."
+            if (current_beat > 141) spriteBatch.DrawString(font, "Max Combo is " + maxCombo, new Vector2(200, 250), Color.Black);
 
             foreach (Musician m in musicians)
             {
