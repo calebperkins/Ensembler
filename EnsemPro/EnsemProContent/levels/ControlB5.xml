@@ -8,6 +8,14 @@
     <Background>images\\background</Background>
     <Movements>
       <Item>
+        <Kind>Control</Kind>
+        <ShowBeat>1</ShowBeat>
+        <StartBeat>1</StartBeat>
+        <EndBeat>1</EndBeat>
+        <FadeBeat>1</FadeBeat>
+        <NewBPM>50</NewBPM>
+      </Item>
+      <Item>
         <Kind>Shake</Kind>
         <ShowBeat>1</ShowBeat>
         <StartBeat>1</StartBeat>

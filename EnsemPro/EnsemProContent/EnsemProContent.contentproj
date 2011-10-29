@@ -249,6 +249,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Images\LevelSelection\background.jpg">
       <Name>background</Name>
       <Importer>TextureImporter</Importer>
@@ -268,6 +269,18 @@
       <Name>completed</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+=======
+    <Compile Include="Images\ScoreFont.bmp">
+      <Name>ScoreFont</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>FontTextureProcessor</Processor>
+	</Compile>
+    <Compile Include="Levels\ControlB5.xml">
+      <SubType>Designer</SubType>
+      <Name>ControlB5</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+>>>>>>> 467091a031bbc1a17b51201f14061c70b6900f61
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

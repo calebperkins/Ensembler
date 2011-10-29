@@ -21,16 +21,17 @@ namespace EnsemPro
         {
             int totalInput = inputs.Count;
             int correct = 0;
-            if (totalInput < (currentMovement.myType == Movement.Types.Shake ? 20 :5)) // if not many inputs, player hasn't moved that much => FAIL
+            switch (currentMovement.myType)
             {
-                //Console.WriteLine("YAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
-                return 0.00005f;
-            }
-            else
-            {
-                switch (currentMovement.myType)
-                {
-                    case Movement.Types.Shake:
+                case Movement.Types.Noop:
+                    return (totalInput > 20 ? -0.5f : 0.0f);
+                case Movement.Types.Shake:
+                    if (totalInput < 20)
+                    {
+                        return 0.0f;
+                    }
+                    else
+                    {
                         foreach (InputState state in inputs)
                         {
                             if (Math.Abs(state.acceleration.X) > ACC_THRESHOLD || Math.Abs(state.acceleration.Y) > ACC_THRESHOLD)
@@ -38,39 +39,32 @@ namespace EnsemPro
                                 correct++;
                             }
                         }
-                        return (float)correct / totalInput;
-                    case Movement.Types.Wave:
-                        Vector2[] slopes = currentMovement.f.Slope(totalInput-1);
+                        return (float)correct / totalInput / 2;
+                    }
+                case Movement.Types.Wave:
+                    if (totalInput < 5)
+                    {
+                        return -0.3f;
+                    }
+                    else
+                    {
+                        Vector2[] slopes = currentMovement.f.Slope(totalInput - 1);
                         float errorSum = 0.0f;
                         for (int i = 1; i < totalInput; i++)
                         {
                             //Console.WriteLine("slope is "+ slopes[i]);
-                            
+
                             Vector2 normVel = Vector2.Normalize(inputs[i].velocity);
                             //Console.WriteLine("after normalize "+normVel);
                             Vector2 slope = slopes[i];
                             errorSum += (normVel.X - slope.X) * (normVel.X - slope.X) + (normVel.Y - slope.Y) * (normVel.Y - slope.Y);
                         }
                         float rmsError = (float)Math.Sqrt((double)errorSum / (double)(totalInput - 1));
-
-                        //Console.WriteLine("RMS ERROR is " + rmsError + "TOTAL INPUT " + totalInput);
-                        //Console.WriteLine("RETURNS " + (1 - rmsError * MAGIC_WAVE_THRESHOLD));
-                        return (1 - rmsError * MAGIC_WAVE_THRESHOLD);
-                        /*
-                        foreach (InputState input in inputs)
-                        {
-                            if (totalInput >= f.Slopes.Length)
-                                break;
-                            float dist = Vector2.Distance(f.Positions[totalInput], input.position);
-                            if (dist < 150)
-                                correct++;
-                        }
-                        
-                        return correct / (float)totalInput; */
-
-                    default: // no movement
-                        return 0.0f;
-                }
+                        float accuracy = (1 - rmsError * MAGIC_WAVE_THRESHOLD);
+                        return (accuracy > 0 ? accuracy : -0.3f);
+                    }
+                default:
+                    return 0.0f;
             }
         }
 
@@ -82,17 +76,14 @@ namespace EnsemPro
                 // send score back to Movement
                 if (score <= FAIL_THRESHOLD)
                 {
-                   // Debug.WriteLine("state is FAIL");
                     currentMovement.setState(Movement.States.Fail);
                 }
                 else if (score > FAIL_THRESHOLD)
                 {
-                //    Debug.WriteLine("state is SUCCEED");
                     currentMovement.setState(Movement.States.Succeed);
                 }
-                else
-                { // noop, localScore is negative
-                //    Debug.WriteLine("state is NONE");
+                else // no op
+                {
                     currentMovement.setState(Movement.States.None);
                 }
 
