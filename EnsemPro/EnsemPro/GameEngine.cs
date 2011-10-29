@@ -15,7 +15,6 @@ namespace EnsemPro
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        LevelSelector levelSelector;
         BatonView baton;
         SatisfactionQueue satisfaction;
         PlayLevel level;
@@ -69,8 +68,6 @@ namespace EnsemPro
             pauseScreen = new PauseScreen(this, spriteBatch);
             Components.Add(pauseScreen);
 
-            levelSelector = new LevelSelector(this, spriteBatch);
-            //Components.Add(levelSelector);
             base.Initialize();
             level.Start();
         }
