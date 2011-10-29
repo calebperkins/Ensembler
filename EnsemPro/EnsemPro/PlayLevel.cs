@@ -15,6 +15,8 @@ namespace EnsemPro
         Stopwatch watch = new Stopwatch();
         int current_beat;
         int last_beat;
+        // beat_sum is for the purpose of beat time change
+        int beat_sum = 0;
         int beatTime;
         int c = 0;
         int current_score;
@@ -51,9 +53,9 @@ namespace EnsemPro
 
         protected override void LoadContent()
         {
-            font = Game.Content.Load<SpriteFont>("images//Lucidia");
+            font = Game.Content.Load<SpriteFont>("images//ScoreFont");
 
-            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/b5-edited");
+            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/ControlB5");
             Song song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(song);
@@ -70,7 +72,7 @@ namespace EnsemPro
             musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/Johannes_sprite", "Characters/Johannes_map", new Vector2(200, 400), 20));
             musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/Lance_sprite", "Characters/Lance_map", new Vector2(100, 400), 20));
 
-            beatTime = data.BPM;
+            beatTime = 60000 / data.BPM;
             moveEval = new MovementEvaluator(actionList.First.Value);
             base.LoadContent();
         }
@@ -91,7 +93,7 @@ namespace EnsemPro
 
         public override void Update(GameTime gameTime)
         {
-            current_beat = (int)Math.Round((float)watch.ElapsedMilliseconds / (float)beatTime);
+            current_beat = beat_sum + (int)Math.Round((float)watch.ElapsedMilliseconds / (float)beatTime);
             bool newMovement = false;
             if (current_beat > last_beat) // new beat
             {
@@ -118,14 +120,30 @@ namespace EnsemPro
                     else checkMove = checkMove.Next;
                 }
 
-                // check and remove the head of the list
-                if (actionList.First != null && actionList.First.Value.startBeat == current_beat)
+                do
                 {
-                    current_act = actionList.First.Value;
-                    actionList.RemoveFirst();c++;newMovement = true;
-                }
-               // Console.WriteLine("this is movement " + c);
-                
+                    // check and remove the head of the list
+                    if (actionList.First != null && actionList.First.Value.startBeat == current_beat)
+                    {
+                        current_act = actionList.First.Value;
+                        if (current_act.myType != Movement.Types.Control)
+                        {
+                            actionList.RemoveFirst();
+                            c++;
+                            newMovement = true;
+                        }
+                        else
+                        {
+                            beat_sum = current_beat;
+                            beatTime = 60000 /  current_act.BPM;
+                            actionList.RemoveFirst();
+                            watch.Restart();
+                        }
+                    }
+                    else break;
+                    // Console.WriteLine("this is movement " + c);
+                } while (true);
+
                 if (current_act != null)
                 {
                     Movement.Types type = current_act.myType;
