@@ -19,6 +19,13 @@ namespace EnsemPro
         PlayLevel rhythmController;
         LevelSelectController levelController;
 
+        public enum PlayState
+        {
+            MainMenu,
+            SongSelectionMenu,
+            Play
+        }
+
         public GameEngine()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -50,6 +57,7 @@ namespace EnsemPro
             
             rhythmController = new PlayLevel(this, gameState, spriteBatch);
             rhythmController.Initialize();
+			
             base.Initialize();
             
         }

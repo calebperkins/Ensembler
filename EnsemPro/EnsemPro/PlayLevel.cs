@@ -189,6 +189,7 @@ namespace EnsemPro
                     /** Add gainedScore to current_score.
                      * If there is a combo and the most recent score is non-negative (e.g. Shaking is succuessful), also add the current combo count to the score */
                     current_score += (gainedScore + (comboCount > 1 && gainedScore > 0 ? comboCount : 0));
+                    current_score = Math.Max(0, current_score);
                     if (newMovement) buffer.Clear();
                     moveEval.Update(current_act, score, newMovement, gameTime);
                 }

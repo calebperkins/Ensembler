@@ -7,7 +7,7 @@ namespace EnsemPro
     {
         public const float FAIL_THRESHOLD = 0.4f;
         public const float ACC_THRESHOLD = 0.05f;
-        public const float MAGIC_WAVE_THRESHOLD = 0.6f / .5f;
+        public const float MAGIC_WAVE_THRESHOLD = 0.6f / 1f;
 
         Movement currentMovement;
 
@@ -52,16 +52,13 @@ namespace EnsemPro
                         float errorSum = 0.0f;
                         for (int i = 1; i < totalInput; i++)
                         {
-                            //Console.WriteLine("slope is "+ slopes[i]);
-
                             Vector2 normVel = Vector2.Normalize(inputs[i].velocity);
-                            //Console.WriteLine("after normalize "+normVel);
                             Vector2 slope = slopes[i];
                             errorSum += (normVel.X - slope.X) * (normVel.X - slope.X) + (normVel.Y - slope.Y) * (normVel.Y - slope.Y);
                         }
                         float rmsError = (float)Math.Sqrt((double)errorSum / (double)(totalInput - 1));
                         float accuracy = (1 - rmsError * MAGIC_WAVE_THRESHOLD);
-                        return (accuracy > 0 ? accuracy : -0.3f);
+                        return (accuracy > FAIL_THRESHOLD ? accuracy : -0.3f);
                     }
                 default:
                     return 0.0f;
