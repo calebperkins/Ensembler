@@ -166,7 +166,7 @@ namespace EnsemPro
                         }
                     }
                     else break;
-                    // Console.WriteLine("this is movement " + c);
+                    // Console.WriteLine("this is movement " + c);5
                 } while (true);
 
                 if (current_act != null || actionList.Count == 0)
