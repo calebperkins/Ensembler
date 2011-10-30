@@ -88,14 +88,15 @@ namespace EnsemPro
         public override void Initialize()
         {
             buffer = new InputBuffer();
-            try
+            /*try
             {
                 input = new WiiController(Game, buffer);
             }
             catch (WiimoteLib.WiimoteNotFoundException)
             {
                 input = new MouseController(Game, buffer);
-            }
+            }*/
+            input = new MouseController(Game, buffer);
 
             baton = new BatonView(Game, spriteBatch, buffer);
             baton.Initialize();
@@ -250,9 +251,6 @@ namespace EnsemPro
                 m.Draw(t);
             }
 
-            baton.Draw(t);
-            satisfaction.Draw(spriteBatch);
-
             // sort it in ascending way
             var drawing =
             from m in drawSet
@@ -265,7 +263,7 @@ namespace EnsemPro
                 if (m.startBeat > current_beat)
                 {
                     int total = (m.startBeat - m.showBeat) * beatTime;
-                    int elapsed = Math.Max(0, (int) watch.TotalMilliseconds - m.showBeat * beatTime);
+                    int elapsed = Math.Max(0, (int)watch.TotalMilliseconds - m.showBeat * beatTime);
                     alpha = 1f - elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 0);
                 }
@@ -285,6 +283,9 @@ namespace EnsemPro
                 }
                 //Debug.WriteLine(alpha);
             }
+
+            baton.Draw(t);
+            satisfaction.Draw(spriteBatch);
 
         }
 
