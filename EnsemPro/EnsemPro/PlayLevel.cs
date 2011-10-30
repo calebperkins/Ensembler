@@ -150,7 +150,7 @@ namespace EnsemPro
                     // Console.WriteLine("this is movement " + c);
                 } while (true);
 
-                if (current_act != null)
+                if (current_act != null || actionList.Count == 0)
                 {
                     Movement.Types type = current_act.myType;
                     float score = moveEval.Accuracy(current_act, buffer, gameTime);
@@ -173,7 +173,7 @@ namespace EnsemPro
                     current_score += (gainedScore + (comboCount > 1 && gainedScore > 0 ? comboCount : 0));
                     current_score = Math.Max(0, current_score);
                     if (newMovement) buffer.Clear();
-                    moveEval.Update(current_act, score, newMovement, gameTime);
+                    moveEval.Update(current_act, score, (newMovement || actionList.Count == 0), gameTime);
                 }
 
             }
