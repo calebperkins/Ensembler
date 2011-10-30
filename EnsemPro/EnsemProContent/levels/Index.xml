@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="DataTypes.GameData">
+    <Screen>PlayLevel</Screen>
+    <Levels>
+      <Item>
+        <Title>Symphony No. 5 (Normal)</Title>
+        <AssetName>Levels//B5</AssetName>
+      </Item>
+      <Item>
+        <Title>Symphony No. 5 (Edited)</Title>
+        <AssetName>Levels//b5-edited</AssetName>
+      </Item>
+    </Levels>
+  </Asset>
+</XnaContent>

@@ -112,11 +112,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BatonView.cs" />
+    <Compile Include="ChooseLevelScreen.cs" />
     <Compile Include="Display.cs" />
     <Compile Include="Function.cs" />
+    <Compile Include="GameModel.cs" />
     <Compile Include="InputBuffer.cs" />
     <Compile Include="InputController.cs" />
     <Compile Include="InputState.cs" />
+    <Compile Include="LevelSelectController.cs" />
     <Compile Include="MouseController.cs" />
     <Compile Include="Musician.cs" />
     <Compile Include="PauseScreen.cs" />

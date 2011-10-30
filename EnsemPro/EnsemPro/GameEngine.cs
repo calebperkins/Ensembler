@@ -15,11 +15,9 @@ namespace EnsemPro
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        BatonView baton;
-        SatisfactionQueue satisfaction;
-        PlayLevel level;
-        PauseScreen pauseScreen;
-        KeyboardState lastState = Keyboard.GetState();
+        GameModel gameState;        
+        PlayLevel rhythmController;
+        LevelSelectController levelController;
 
         public GameEngine()
         {
@@ -41,27 +39,19 @@ namespace EnsemPro
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            InputBuffer buffer = new InputBuffer();
+            
 
-            try
-            {
-                Components.Add(new WiiController(this, buffer));
-            }
-            catch (WiimoteLib.WiimoteNotFoundException)
-            {
-                Components.Add(new MouseController(this, buffer));
-            }
+            
 
-            baton = new BatonView(this, spriteBatch, buffer);
-            satisfaction = new SatisfactionQueue(buffer);
-            Components.Add(baton);
-            level = new PlayLevel(this, baton, buffer, spriteBatch);
-            Components.Add(level);
+            gameState = new GameModel();
 
-            pauseScreen = new PauseScreen(this, spriteBatch);
-            Components.Add(pauseScreen);
+            levelController = new LevelSelectController(gameState, spriteBatch);
+            levelController.Initialize();
+            
+            rhythmController = new PlayLevel(this, gameState, spriteBatch);
+            rhythmController.Initialize();
             base.Initialize();
-            level.Start();
+            
         }
 
         /// <summary>
@@ -70,8 +60,8 @@ namespace EnsemPro
         /// </summary>
         protected override void LoadContent()
         {
-            
-            satisfaction.LoadContent(Content);
+            gameState.LoadContent(Content);
+            levelController.LoadContent(Content);
             Movement.LoadContent(Content);
             
             base.LoadContent();
@@ -93,15 +83,17 @@ namespace EnsemPro
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            KeyboardState currentState = Keyboard.GetState();
-            if (lastState.IsKeyUp(Keys.P) && currentState.IsKeyDown(Keys.P))
-                PauseOrResume();
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            lastState = Keyboard.GetState();
-
-            satisfaction.Update(gameTime);
+            switch (gameState.CurrentScreen)
+            {
+                case DataTypes.Screens.LevelSelect:
+                    levelController.Update(gameTime);
+                    break;
+                case DataTypes.Screens.PlayLevel:
+                    rhythmController.Update(gameTime);
+                    break;
+                case DataTypes.Screens.Pause:
+                    break;
+            }
             base.Update(gameTime);
 
         }
@@ -113,9 +105,18 @@ namespace EnsemPro
         protected override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
+            switch (gameState.CurrentScreen)
+            {
+                case DataTypes.Screens.LevelSelect:
+                    levelController.Draw(gameTime);
+                    break;
+                case DataTypes.Screens.PlayLevel:
+                    rhythmController.Draw(gameTime);
+                    break;
+                case DataTypes.Screens.Pause:
+                    break;
+            }
             base.Draw(gameTime);
-            if (level.Visible)
-                satisfaction.Draw(spriteBatch);
             spriteBatch.End();
         }
 
@@ -126,14 +127,5 @@ namespace EnsemPro
             LoadContent();
         }
 
-        public void PauseOrResume()
-        {
-            baton.Enabled = !level.Enabled;
-            level.Enabled = !level.Enabled;
-            baton.Visible = !baton.Visible;
-            level.Visible = !level.Visible;
-            pauseScreen.Enabled = !pauseScreen.Enabled;
-            pauseScreen.Visible = !pauseScreen.Visible;
-        }
     }
 }

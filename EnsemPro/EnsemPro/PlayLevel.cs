@@ -36,17 +36,18 @@ namespace EnsemPro
         BatonView baton;
         MovementEvaluator moveEval;
         InputBuffer buffer;
+        InputController input;
+        SatisfactionQueue satisfaction;
 
         List<Musician> musicians = new List<Musician>();
 
-        public PlayLevel(Game g, BatonView b, InputBuffer buf, SpriteBatch sb) : base(g)
+        public PlayLevel(Game g, GameModel gm, SpriteBatch sb) : base(g)
         {
             actionList = new LinkedList<Movement>();
             drawSet = new HashSet<Movement>();
-            baton = b;
+
             spriteBatch = sb;
             DrawOrder = 0;
-            buffer = buf;
             comboOn = false;
             comboCount = -1;
         }
@@ -84,9 +85,23 @@ namespace EnsemPro
         }
 
         public override void Initialize()
-        {    
+        {
+            buffer = new InputBuffer();
+            try
+            {
+                input = new WiiController(Game, buffer);
+            }
+            catch (WiimoteLib.WiimoteNotFoundException)
+            {
+                input = new MouseController(Game, buffer);
+            }
 
+            baton = new BatonView(Game, spriteBatch, buffer);
+            baton.Initialize();
+            satisfaction = new SatisfactionQueue(buffer);
+            satisfaction.LoadContent(Game.Content);
             base.Initialize();
+            Start();
         }
 
         public void Start()
@@ -99,6 +114,9 @@ namespace EnsemPro
 
         public override void Update(GameTime gameTime)
         {
+            input.Update(gameTime);
+            satisfaction.Update(gameTime);
+
             current_beat = beat_sum + (int)Math.Round((float)watch.ElapsedMilliseconds / (float)beatTime);
             bool newMovement = false;
             if (current_beat > last_beat) // new beat
@@ -201,7 +219,7 @@ namespace EnsemPro
         public override void Draw(GameTime t)
         {
             // Draw background
-            spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(background, new Vector2(), Color.White);
 
             // Draw beat and score
             string output = "beat " + current_beat;
@@ -263,6 +281,8 @@ namespace EnsemPro
 
             }
 
+            baton.Draw(t);
+            satisfaction.Draw(spriteBatch);
         }
 
     }
