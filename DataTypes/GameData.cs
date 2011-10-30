@@ -9,7 +9,8 @@ namespace DataTypes
         Title,
         LevelSelect,
         Pause,
-        PlayLevel
+        PlayLevel,
+        Initial
     }
 
     public struct LevelSummary

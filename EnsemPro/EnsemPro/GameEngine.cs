@@ -15,7 +15,8 @@ namespace EnsemPro
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        GameModel gameState;        
+        GameModel gameState;
+        DataTypes.Screens lastState = DataTypes.Screens.Initial;
         PlayLevel rhythmController;
         LevelSelectController levelController;
 
@@ -91,6 +92,16 @@ namespace EnsemPro
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            // transitioning to new state
+            if (lastState != gameState.CurrentScreen)
+            {
+                if (gameState.CurrentScreen == DataTypes.Screens.PlayLevel)
+                {
+                    rhythmController.Start();
+                }
+            }
+            lastState = gameState.CurrentScreen;
+
             switch (gameState.CurrentScreen)
             {
                 case DataTypes.Screens.LevelSelect:
@@ -102,6 +113,7 @@ namespace EnsemPro
                 case DataTypes.Screens.Pause:
                     break;
             }
+            
             base.Update(gameTime);
 
         }

@@ -38,6 +38,7 @@ namespace EnsemPro
         InputBuffer buffer;
         InputController input;
         SatisfactionQueue satisfaction;
+        Song song;
 
         List<Musician> musicians = new List<Musician>();
 
@@ -57,9 +58,9 @@ namespace EnsemPro
             font = Game.Content.Load<SpriteFont>("images//ScoreFont");
 
             DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/b5-edited");
-            Song song = Game.Content.Load<Song>(data.SongAssetName);
+            song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
-            MediaPlayer.Play(song);
+            
             background = Game.Content.Load<Texture2D>(data.Background);
 
             beatTime = 60000 / data.BPM;
@@ -101,15 +102,13 @@ namespace EnsemPro
             satisfaction = new SatisfactionQueue(buffer);
             satisfaction.LoadContent(Game.Content);
             base.Initialize();
-            Start();
         }
 
         public void Start()
         {
-
             current_beat = 0;
             last_beat = -1;
-            //watch.Start();
+            MediaPlayer.Play(song);
         }
 
         public override void Update(GameTime gameTime)
