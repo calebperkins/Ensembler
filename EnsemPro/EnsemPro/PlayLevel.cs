@@ -12,7 +12,7 @@ namespace EnsemPro
     {
 
         //public const float INTERVAL_TIME = 1.0f;
-        Stopwatch watch = new Stopwatch();
+        TimeSpan watch = new TimeSpan();
         int current_beat;
         int last_beat;
         // beat_sum is for the purpose of beat time change
@@ -36,17 +36,19 @@ namespace EnsemPro
         BatonView baton;
         MovementEvaluator moveEval;
         InputBuffer buffer;
+        InputController input;
+        SatisfactionQueue satisfaction;
+        Song song;
 
         List<Musician> musicians = new List<Musician>();
 
-        public PlayLevel(Game g, BatonView b, InputBuffer buf, SpriteBatch sb) : base(g)
+        public PlayLevel(Game g, GameModel gm, SpriteBatch sb) : base(g)
         {
             actionList = new LinkedList<Movement>();
             drawSet = new HashSet<Movement>();
-            baton = b;
+
             spriteBatch = sb;
             DrawOrder = 0;
-            buffer = buf;
             comboOn = false;
             comboCount = -1;
         }
@@ -56,9 +58,9 @@ namespace EnsemPro
             font = Game.Content.Load<SpriteFont>("images//ScoreFont");
 
             DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/b5-edited");
-            Song song = Game.Content.Load<Song>(data.SongAssetName);
+            song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
-            MediaPlayer.Play(song);
+            
             background = Game.Content.Load<Texture2D>(data.Background);
 
             beatTime = 60000 / data.BPM;
@@ -84,22 +86,39 @@ namespace EnsemPro
         }
 
         public override void Initialize()
-        {    
+        {
+            buffer = new InputBuffer();
+            try
+            {
+                input = new WiiController(Game, buffer);
+            }
+            catch (WiimoteLib.WiimoteNotFoundException)
+            {
+                input = new MouseController(Game, buffer);
+            }
 
+            baton = new BatonView(Game, spriteBatch, buffer);
+            baton.Initialize();
+            satisfaction = new SatisfactionQueue(buffer);
+            satisfaction.LoadContent(Game.Content);
             base.Initialize();
         }
 
         public void Start()
         {
-
             current_beat = 0;
             last_beat = -1;
-            watch.Start();
+            MediaPlayer.Play(song);
         }
 
         public override void Update(GameTime gameTime)
         {
-            current_beat = beat_sum + (int)Math.Round((float)watch.ElapsedMilliseconds / (float)beatTime);
+            input.Update(gameTime);
+            satisfaction.Update(gameTime);
+
+            watch = watch.Add(gameTime.ElapsedGameTime);
+
+            current_beat = beat_sum + (int)Math.Round((float)watch.TotalMilliseconds / (float)beatTime);
             bool newMovement = false;
             if (current_beat > last_beat) // new beat
             {
@@ -143,7 +162,7 @@ namespace EnsemPro
                             beat_sum = current_beat;
                             beatTime = 60000 /  current_act.BPM;
                             actionList.RemoveFirst();
-                            watch.Restart();
+                            watch = new TimeSpan();
                         }
                     }
                     else break;
@@ -202,7 +221,7 @@ namespace EnsemPro
         public override void Draw(GameTime t)
         {
             // Draw background
-            spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(background, new Vector2(), Color.White);
 
             // Draw beat and score
             string output = "beat " + current_beat;
@@ -243,27 +262,29 @@ namespace EnsemPro
                 if (m.startBeat > current_beat)
                 {
                     int total = (m.startBeat - m.showBeat) * beatTime;
-                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.showBeat * beatTime);
+                    int elapsed = Math.Max(0, (int)watch.Milliseconds - m.showBeat * beatTime);
                     alpha = 1f - elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 0);
                 }
                 else if (m.endBeat > current_beat)
                 {
                     int total = (m.endBeat - m.startBeat) * beatTime;
-                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.startBeat * beatTime);
+                    int elapsed = Math.Max(0, (int)watch.Milliseconds - m.startBeat * beatTime);
                     alpha = 1f - elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 1);
                 }
                 else
                 {
                     int total = (m.fadeBeat - m.endBeat) * beatTime;
-                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.endBeat * beatTime);
+                    int elapsed = Math.Max(0, (int)watch.Milliseconds - m.endBeat * beatTime);
                     alpha = elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 2);
                 }
 
             }
 
+            baton.Draw(t);
+            satisfaction.Draw(spriteBatch);
         }
 
     }
