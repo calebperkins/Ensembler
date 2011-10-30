@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <Asset Type="DataTypes.GameData">
-    <Screen>LevelSelect</Screen>
+    <Screen>SelectLevel</Screen>
     <Levels>
       <Item>
         <Title>Symphony No. 5 (Normal)</Title>

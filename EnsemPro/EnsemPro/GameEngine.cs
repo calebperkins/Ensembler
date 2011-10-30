@@ -20,13 +20,6 @@ namespace EnsemPro
         PlayLevel rhythmController;
         LevelSelectController levelController;
 
-        public enum PlayState
-        {
-            MainMenu,
-            SongSelectionMenu,
-            Play
-        }
-
         public GameEngine()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -104,7 +97,7 @@ namespace EnsemPro
 
             switch (gameState.CurrentScreen)
             {
-                case DataTypes.Screens.LevelSelect:
+                case DataTypes.Screens.SelectLevel:
                     levelController.Update(gameTime);
                     break;
                 case DataTypes.Screens.PlayLevel:
@@ -127,7 +120,7 @@ namespace EnsemPro
             spriteBatch.Begin();
             switch (gameState.CurrentScreen)
             {
-                case DataTypes.Screens.LevelSelect:
+                case DataTypes.Screens.SelectLevel:
                     levelController.Draw(gameTime);
                     break;
                 case DataTypes.Screens.PlayLevel:

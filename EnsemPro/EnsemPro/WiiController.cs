@@ -6,12 +6,14 @@ namespace EnsemPro
     public class WiiController : InputController
     {
         WiimoteLib.Wiimote wm;
+        Vector2 lastPosition = new Vector2();
 
         public WiiController(Game game, InputBuffer b)
             : base(game, b)
         {
             wm = new WiimoteLib.Wiimote();
             wm.Connect();
+            wm.SetReportType(WiimoteLib.InputReport.IRAccel, WiimoteLib.IRSensitivity.Maximum, true);
         }
 
         /// <summary>
@@ -25,15 +27,26 @@ namespace EnsemPro
             input.position.X = GameEngine.WIDTH * (1 - ws.X);
             input.position.Y = GameEngine.HEIGHT * ws.Y;
             float time = gameTime.ElapsedGameTime.Milliseconds; // time elapsed since last update
-            Vector2 posDiff = new Vector2(input.position.X - buffer.CurrentPosition.X, input.position.Y - buffer.CurrentPosition.Y); // change in displacement
+            Vector2 posDiff = input.position - buffer.CurrentPosition;
             input.velocity = posDiff / time;
             WiimoteLib.Point3F acc = wm.WiimoteState.AccelState.Values;
             input.acceleration = new Vector2(acc.X, acc.Y);
+
+            if (ws.X == 0.0f && ws.Y == 0.0f) // sensor bar out of range
+            {
+                input.position = lastPosition;
+                posDiff = new Vector2();
+            }
+            else
+            {
+                lastPosition = input.position;
+            }
+
             if (Math.Abs(posDiff.X) > POS_DIFF_THRESHOLD || Math.Abs(posDiff.Y) > POS_DIFF_THRESHOLD) // add only only if the baton has moved at least a decent amount of distance 
             {
                 buffer.Add(input);
             }
-            base.Update(gameTime);
+            //base.Update(gameTime);
         }
     }
 }

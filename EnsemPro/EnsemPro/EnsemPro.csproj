@@ -120,6 +120,7 @@
     <Compile Include="InputController.cs" />
     <Compile Include="InputState.cs" />
     <Compile Include="LevelSelectController.cs" />
+    <Compile Include="MenuController.cs" />
     <Compile Include="MouseController.cs" />
     <Compile Include="Musician.cs" />
     <Compile Include="PauseScreen.cs" />

@@ -28,7 +28,7 @@ namespace EnsemPro
 
         public override void Draw(GameTime t)
         {
-             spriteBatch.Draw(batonTexture, buffer.CurrentPosition, null, Color.White, 0.0f, new Vector2(0, 0), 0.35f, SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(batonTexture, buffer.CurrentPosition, null, Color.White, 0.0f, new Vector2(0, 0), 0.35f, SpriteEffects.None, 0.0f);
             spriteBatch.Draw(batonTexture, buffer.CurrentPosition + new Vector2(3.0f), null, shadow, 0.0f, new Vector2(0, 0), 0.35f, SpriteEffects.None, 0.0f);
         }
 

@@ -37,7 +37,7 @@ namespace EnsemPro
             if (ks.IsKeyDown(Keys.Down))
                 selected = (selected + 1) % gameState.Levels.Length;
             else if (ks.IsKeyDown(Keys.Up))
-                selected = (selected - 1) % gameState.Levels.Length;
+                selected = (selected == 0) ? (gameState.Levels.Length - 1) : (selected - 1);
             else if (ks.IsKeyDown(Keys.Space))
                 gameState.CurrentScreen = DataTypes.Screens.PlayLevel;
         }

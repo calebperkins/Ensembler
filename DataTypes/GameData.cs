@@ -7,7 +7,7 @@ namespace DataTypes
     public enum Screens
     {
         Title,
-        LevelSelect,
+        SelectLevel,
         Pause,
         PlayLevel,
         Initial
