@@ -118,7 +118,7 @@ namespace EnsemPro
 
             watch = watch.Add(gameTime.ElapsedGameTime);
 
-            current_beat = beat_sum + (int)Math.Round((float)watch.TotalMilliseconds / (float)beatTime);
+            current_beat = beat_sum + (int)Math.Round(watch.TotalMilliseconds / beatTime);
             bool newMovement = false;
             if (current_beat > last_beat) // new beat
             {
@@ -250,6 +250,9 @@ namespace EnsemPro
                 m.Draw(t);
             }
 
+            baton.Draw(t);
+            satisfaction.Draw(spriteBatch);
+
             // sort it in ascending way
             var drawing =
             from m in drawSet
@@ -262,29 +265,27 @@ namespace EnsemPro
                 if (m.startBeat > current_beat)
                 {
                     int total = (m.startBeat - m.showBeat) * beatTime;
-                    int elapsed = Math.Max(0, (int)watch.Milliseconds - m.showBeat * beatTime);
+                    int elapsed = Math.Max(0, (int) watch.TotalMilliseconds - m.showBeat * beatTime);
                     alpha = 1f - elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 0);
                 }
                 else if (m.endBeat > current_beat)
                 {
                     int total = (m.endBeat - m.startBeat) * beatTime;
-                    int elapsed = Math.Max(0, (int)watch.Milliseconds - m.startBeat * beatTime);
+                    int elapsed = Math.Max(0, (int)watch.TotalMilliseconds - m.startBeat * beatTime);
                     alpha = 1f - elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 1);
                 }
                 else
                 {
                     int total = (m.fadeBeat - m.endBeat) * beatTime;
-                    int elapsed = Math.Max(0, (int)watch.Milliseconds - m.endBeat * beatTime);
+                    int elapsed = Math.Max(0, (int)watch.TotalMilliseconds - m.endBeat * beatTime);
                     alpha = elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 2);
                 }
-
+                //Debug.WriteLine(alpha);
             }
 
-            baton.Draw(t);
-            satisfaction.Draw(spriteBatch);
         }
 
     }
