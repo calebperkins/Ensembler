@@ -12,7 +12,7 @@ namespace EnsemPro
     {
 
         //public const float INTERVAL_TIME = 1.0f;
-        Stopwatch watch = new Stopwatch();
+        TimeSpan watch = new TimeSpan();
         int current_beat;
         int last_beat;
         // beat_sum is for the purpose of beat time change
@@ -109,7 +109,7 @@ namespace EnsemPro
 
             current_beat = 0;
             last_beat = -1;
-            watch.Start();
+            //watch.Start();
         }
 
         public override void Update(GameTime gameTime)
@@ -117,7 +117,9 @@ namespace EnsemPro
             input.Update(gameTime);
             satisfaction.Update(gameTime);
 
-            current_beat = beat_sum + (int)Math.Round((float)watch.ElapsedMilliseconds / (float)beatTime);
+            watch = watch.Add(gameTime.ElapsedGameTime);
+
+            current_beat = beat_sum + (int)Math.Round((float)watch.TotalMilliseconds / (float)beatTime);
             bool newMovement = false;
             if (current_beat > last_beat) // new beat
             {
@@ -161,7 +163,7 @@ namespace EnsemPro
                             beat_sum = current_beat;
                             beatTime = 60000 /  current_act.BPM;
                             actionList.RemoveFirst();
-                            watch.Restart();
+                            watch = new TimeSpan();
                         }
                     }
                     else break;
@@ -261,21 +263,21 @@ namespace EnsemPro
                 if (m.startBeat > current_beat)
                 {
                     int total = (m.startBeat - m.showBeat) * beatTime;
-                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.showBeat * beatTime);
+                    int elapsed = Math.Max(0, (int)watch.Milliseconds - m.showBeat * beatTime);
                     alpha = 1f - elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 0);
                 }
                 else if (m.endBeat > current_beat)
                 {
                     int total = (m.endBeat - m.startBeat) * beatTime;
-                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.startBeat * beatTime);
+                    int elapsed = Math.Max(0, (int)watch.Milliseconds - m.startBeat * beatTime);
                     alpha = 1f - elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 1);
                 }
                 else
                 {
                     int total = (m.fadeBeat - m.endBeat) * beatTime;
-                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.endBeat * beatTime);
+                    int elapsed = Math.Max(0, (int)watch.Milliseconds - m.endBeat * beatTime);
                     alpha = elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 2);
                 }
