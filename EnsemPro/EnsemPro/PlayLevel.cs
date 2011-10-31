@@ -12,7 +12,7 @@ namespace EnsemPro
     {
 
         //public const float INTERVAL_TIME = 1.0f;
-        TimeSpan watch = new TimeSpan();
+        Stopwatch watch = new Stopwatch();
         int current_beat;
         int last_beat;
         // beat_sum is for the purpose of beat time change
@@ -89,14 +89,15 @@ namespace EnsemPro
         public override void Initialize()
         {
             buffer = new InputBuffer();
-            try
+            /*try
             {
                 input = new WiiController(Game, buffer);
             }
             catch (WiimoteLib.WiimoteNotFoundException)
             {
                 input = new MouseController(Game, buffer);
-            }
+            }*/
+            input = new MouseController(Game, buffer);
 
             baton = new BatonView(Game, spriteBatch, buffer);
             baton.Initialize();
@@ -110,6 +111,7 @@ namespace EnsemPro
             current_beat = 0;
             last_beat = -1;
             MediaPlayer.Play(song);
+            watch.Start();
         }
 
         public override void Update(GameTime gameTime)
@@ -117,9 +119,9 @@ namespace EnsemPro
             input.Update(gameTime);
             satisfaction.Update(gameTime);
 
-            watch = watch.Add(gameTime.ElapsedGameTime);
+            //watch = watch.Add(gameTime.ElapsedGameTime);
 
-            current_beat = beat_sum + (int)Math.Round(watch.TotalMilliseconds / beatTime);
+            current_beat = beat_sum + (int)Math.Round((float) watch.ElapsedMilliseconds / beatTime);
             bool newMovement = false;
             if (current_beat > last_beat) // new beat
             {
@@ -165,7 +167,7 @@ namespace EnsemPro
                             beat_sum = current_beat;
                             beatTime = 60000 /  current_act.BPM;
                             actionList.RemoveFirst();
-                            watch = new TimeSpan();
+                            watch.Restart();
                         }
                     }
                     else break;
@@ -277,21 +279,21 @@ namespace EnsemPro
                 if (m.startBeat > current_beat)
                 {
                     int total = (m.startBeat - m.showBeat) * beatTime;
-                    int elapsed = Math.Max(0, (int) watch.TotalMilliseconds - m.showBeat * beatTime);
+                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.showBeat * beatTime);
                     alpha = 1f - elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 0);
                 }
                 else if (m.endBeat > current_beat)
                 {
                     int total = (m.endBeat - m.startBeat) * beatTime;
-                    int elapsed = Math.Max(0, (int)watch.TotalMilliseconds - m.startBeat * beatTime);
+                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.startBeat * beatTime);
                     alpha = 1f - elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 1);
                 }
                 else
                 {
                     int total = (m.fadeBeat - m.endBeat) * beatTime;
-                    int elapsed = Math.Max(0, (int)watch.TotalMilliseconds - m.endBeat * beatTime);
+                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.endBeat * beatTime);
                     alpha = elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 2);
                 }
@@ -299,6 +301,9 @@ namespace EnsemPro
                 baton.Draw(t);
                 satisfaction.Draw(spriteBatch);
             }
+
+            baton.Draw(t);
+            satisfaction.Draw(spriteBatch);
 
         }
 
