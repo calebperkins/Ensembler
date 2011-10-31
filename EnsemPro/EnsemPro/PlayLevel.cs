@@ -150,7 +150,7 @@ namespace EnsemPro
 
                 do
                 {
-                    lastMovement = current_act;
+                    
                     // check and remove the head of the list
                     if (actionList.First != null && actionList.First.Value.startBeat == current_beat)
                     {
@@ -190,10 +190,11 @@ namespace EnsemPro
                         score = moveEval.Accuracy(lastMovement, buffer, gameTime);
                         gainedScore = (int)(score * 10);
                     }
+                    
                         /* Keep the combo on if it is now Wave and the most recent gainedScore is greater than FAIL_THRESHOLD (i.e. success continues),
                          * or if combo is on before a Shake phase is entered,
                          * otherwise break the combo. */
-                    comboOn = gainedScore >= 4 && type == Movement.Types.Wave || comboOn && lastMovement.myType!=Movement.Types.Wave;
+                    comboOn = !(gainedScore < 4 && type == Movement.Types.Wave);
 
                         /** Add to combo count if it is now Wave and combo is on,
                          * else if it is now Wave but combo is broken, reset count to 0,
@@ -208,9 +209,10 @@ namespace EnsemPro
                         current_score = Math.Max(0, current_score);
                         if (newMovement) buffer.Clear();
                         moveEval.Update(current_act, score, (newMovement || actionList.Count == 0), gameTime);
-                    
+                        lastMovement = current_act;
                 }
-
+                
+                
             }
 
         }
