@@ -13,7 +13,7 @@
         <StartBeat>1</StartBeat>
         <EndBeat>1</EndBeat>
         <FadeBeat>1</FadeBeat>
-        <NewBPM>50</NewBPM>
+        <NewBPM>100</NewBPM>
       </Item>
       <Item>
         <Kind>Shake</Kind>
