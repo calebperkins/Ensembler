@@ -136,6 +136,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Levels\b5-edited-2.xml">
+      <SubType>Designer</SubType>
+      <Name>b5-edited-2</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Levels\b5-edited.xml">
+      <SubType>Designer</SubType>
+      <Name>b5-edited</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
     <Compile Include="Levels\B5.xml">
       <Name>B5</Name>
       <Importer>XmlImporter</Importer>
@@ -237,13 +249,6 @@
   <ItemGroup>
     <Compile Include="Characters\Lance_map.xml">
       <Name>Lance_map</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Levels\b5-edited.xml">
-      <Name>b5-edited</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>

@@ -85,8 +85,6 @@ namespace EnsemPro
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
             // transitioning to new state
             if (lastState != gameState.CurrentScreen)
             {
