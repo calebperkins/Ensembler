@@ -40,6 +40,18 @@ namespace EnsemPro
             lastV = input.velocity;
             lastP = input.position;
 
+            KeyboardState ks = Keyboard.GetState();
+            if (ks.IsKeyDown(Keys.A) && ks.IsKeyDown(Keys.Z)) { }
+            else if (ks.IsKeyDown(Keys.A))
+            {
+                input.key = Keys.A;
+            }
+            else if (ks.IsKeyDown(Keys.Z))
+            {
+                input.key = Keys.Z;
+            }
+
+
 
             if (Math.Abs(posDiff.X) > POS_DIFF_THRESHOLD || Math.Abs(posDiff.Y) > POS_DIFF_THRESHOLD) // add only only if the baton has moved at least a decent amount of distance 
             {

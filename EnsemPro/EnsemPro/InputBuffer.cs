@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using System;
+using Microsoft.Xna.Framework.Input;
 
 namespace EnsemPro
 {
@@ -11,6 +13,14 @@ namespace EnsemPro
         {
             items.Add(s);
             CurrentPosition = s.position;
+            VolumeChange = s.key;
+            //Console.WriteLine("KEYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY " + s.key);
+        }
+
+        public Keys VolumeChange
+        {
+            get;
+            private set;
         }
 
         public Vector2 CurrentPosition

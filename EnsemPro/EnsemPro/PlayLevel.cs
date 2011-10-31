@@ -5,6 +5,7 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Input;
 
 namespace EnsemPro
 {
@@ -40,6 +41,7 @@ namespace EnsemPro
         InputController input;
         SatisfactionQueue satisfaction;
         Song song;
+        float volume = 0.5f;
 
         List<Musician> musicians = new List<Musician>();
 
@@ -118,6 +120,22 @@ namespace EnsemPro
         {
             input.Update(gameTime);
             satisfaction.Update(gameTime);
+
+            // Adjusts volume
+            Keys key = buffer.VolumeChange;
+            if (key != Keys.None)
+            {
+            //Console.WriteLine(key);
+                if (key == Keys.A)
+                {
+                    volume = MathHelper.Clamp(volume + 0.01f, 0, 1);
+                }
+                else if (key == Keys.Z)
+                {
+                    volume = MathHelper.Clamp(volume - 0.01f, 0, 1);
+                }
+                MediaPlayer.Volume = volume;
+            }
 
             //watch = watch.Add(gameTime.ElapsedGameTime);
 
@@ -240,11 +258,13 @@ namespace EnsemPro
             spriteBatch.Draw(background, new Vector2(), Color.White);
 
             // Draw beat and score
-            string output = "beat " + current_beat;
+            string beat = "beat " + current_beat;
             // Find the center of the string
-            Vector2 FontOrigin = font.MeasureString(output) / 2;
+            // Vector2 FontOrigin = font.MeasureString(output) / 2;
+            string vol = "volume: " + (int) (volume * 10);
             // Draw the string
-            spriteBatch.DrawString(font, output, new Vector2(0, 0), Color.White);
+            spriteBatch.DrawString(font, beat, new Vector2(0, 0), Color.White);
+            spriteBatch.DrawString(font, vol, new Vector2(125, 0), Color.White);
             spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.White);
             spriteBatch.DrawString(font, (gainedScore >= 0 ? "+" : "") + gainedScore, new Vector2(460, 0), 
                 (gainedScore > 0 ? Color.YellowGreen : (gainedScore < 0 ? Color.Red : Color.White)));
