@@ -193,7 +193,7 @@ namespace EnsemPro
                         /* Keep the combo on if it is now Wave and the most recent gainedScore is greater than FAIL_THRESHOLD (i.e. success continues),
                          * or if combo is on before a Shake phase is entered,
                          * otherwise break the combo. */
-                    comboOn = gainedScore >= 4 && type == Movement.Types.Wave || comboOn;
+                    comboOn = gainedScore >= 4 && type == Movement.Types.Wave || comboOn && lastMovement.myType!=Movement.Types.Wave;
 
                         /** Add to combo count if it is now Wave and combo is on,
                          * else if it is now Wave but combo is broken, reset count to 0,
