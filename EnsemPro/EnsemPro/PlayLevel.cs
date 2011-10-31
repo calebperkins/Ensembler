@@ -24,6 +24,7 @@ namespace EnsemPro
         bool comboOn;
         int comboCount;
         int maxCombo;
+        Movement lastMovement;
 
         SpriteFont font;
         SpriteBatch spriteBatch;
@@ -147,9 +148,11 @@ namespace EnsemPro
 
                 do
                 {
+                    lastMovement = current_act;
                     // check and remove the head of the list
                     if (actionList.First != null && actionList.First.Value.startBeat == current_beat)
                     {
+                        
                         current_act = actionList.First.Value;
                         if (current_act.myType != Movement.Types.Control)
                         {
@@ -169,30 +172,42 @@ namespace EnsemPro
                     // Console.WriteLine("this is movement " + c);5
                 } while (true);
 
-                if (current_act != null || actionList.Count == 0)
+                if (current_act != null)
                 {
-                    Movement.Types type = current_act.myType;
-                    float score = moveEval.Accuracy(current_act, buffer, gameTime);
-                    gainedScore = (int)(score * 10);
+                    Movement.Types type;
+                    float score = 0.0f;
+                    if (actionList.Count != 0)
+                    {
+                        type = current_act.myType;
+                        score = moveEval.Accuracy(current_act, buffer, gameTime);
+                        gainedScore = (int)(score * 10);
+                    }
+                    else
+                    {
+                        type = lastMovement.myType;
+                        score = moveEval.Accuracy(lastMovement, buffer, gameTime);
+                        gainedScore = (int)(score * 10);
+                    }
+                        /* Keep the combo on if it is now Wave and the most recent gainedScore is greater than FAIL_THRESHOLD (i.e. success continues),
+                         * or if combo is on before a Shake phase is entered,
+                         * otherwise break the combo. */
+                    comboOn = gainedScore >= 4 && type == Movement.Types.Wave && !comboOn
+                        || comboOn && type == Movement.Types.Noop || comboOn && type == Movement.Types.Shake;
 
-                    /* Keep the combo on if it is now Wave and the most recent gainedScore is greater than FAIL_THRESHOLD (i.e. success continues),
-                     * or if combo is on before a Shake phase is entered,
-                     * otherwise break the combo. */
-                    comboOn = (gainedScore >= 4 && type == Movement.Types.Wave || comboOn && type==Movement.Types.Shake) ? true : false;
+                        /** Add to combo count if it is now Wave and combo is on,
+                         * else if it is now Wave but combo is broken, reset count to 0,
+                         * else if combo is on but a Shape or Noop phase is entered, keep the count until next Wave. */
+                        comboCount = comboOn && type == Movement.Types.Wave ? comboCount += 1 : (type == Movement.Types.Wave ? 0 : comboCount);
+                        if (comboCount > maxCombo) maxCombo = comboCount;
+                        //  if (actionList.First != null) // prevents score from endlessly increasing
 
-                    /** Add to combo count if it is now Wave and combo is on,
-                     * else if it is now Wave but combo is broken, reset count to 0,
-                     * else if combo is on but a Shape or Noop phase is entered, keep the count until next Wave. */
-                    comboCount = comboOn && type == Movement.Types.Wave ? comboCount += 1 : (type == Movement.Types.Wave ? 0 : comboCount);
-                    if (comboCount > maxCombo) maxCombo = comboCount;
-                  //  if (actionList.First != null) // prevents score from endlessly increasing
-
-                    /** Add gainedScore to current_score.
-                     * If there is a combo and the most recent score is non-negative (e.g. Shaking is succuessful), also add the current combo count to the score */
-                    current_score += (gainedScore + (comboCount > 1 && gainedScore > 0 ? comboCount : 0));
-                    current_score = Math.Max(0, current_score);
-                    if (newMovement) buffer.Clear();
-                    moveEval.Update(current_act, score, (newMovement || actionList.Count == 0), gameTime);
+                        /** Add gainedScore to current_score.
+                         * If there is a combo and the most recent score is non-negative (e.g. Shaking is succuessful), also add the current combo count to the score */
+                        current_score += (gainedScore + (comboCount > 1 && gainedScore > 0 ? comboCount : 0));
+                        current_score = Math.Max(0, current_score);
+                        if (newMovement) buffer.Clear();
+                        moveEval.Update(current_act, score, (newMovement || actionList.Count == 0), gameTime);
+                    
                 }
 
             }
@@ -243,15 +258,12 @@ namespace EnsemPro
             if (comboCount >= 10) spriteBatch.DrawString(font, "Great!", new Vector2(670, 30), Color.Tomato);
             
             // hard coded for now; should be "if song ends..."
-            if (current_beat > 141) spriteBatch.DrawString(font, "Max Combo is " + maxCombo, new Vector2(200, 250), Color.Black);
+            if (actionList.Count == 0) spriteBatch.DrawString(font, "Max Combo is " + maxCombo, new Vector2(200, 250), Color.Black);
 
             foreach (Musician m in musicians)
             {
                 m.Draw(t);
             }
-
-            baton.Draw(t);
-            satisfaction.Draw(spriteBatch);
 
             // sort it in ascending way
             var drawing =
@@ -284,6 +296,8 @@ namespace EnsemPro
                     m.Draw(spriteBatch, alpha, 2);
                 }
                 //Debug.WriteLine(alpha);
+                baton.Draw(t);
+                satisfaction.Draw(spriteBatch);
             }
 
         }
