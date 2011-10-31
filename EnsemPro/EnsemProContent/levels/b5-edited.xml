@@ -169,14 +169,26 @@
       </Item>
       <Item>
         <Kind>Wave</Kind>
-        <ShowBeat>28</ShowBeat>
-        <StartBeat>29</StartBeat>
-        <EndBeat>30</EndBeat>
-        <FadeBeat>31</FadeBeat>
+        <ShowBeat>27</ShowBeat>
+        <StartBeat>28</StartBeat>
+        <EndBeat>29</EndBeat>
+        <FadeBeat>30</FadeBeat>
         <StartX>200</StartX>
         <StartY>200</StartY>
         <EndX>400</EndX>
         <EndY>400</EndY>
+        <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Wave</Kind>
+        <ShowBeat>28</ShowBeat>
+        <StartBeat>29</StartBeat>
+        <EndBeat>30</EndBeat>
+        <FadeBeat>31</FadeBeat>
+        <StartX>400</StartX>
+        <StartY>400</StartY>
+        <EndX>400</EndX>
+        <EndY>200</EndY>
         <A>0</A>
       </Item>
       <Item>
@@ -186,8 +198,8 @@
         <EndBeat>31</EndBeat>
         <FadeBeat>32</FadeBeat>
         <StartX>400</StartX>
-        <StartY>400</StartY>
-        <EndX>400</EndX>
+        <StartY>200</StartY>
+        <EndX>600</EndX>
         <EndY>200</EndY>
         <A>0</A>
       </Item>
@@ -197,18 +209,6 @@
         <StartBeat>31</StartBeat>
         <EndBeat>32</EndBeat>
         <FadeBeat>33</FadeBeat>
-        <StartX>400</StartX>
-        <StartY>200</StartY>
-        <EndX>600</EndX>
-        <EndY>200</EndY>
-        <A>0</A>
-      </Item>
-      <Item>
-        <Kind>Wave</Kind>
-        <ShowBeat>31</ShowBeat>
-        <StartBeat>32</StartBeat>
-        <EndBeat>33</EndBeat>
-        <FadeBeat>34</FadeBeat>
         <StartX>600</StartX>
         <StartY>200</StartY>
         <EndX>200</EndX>
@@ -217,8 +217,8 @@
       </Item>
       <Item>
         <Kind>Noop</Kind>
-        <ShowBeat>34</ShowBeat>
-        <StartBeat>34</StartBeat>
+        <ShowBeat>33</ShowBeat>
+        <StartBeat>33</StartBeat>
         <EndBeat>35</EndBeat>
         <FadeBeat>35</FadeBeat>
       </Item>
@@ -456,8 +456,8 @@
         <Kind>Noop</Kind>
         <ShowBeat>61</ShowBeat>
         <StartBeat>61</StartBeat>
-        <EndBeat>62</EndBeat>
-        <FadeBeat>62</FadeBeat>
+        <EndBeat>63</EndBeat>
+        <FadeBeat>63</FadeBeat>
       </Item>
       <Item>
         <Kind>Shake</Kind>
