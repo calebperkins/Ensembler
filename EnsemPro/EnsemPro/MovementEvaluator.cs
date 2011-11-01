@@ -51,7 +51,7 @@ namespace EnsemPro
                     {
                         Vector2 startPos = new Vector2(currentMovement.startCoordinate.X, currentMovement.startCoordinate.Y);
                         Vector2 endPos = new Vector2(currentMovement.endCoordinate.X, currentMovement.endCoordinate.Y);
-                        float DIST_THRESHOLD = 0.6f * Vector2.Distance(startPos, endPos);
+                        float DIST_THRESHOLD = 0.55f * Vector2.Distance(startPos, endPos);
 
                         Vector2[] slopes = currentMovement.f.Slope(totalInput - 1);
                         float errorSum = 0.0f;

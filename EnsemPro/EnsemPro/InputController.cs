@@ -9,12 +9,35 @@ namespace EnsemPro
     {
         protected InputBuffer buffer;
         protected InputState input;
+        protected InputState lastState = new InputState();
         protected const float POS_DIFF_THRESHOLD = 5.0f;
+        protected GameModel gameState;
 
-        public InputController(Game game, InputBuffer b)
+        public InputController(Game game, GameModel gm, InputBuffer b)
             : base(game)
         {
             buffer = b;
+            gameState = gm;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (input.Pause && !lastState.Pause)
+            {
+                if (gameState.CurrentScreen == DataTypes.Screens.Pause)
+                {
+                    DataTypes.Screens tmp = gameState.LastScreen;
+                    gameState.LastScreen = DataTypes.Screens.Pause;
+                    gameState.CurrentScreen = tmp;
+                }
+                else
+                {
+                    gameState.LastScreen = gameState.CurrentScreen;
+                    gameState.CurrentScreen = DataTypes.Screens.Pause;
+                }
+            }
+            lastState = input;
+            base.Update(gameTime);
         }
 
     }

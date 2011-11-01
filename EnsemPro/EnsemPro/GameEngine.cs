@@ -17,8 +17,12 @@ namespace EnsemPro
 
         GameModel gameState;
         DataTypes.Screens lastState = DataTypes.Screens.Initial;
+
         PlayLevel rhythmController;
         LevelSelectController levelController;
+        PauseScreen menuController; // a misnomer
+
+        InputController input;
 
         public GameEngine()
         {
@@ -40,17 +44,23 @@ namespace EnsemPro
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            
 
-            
 
+
+            InputBuffer buffer = new InputBuffer();
             gameState = new GameModel();
+
+            input = new MouseController(this, gameState, buffer);
+
+            Services.AddService(typeof(GameModel), gameState);
 
             levelController = new LevelSelectController(gameState, spriteBatch);
             levelController.Initialize();
             
-            rhythmController = new PlayLevel(this, gameState, spriteBatch);
+            rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
             rhythmController.Initialize();
+            menuController = new PauseScreen(this, spriteBatch);
+            menuController.Initialize();
 			
             base.Initialize();
             
@@ -85,15 +95,27 @@ namespace EnsemPro
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            input.Update(gameTime);
+
             // transitioning to new state
             if (lastState != gameState.CurrentScreen)
             {
-                if (gameState.CurrentScreen == DataTypes.Screens.PlayLevel)
+                switch (gameState.CurrentScreen)
                 {
-                    rhythmController = new PlayLevel(this, gameState, spriteBatch);
-                    rhythmController.Initialize();
-                    rhythmController.Start();
+                    case DataTypes.Screens.Pause:
+                        rhythmController.Pause();
+                        break;
+                    case DataTypes.Screens.PlayLevel:
+                        InputBuffer buffer = new InputBuffer();
+                        input = new MouseController(this, gameState, buffer);
+                        rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
+                        rhythmController.Initialize();
+                        rhythmController.Start();
+                        break;
+                    default:
+                        break;
                 }
+
             }
             lastState = gameState.CurrentScreen;
 
@@ -106,6 +128,7 @@ namespace EnsemPro
                     rhythmController.Update(gameTime);
                     break;
                 case DataTypes.Screens.Pause:
+                    menuController.Update(gameTime);
                     break;
             }
             
@@ -129,6 +152,7 @@ namespace EnsemPro
                     rhythmController.Draw(gameTime);
                     break;
                 case DataTypes.Screens.Pause:
+                    menuController.Draw(gameTime);
                     break;
             }
             base.Draw(gameTime);
