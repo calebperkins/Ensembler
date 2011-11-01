@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 
 public struct InputState
 {
@@ -6,4 +7,5 @@ public struct InputState
     public Vector2 velocity;
     public Vector2 acceleration;
     public bool Pause;
+    public Keys key;
 }
