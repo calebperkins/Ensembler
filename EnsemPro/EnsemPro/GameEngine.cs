@@ -90,6 +90,8 @@ namespace EnsemPro
             {
                 if (gameState.CurrentScreen == DataTypes.Screens.PlayLevel)
                 {
+                    rhythmController = new PlayLevel(this, gameState, spriteBatch);
+                    rhythmController.Initialize();
                     rhythmController.Start();
                 }
             }
