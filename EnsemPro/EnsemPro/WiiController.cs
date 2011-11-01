@@ -8,8 +8,8 @@ namespace EnsemPro
         WiimoteLib.Wiimote wm;
         Vector2 lastPosition = new Vector2();
 
-        public WiiController(Game game, InputBuffer b)
-            : base(game, b)
+        public WiiController(Game game, GameModel gm, InputBuffer b)
+            : base(game, gm, b)
         {
             wm = new WiimoteLib.Wiimote();
             wm.Connect();
@@ -46,7 +46,7 @@ namespace EnsemPro
             {
                 buffer.Add(input);
             }
-            //base.Update(gameTime);
+            base.Update(gameTime);
         }
     }
 }

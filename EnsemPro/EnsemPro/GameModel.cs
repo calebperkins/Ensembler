@@ -12,6 +12,8 @@ namespace EnsemPro
             set;
         }
 
+        public DataTypes.Screens LastScreen;
+
         public DataTypes.LevelSummary[] Levels
         {
             get;
@@ -22,6 +24,7 @@ namespace EnsemPro
         {
             DataTypes.GameData data = cm.Load<DataTypes.GameData>("Levels//Index");
             CurrentScreen = data.Screen;
+            LastScreen = data.Screen;
             Levels = data.Levels;
         }
     }

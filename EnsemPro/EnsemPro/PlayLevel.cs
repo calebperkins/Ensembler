@@ -36,16 +36,17 @@ namespace EnsemPro
         BatonView baton;
         MovementEvaluator moveEval;
         InputBuffer buffer;
-        InputController input;
+        //InputController input;
         SatisfactionQueue satisfaction;
         Song song;
 
         List<Musician> musicians = new List<Musician>();
 
-        public PlayLevel(Game g, GameModel gm, SpriteBatch sb) : base(g)
+        public PlayLevel(Game g, GameModel gm, SpriteBatch sb, InputBuffer buf) : base(g)
         {
             actionList = new LinkedList<Movement>();
             drawSet = new HashSet<Movement>();
+            buffer = buf;
 
             spriteBatch = sb;
             DrawOrder = 0;
@@ -87,7 +88,7 @@ namespace EnsemPro
 
         public override void Initialize()
         {
-            buffer = new InputBuffer();
+            //buffer = new InputBuffer();
             /*try
             {
                 input = new WiiController(Game, buffer);
@@ -96,26 +97,34 @@ namespace EnsemPro
             {
                 input = new MouseController(Game, buffer);
             }*/
-            input = new MouseController(Game, buffer);
+            //input = new MouseController(Game, buffer);
 
             baton = new BatonView(Game, spriteBatch, buffer);
             baton.Initialize();
             satisfaction = new SatisfactionQueue(buffer);
             satisfaction.LoadContent(Game.Content);
+
+            current_beat = 0;
+            last_beat = -1;
+
             base.Initialize();
         }
 
         public void Start()
-        {
-            current_beat = 0;
-            last_beat = -1;
+        {       
             MediaPlayer.Play(song);
             watch.Start();
         }
 
+        public void Pause()
+        {
+            watch.Stop();
+            MediaPlayer.Pause();
+        }
+
         public override void Update(GameTime gameTime)
         {
-            input.Update(gameTime);
+            
             satisfaction.Update(gameTime);
 
             //watch = watch.Add(gameTime.ElapsedGameTime);
