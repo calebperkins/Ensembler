@@ -21,6 +21,7 @@ namespace EnsemPro
         PlayLevel rhythmController;
         LevelSelectController levelController;
         PauseScreen menuController; // a misnomer
+        InputBuffer buffer;
 
         InputController input;
 
@@ -47,7 +48,7 @@ namespace EnsemPro
 
 
 
-            InputBuffer buffer = new InputBuffer();
+            buffer = new InputBuffer();
             gameState = new GameModel();
 
             input = new MouseController(this, gameState, buffer);
@@ -106,6 +107,12 @@ namespace EnsemPro
                         rhythmController.Pause();
                         break;
                     case DataTypes.Screens.PlayLevel:
+                        if (lastState == DataTypes.Screens.SelectLevel)
+                        {
+                            buffer.Clear();
+                            rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
+                            rhythmController.Initialize();
+                        }
                         rhythmController.Start();
                         break;
                     default:
