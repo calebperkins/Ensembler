@@ -26,13 +26,10 @@ namespace EnsemPro
             {
                 if (gameState.CurrentScreen == DataTypes.Screens.Pause)
                 {
-                    DataTypes.Screens tmp = gameState.LastScreen;
-                    gameState.LastScreen = DataTypes.Screens.Pause;
-                    gameState.CurrentScreen = tmp;
+                    gameState.CurrentScreen = gameState.LastScreen;
                 }
                 else
                 {
-                    gameState.LastScreen = gameState.CurrentScreen;
                     gameState.CurrentScreen = DataTypes.Screens.Pause;
                 }
             }

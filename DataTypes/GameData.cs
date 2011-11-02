@@ -10,6 +10,7 @@ namespace DataTypes
         SelectLevel,
         Pause,
         PlayLevel,
+        FinishLevel,
         Initial
     }
 
