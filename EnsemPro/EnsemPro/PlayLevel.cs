@@ -38,7 +38,6 @@ namespace EnsemPro
         BatonView baton;
         MovementEvaluator moveEval;
         InputBuffer buffer;
-        //InputController input;
         SatisfactionQueue satisfaction;
         Song song;
         float volume = 0.5f;
@@ -63,7 +62,7 @@ namespace EnsemPro
             font = Game.Content.Load<SpriteFont>("images//ScoreFont");
 
             // todo: dynamic loading
-            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/B5/b5-edited-2");
+            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>(gameState.SelectedLevel);
             song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
             

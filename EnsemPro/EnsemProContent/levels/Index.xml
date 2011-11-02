@@ -4,8 +4,12 @@
     <Screen>SelectLevel</Screen>
     <Levels>
       <Item>
-        <Title>Symphony No. 5 (Normal)</Title>
+        <Title>Symphony No. 5</Title>
         <AssetName>Levels//B5//b5-edited-2</AssetName>
+      </Item>
+      <Item>
+        <Title>Aquarium</Title>
+        <AssetName>Levels//Aquarium//aqu</AssetName>
       </Item>
     </Levels>
   </Asset>

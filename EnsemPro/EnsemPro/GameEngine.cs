@@ -50,6 +50,7 @@ namespace EnsemPro
 
             buffer = new InputBuffer();
             gameState = new GameModel();
+            gameState.SelectedLevel = "Levels/B5/b5-edited-2"; // TODO: move out this hard coding
 
             input = new MouseController(this, gameState, buffer);
 
@@ -57,7 +58,7 @@ namespace EnsemPro
 
             levelController = new LevelSelectController(gameState, spriteBatch);
             levelController.Initialize();
-            
+
             rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
             rhythmController.Initialize();
             menuController = new PauseScreen(this, spriteBatch);
