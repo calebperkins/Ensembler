@@ -6,10 +6,21 @@ namespace EnsemPro
 {
     public class GameModel
     {
+        private DataTypes.Screens _current;
+
+        /// <summary>
+        /// Saves the current screen to LastScreen and updates the screen with the provided value.
+        /// </summary>
         public DataTypes.Screens CurrentScreen
         {
+            get { return _current; }
+            set {LastScreen = _current; _current = value;}
+        }
+
+        public DataTypes.Screens LastScreen
+        {
             get;
-            set;
+            private set; // use CurrentScreen, see above.
         }
 
         public DataTypes.LevelSummary[] Levels
@@ -22,6 +33,7 @@ namespace EnsemPro
         {
             DataTypes.GameData data = cm.Load<DataTypes.GameData>("Levels//Index");
             CurrentScreen = data.Screen;
+            LastScreen = data.Screen;
             Levels = data.Levels;
         }
     }

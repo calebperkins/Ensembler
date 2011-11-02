@@ -21,6 +21,7 @@ namespace EnsemPro
         {
             int totalInput = inputs.Count;
             int correct = 0;
+            
             switch (currentMovement.myType)
             {
                 case Movement.Types.Noop:
@@ -48,17 +49,30 @@ namespace EnsemPro
                     }
                     else
                     {
+                        Vector2 startPos = new Vector2(currentMovement.startCoordinate.X, currentMovement.startCoordinate.Y);
+                        Vector2 endPos = new Vector2(currentMovement.endCoordinate.X, currentMovement.endCoordinate.Y);
+                        float DIST_THRESHOLD = 0.55f * Vector2.Distance(startPos, endPos);
+
                         Vector2[] slopes = currentMovement.f.Slope(totalInput - 1);
                         float errorSum = 0.0f;
-                        for (int i = 1; i < totalInput; i++)
+                        float dist = Vector2.Distance(inputs[totalInput - 1].position,inputs[0].position);
+
+                        if (dist >= DIST_THRESHOLD)
                         {
-                            Vector2 normVel = Vector2.Normalize(inputs[i].velocity);
-                            Vector2 slope = slopes[i];
-                            errorSum += (normVel.X - slope.X) * (normVel.X - slope.X) + (normVel.Y - slope.Y) * (normVel.Y - slope.Y);
+                            for (int i = 1; i < totalInput; i++)
+                            {
+                                Vector2 normVel = Vector2.Normalize(inputs[i].velocity);
+                                Vector2 slope = slopes[i];
+                                errorSum += (normVel.X - slope.X) * (normVel.X - slope.X) + (normVel.Y - slope.Y) * (normVel.Y - slope.Y);
+                            }
+                            float rmsError = (float)Math.Sqrt((double)errorSum / (double)(totalInput - 1));
+                            float accuracy = (1 - rmsError * MAGIC_WAVE_THRESHOLD);
+                            return (accuracy > FAIL_THRESHOLD ? accuracy : -0.3f);
                         }
-                        float rmsError = (float)Math.Sqrt((double)errorSum / (double)(totalInput - 1));
-                        float accuracy = (1 - rmsError * MAGIC_WAVE_THRESHOLD);
-                        return (accuracy > FAIL_THRESHOLD ? accuracy : -0.3f);
+                        else
+                        {
+                            return -0.3f;
+                        }
                     }
                 default:
                     return 0.0f;

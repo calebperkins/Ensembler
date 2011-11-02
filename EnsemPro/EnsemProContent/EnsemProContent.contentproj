@@ -84,7 +84,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\Background.jpg">
+    <Compile Include="Levels\B5\Background.jpg">
       <Name>Background</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -105,7 +105,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\b5complete.mp3">
+    <Compile Include="Levels\B5\b5complete.mp3">
       <Name>b5complete</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
@@ -136,7 +136,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Levels\B5.xml">
+    <Compile Include="Levels\B5\b5-edited-2.xml">
+      <SubType>Designer</SubType>
+      <Name>b5-edited-2</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Levels\B5\b5-edited.xml">
+      <SubType>Designer</SubType>
+      <Name>b5-edited</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Levels\B5\B5.xml">
       <Name>B5</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -157,7 +169,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Levels\b5short.xml">
+    <Compile Include="Levels\B5\b5short.xml">
       <Name>b5short</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -242,19 +254,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Levels\b5-edited.xml">
-      <Name>b5-edited</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Images\ScoreFont.bmp">
       <Name>ScoreFont</Name>
       <Importer>TextureImporter</Importer>
       <Processor>FontTextureProcessor</Processor>
     </Compile>
-    <Compile Include="Levels\ControlB5.xml">
+    <Compile Include="Levels\B5\ControlB5.xml">
       <SubType>Designer</SubType>
       <Name>ControlB5</Name>
       <Importer>XmlImporter</Importer>
@@ -286,6 +291,31 @@
     </Compile>
     <Compile Include="Images\SelectionScreen\win.png">
       <Name>win</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Characters\thorsten_map.xml">
+      <Name>thorsten_map</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Characters\thorsten_sprite.png">
+      <Name>thorsten_sprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Characters\bella_map.xml">
+      <Name>bella_map</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Characters\bella_sprite.png">
+      <Name>bella_sprite</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

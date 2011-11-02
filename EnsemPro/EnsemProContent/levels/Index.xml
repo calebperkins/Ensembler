@@ -5,11 +5,7 @@
     <Levels>
       <Item>
         <Title>Symphony No. 5 (Normal)</Title>
-        <AssetName>Levels//B5</AssetName>
-      </Item>
-      <Item>
-        <Title>Symphony No. 5 (Edited)</Title>
-        <AssetName>Levels//b5-edited</AssetName>
+        <AssetName>Levels//B5//b5-edited-2</AssetName>
       </Item>
     </Levels>
   </Asset>
