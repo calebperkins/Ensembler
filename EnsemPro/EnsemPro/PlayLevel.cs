@@ -285,7 +285,6 @@ namespace EnsemPro
                 else spriteBatch.DrawString(font, "Great!", new Vector2(670, 30), Color.Tomato); 
             }
             
-            // hard coded for now; should be "if song ends..."
             if (actionList.Count == 0)
             {
                 spriteBatch.DrawString(font, "Score is " + current_score, new Vector2(200, 150), Color.Black, 0.0f, new Vector2(0, 0),

@@ -18,7 +18,7 @@ namespace EnsemPro
 
         public void LoadContent(ContentManager content)
         {
-            base.LoadContent(content, "images\\aquarium");
+            base.LoadContent(content, "images\\love");
         }
 
         public override void Update(GameTime gameTime)
