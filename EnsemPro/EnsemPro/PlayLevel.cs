@@ -144,11 +144,11 @@ namespace EnsemPro
             //Console.WriteLine(key);
                 if (key == Keys.A)
                 {
-                    volume = MathHelper.Clamp(volume + 0.01f, 0, 1);
+                    volume = MathHelper.Clamp(volume + 0.01f, 0.1f, 1);
                 }
                 else if (key == Keys.Z)
                 {
-                    volume = MathHelper.Clamp(volume - 0.01f, 0, 1);
+                    volume = MathHelper.Clamp(volume - 0.01f, 0.1f, 1);
                 }
                 MediaPlayer.Volume = volume;
             }
