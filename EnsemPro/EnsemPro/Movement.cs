@@ -207,6 +207,9 @@ namespace EnsemPro
                                 }
                                 else { break; }
                             }
+
+                            spriteBatch.Draw(circleReadyTexture, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, Color.Lerp(Color.White, Color.Transparent, progress), 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
+                            
                         } 
                         break;
                     case 2:
@@ -224,6 +227,8 @@ namespace EnsemPro
                                 lPy = p.Y;
                             }
                         }
+                        spriteBatch.Draw(circleTexture, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, alpha, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
+                       
                         break;
                     default:
                         break;
