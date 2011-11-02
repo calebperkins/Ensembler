@@ -106,10 +106,6 @@ namespace EnsemPro
                         rhythmController.Pause();
                         break;
                     case DataTypes.Screens.PlayLevel:
-                        InputBuffer buffer = new InputBuffer();
-                        input = new MouseController(this, gameState, buffer);
-                        rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
-                        rhythmController.Initialize();
                         rhythmController.Start();
                         break;
                     default:

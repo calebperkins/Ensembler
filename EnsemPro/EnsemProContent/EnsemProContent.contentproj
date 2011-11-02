@@ -84,7 +84,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\Background.jpg">
+    <Compile Include="Levels\B5\Background.jpg">
       <Name>Background</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -105,7 +105,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\b5complete.mp3">
+    <Compile Include="Levels\B5\b5complete.mp3">
       <Name>b5complete</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
@@ -136,19 +136,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Levels\b5-edited-2.xml">
+    <Compile Include="Levels\B5\b5-edited-2.xml">
       <SubType>Designer</SubType>
       <Name>b5-edited-2</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Levels\b5-edited.xml">
+    <Compile Include="Levels\B5\b5-edited.xml">
       <SubType>Designer</SubType>
       <Name>b5-edited</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Levels\B5.xml">
+    <Compile Include="Levels\B5\B5.xml">
       <Name>B5</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -169,7 +169,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Levels\b5short.xml">
+    <Compile Include="Levels\B5\b5short.xml">
       <Name>b5short</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -259,7 +259,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>FontTextureProcessor</Processor>
     </Compile>
-    <Compile Include="Levels\ControlB5.xml">
+    <Compile Include="Levels\B5\ControlB5.xml">
       <SubType>Designer</SubType>
       <Name>ControlB5</Name>
       <Importer>XmlImporter</Importer>
@@ -295,9 +295,7 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Levels\B5\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="Characters\thorsten_map.xml">
       <Name>thorsten_map</Name>

@@ -3,9 +3,9 @@
   <Asset Type="DataTypes.LevelData">
     <Title>Symphony No. 5</Title>
     <BPM>100</BPM>
-    <SongAssetName>images\\b5complete</SongAssetName>
+    <SongAssetName>Levels\\B5\\b5complete</SongAssetName>
     <Artist>Beethoven</Artist>
-    <Background>images\\background</Background>
+    <Background>Levels\\B5\\background</Background>
     <Movements>
       <Item>
         <Kind>Shake</Kind>

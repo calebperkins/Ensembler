@@ -62,7 +62,8 @@ namespace EnsemPro
         {
             font = Game.Content.Load<SpriteFont>("images//ScoreFont");
 
-            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/b5-edited-2");
+            // todo: dynamic loading
+            DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>("Levels/B5/b5-edited-2");
             song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
             
@@ -117,8 +118,11 @@ namespace EnsemPro
         }
 
         public void Start()
-        {       
-            MediaPlayer.Play(song);
+        {
+            if (MediaPlayer.State == MediaState.Paused)
+                MediaPlayer.Resume();
+            else
+                MediaPlayer.Play(song);
             watch.Start();
         }
 
