@@ -8,6 +8,7 @@ namespace DataTypes
     {
         Title,
         SelectLevel,
+        WorldMap,
         Pause,
         PlayLevel,
         FinishLevel,
