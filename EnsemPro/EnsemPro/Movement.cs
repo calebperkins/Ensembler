@@ -183,14 +183,9 @@ namespace EnsemPro
                         // draw the start circle
                         spriteBatch.Draw(circleTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.White, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
                         spriteBatch.Draw(ringTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.Lerp(Color.White, Color.Transparent, 1f - progress), 0.0f, RingOrigin, progress, SpriteEffects.None, 0.0f);
-                        break;
-                    case 1:
-                        spriteBatch.Draw(circleReadyTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.White, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
-                        if (f != null)
-                        {
-                            float lastPx = -1;
-                            float lastPy = -1;
-                            int count = 1;
+                        float lastPx = -1;
+                        float lastPy = -1;
+                        int count = 1;
                             foreach (Vector2 p in f.Positions)
                             {
                                 float index = count / (float)f.Size;
@@ -207,6 +202,23 @@ namespace EnsemPro
                                 }
                                 else { break; }
                             }
+                        break;
+                    case 1:
+                        spriteBatch.Draw(circleReadyTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.White, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
+                        if (f != null)
+                        {
+                            float lPx = -1;
+                            float lPy = -1;
+                            foreach (Vector2 p in f.Positions)
+                            {
+                                if (lPx < 0 || Math.Sqrt((lPx - p.X) * (lPx - p.X) + (lPy - p.Y) * (lPy - p.Y)) > circleR)
+                                {
+                                    Vector2 ori = new Vector2(p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
+                                    spriteBatch.Draw(current_trace, ori, Color.White);
+                                    lPx = p.X;
+                                    lPy = p.Y;
+                                }
+                            }
 
                             spriteBatch.Draw(circleReadyTexture, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, Color.Lerp(Color.White, Color.Transparent, progress), 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
                             
@@ -215,16 +227,16 @@ namespace EnsemPro
                     case 2:
                         Color alpha = Color.Lerp(Color.White, Color.Transparent, progress);
                         spriteBatch.Draw(circleTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, alpha, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
-                        float lPx = -1;
-                        float lPy = -1;
+                        float lPx2 = -1;
+                        float lPy2 = -1;
                         foreach (Vector2 p in f.Positions)
                         {   
-                            if (lPx < 0 || Math.Sqrt((lPx - p.X) * (lPx - p.X) + (lPy - p.Y) * (lPy - p.Y)) > circleR)
+                            if (lPx2 < 0 || Math.Sqrt((lPx2 - p.X) * (lPx2 - p.X) + (lPy2 - p.Y) * (lPy2 - p.Y)) > circleR)
                             {
                                 Vector2 ori = new Vector2(p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
                                 spriteBatch.Draw(current_trace, ori, alpha);
-                                lPx = p.X;
-                                lPy = p.Y;
+                                lPx2 = p.X;
+                                lPy2 = p.Y;
                             }
                         }
                         spriteBatch.Draw(circleTexture, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, alpha, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
