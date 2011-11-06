@@ -33,7 +33,7 @@ namespace EnsemPro
 
         public void Draw(GameTime t,String n, String s)
         {
-            spriteBatch.Draw(background, new Vector2(), Color.White);
+          //  spriteBatch.Draw(background, new Vector2(), Color.White);
             spriteBatch.Draw(dialogBox, new Vector2(50, 350), Color.White);
             spriteBatch.DrawString(font, n, new Vector2(100, 370), Color.Black);
             spriteBatch.DrawString(font, s, new Vector2(100, 420), Color.Black);

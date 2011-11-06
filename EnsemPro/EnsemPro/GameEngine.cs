@@ -25,8 +25,6 @@ namespace EnsemPro
         PlayLevel rhythmController;
         LevelSelectController levelController;
 
-        DialogController dialogController;
-
         WorldMapController worldController;
         PauseScreen pauseController; // a misnomer
 
@@ -74,10 +72,7 @@ namespace EnsemPro
             rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
             rhythmController.Initialize();
 
-            dialogController = new DialogController(gameState, spriteBatch, "test.txt");
-            dialogController.Initialize();
-
-            worldController = new WorldMapController(gameState, spriteBatch);
+            worldController = new WorldMapController(this, gameState, spriteBatch);
             worldController.Initialize();
             pauseController = new PauseScreen(this, spriteBatch);
             pauseController.Initialize();
@@ -95,8 +90,6 @@ namespace EnsemPro
             gameState.LoadContent(Content);
             menuController.LoadContent(Content);
             levelController.LoadContent(Content);
-
-            dialogController.LoadContent(Content);
 
             worldController.LoadContent(Content);
 
@@ -157,10 +150,6 @@ namespace EnsemPro
                         }
                         rhythmController.Start();
                         break;
-                    case DataTypes.Screens.Dialog:
-                        dialogController = new DialogController(gameState, spriteBatch, "test.txt");
-                        dialogController.LoadContent(Content); // weird...why do i need to reload content?
-                        break;
                     default:
                         break;
                 }
@@ -188,9 +177,6 @@ namespace EnsemPro
                 case DataTypes.Screens.Pause:
                     pauseController.Update(gameTime);
                     break;
-                case DataTypes.Screens.Dialog:
-                    dialogController.Update(gameTime);
-                    break;
             }
             
             base.Update(gameTime);
@@ -204,7 +190,7 @@ namespace EnsemPro
         protected override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
-           // dialogController.Draw(gameTime);
+           // 5Controller.Draw(gameTime);
             
             switch (gameState.CurrentScreen)
             {
@@ -218,13 +204,10 @@ namespace EnsemPro
                     rhythmController.Draw(gameTime);
                     break;
                 case DataTypes.Screens.WorldMap:
-                    worldController.Draw();
+                    worldController.Draw(gameTime);
                     break;
                 case DataTypes.Screens.Pause:
                     pauseController.Draw(gameTime);
-                    break;
-                case DataTypes.Screens.Dialog:
-                    dialogController.Draw(gameTime);
                     break;
             }
              

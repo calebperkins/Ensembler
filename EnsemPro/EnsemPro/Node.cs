@@ -19,6 +19,8 @@ namespace EnsemPro
         public NodeState nodeState;
         public float oriX;
         public Vector2 curPos;
+        public DialogController dialogController;
+        public string dialogFile="test.txt"; // NEED TO LOAD
 
         public Node(NodeState ns, Vector2 p)
         {

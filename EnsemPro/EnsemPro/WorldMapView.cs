@@ -14,7 +14,8 @@ namespace EnsemPro
         public static int nodeXShift = 0;
 
         SpriteBatch spriteBatch;
-        Texture2D background;
+        Texture2D background1;
+        Texture2D background2;
         Texture2D lockedTexture;
         Texture2D newlyUnlockedTexture;
         Texture2D unlockedTexture;
@@ -43,7 +44,8 @@ namespace EnsemPro
         public void LoadContent(ContentManager cm)
         {
             // TODO CHANGE TEXTURES OF THESE
-            background = cm.Load<Texture2D>("images\\WorldMap\\split2-2");
+            background1 = cm.Load<Texture2D>("images\\WorldMap\\map1");
+            background2 = cm.Load<Texture2D>("images\\WorldMap\\map2");
             lockedTexture = cm.Load<Texture2D>("images\\dot_fail");
             newlyUnlockedTexture = cm.Load<Texture2D>("images\\dot");
             unlockedTexture = cm.Load<Texture2D>("images\\dot_win");
@@ -53,7 +55,8 @@ namespace EnsemPro
 
         public void Draw(Node[] nodes, int selected)
         {
-            spriteBatch.Draw(background, CurBackgroundPos, Color.White);
+            spriteBatch.Draw(background1, CurBackgroundPos, Color.White);
+            spriteBatch.Draw(background2, new Vector2 (CurBackgroundPos.X + background1.Width, CurBackgroundPos.Y), Color.White);
             for (int i = 0; i< nodes.Length; i++)
             {
                 Texture2D current = null;
@@ -77,6 +80,11 @@ namespace EnsemPro
 
                 Vector2 origin = new Vector2(current.Width / 2, current.Height / 2);
                 float scale = 1.0f;
+
+                if (current == newlyUnlockedTexture)
+                {
+                    scale = 0.2f;
+                }
 
                 spriteBatch.Draw(current, nodes[i].curPos, null, Color.White, 0.0f, origin, scale, SpriteEffects.None, 0);
 

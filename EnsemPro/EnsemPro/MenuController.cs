@@ -44,7 +44,11 @@ namespace EnsemPro
             {
                 NextHover(hover);
             }
-            else if (ks.IsKeyDown(Keys.Enter))
+            else if (ks.IsKeyDown(Keys.Up) && lastState.IsKeyUp(Keys.Up))
+            {
+                PreviousHover(hover);
+            }
+            else if (ks.IsKeyDown(Keys.Enter) && lastState.IsKeyUp(Keys.Enter))
             {
                 switch (hover)
                 {
@@ -76,6 +80,24 @@ namespace EnsemPro
                     break;
                 case Hover.Exit:
                     hover = Hover.Story;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void PreviousHover(Hover h)
+        {
+            switch (h)
+            {
+                case Hover.Story:
+                    hover = Hover.Exit;
+                    break;
+                case Hover.Free:
+                    hover = Hover.Story;
+                    break;
+                case Hover.Exit:
+                    hover = Hover.Free;
                     break;
                 default:
                     break;

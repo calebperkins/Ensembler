@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace EnsemPro
 {
-    class DialogController
+    public class DialogController
     {
         GameModel gameState;
         SpriteBatch spriteBatch;
