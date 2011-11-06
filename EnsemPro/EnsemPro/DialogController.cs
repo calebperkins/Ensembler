@@ -41,6 +41,8 @@ namespace EnsemPro
             names = new Queue<String>();
             dialogs = new Queue<String>();
             Parse();
+            speaker = names.Dequeue();
+            speech = dialogs.Dequeue();
             screen = new DialogView(sb);
             
 	    }
@@ -72,7 +74,6 @@ namespace EnsemPro
             if (names.Count == 0 && ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right)) // end of this dialog mode, move on to playlevel or map
             {
                 gameState.CurrentScreen = DataTypes.Screens.SelectLevel;
-                Console.WriteLine("here");
             }
             else
             {
