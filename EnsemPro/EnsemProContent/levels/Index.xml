@@ -11,6 +11,10 @@
         <Title>Aquarium</Title>
         <AssetName>Levels//Aquarium//aqu</AssetName>
       </Item>
+      <Item>
+        <Title>Air On G String</Title>
+        <AssetName>Levels//AirOnGString//level</AssetName>
+      </Item>
     </Levels>
   </Asset>
 </XnaContent>

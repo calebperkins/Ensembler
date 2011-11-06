@@ -9,6 +9,9 @@ namespace EnsemPro
     /// </summary>
     public class GameEngine : Game
     {
+        //DELETE ME
+        public static bool firstLoop = true;
+
         public const int WIDTH = 800;
         public const int HEIGHT = 600;
 
@@ -18,10 +21,15 @@ namespace EnsemPro
         GameModel gameState;
         DataTypes.Screens lastState = DataTypes.Screens.Initial;
 
+        MenuController menuController;
         PlayLevel rhythmController;
         LevelSelectController levelController;
-        PauseScreen menuController; // a misnomer
+
         DialogController dialogController;
+
+        WorldMapController worldController;
+        PauseScreen pauseController; // a misnomer
+
         InputBuffer buffer;
 
         InputController input;
@@ -56,17 +64,23 @@ namespace EnsemPro
             input = new MouseController(this, gameState, buffer);
 
             Services.AddService(typeof(GameModel), gameState);
-           
+
+            menuController = new MenuController(gameState, spriteBatch);
+            menuController.Initialize();
+
             levelController = new LevelSelectController(gameState, spriteBatch);
             levelController.Initialize();
 
             rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
             rhythmController.Initialize();
-            menuController = new PauseScreen(this, spriteBatch);
-            menuController.Initialize();
-            
+
             dialogController = new DialogController(gameState, spriteBatch, "test.txt");
             dialogController.Initialize();
+
+            worldController = new WorldMapController(gameState, spriteBatch);
+            worldController.Initialize();
+            pauseController = new PauseScreen(this, spriteBatch);
+            pauseController.Initialize();
 
             base.Initialize();
             
@@ -79,8 +93,13 @@ namespace EnsemPro
         protected override void LoadContent()
         {
             gameState.LoadContent(Content);
+            menuController.LoadContent(Content);
             levelController.LoadContent(Content);
+
             dialogController.LoadContent(Content);
+
+            worldController.LoadContent(Content);
+
             Movement.LoadContent(Content);
             
             base.LoadContent();
@@ -102,8 +121,21 @@ namespace EnsemPro
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+
             input.Update(gameTime);
+
            // dialogController.Update(gameTime);
+
+            
+            // HARDCODED THIS FOR TESTING
+            if (firstLoop)
+            {
+                gameState.CurrentScreen = DataTypes.Screens.Title;
+                firstLoop = false;
+            }
+
 
             
             // transitioning to new state
@@ -114,6 +146,8 @@ namespace EnsemPro
                     case DataTypes.Screens.Pause:
                         rhythmController.Pause();
                         break;
+                    //case DataTypes.Screens.WorldMap:
+                    //    break;
                     case DataTypes.Screens.PlayLevel:
                         if (lastState == DataTypes.Screens.SelectLevel)
                         {
@@ -132,19 +166,27 @@ namespace EnsemPro
                 }
                 
             }
+
             
+
             lastState = gameState.CurrentScreen;
             
             switch (gameState.CurrentScreen)
             {
+                case DataTypes.Screens.Title:
+                    menuController.Update(gameTime);
+                    break;
                 case DataTypes.Screens.SelectLevel:
                     levelController.Update(gameTime);
                     break;
                 case DataTypes.Screens.PlayLevel:
                     rhythmController.Update(gameTime);
                     break;
+                case DataTypes.Screens.WorldMap:
+                    worldController.Update(gameTime);
+                    break;
                 case DataTypes.Screens.Pause:
-                    menuController.Update(gameTime);
+                    pauseController.Update(gameTime);
                     break;
                 case DataTypes.Screens.Dialog:
                     dialogController.Update(gameTime);
@@ -166,14 +208,20 @@ namespace EnsemPro
             
             switch (gameState.CurrentScreen)
             {
+                case DataTypes.Screens.Title:
+                    menuController.Draw(gameTime);
+                    break;
                 case DataTypes.Screens.SelectLevel:
                     levelController.Draw(gameTime);
                     break;
                 case DataTypes.Screens.PlayLevel:
                     rhythmController.Draw(gameTime);
                     break;
+                case DataTypes.Screens.WorldMap:
+                    worldController.Draw();
+                    break;
                 case DataTypes.Screens.Pause:
-                    menuController.Draw(gameTime);
+                    pauseController.Draw(gameTime);
                     break;
                 case DataTypes.Screens.Dialog:
                     dialogController.Draw(gameTime);
