@@ -121,8 +121,10 @@
     <Compile Include="InputState.cs" />
     <Compile Include="LevelSelectController.cs" />
     <Compile Include="MenuController.cs" />
+    <Compile Include="MenuView.cs" />
     <Compile Include="MouseController.cs" />
     <Compile Include="Musician.cs" />
+    <Compile Include="Node.cs" />
     <Compile Include="PauseScreen.cs" />
     <Compile Include="ScreenManager.cs" />
     <Compile Include="Movement.cs" />
@@ -136,6 +138,8 @@
     <Compile Include="ObQueue.cs" />
     <Compile Include="SatisfactionQueue.cs" />
     <Compile Include="WiiController.cs" />
+    <Compile Include="WorldMapController.cs" />
+    <Compile Include="WorldMapView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
