@@ -21,6 +21,7 @@ namespace EnsemPro
         PlayLevel rhythmController;
         LevelSelectController levelController;
         PauseScreen menuController; // a misnomer
+        DialogController dialogController;
         InputBuffer buffer;
 
         InputController input;
@@ -55,7 +56,7 @@ namespace EnsemPro
             input = new MouseController(this, gameState, buffer);
 
             Services.AddService(typeof(GameModel), gameState);
-
+           
             levelController = new LevelSelectController(gameState, spriteBatch);
             levelController.Initialize();
 
@@ -63,7 +64,10 @@ namespace EnsemPro
             rhythmController.Initialize();
             menuController = new PauseScreen(this, spriteBatch);
             menuController.Initialize();
-			
+            
+            dialogController = new DialogController(gameState, spriteBatch, "test.txt");
+            dialogController.Initialize();
+
             base.Initialize();
             
         }
@@ -76,6 +80,7 @@ namespace EnsemPro
         {
             gameState.LoadContent(Content);
             levelController.LoadContent(Content);
+            dialogController.LoadContent(Content);
             Movement.LoadContent(Content);
             
             base.LoadContent();
@@ -98,7 +103,9 @@ namespace EnsemPro
         protected override void Update(GameTime gameTime)
         {
             input.Update(gameTime);
+           // dialogController.Update(gameTime);
 
+            
             // transitioning to new state
             if (lastState != gameState.CurrentScreen)
             {
@@ -116,13 +123,18 @@ namespace EnsemPro
                         }
                         rhythmController.Start();
                         break;
+                    case DataTypes.Screens.Dialog:
+                        dialogController = new DialogController(gameState, spriteBatch, "test.txt");
+                        dialogController.LoadContent(Content); // weird...why do i need to reload content?
+                        break;
                     default:
                         break;
                 }
-
+                
             }
+            
             lastState = gameState.CurrentScreen;
-
+            
             switch (gameState.CurrentScreen)
             {
                 case DataTypes.Screens.SelectLevel:
@@ -133,6 +145,9 @@ namespace EnsemPro
                     break;
                 case DataTypes.Screens.Pause:
                     menuController.Update(gameTime);
+                    break;
+                case DataTypes.Screens.Dialog:
+                    dialogController.Update(gameTime);
                     break;
             }
             
@@ -147,6 +162,8 @@ namespace EnsemPro
         protected override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
+           // dialogController.Draw(gameTime);
+            
             switch (gameState.CurrentScreen)
             {
                 case DataTypes.Screens.SelectLevel:
@@ -158,7 +175,11 @@ namespace EnsemPro
                 case DataTypes.Screens.Pause:
                     menuController.Draw(gameTime);
                     break;
+                case DataTypes.Screens.Dialog:
+                    dialogController.Draw(gameTime);
+                    break;
             }
+             
             base.Draw(gameTime);
             spriteBatch.End();
         }

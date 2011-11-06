@@ -11,7 +11,8 @@ namespace DataTypes
         Pause,
         PlayLevel,
         FinishLevel,
-        Initial
+        Initial,
+        Dialog
     }
 
     public struct LevelSummary

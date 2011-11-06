@@ -44,6 +44,7 @@ namespace EnsemPro
                 gameState.CurrentScreen = DataTypes.Screens.PlayLevel;
                 gameState.SelectedLevel = gameState.Levels[selected].AssetName;
             }
+            
             lastState = ks;
         }
 
