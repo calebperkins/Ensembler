@@ -16,6 +16,7 @@ namespace EnsemPro
             : base(game)
         {
             spriteBatch = sb;
+           // graphics = new GraphicsDevice(game);
             // TODO: Construct any child components here
         }
 

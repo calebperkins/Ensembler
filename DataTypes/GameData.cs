@@ -8,10 +8,12 @@ namespace DataTypes
     {
         Title,
         SelectLevel,
+        WorldMap,
         Pause,
         PlayLevel,
         FinishLevel,
-        Initial
+        Initial,
+        Dialog
     }
 
     public struct LevelSummary

@@ -1,0 +1,8 @@
+A:Sleepy!!!
+B:Hungry too!!!
+A:Too much work this weekend!!!
+A:Want to take a break!
+B:But everyone else is working so hard!
+B:At least the music is very nice!!!
+A&B:Ok this is about it.
+A&B:Bye!

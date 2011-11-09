@@ -34,6 +34,7 @@ namespace EnsemPro
         static Texture2D traceTexture;
         static Texture2D traceTexture_s;
         static Texture2D traceTexture_f;
+        static Texture2D traceTexture_r;
         static float circleR;
         static Vector2 CircleOrigin;
         static Vector2 RingOrigin;
@@ -47,6 +48,7 @@ namespace EnsemPro
             traceTexture = content.Load<Texture2D>("images\\line");
             traceTexture_s = content.Load<Texture2D>("images\\dot_win");
             traceTexture_f = content.Load<Texture2D>("images\\dot_fail");
+            traceTexture_r = content.Load<Texture2D>("images\\dot_ready");
             ringTexture = content.Load<Texture2D>("images\\ring");
             CircleOrigin = new Vector2(circleTexture.Width / 2, circleTexture.Height / 2);
             RingOrigin = new Vector2(ringTexture.Width / 2, ringTexture.Height / 2);
@@ -156,7 +158,7 @@ namespace EnsemPro
                     current_shake = shakeTexture;
                     break;
                 default:
-                    current_trace = traceTexture;
+                    current_trace = traceTexture_r;
                     current_circle = circleTexture;
                     current_shake = shakeTexture;
                     break;
@@ -185,45 +187,41 @@ namespace EnsemPro
                         spriteBatch.Draw(ringTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.Lerp(Color.White, Color.Transparent, 1f - progress), 0.0f, RingOrigin, progress, SpriteEffects.None, 0.0f);
                         float lastPx = -1;
                         float lastPy = -1;
-                        int count = 1;
+
                             foreach (Vector2 p in f.Positions)
-                            {
-                                float index = count / (float)f.Size;
-                                if (index < (1f - progress))
-                                {
                                     if (lastPx < 0 || Math.Sqrt((lastPx - p.X) * (lastPx - p.X) + (lastPy - p.Y) * (lastPy - p.Y)) > circleR)
                                     {
-                                        count++;
                                         Vector2 ori = new Vector2(p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
-                                        spriteBatch.Draw(current_trace, ori, Color.White);
+                                        spriteBatch.Draw(traceTexture, ori, Color.White);
                                         lastPx = p.X;
                                         lastPy = p.Y;
                                     }
-                                }
-                                else { break; }
-                            }
+                                
+                            
                         break;
                     case 1:
                         spriteBatch.Draw(circleReadyTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.White, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
-                        if (f != null)
-                        {
-                            float lPx = -1;
-                            float lPy = -1;
+                        float lPx = -1;
+                        float lPy = -1;
+                        int cnt = 1;
                             foreach (Vector2 p in f.Positions)
                             {
-                                if (lPx < 0 || Math.Sqrt((lPx - p.X) * (lPx - p.X) + (lPy - p.Y) * (lPy - p.Y)) > circleR)
-                                {
-                                    Vector2 ori = new Vector2(p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
-                                    spriteBatch.Draw(current_trace, ori, Color.White);
-                                    lPx = p.X;
-                                    lPy = p.Y;
+                                float index = cnt / (float)f.Size;
+                                    if (lPx < 0 || Math.Sqrt((lPx - p.X) * (lPx - p.X) + (lPy - p.Y) * (lPy - p.Y)) > circleR)
+                                    {
+                                        Texture2D tempT = traceTexture;
+                                        if (index < (1f - progress))
+                                        { tempT = current_trace; }
+                                        cnt++;
+                                        Vector2 ori = new Vector2(p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
+                                        spriteBatch.Draw(current_trace, ori, Color.White);
+                                        lPx = p.X;
+                                        lPy = p.Y;
+                                    
                                 }
                             }
-
                             spriteBatch.Draw(circleReadyTexture, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, Color.Lerp(Color.White, Color.Transparent, progress), 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
-                            
-                        } 
-                        break;
+                            break;
                     case 2:
                         Color alpha = Color.Lerp(Color.White, Color.Transparent, progress);
                         spriteBatch.Draw(circleTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, alpha, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
