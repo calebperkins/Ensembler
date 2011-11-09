@@ -1052,11 +1052,11 @@
         <StartBeat>133</StartBeat>
         <EndBeat>134</EndBeat>
         <FadeBeat>135</FadeBeat>
-        <StartX>700</StartX>
-        <StartY>500</StartY>
-        <EndX>100</EndX>
-        <EndY>100</EndY>
-        <A>70</A>
+        <StartX>200</StartX>
+        <StartY>400</StartY>
+        <EndX>600</EndX>
+        <EndY>400</EndY>
+        <A>0</A>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -1064,11 +1064,11 @@
         <StartBeat>135</StartBeat>
         <EndBeat>136</EndBeat>
         <FadeBeat>137</FadeBeat>
-        <StartX>100</StartX>
-        <StartY>500</StartY>
-        <EndX>700</EndX>
+        <StartX>600</StartX>
+        <StartY>400</StartY>
+        <EndX>400</EndX>
         <EndY>100</EndY>
-        <A>-70</A>
+        <A>0</A>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -1077,9 +1077,9 @@
         <EndBeat>138</EndBeat>
         <FadeBeat>139</FadeBeat>
         <StartX>400</StartX>
-        <StartY>500</StartY>
+        <StartY>100</StartY>
         <EndX>400</EndX>
-        <EndY>100</EndY>
+        <EndY>300</EndY>
         <A>0</A>
       </Item>
       <Item>
