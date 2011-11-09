@@ -82,10 +82,10 @@ namespace EnsemPro
             }
 
             // TODO: put this in XML
-            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/alice_sprite", "Characters/alice_map", new Vector2(400), 10));
+            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/alice_sprite", "Characters/alice_map", new Vector2(350,400), 10));
             musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/Johannes_sprite", "Characters/Johannes_map", new Vector2(200, 400), 20));
             musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/Lance_sprite", "Characters/Lance_map", new Vector2(100, 400), 20));
-            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/thorsten_sprite", "Characters/thorsten_map", new Vector2(500, 400), 20));
+            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/thorsten_sprite", "Characters/thorsten_map", new Vector2(450, 400), 20));
             musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/bella_sprite", "Characters/bella_map", new Vector2(600, 400), 20));
             
             moveEval = new MovementEvaluator(actionList.First.Value);
