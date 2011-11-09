@@ -7,7 +7,7 @@
     <Artist>Beethoven</Artist>
     <Background>Levels\\B5\\background</Background>
     <Movements>
-        <Item>
+      <Item>
         <Kind>Wave</Kind>
         <ShowBeat>1</ShowBeat>
         <StartBeat>1</StartBeat>
