@@ -15,6 +15,10 @@
         <Title>Air On G String</Title>
         <AssetName>Levels//AirOnGString//level</AssetName>
       </Item>
+      <Item>
+        <Title>Bolero</Title>
+        <AssetName>Levels//Bolero//level</AssetName>
+      </Item>
     </Levels>
   </Asset>
 </XnaContent>
