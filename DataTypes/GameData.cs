@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using Microsoft.Xna.Framework.Content;
-
+﻿
 namespace DataTypes
 {
     public enum Screens
