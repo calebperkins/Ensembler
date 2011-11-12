@@ -33,6 +33,12 @@ namespace EnsemPro
             set;
         }
 
+        public bool ConfirmChanged
+        {
+            get;
+            set;
+        }
+
         public void LoadContent(ContentManager cm)
         {
             DataTypes.GameData data = cm.Load<DataTypes.GameData>("Levels//Index");
