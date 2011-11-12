@@ -57,16 +57,16 @@ namespace EnsemPro
                 Texture2D current = null;
                 switch (nodes[i].nodeState)
                 {
-                    case Node.NodeState.Locked:
+                    case DataTypes.WorldData.CityState.Locked:
                         current = lockedTexture;
                         break;
-                    case Node.NodeState.NewlyUnlocked:
+                    case DataTypes.WorldData.CityState.NewlyUnlocked:
                         current = newlyUnlockedTexture;
                         break;
-                    case Node.NodeState.Unlocked:
+                    case DataTypes.WorldData.CityState.Unlocked:
                         current = unlockedTexture;
                         break;
-                    case Node.NodeState.Cleared:
+                    case DataTypes.WorldData.CityState.Cleared:
                         current = clearedTexture;
                         break;
                 }

@@ -29,36 +29,8 @@ namespace EnsemPro
             game = g;
             gameState = gm;
             worldView = new WorldMapView(sb);
-            nodes = CreateNodes();
             inDialog = false;
             spriteBatch = sb;
-        }
-
-        // FOR TESTING PURPOSES
-        public Node[] CreateNodes()
-        {
-            int count = 0;
-            Node[] newNodes = new Node[18];
-            newNodes[count++] = new Node(Node.NodeState.Cleared, new Vector2 (100,300),"test");
-            selected = 0;
-            newNodes[count++] = new Node(Node.NodeState.Unlocked, new Vector2(300, 100), "test");
-            newNodes[count++] = new Node(Node.NodeState.Unlocked, new Vector2(400, 100), "test");
-            newNodes[count++] = new Node(Node.NodeState.Unlocked, new Vector2(500, 100), "test");
-            newNodes[count++] = new Node(Node.NodeState.NewlyUnlocked, new Vector2(700, 300), "test");
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1000, 100), "test");
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1000, 200), "test");
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1300, 300), "test");
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1500, 100), "test");
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1600, 100), "test");
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1700, 100), "test");
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1900, 300), "test");
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(2200, 300), "test");
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(2500, 300), "test");
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(2800, 300), "test");
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(3100, 300), "test");
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(3400, 300), "test");
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(3700, 300), "test");
-            return newNodes;
         }
 
         public void Initialize() 
@@ -68,6 +40,12 @@ namespace EnsemPro
         public void LoadContent(ContentManager cm)
         {
             worldView.LoadContent(cm);
+            DataTypes.WorldData data = cm.Load<DataTypes.WorldData>("World");
+            nodes = new Node[data.Cities.Length];
+            for (int i = 0; i < data.Cities.Length; i++)
+            {
+                nodes[i] = new Node(data.Cities[i].State, data.Cities[i].Position, data.Cities[i].UnlockedDialogAsset); // TODO: clean up
+            }
         }
 
         public void Update(GameTime gameTime)

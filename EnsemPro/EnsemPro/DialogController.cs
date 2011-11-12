@@ -22,10 +22,10 @@ namespace EnsemPro
 
         DialogModel dialogModel;
         DialogView screen;
-        Node.NodeState nodeState;
+        DataTypes.WorldData.CityState nodeState;
         KeyboardState lastState;
 
-	    public DialogController(GameModel gm, SpriteBatch sb, DialogModel dm, Node.NodeState ns)
+	    public DialogController(GameModel gm, SpriteBatch sb, DialogModel dm, DataTypes.WorldData.CityState ns)
 	    {
             gameState = gm;
             spriteBatch = sb;
@@ -55,21 +55,21 @@ namespace EnsemPro
         {
             switch (nodeState)
             {
-                case Node.NodeState.NewlyUnlocked:
+                case DataTypes.WorldData.CityState.NewlyUnlocked:
                     for (int i = 0; i < dialogModel.NewlyUnlocked.Length; i++)
                     {
                         names.Enqueue(dialogModel.NewlyUnlocked[i].Character);
                         lines.Enqueue(dialogModel.NewlyUnlocked[i].Line);
                     }
                     break;
-                case Node.NodeState.Unlocked:
+                case DataTypes.WorldData.CityState.Unlocked:
                     for (int i = 0; i < dialogModel.Unlocked.Length; i++)
                     {
                         names.Enqueue(dialogModel.Unlocked[i].Character);
                         lines.Enqueue(dialogModel.Unlocked[i].Line);
                     }
                     break;
-                case Node.NodeState.Cleared:
+                case DataTypes.WorldData.CityState.Cleared:
                     for (int i = 0; i < dialogModel.Cleared.Length; i++)
                     {
                         names.Enqueue(dialogModel.Cleared[i].Character);
