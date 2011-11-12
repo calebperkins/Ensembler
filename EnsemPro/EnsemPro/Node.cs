@@ -15,14 +15,15 @@ namespace EnsemPro
         public NodeState nodeState;
         public float oriX;
         public Vector2 curPos;
+        public DialogModel dialogModel;
         public DialogController dialogController;
-        public string dialogFile="test.txt"; // NEED TO LOAD
 
-        public Node(NodeState ns, Vector2 p)
+        public Node(NodeState ns, Vector2 p, string dialogFile)
         {
             nodeState = ns;
             oriX = p.X;
             curPos = p;
+            dialogModel = new DialogModel(dialogFile);
         }
     }
 }

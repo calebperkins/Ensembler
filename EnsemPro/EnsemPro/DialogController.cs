@@ -13,35 +13,30 @@ namespace EnsemPro
     {
         GameModel gameState;
         SpriteBatch spriteBatch;
-        StorageContainer storageContainer;
 
         Queue<String> names;
-        Queue<String> dialogs;
+        Queue<String> lines;
 
-        String speaker = "";
-        String speech = "";
+        String speaker;
+        String speech;
 
+        DialogModel dialogModel;
         DialogView screen;
-        StreamReader reader;
+        Node.NodeState nodeState;
         KeyboardState lastState;
 
-	    public DialogController(GameModel gm, SpriteBatch sb, String dn)
+	    public DialogController(GameModel gm, SpriteBatch sb, DialogModel dm, Node.NodeState ns)
 	    {
             gameState = gm;
             spriteBatch = sb;
-            // parse file then send background etc to view
-            // "dialogs/" + dn
-          //  storageContainer = device.OpenContainer("WindowsGame1"); 
-           // string path = Path.Combine(storageContainer.StorageDevice=, "dialogs/"+dn);
-           // reader = new StreamReader(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),dn));
-          //  reader = new StreamReader(TitleContainer.OpenStream(dn));
-         //   string fullpath = StorageContainer.TitalLocation + dn;
-            reader = new StreamReader(dn);
+            dialogModel = dm;
+            nodeState = ns;
+            
             names = new Queue<String>();
-            dialogs = new Queue<String>();
+            lines = new Queue<String>();
             Parse();
-            speaker = names.Dequeue();
-            speech = dialogs.Dequeue();
+            speaker = "";
+            speech = dialogModel.Location.ToString();
             screen = new DialogView(sb);
             
 	    }
@@ -58,13 +53,33 @@ namespace EnsemPro
 
         private void Parse()
         {
-            string line = reader.ReadLine();
-            while (line != null) {
-                int colonIndex = line.IndexOf(":");
-                names.Enqueue(line.Substring(0,colonIndex));
-                dialogs.Enqueue(line.Substring(colonIndex + 1));
-                line = reader.ReadLine();
+            switch (nodeState)
+            {
+                case Node.NodeState.NewlyUnlocked:
+                    for (int i = 0; i < dialogModel.NewlyUnlocked.Length; i++)
+                    {
+                        names.Enqueue(dialogModel.NewlyUnlocked[i].Character);
+                        lines.Enqueue(dialogModel.NewlyUnlocked[i].Line);
+                    }
+                    break;
+                case Node.NodeState.Unlocked:
+                    for (int i = 0; i < dialogModel.Unlocked.Length; i++)
+                    {
+                        names.Enqueue(dialogModel.Unlocked[i].Character);
+                        lines.Enqueue(dialogModel.Unlocked[i].Line);
+                    }
+                    break;
+                case Node.NodeState.Cleared:
+                    for (int i = 0; i < dialogModel.Cleared.Length; i++)
+                    {
+                        names.Enqueue(dialogModel.Cleared[i].Character);
+                        lines.Enqueue(dialogModel.Cleared[i].Line);
+                    }
+                    break;
+                default:
+                    break;
             }
+
         }
 
         public void Update(GameTime t)
@@ -79,7 +94,7 @@ namespace EnsemPro
                 if (ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right))
                 {
                     speaker = names.Dequeue();
-                    speech = dialogs.Dequeue();
+                    speech = lines.Dequeue();
                 }
                 lastState = ks;
             }

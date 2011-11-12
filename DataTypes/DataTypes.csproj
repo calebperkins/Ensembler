@@ -92,6 +92,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DialogData.cs" />
     <Compile Include="GameData.cs" />
     <Compile Include="LevelData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

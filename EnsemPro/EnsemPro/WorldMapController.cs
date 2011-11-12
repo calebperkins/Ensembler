@@ -22,8 +22,7 @@ namespace EnsemPro
         int selected;
         KeyboardState lastState = Keyboard.GetState();
 
-        public bool inDialog;
-       // DialogController dialogController;
+        public bool inDialog; // SET THIS TO FALSE AT SOME POINT
 
         public WorldMapController (Game g, GameModel gm, SpriteBatch sb)
         {
@@ -40,25 +39,25 @@ namespace EnsemPro
         {
             int count = 0;
             Node[] newNodes = new Node[18];
-            newNodes[count++] = new Node(Node.NodeState.Cleared, new Vector2 (100,300));
+            newNodes[count++] = new Node(Node.NodeState.Cleared, new Vector2 (100,300),"test");
             selected = 0;
-            newNodes[count++] = new Node(Node.NodeState.Unlocked, new Vector2(300, 100));
-            newNodes[count++] = new Node(Node.NodeState.Unlocked, new Vector2(400, 100));
-            newNodes[count++] = new Node(Node.NodeState.Unlocked, new Vector2(500, 100));
-            newNodes[count++] = new Node(Node.NodeState.NewlyUnlocked, new Vector2(700, 300));
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1000, 100));
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1000, 200));
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1300, 300));
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1500, 100));
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1600, 100));
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1700, 100));
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1900, 300));
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(2200, 300));
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(2500, 300));
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(2800, 300));
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(3100, 300));
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(3400, 300));
-            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(3700, 300));
+            newNodes[count++] = new Node(Node.NodeState.Unlocked, new Vector2(300, 100), "test");
+            newNodes[count++] = new Node(Node.NodeState.Unlocked, new Vector2(400, 100), "test");
+            newNodes[count++] = new Node(Node.NodeState.Unlocked, new Vector2(500, 100), "test");
+            newNodes[count++] = new Node(Node.NodeState.NewlyUnlocked, new Vector2(700, 300), "test");
+            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1000, 100), "test");
+            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1000, 200), "test");
+            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1300, 300), "test");
+            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1500, 100), "test");
+            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1600, 100), "test");
+            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1700, 100), "test");
+            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(1900, 300), "test");
+            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(2200, 300), "test");
+            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(2500, 300), "test");
+            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(2800, 300), "test");
+            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(3100, 300), "test");
+            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(3400, 300), "test");
+            newNodes[count++] = new Node(Node.NodeState.Locked, new Vector2(3700, 300), "test");
             return newNodes;
         }
 
@@ -73,13 +72,22 @@ namespace EnsemPro
 
         public void Update(GameTime gameTime)
         {
+            KeyboardState ks = Keyboard.GetState();
+            Node node = nodes[selected];
             if (inDialog)
             {
-                nodes[selected].dialogController.Update(gameTime);
+                if (ks.IsKeyDown(Keys.Q) && lastState.IsKeyUp(Keys.Q))
+                {
+                    inDialog = false;
+                }
+                else
+                {
+                    node.dialogController.Update(gameTime);
+                }
             }
             else
             {
-                KeyboardState ks = Keyboard.GetState();
+                
                 if (ks.IsKeyDown(Keys.Left) && lastState.IsKeyUp(Keys.Left) && selected > 0)
                 {
                     selected--;
@@ -91,11 +99,10 @@ namespace EnsemPro
                 if (ks.IsKeyDown(Keys.D) && lastState.IsKeyUp(Keys.D))
                 {
                     inDialog = true;
-                //    gameState.CurrentScreen = DataTypes.Screens.Dialog; // K THIS ONE WORKS
-                    nodes[selected].dialogController = new DialogController(gameState, spriteBatch, nodes[selected].dialogFile);
-                    nodes[selected].dialogController.Initialize();
-                    nodes[selected].dialogController.LoadContent(game.Content); // MOVE TO NODE'S 
-                   // Console.WriteLine("herehere");
+                    node.dialogModel.LoadContent(game.Content);
+                    node.dialogController = new DialogController(gameState, spriteBatch, node.dialogModel, node.nodeState);
+                    node.dialogController.Initialize();
+                    node.dialogController.LoadContent(game.Content); // MOVE TO NODE'S 
                 }
                 worldView.WantedBackgroundPosX = MathHelper.Clamp(-1 * (nodes[selected].oriX - GameEngine.WIDTH / 2), -1 * (MAP_WIDTH - GameEngine.WIDTH), 0);
                 lastState = ks;

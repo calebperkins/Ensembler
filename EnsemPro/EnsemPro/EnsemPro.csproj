@@ -114,6 +114,7 @@
     <Compile Include="BatonView.cs" />
     <Compile Include="ChooseLevelScreen.cs" />
     <Compile Include="DialogController.cs" />
+    <Compile Include="DialogModel.cs" />
     <Compile Include="DialogView.cs" />
     <Compile Include="Function.cs" />
     <Compile Include="GameModel.cs" />
