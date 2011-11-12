@@ -11,8 +11,8 @@ namespace EnsemPro
         public void Add(InputState s)
         {
             items.Add(s);
-            CurrentPosition = s.position;
-            VolumeChange = s.key;
+            CurrentPosition = s.Position;
+            VolumeChange = s.Key;
             //Console.WriteLine("KEYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY " + s.key);
         }
 
