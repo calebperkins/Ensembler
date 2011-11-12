@@ -334,10 +334,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Dialogs\test.txt">
-      <Name>test</Name>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <Compile Include="Images\MainMenu\cover.jpg">
       <Name>cover</Name>
       <Importer>TextureImporter</Importer>
