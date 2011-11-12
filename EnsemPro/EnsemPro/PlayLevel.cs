@@ -371,11 +371,9 @@ namespace EnsemPro
             // Draw to screen if level failed
             if (failed)
             {
-                //string fail = "FAILED";
                 Vector2 center = new Vector2(GameEngine.WIDTH / 2, GameEngine.HEIGHT / 2);
                 Vector2 origin = new Vector2(failTexture.Width / 2, failTexture.Height / 2);
                 failScale = Math.Max(1, failScale - 0.01f);
-                //spriteBatch.DrawString(font, fail, new Vector2(400,300), Color.Red, 0, new Vector2 (), 2, SpriteEffects.None, 0);
                 spriteBatch.Draw(failTexture, center, null, Color.White, 0.0f, origin, failScale, SpriteEffects.None, 0);
             }
         }
