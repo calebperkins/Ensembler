@@ -21,6 +21,8 @@ namespace EnsemPro
         {
             input = new InputState();
             MouseState ms = Mouse.GetState();
+            KeyboardState ks = Keyboard.GetState();
+
             input.Position.X = MathHelper.Clamp(ms.X, 0, GameEngine.WIDTH);
             input.Position.Y = MathHelper.Clamp(ms.Y, 0, GameEngine.HEIGHT);
             float time = gameTime.ElapsedGameTime.Milliseconds; // time elapsed since last update
@@ -32,8 +34,9 @@ namespace EnsemPro
             // add to inputstate
             input.Velocity = newVel;
             input.Acceleration = newAcc;
+
+            input.Confirm = (ks.IsKeyDown(Keys.Enter) || ks.IsKeyDown(Keys.Space));
             
-            KeyboardState ks = Keyboard.GetState();
             input.Pause = ks.IsKeyDown(Keys.Escape);
             if (ks.IsKeyDown(Keys.A) && ks.IsKeyDown(Keys.Z)) { }
             else if (ks.IsKeyDown(Keys.A))

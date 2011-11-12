@@ -7,5 +7,6 @@ public struct InputState
     public Vector2 Velocity;
     public Vector2 Acceleration;
     public bool Pause;
+    public bool Confirm;
     public Keys Key;
 }
