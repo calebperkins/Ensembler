@@ -115,7 +115,6 @@
     <Compile Include="ChooseLevelScreen.cs" />
     <Compile Include="DialogController.cs" />
     <Compile Include="DialogView.cs" />
-    <Compile Include="Display.cs" />
     <Compile Include="Function.cs" />
     <Compile Include="GameModel.cs" />
     <Compile Include="InputBuffer.cs" />

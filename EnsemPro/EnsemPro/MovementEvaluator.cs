@@ -35,7 +35,7 @@ namespace EnsemPro
                     {
                         foreach (InputState state in inputs)
                         {
-                            if (Math.Abs(state.acceleration.X) > ACC_THRESHOLD || Math.Abs(state.acceleration.Y) > ACC_THRESHOLD)
+                            if (Math.Abs(state.Acceleration.X) > ACC_THRESHOLD || Math.Abs(state.Acceleration.Y) > ACC_THRESHOLD)
                             {
                                 correct++;
                             }
@@ -55,13 +55,13 @@ namespace EnsemPro
 
                         Vector2[] slopes = currentMovement.f.Slope(totalInput - 1);
                         float errorSum = 0.0f;
-                        float dist = Vector2.Distance(inputs[totalInput - 1].position,inputs[0].position);
+                        float dist = Vector2.Distance(inputs[totalInput - 1].Position,inputs[0].Position);
 
                         if (dist >= DIST_THRESHOLD)
                         {
                             for (int i = 1; i < totalInput; i++)
                             {
-                                Vector2 normVel = Vector2.Normalize(inputs[i].velocity);
+                                Vector2 normVel = Vector2.Normalize(inputs[i].Velocity);
                                 Vector2 slope = slopes[i];
                                 errorSum += (normVel.X - slope.X) * (normVel.X - slope.X) + (normVel.Y - slope.Y) * (normVel.Y - slope.Y);
                             }

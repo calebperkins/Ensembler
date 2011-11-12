@@ -33,6 +33,9 @@ namespace EnsemPro
                     gameState.CurrentScreen = DataTypes.Screens.Pause;
                 }
             }
+
+            gameState.ConfirmChanged = input.Confirm && !lastState.Confirm;
+
             lastState = input;
             base.Update(gameTime);
         }

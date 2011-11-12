@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Content;
 
 namespace EnsemPro
 {
@@ -48,7 +48,7 @@ namespace EnsemPro
             {
                 PreviousHover(hover);
             }
-            else if (ks.IsKeyDown(Keys.Enter) && lastState.IsKeyUp(Keys.Enter))
+            else if (gameState.ConfirmChanged)
             {
                 switch (hover)
                 {
@@ -63,6 +63,7 @@ namespace EnsemPro
                         break;                        
 
                 }
+                gameState.ConfirmChanged = false;
 
             }
             lastState = ks;

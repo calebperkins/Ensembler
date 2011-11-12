@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework.Content;
 
 namespace EnsemPro
 {
@@ -30,6 +28,12 @@ namespace EnsemPro
         }
 
         public string SelectedLevel
+        {
+            get;
+            set;
+        }
+
+        public bool ConfirmChanged
         {
             get;
             set;
