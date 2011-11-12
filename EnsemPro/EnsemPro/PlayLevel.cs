@@ -12,7 +12,7 @@ namespace EnsemPro
     public class PlayLevel : DrawableGameComponent
     {
         // For adjusting curMaxAge of satisfaction queue
-        public const int AGE_DECR = 3;
+        public const int AGE_DECR = 30;
         public const int AGE_INCR = 1;
         bool failed;
 
@@ -35,6 +35,8 @@ namespace EnsemPro
         SpriteFont font;
         SpriteBatch spriteBatch;
         Texture2D background;
+        Texture2D failTexture;
+        float failScale = 2;
 
         LinkedList<Movement> actionList;
         HashSet<Movement> drawSet;
@@ -65,6 +67,7 @@ namespace EnsemPro
         protected override void LoadContent()
         {
             font = Game.Content.Load<SpriteFont>("images//ScoreFont");
+            failTexture = Game.Content.Load<Texture2D>("images//fail");
 
             // todo: dynamic loading
             DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>(gameState.SelectedLevel);
@@ -297,7 +300,7 @@ namespace EnsemPro
             string vol = "volume: " + (int) (volume * 10);
             // Draw the string
             spriteBatch.DrawString(font, beat, new Vector2(0, 0), Color.White);
-            //spriteBatch.DrawString(font, vol, new Vector2(125, 0), Color.White);
+            spriteBatch.DrawString(font, vol, new Vector2(125, 0), Color.White);
             spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.White);
             spriteBatch.DrawString(font, actionList.Count!=0 ? (gainedScore >= 0 ? "+"+gainedScore : ""+gainedScore) : "", new Vector2(460, 0), 
                 (gainedScore > 0 ? Color.YellowGreen : (gainedScore < 0 ? Color.Red : Color.White)));
@@ -320,14 +323,6 @@ namespace EnsemPro
                     1.4f, SpriteEffects.None, 0.0f);
                 spriteBatch.DrawString(font, "Max Combo is " + (maxCombo > 1 ? maxCombo : 0), new Vector2(200, 200), Color.Black, 0.0f, new Vector2(0, 0),
                     1.4f, SpriteEffects.None, 0.0f);
-            }
-
-            // Draw to screen if level failed
-            if (failed)
-            {
-                string fail = "FAILED";
-                Vector2 origin = new Vector2 (GameEngine.WIDTH / 2, GameEngine.HEIGHT / 2);
-                spriteBatch.DrawString(font, fail, new Vector2(400,300), Color.Red, 0, new Vector2 (), 2, SpriteEffects.None, 0);
             }
 
             foreach (Musician m in musicians)
@@ -373,6 +368,16 @@ namespace EnsemPro
             baton.Draw(t);
             satisfaction.Draw(spriteBatch);
 
+            // Draw to screen if level failed
+            if (failed)
+            {
+                //string fail = "FAILED";
+                Vector2 center = new Vector2(GameEngine.WIDTH / 2, GameEngine.HEIGHT / 2);
+                Vector2 origin = new Vector2(failTexture.Width / 2, failTexture.Height / 2);
+                failScale = Math.Max(1, failScale - 0.01f);
+                //spriteBatch.DrawString(font, fail, new Vector2(400,300), Color.Red, 0, new Vector2 (), 2, SpriteEffects.None, 0);
+                spriteBatch.Draw(failTexture, center, null, Color.White, 0.0f, origin, failScale, SpriteEffects.None, 0);
+            }
         }
 
     }

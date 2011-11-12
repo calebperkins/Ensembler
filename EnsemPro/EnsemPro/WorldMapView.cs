@@ -44,7 +44,7 @@ namespace EnsemPro
             lockedTexture = cm.Load<Texture2D>("images\\dot_fail");
             newlyUnlockedTexture = cm.Load<Texture2D>("images\\dot");
             unlockedTexture = cm.Load<Texture2D>("images\\dot_win");
-            clearedTexture = cm.Load<Texture2D>("images\\dot_normal");
+            clearedTexture = cm.Load<Texture2D>("images\\line");
             selectedTexture = cm.Load<Texture2D>("images\\ring");
         }
 
