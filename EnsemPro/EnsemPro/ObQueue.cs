@@ -12,7 +12,11 @@ namespace EnsemPro
         public const int OB_SIZE = 40;
         
         protected Texture2D texture;
-        protected int maxAge;
+        public int maxAge
+        {
+            get;
+            set;
+        }
 
         protected Ob[] queue;
         protected int head;

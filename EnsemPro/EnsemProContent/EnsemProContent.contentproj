@@ -84,13 +84,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Levels\B5\Background.jpg">
-      <Name>Background</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Images\Lucidia.bmp">
       <Name>Lucidia</Name>
       <Importer>TextureImporter</Importer>
@@ -399,7 +392,13 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Levels\B5\Background.png">
+      <Name>Background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Levels\Bolero\level.xml">
       <Name>level</Name>

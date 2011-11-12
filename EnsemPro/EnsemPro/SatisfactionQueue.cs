@@ -6,7 +6,7 @@ namespace EnsemPro
     // The stars following the baton
     public class SatisfactionQueue : ObQueue
     {
-        const int MAX_AGE = 30;
+        public const int MAX_AGE = 30;
         InputBuffer buf;
 
         public SatisfactionQueue(InputBuffer b) : base()

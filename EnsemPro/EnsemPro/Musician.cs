@@ -6,10 +6,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace EnsemPro
 {
-    class Musician : IDrawable
+    class Musician
     {
         Texture2D texture;
         Rectangle[] map;
+        Rectangle src;
         Vector2 position;
         SpriteBatch spriteBatch;
         int frameRate;
@@ -23,24 +24,16 @@ namespace EnsemPro
             spriteBatch = sb;
         }
 
-        public void Draw(GameTime t)
+        public void Draw(GameTime t, bool update)
         {
-            Rectangle src = map[(int)(t.TotalGameTime.TotalSeconds * frameRate) % map.Length];
+            if (update) src = map[(int)(t.TotalGameTime.TotalSeconds * frameRate) % map.Length];
             spriteBatch.Draw(texture, position, src, Color.White);
         }
-
-        public int DrawOrder
-        {
-            get { return 666; }
-        }
-
-        public event System.EventHandler<System.EventArgs> DrawOrderChanged;
 
         public bool Visible
         {
             get { return true; }
         }
 
-        public event System.EventHandler<System.EventArgs> VisibleChanged;
     }
 }
