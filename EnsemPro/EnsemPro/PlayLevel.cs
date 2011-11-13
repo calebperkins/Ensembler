@@ -345,21 +345,21 @@ namespace EnsemPro
                 float alpha = 0f;
                 if (m.startBeat > current_beat)
                 {
-                    int total = (m.startBeat - m.showBeat) * beatTime;
+                    int total = (m.startBeat - m.showBeat) * beatTime / 2;
                     int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.showBeat * beatTime);
-                    alpha = 1f - elapsed / (float)total;
+                    alpha = elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 0);
                 }
                 else if (m.endBeat > current_beat)
                 {
-                    int total = (m.endBeat - m.startBeat) * beatTime;
+                    int total = (m.endBeat - m.startBeat) * beatTime / 2;
                     int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.startBeat * beatTime);
-                    alpha = 1f - elapsed / (float)total;
+                    alpha = elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 1);
                 }
                 else
                 {
-                    int total = (m.fadeBeat - m.endBeat) * beatTime;
+                    int total = (m.fadeBeat - m.endBeat) * beatTime / 2;
                     int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.endBeat * beatTime);
                     alpha = elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 2);
