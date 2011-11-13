@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 
 namespace EnsemPro
 {
@@ -23,6 +24,9 @@ namespace EnsemPro
             storyHover = cm.Load<Texture2D>("Images\\MainMenu\\story_hover");
             freeHover = cm.Load<Texture2D>("Images\\MainMenu\\free_hover");
             exitHover = cm.Load<Texture2D>("Images\\MainMenu\\exit_hover");
+            Song s = cm.Load<Song>("journey");
+            MediaPlayer.Play(s);
+            MediaPlayer.Volume = 0.3f;
         }
 
         public void Draw(MenuController.Hover hover)

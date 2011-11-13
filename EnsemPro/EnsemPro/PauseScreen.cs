@@ -51,10 +51,13 @@ namespace EnsemPro
 
         public override void Draw(GameTime gameTime)
         {
-            string text = "Paused";
-            Vector2 textSize = menuFont.MeasureString(text);
+            string pauseText = "Paused";
+            string backText = "Back";
+            Vector2 pauseSize = menuFont.MeasureString(pauseText);
+            Vector2 backSize = menuFont.MeasureString(backText);
             Vector2 textCenter = new Vector2(Game.GraphicsDevice.Viewport.Width/2, Game.GraphicsDevice.Viewport.Height/2);
-            spriteBatch.DrawString(menuFont, text, textCenter - textSize/2, Color.White);
+            spriteBatch.DrawString(menuFont, pauseText, textCenter - pauseSize/2 - new Vector2(0,50), Color.White);
+            spriteBatch.DrawString(menuFont, backText, textCenter - backSize / 2 + new Vector2(0, 50), Color.White);
             base.Draw(gameTime);
         }
 
