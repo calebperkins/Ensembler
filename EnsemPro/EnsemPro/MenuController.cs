@@ -16,6 +16,7 @@ namespace EnsemPro
             Exit
         }
 
+        public Game game;
         public GameModel gameState;
         public MenuView menuView;
         public Hover hover;
@@ -24,9 +25,10 @@ namespace EnsemPro
         SoundEffect TitleMove;
         SoundEffect TitleSelect;
 
-        public MenuController(GameModel gm, SpriteBatch sb)
+        public MenuController(Game g, GameModel gm, SpriteBatch sb)
             //: base(g)
         {
+            game = g;
             gameState = gm;
             menuView = new MenuView(sb);
             hover = Hover.Story;
@@ -68,9 +70,8 @@ namespace EnsemPro
                         gameState.CurrentScreen = DataTypes.Screens.SelectLevel;
                         break;
                     case Hover.Exit:
-                        // TODO DOESN'T DO ANYTHING YET
+                        game.Exit();
                         break;                        
-
                 }
                 gameState.ConfirmChanged = false;
 

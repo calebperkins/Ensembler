@@ -57,7 +57,7 @@ namespace EnsemPro
 
             Services.AddService(typeof(GameModel), gameState);
 
-            menuController = new MenuController(gameState, spriteBatch);
+            menuController = new MenuController(this, gameState, spriteBatch);
             menuController.Initialize();
 
             levelController = new LevelSelectController(gameState, spriteBatch);

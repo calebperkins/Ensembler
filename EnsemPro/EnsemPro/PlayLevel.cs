@@ -67,6 +67,7 @@ namespace EnsemPro
             DrawOrder = 0;
             comboOn = false;
             comboCount = -1;
+            failed = false;
         }
 
         protected override void LoadContent()
@@ -142,7 +143,7 @@ namespace EnsemPro
             if (MediaPlayer.State == MediaState.Paused)
                 MediaPlayer.Resume();
             else
-                MediaPlayer.Play(failed ? LevelFail : song);
+                MediaPlayer.Play(song);
             watch.Start();
         }
 
@@ -154,10 +155,14 @@ namespace EnsemPro
 
         public override void Update(GameTime gameTime)
         {
-            if (satisfaction.maxAge == 0)
+            if (satisfaction.maxAge == 0 )
             {
+                if (!failed)
+                {
+                    MediaPlayer.Stop();
+                    MediaPlayer.Play(LevelFail);
+                }
                 failed = true;
-                MediaPlayer.Stop();
             }
             else
             {
@@ -273,7 +278,24 @@ namespace EnsemPro
                 }
             }
 
-            if (actionList.Count == 0 || failed) backToMenu++;
+            if (actionList.Count == 0 || failed) 
+            {
+                if (backToMenu == 0)
+                {
+                    if (!failed)
+                    {
+                        if (current_score < 1000)
+                        {
+                            SmallApplause.Play();
+                        }
+                        else
+                        {
+                            LargeApplause.Play();
+                        }
+                    }
+                }
+                backToMenu++; 
+            }
             if (backToMenu >= 420)
             {
                 //UnloadContent(); // doesn't seem to work, i.e. memory usage does not decrease
@@ -332,14 +354,6 @@ namespace EnsemPro
             
             if (actionList.Count == 0)
             {
-                if (current_score < 1000)
-                {
-                    SmallApplause.Play();
-                }
-                else
-                {
-                    LargeApplause.Play();
-                }
                 spriteBatch.DrawString(font, "Score is " + current_score, new Vector2(200, 150), Color.Black, 0.0f, new Vector2(0, 0),
                     1.4f, SpriteEffects.None, 0.0f);
                 spriteBatch.DrawString(font, "Max Combo is " + (maxCombo > 1 ? maxCombo : 0), new Vector2(200, 200), Color.Black, 0.0f, new Vector2(0, 0),
@@ -392,7 +406,6 @@ namespace EnsemPro
             // Draw to screen if level failed
             if (failed)
             {
-                MediaPlayer.Pause();
                 Vector2 center = new Vector2(GameEngine.WIDTH / 2, GameEngine.HEIGHT / 2);
                 Vector2 origin = new Vector2(failTexture.Width / 2, failTexture.Height / 2);
                 failScale = Math.Max(1, failScale - 0.01f);

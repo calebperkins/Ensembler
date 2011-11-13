@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace EnsemPro
 {
@@ -21,6 +22,9 @@ namespace EnsemPro
         Node[] nodes; //invariant: nodes[i+1].oriX >= nodes[i].oriX
         int selected;
         KeyboardState lastState = Keyboard.GetState();
+        SoundEffect MapMove;
+        SoundEffect EnterCity;
+        SoundEffect LevelUnlock;
 
         public bool inDialog; // SET THIS TO FALSE AT SOME POINT
 
@@ -41,6 +45,9 @@ namespace EnsemPro
         {
             worldView.LoadContent(cm);
             DataTypes.WorldData data = cm.Load<DataTypes.WorldData>("World");
+            MapMove = cm.Load<SoundEffect>("Sounds//MapMove");
+            EnterCity = cm.Load<SoundEffect>("Sounds//EnterCity");
+            LevelUnlock = cm.Load<SoundEffect>("Sounds//LevelUnlock");
             nodes = new Node[data.Cities.Length];
             for (int i = 0; i < data.Cities.Length; i++)
             {
@@ -69,13 +76,16 @@ namespace EnsemPro
                 if (ks.IsKeyDown(Keys.Left) && lastState.IsKeyUp(Keys.Left) && selected > 0)
                 {
                     selected--;
+                    MapMove.Play();
                 }
                 else if (ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right) && selected < nodes.Length - 1)
                 {
                     selected++;
+                    MapMove.Play();
                 }
                 if (ks.IsKeyDown(Keys.D) && lastState.IsKeyUp(Keys.D))
                 {
+                    EnterCity.Play();
                     inDialog = true;
                     node.dialogModel.LoadContent(game.Content);
                     node.dialogController = new DialogController(gameState, spriteBatch, node.dialogModel, node.nodeState);
