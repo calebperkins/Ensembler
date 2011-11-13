@@ -60,7 +60,7 @@
       </Item>
       <Item>
         <Name>Saltzburg</Name>
-        <Position>1364 418</Position>
+        <Position>1638 476</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\HSaltzburg\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\HSaltzburg\\Unlocked</UnlockedDialogAsset>
@@ -68,7 +68,7 @@
       </Item>
       <Item>
         <Name>Bonn</Name>
-        <Position>1638 476</Position>
+        <Position>1364 418</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\IBonn\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\IBonn\\Unlocked</UnlockedDialogAsset>
