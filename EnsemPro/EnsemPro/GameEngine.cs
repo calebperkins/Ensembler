@@ -9,9 +9,6 @@ namespace EnsemPro
     /// </summary>
     public class GameEngine : Game
     {
-        //DELETE ME
-        public static bool firstLoop = true;
-
         public const int WIDTH = 800;
         public const int HEIGHT = 600;
 
@@ -51,9 +48,6 @@ namespace EnsemPro
             graphics.ApplyChanges();
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-
-
 
             buffer = new InputBuffer();
             gameState = new GameModel();
@@ -120,11 +114,11 @@ namespace EnsemPro
 
             
             // HARDCODED THIS FOR TESTING
-            if (firstLoop)
+            /*(if (firstLoop)
             {
                 gameState.CurrentScreen = DataTypes.Screens.Title;
                 firstLoop = false;
-            }
+            }*/
 
 
             
