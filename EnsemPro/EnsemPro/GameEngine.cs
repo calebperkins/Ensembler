@@ -111,37 +111,35 @@ namespace EnsemPro
             input.Update(gameTime);
 
            // dialogController.Update(gameTime);
-
-            
-            // HARDCODED THIS FOR TESTING
-            /*(if (firstLoop)
-            {
-                gameState.CurrentScreen = DataTypes.Screens.Title;
-                firstLoop = false;
-            }*/
-
-
             
             // transitioning to new state
             if (lastState != gameState.CurrentScreen)
             {
+                switch (lastState)
+                {
+                    case DataTypes.Screens.PlayLevel:
+                        if (gameState.CurrentScreen == DataTypes.Screens.Pause)
+                        {
+                            rhythmController.Pause();
+                        }
+                        break;
+                    case DataTypes.Screens.SelectLevel:
+                        if (gameState.CurrentScreen == DataTypes.Screens.PlayLevel)
+                        {
+                            buffer.Clear();
+                            rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
+                            rhythmController.Initialize();
+                            rhythmController.Start();
+                        }
+                        break;
+                }
                 switch (gameState.CurrentScreen)
                 {
                     case DataTypes.Screens.Pause:
                         rhythmController.Pause();
                         break;
-                    //case DataTypes.Screens.WorldMap:
-                    //    break;
                     case DataTypes.Screens.PlayLevel:
-                        if (lastState == DataTypes.Screens.SelectLevel)
-                        {
-                            buffer.Clear();
-                            rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
-                            rhythmController.Initialize();
-                        }
                         rhythmController.Start();
-                        break;
-                    default:
                         break;
                 }
                 
