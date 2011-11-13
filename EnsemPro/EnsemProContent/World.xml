@@ -6,22 +6,22 @@
         <Name>Berlin</Name>
         <Position>100 300</Position>
         <State>Cleared</State>
-        <ClearedDialogAsset>Dialogs/A</ClearedDialogAsset>
-        <UnlockedDialogAsset>Dialogs/B</UnlockedDialogAsset>
+        <ClearedDialogAsset>test</ClearedDialogAsset>
+        <UnlockedDialogAsset>test</UnlockedDialogAsset>
       </Item>
       <Item>
         <Name>Berlin</Name>
         <Position>300 100</Position>
         <State>Unlocked</State>
-        <ClearedDialogAsset>Dialogs/A</ClearedDialogAsset>
-        <UnlockedDialogAsset>Dialogs/B</UnlockedDialogAsset>
+        <ClearedDialogAsset>test</ClearedDialogAsset>
+        <UnlockedDialogAsset>test</UnlockedDialogAsset>
       </Item>
       <Item>
         <Name>Berlin</Name>
         <Position>400 100</Position>
         <State>Locked</State>
-        <ClearedDialogAsset>Dialogs/A</ClearedDialogAsset>
-        <UnlockedDialogAsset>Dialogs/B</UnlockedDialogAsset>
+        <ClearedDialogAsset>test</ClearedDialogAsset>
+        <UnlockedDialogAsset>test</UnlockedDialogAsset>
       </Item>
       <Item>
         <Name>Berlin</Name>
