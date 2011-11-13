@@ -129,6 +129,7 @@ namespace EnsemPro
                             buffer.Clear();
                             rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
                             rhythmController.Initialize();
+                            rhythmController.Start();
                         }
                         break;
                 }

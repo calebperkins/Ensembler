@@ -11,6 +11,7 @@ namespace EnsemPro
     {
         SpriteBatch spriteBatch;
         SpriteFont menuFont;
+        GameModel state;
 
         public PauseScreen(Game game, SpriteBatch sb)
             : base(game)
@@ -34,6 +35,7 @@ namespace EnsemPro
         {
             Visible = false;
             Enabled = false;
+            state = Game.Services.GetService(typeof(GameModel)) as GameModel;
 
             base.Initialize();
         }
@@ -44,20 +46,25 @@ namespace EnsemPro
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            // TODO: Add your update code here
-
+            if (state.Input.Confirm)
+            {
+                state.CurrentScreen = DataTypes.Screens.Title;
+            }
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            string pauseText = "Paused";
-            string backText = "Back";
+            string pauseText = "- Paused -";
+            string backText = "Back (esc)";
+            string titleText = "To title screen (spacebar)";
             Vector2 pauseSize = menuFont.MeasureString(pauseText);
             Vector2 backSize = menuFont.MeasureString(backText);
+            Vector2 titleSize = menuFont.MeasureString(titleText);
             Vector2 textCenter = new Vector2(Game.GraphicsDevice.Viewport.Width/2, Game.GraphicsDevice.Viewport.Height/2);
             spriteBatch.DrawString(menuFont, pauseText, textCenter - pauseSize/2 - new Vector2(0,50), Color.White);
             spriteBatch.DrawString(menuFont, backText, textCenter - backSize / 2 + new Vector2(0, 50), Color.White);
+            spriteBatch.DrawString(menuFont, titleText, textCenter - titleSize / 2 + new Vector2(0, 100), Color.White);
             base.Draw(gameTime);
         }
 
