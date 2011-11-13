@@ -8,6 +8,7 @@
         <State>Cleared</State>
         <ClearedDialogAsset>test</ClearedDialogAsset>
         <UnlockedDialogAsset>test</UnlockedDialogAsset>
+        <NewlyUnlockedDialogAsset>test</NewlyUnlockedDialogAsset>
       </Item>
       <Item>
         <Name>Berlin</Name>
@@ -15,6 +16,7 @@
         <State>Unlocked</State>
         <ClearedDialogAsset>test</ClearedDialogAsset>
         <UnlockedDialogAsset>test</UnlockedDialogAsset>
+        <NewlyUnlockedDialogAsset>test</NewlyUnlockedDialogAsset>
       </Item>
       <Item>
         <Name>Berlin</Name>
@@ -22,6 +24,7 @@
         <State>Locked</State>
         <ClearedDialogAsset>test</ClearedDialogAsset>
         <UnlockedDialogAsset>test</UnlockedDialogAsset>
+        <NewlyUnlockedDialogAsset>test</NewlyUnlockedDialogAsset>
       </Item>
       <Item>
         <Name>Berlin</Name>
@@ -29,6 +32,7 @@
         <State>NewlyUnlocked</State>
         <ClearedDialogAsset>Dialogs/A</ClearedDialogAsset>
         <UnlockedDialogAsset>Dialogs/B</UnlockedDialogAsset>
+        <NewlyUnlockedDialogAsset>test</NewlyUnlockedDialogAsset>
       </Item>
     </Cities>
   </Asset>
