@@ -46,5 +46,11 @@ namespace EnsemPro
             PreviousScreen = data.Screen;
             Levels = data.Levels;
         }
+
+        public InputState Input
+        {
+            get;
+            set;
+        }
     }
 }
