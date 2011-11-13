@@ -58,7 +58,7 @@ namespace EnsemPro
                 PreviousHover(hover);
                 TitleMove.Play();
             }
-            else if (gameState.ConfirmChanged)
+            else if (gameState.Input.Confirm)
             {
                 TitleSelect.Play();
                 switch (hover)
@@ -73,7 +73,6 @@ namespace EnsemPro
                         game.Exit();
                         break;                        
                 }
-                gameState.ConfirmChanged = false;
 
             }
             lastState = ks;

@@ -52,12 +52,12 @@ namespace EnsemPro
                 selected = (selected == 0) ? (gameState.Levels.Length - 1) : (selected - 1);
                 MenuMove.Play();
             }
-            else if (gameState.ConfirmChanged)
+            else if (gameState.Input.Confirm)
             {
                 MenuSelect.Play();
                 gameState.CurrentScreen = DataTypes.Screens.PlayLevel;
                 gameState.SelectedLevel = gameState.Levels[selected].AssetName;
-                gameState.ConfirmChanged = false;
+                // gameState.Input.Confirm = false;
             }
             
             lastState = ks;
