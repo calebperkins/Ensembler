@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace EnsemPro
 {
@@ -20,6 +21,9 @@ namespace EnsemPro
         public Hover hover;
         KeyboardState lastState = Keyboard.GetState();
 
+        SoundEffect TitleMove;
+        SoundEffect TitleSelect;
+
         public MenuController(GameModel gm, SpriteBatch sb)
             //: base(g)
         {
@@ -35,6 +39,8 @@ namespace EnsemPro
         public void LoadContent(ContentManager cm)
         {
             menuView.LoadContent(cm);
+            TitleMove = cm.Load<SoundEffect>("Sounds//TitleMove");
+            TitleSelect = cm.Load<SoundEffect>("Sounds//TitleSelect");
         }
 
         public void Update(GameTime gameTime)
@@ -43,13 +49,16 @@ namespace EnsemPro
             if (ks.IsKeyDown(Keys.Down) && lastState.IsKeyUp(Keys.Down))
             {
                 NextHover(hover);
+                TitleMove.Play();
             }
             else if (ks.IsKeyDown(Keys.Up) && lastState.IsKeyUp(Keys.Up))
             {
                 PreviousHover(hover);
+                TitleMove.Play();
             }
             else if (gameState.ConfirmChanged)
             {
+                TitleSelect.Play();
                 switch (hover)
                 {
                     case Hover.Story:

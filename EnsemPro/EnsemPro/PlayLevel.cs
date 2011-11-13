@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 
 namespace EnsemPro
 {
@@ -49,6 +50,10 @@ namespace EnsemPro
         Song song;
         float volume = 0.5f;
 
+        SoundEffect SmallApplause;
+        SoundEffect LargeApplause;
+        Song LevelFail;
+
         List<Musician> musicians = new List<Musician>();
 
         public PlayLevel(Game g, GameModel gm, SpriteBatch sb, InputBuffer buf) : base(g)
@@ -73,7 +78,11 @@ namespace EnsemPro
             DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>(gameState.SelectedLevel);
             song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
-            
+
+            SmallApplause = Game.Content.Load<SoundEffect>("Sounds//SmallApplause");
+            LargeApplause = Game.Content.Load<SoundEffect>("Sounds//LargeApplause");
+            LevelFail = Game.Content.Load<Song>("Sounds//LevelFail");
+
             background = Game.Content.Load<Texture2D>(data.Background);
 
             beatTime = 60000 / data.BPM;
@@ -129,7 +138,7 @@ namespace EnsemPro
             if (MediaPlayer.State == MediaState.Paused)
                 MediaPlayer.Resume();
             else
-                MediaPlayer.Play(song);
+                MediaPlayer.Play(failed ? LevelFail : song);
             watch.Start();
         }
 
@@ -319,6 +328,14 @@ namespace EnsemPro
             
             if (actionList.Count == 0)
             {
+                if (current_score < 1000)
+                {
+                    SmallApplause.Play();
+                }
+                else
+                {
+                    LargeApplause.Play();
+                }
                 spriteBatch.DrawString(font, "Score is " + current_score, new Vector2(200, 150), Color.Black, 0.0f, new Vector2(0, 0),
                     1.4f, SpriteEffects.None, 0.0f);
                 spriteBatch.DrawString(font, "Max Combo is " + (maxCombo > 1 ? maxCombo : 0), new Vector2(200, 200), Color.Black, 0.0f, new Vector2(0, 0),
@@ -371,6 +388,7 @@ namespace EnsemPro
             // Draw to screen if level failed
             if (failed)
             {
+                MediaPlayer.Pause();
                 Vector2 center = new Vector2(GameEngine.WIDTH / 2, GameEngine.HEIGHT / 2);
                 Vector2 origin = new Vector2(failTexture.Width / 2, failTexture.Height / 2);
                 failScale = Math.Max(1, failScale - 0.01f);
