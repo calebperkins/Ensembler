@@ -39,12 +39,10 @@ namespace EnsemPro
                 selected = (selected + 1) % gameState.Levels.Length;
             else if (ks.IsKeyDown(Keys.Up) && lastState.IsKeyUp(Keys.Up))
                 selected = (selected == 0) ? (gameState.Levels.Length - 1) : (selected - 1);
-            else if (gameState.ConfirmChanged)
+            else if (gameState.Input.Confirm)
             {
                 gameState.CurrentScreen = DataTypes.Screens.PlayLevel;
                 gameState.SelectedLevel = gameState.Levels[selected].AssetName;
-
-                gameState.ConfirmChanged = false;
             }
             
             lastState = ks;

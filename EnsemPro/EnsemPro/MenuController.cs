@@ -48,7 +48,7 @@ namespace EnsemPro
             {
                 PreviousHover(hover);
             }
-            else if (gameState.ConfirmChanged)
+            else if (gameState.Input.Confirm)
             {
                 switch (hover)
                 {
@@ -63,7 +63,6 @@ namespace EnsemPro
                         break;                        
 
                 }
-                gameState.ConfirmChanged = false;
 
             }
             lastState = ks;
