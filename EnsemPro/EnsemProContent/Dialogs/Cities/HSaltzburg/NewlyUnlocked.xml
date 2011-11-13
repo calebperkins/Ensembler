@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="DataTypes.DialogData">
+    <Content>
+      <Item>
+        <Character>A</Character>
+        <Line>Lol newly unlocked</Line>
+      </Item>
+    </Content>
+  </Asset>
+</XnaContent>

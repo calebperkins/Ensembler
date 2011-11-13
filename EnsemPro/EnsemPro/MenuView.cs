@@ -25,7 +25,7 @@ namespace EnsemPro
             freeHover = cm.Load<Texture2D>("Images\\MainMenu\\free_hover");
             exitHover = cm.Load<Texture2D>("Images\\MainMenu\\exit_hover");
             Song s = cm.Load<Song>("journey");
-            MediaPlayer.Play(s);
+            //MediaPlayer.Play(s);
             MediaPlayer.Volume = 0.3f;
         }
 
