@@ -35,7 +35,7 @@ namespace EnsemPro
         static Texture2D traceTexture_s;
         static Texture2D traceTexture_f;
         static Texture2D traceTexture_r;
-        static float circleR;
+        public static float circleR;
         static Vector2 CircleOrigin;
         static Vector2 RingOrigin;
         static Vector2 shakePos = new Vector2(130, 300);
@@ -184,19 +184,21 @@ namespace EnsemPro
                     case 0:
                         // draw the start circle
                         spriteBatch.Draw(circleTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.White, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
-                        spriteBatch.Draw(ringTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.Lerp(Color.White, Color.Transparent, 1f - progress), 0.0f, RingOrigin, progress, SpriteEffects.None, 0.0f);
+                        spriteBatch.Draw(ringTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.Lerp(Color.White, Color.Transparent, progress), 0.0f, RingOrigin, 1 -　progress, SpriteEffects.None, 0.0f);
                         float lastPx = -1;
                         float lastPy = -1;
-
-                            foreach (Vector2 p in f.Positions)
-                                    if (lastPx < 0 || Math.Sqrt((lastPx - p.X) * (lastPx - p.X) + (lastPy - p.Y) * (lastPy - p.Y)) > circleR)
+                        int count = 1;
+                            foreach (Vector2 p in f.drawPositions){
+                                float index = count / (float)(f.drawPositions.Length);
+                                    if (index < progress)
                                     {
                                         Vector2 ori = new Vector2(p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
                                         spriteBatch.Draw(traceTexture, ori, Color.White);
                                         lastPx = p.X;
                                         lastPy = p.Y;
                                     }
-                                
+                                    count++;
+                            }
                             
                         break;
                     case 1:
@@ -204,21 +206,17 @@ namespace EnsemPro
                         float lPx = -1;
                         float lPy = -1;
                         int cnt = 1;
-                            foreach (Vector2 p in f.Positions)
+                        foreach (Vector2 p in f.drawPositions)
                             {
-                                float index = cnt / (float)f.Size;
-                                    if (lPx < 0 || Math.Sqrt((lPx - p.X) * (lPx - p.X) + (lPy - p.Y) * (lPy - p.Y)) > circleR)
-                                    {
-                                        Texture2D tempT = traceTexture;
-                                        if (index < (1f - progress))
-                                        { tempT = current_trace; }
-                                        cnt++;
-                                        Vector2 ori = new Vector2(p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
-                                        spriteBatch.Draw(current_trace, ori, Color.White);
-                                        lPx = p.X;
-                                        lPy = p.Y;
+                                float index = cnt / (float)(f.drawPositions.Length);   
+                                Texture2D tempT = traceTexture;
+                                if (index < progress) tempT = current_trace;
+                                Vector2 ori = new Vector2(p.X - tempT.Width / 2, p.Y - tempT.Height / 2);
+                                spriteBatch.Draw(tempT, ori, Color.White);
+                                lPx = p.X;
+                                lPy = p.Y;
+                                cnt++;
                                     
-                                }
                             }
                             spriteBatch.Draw(circleReadyTexture, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, Color.Lerp(Color.White, Color.Transparent, progress), 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
                             break;
@@ -227,15 +225,13 @@ namespace EnsemPro
                         spriteBatch.Draw(circleTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, alpha, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
                         float lPx2 = -1;
                         float lPy2 = -1;
-                        foreach (Vector2 p in f.Positions)
+                        foreach (Vector2 p in f.drawPositions)
                         {   
-                            if (lPx2 < 0 || Math.Sqrt((lPx2 - p.X) * (lPx2 - p.X) + (lPy2 - p.Y) * (lPy2 - p.Y)) > circleR)
-                            {
                                 Vector2 ori = new Vector2(p.X - traceTexture.Width / 2, p.Y - traceTexture.Height / 2);
                                 spriteBatch.Draw(current_trace, ori, alpha);
                                 lPx2 = p.X;
                                 lPy2 = p.Y;
-                            }
+                           
                         }
                         spriteBatch.Draw(circleTexture, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, alpha, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
                        

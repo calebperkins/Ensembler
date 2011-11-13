@@ -35,7 +35,7 @@ namespace EnsemPro
             input.Velocity = newVel;
             input.Acceleration = newAcc;
 
-            input.Confirm = (ks.IsKeyDown(Keys.Enter) || ks.IsKeyDown(Keys.Space));
+            input.Confirm = (ks.IsKeyDown(Keys.Enter) || ks.IsKeyDown(Keys.Space)) && !lastState.Confirm;
             
             input.Pause = ks.IsKeyDown(Keys.Escape);
             if (ks.IsKeyDown(Keys.A) && ks.IsKeyDown(Keys.Z)) { }

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace EnsemPro
 {
@@ -15,14 +16,19 @@ namespace EnsemPro
             Exit
         }
 
+        public Game game;
         public GameModel gameState;
         public MenuView menuView;
         public Hover hover;
         KeyboardState lastState = Keyboard.GetState();
 
-        public MenuController(GameModel gm, SpriteBatch sb)
+        SoundEffect TitleMove;
+        SoundEffect TitleSelect;
+
+        public MenuController(Game g, GameModel gm, SpriteBatch sb)
             //: base(g)
         {
+            game = g;
             gameState = gm;
             menuView = new MenuView(sb);
             hover = Hover.Story;
@@ -35,6 +41,8 @@ namespace EnsemPro
         public void LoadContent(ContentManager cm)
         {
             menuView.LoadContent(cm);
+            TitleMove = cm.Load<SoundEffect>("Sounds//TitleMove");
+            TitleSelect = cm.Load<SoundEffect>("Sounds//TitleSelect");
         }
 
         public void Update(GameTime gameTime)
@@ -43,13 +51,16 @@ namespace EnsemPro
             if (ks.IsKeyDown(Keys.Down) && lastState.IsKeyUp(Keys.Down))
             {
                 NextHover(hover);
+                TitleMove.Play();
             }
             else if (ks.IsKeyDown(Keys.Up) && lastState.IsKeyUp(Keys.Up))
             {
                 PreviousHover(hover);
+                TitleMove.Play();
             }
-            else if (gameState.ConfirmChanged)
+            else if (gameState.Input.Confirm)
             {
+                TitleSelect.Play();
                 switch (hover)
                 {
                     case Hover.Story:
@@ -59,11 +70,9 @@ namespace EnsemPro
                         gameState.CurrentScreen = DataTypes.Screens.SelectLevel;
                         break;
                     case Hover.Exit:
-                        // TODO DOESN'T DO ANYTHING YET
+                        game.Exit();
                         break;                        
-
                 }
-                gameState.ConfirmChanged = false;
 
             }
             lastState = ks;

@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 
 namespace EnsemPro
 {
@@ -49,6 +50,10 @@ namespace EnsemPro
         Song song;
         float volume = 0.5f;
 
+        SoundEffect SmallApplause;
+        SoundEffect LargeApplause;
+        Song LevelFail;
+
         List<Musician> musicians = new List<Musician>();
 
         public PlayLevel(Game g, GameModel gm, SpriteBatch sb, InputBuffer buf) : base(g)
@@ -62,6 +67,7 @@ namespace EnsemPro
             DrawOrder = 0;
             comboOn = false;
             comboCount = -1;
+            failed = false;
         }
 
         protected override void LoadContent()
@@ -73,7 +79,11 @@ namespace EnsemPro
             DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>(gameState.SelectedLevel);
             song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
-            
+
+            SmallApplause = Game.Content.Load<SoundEffect>("Sounds//SmallApplause");
+            LargeApplause = Game.Content.Load<SoundEffect>("Sounds//LargeApplause");
+            LevelFail = Game.Content.Load<Song>("Sounds//LevelFail");
+
             background = Game.Content.Load<Texture2D>(data.Background);
 
             beatTime = 60000 / data.BPM;
@@ -145,10 +155,14 @@ namespace EnsemPro
 
         public override void Update(GameTime gameTime)
         {
-            if (satisfaction.maxAge == 0)
+            if (satisfaction.maxAge == 0 )
             {
+                if (!failed)
+                {
+                    MediaPlayer.Stop();
+                    MediaPlayer.Play(LevelFail);
+                }
                 failed = true;
-                MediaPlayer.Stop();
             }
             else
             {
@@ -264,7 +278,24 @@ namespace EnsemPro
                 }
             }
 
-            if (actionList.Count == 0 || failed) backToMenu++;
+            if (actionList.Count == 0 || failed) 
+            {
+                if (backToMenu == 0)
+                {
+                    if (!failed)
+                    {
+                        if (current_score < 1000)
+                        {
+                            SmallApplause.Play();
+                        }
+                        else
+                        {
+                            LargeApplause.Play();
+                        }
+                    }
+                }
+                backToMenu++; 
+            }
             if (backToMenu >= 420)
             {
                 //UnloadContent(); // doesn't seem to work, i.e. memory usage does not decrease
@@ -345,21 +376,21 @@ namespace EnsemPro
                 float alpha = 0f;
                 if (m.startBeat > current_beat)
                 {
-                    int total = (m.startBeat - m.showBeat) * beatTime;
+                    int total = (m.startBeat - m.showBeat) * beatTime / 2;
                     int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.showBeat * beatTime);
-                    alpha = 1f - elapsed / (float)total;
+                    alpha = elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 0);
                 }
                 else if (m.endBeat > current_beat)
                 {
-                    int total = (m.endBeat - m.startBeat) * beatTime;
+                    int total = (m.endBeat - m.startBeat) * beatTime / 2;
                     int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.startBeat * beatTime);
-                    alpha = 1f - elapsed / (float)total;
+                    alpha = elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 1);
                 }
                 else
                 {
-                    int total = (m.fadeBeat - m.endBeat) * beatTime;
+                    int total = (m.fadeBeat - m.endBeat) * beatTime / 2;
                     int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.endBeat * beatTime);
                     alpha = elapsed / (float)total;
                     m.Draw(spriteBatch, alpha, 2);

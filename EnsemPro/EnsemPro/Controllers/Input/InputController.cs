@@ -34,8 +34,6 @@ namespace EnsemPro
                 }
             }
 
-            gameState.ConfirmChanged = input.Confirm && !lastState.Confirm;
-
             lastState = input;
             gameState.Input = input;
             base.Update(gameTime);

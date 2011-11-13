@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
+using Microsoft.Xna.Framework.Audio;
 
 namespace EnsemPro
 {
@@ -24,21 +25,22 @@ namespace EnsemPro
         DialogView screen;
         //DataTypes.WorldData.CityState nodeState;
         KeyboardState lastState;
+        SoundEffect NextDialog;
 
-	    public DialogController(GameModel gm, SpriteBatch sb, DialogModel dm, string cityName)
-	    {
+        public DialogController(GameModel gm, SpriteBatch sb, DialogModel dm, string cityName)
+        {
             gameState = gm;
             spriteBatch = sb;
             dialogModel = dm;
-            
+
             names = new Queue<String>();
             lines = new Queue<String>();
             Parse();
             speaker = "";
             speech = cityName;
             screen = new DialogView(sb);
-            
-	    }
+
+        }
 
         public void Initialize()
         {
@@ -48,6 +50,7 @@ namespace EnsemPro
         public void LoadContent(ContentManager cm)
         {
             screen.LoadContent(cm);
+            NextDialog = cm.Load<SoundEffect>("Sounds//NextDialog");
         }
 
         private void Parse()
@@ -98,6 +101,7 @@ namespace EnsemPro
             {
                 if (ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right))
                 {
+                    NextDialog.Play();
                     speaker = names.Dequeue();
                     speech = lines.Dequeue();
                 }
