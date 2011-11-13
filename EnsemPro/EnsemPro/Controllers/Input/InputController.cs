@@ -26,7 +26,7 @@ namespace EnsemPro
             {
                 if (gameState.CurrentScreen == DataTypes.Screens.Pause)
                 {
-                    gameState.CurrentScreen = gameState.LastScreen;
+                    gameState.CurrentScreen = gameState.PreviousScreen;
                 }
                 else
                 {

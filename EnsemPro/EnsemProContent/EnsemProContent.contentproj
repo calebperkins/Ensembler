@@ -87,7 +87,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\journey.mp3">
+    <Compile Include="journey.mp3">
       <Name>journey</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>

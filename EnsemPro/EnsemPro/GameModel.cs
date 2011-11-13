@@ -12,10 +12,10 @@ namespace EnsemPro
         public DataTypes.Screens CurrentScreen
         {
             get { return _current; }
-            set {LastScreen = _current; _current = value;}
+            set {PreviousScreen = _current; _current = value;}
         }
 
-        public DataTypes.Screens LastScreen
+        public DataTypes.Screens PreviousScreen
         {
             get;
             private set; // use CurrentScreen, see above.
@@ -43,7 +43,7 @@ namespace EnsemPro
         {
             DataTypes.GameData data = cm.Load<DataTypes.GameData>("Levels//Index");
             CurrentScreen = data.Screen;
-            LastScreen = data.Screen;
+            PreviousScreen = data.Screen;
             Levels = data.Levels;
         }
     }
