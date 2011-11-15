@@ -146,7 +146,6 @@
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
-    <Content Include="test.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DataTypes\DataTypes.csproj">

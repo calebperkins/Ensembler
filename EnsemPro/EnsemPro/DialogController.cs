@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
+using Microsoft.Xna.Framework.Audio;
 
 namespace EnsemPro
 {
@@ -22,24 +23,24 @@ namespace EnsemPro
 
         DialogModel dialogModel;
         DialogView screen;
-        DataTypes.WorldData.CityState nodeState;
+        //DataTypes.WorldData.CityState nodeState;
         KeyboardState lastState;
+        SoundEffect NextDialog;
 
-	    public DialogController(GameModel gm, SpriteBatch sb, DialogModel dm, DataTypes.WorldData.CityState ns)
-	    {
+        public DialogController(GameModel gm, SpriteBatch sb, DialogModel dm, string cityName)
+        {
             gameState = gm;
             spriteBatch = sb;
             dialogModel = dm;
-            nodeState = ns;
-            
+
             names = new Queue<String>();
             lines = new Queue<String>();
             Parse();
             speaker = "";
-            speech = dialogModel.Location.ToString();
+            speech = cityName;
             screen = new DialogView(sb);
-            
-	    }
+
+        }
 
         public void Initialize()
         {
@@ -49,10 +50,17 @@ namespace EnsemPro
         public void LoadContent(ContentManager cm)
         {
             screen.LoadContent(cm);
+            NextDialog = cm.Load<SoundEffect>("Sounds//NextDialog");
         }
 
         private void Parse()
         {
+            for (int i = 0; i< dialogModel.Content.Length; i++)
+            {
+                names.Enqueue(dialogModel.Content[i].Character);
+                lines.Enqueue(dialogModel.Content[i].Line);
+            }
+            /*
             switch (nodeState)
             {
                 case DataTypes.WorldData.CityState.NewlyUnlocked:
@@ -79,7 +87,7 @@ namespace EnsemPro
                 default:
                     break;
             }
-
+            */
         }
 
         public void Update(GameTime t)
@@ -93,6 +101,7 @@ namespace EnsemPro
             {
                 if (ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right))
                 {
+                    NextDialog.Play();
                     speaker = names.Dequeue();
                     speech = lines.Dequeue();
                 }

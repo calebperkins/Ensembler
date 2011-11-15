@@ -20,6 +20,7 @@ namespace DataTypes
             public CityState State;
             public string ClearedDialogAsset;
             public string UnlockedDialogAsset;
+            public string NewlyUnlockedDialogAsset;
         }
 
         public City[] Cities;

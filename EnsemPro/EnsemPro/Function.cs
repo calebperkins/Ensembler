@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 namespace EnsemPro
@@ -34,6 +35,28 @@ namespace EnsemPro
         {
             get;
             private set;
+        }
+        public Vector2[] drawPositions
+        {
+            get;
+            private set;
+        }
+
+        public void drawPosition()
+        {
+            List<Vector2> draw = new List<Vector2>();
+            float lastPx = -1;
+            float lastPy = -1;
+            foreach (Vector2 p in Positions)
+            {
+                if ((lastPx < 0 || Math.Sqrt((lastPx - p.X) * (lastPx - p.X) + (lastPy - p.Y) * (lastPy - p.Y)) > Movement.circleR))
+                {
+                    draw.Add(p);
+                    lastPx = p.X;
+                    lastPy = p.Y;
+                }
+            }
+            drawPositions = draw.ToArray();
         }
 
         /// <summary>
@@ -76,6 +99,7 @@ namespace EnsemPro
                 midPos = new Vector2((float)midPosX, (float)midPosY);
 
                 Position();
+                
             }
         }
         /// <summary>
@@ -108,6 +132,7 @@ namespace EnsemPro
                     t += incre;
                 }
             }
+            drawPosition();
         }
 
         /// <summary>
