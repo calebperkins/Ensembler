@@ -7,6 +7,7 @@ namespace EnsemPro
 {
     public class MouseController : InputController
     {
+        KeyboardState lastKs = Keyboard.GetState();
 
         public MouseController(Game game, GameModel gm, InputBuffer b)
             : base(game, gm, b)
@@ -35,7 +36,7 @@ namespace EnsemPro
             input.Velocity = newVel;
             input.Acceleration = newAcc;
 
-            input.Confirm = (ks.IsKeyDown(Keys.Enter) || ks.IsKeyDown(Keys.Space)) && !lastState.Confirm;
+            input.Confirm = (ks.IsKeyDown(Keys.Space) && lastKs.IsKeyUp(Keys.Space)) || (ks.IsKeyDown(Keys.Enter) && lastKs.IsKeyUp(Keys.Enter));
             
             input.Pause = ks.IsKeyDown(Keys.Escape);
             if (ks.IsKeyDown(Keys.A) && ks.IsKeyDown(Keys.Z)) { }
@@ -48,11 +49,15 @@ namespace EnsemPro
                 input.Key = Keys.Z;
             }
 
+            input.Down = ks.IsKeyDown(Keys.Down) && lastKs.IsKeyUp(Keys.Down);
+            input.Up = ks.IsKeyDown(Keys.Up) && lastKs.IsKeyUp(Keys.Up);
 
             if (Math.Abs(posDiff.X) > POS_DIFF_THRESHOLD || Math.Abs(posDiff.Y) > POS_DIFF_THRESHOLD && !input.Pause) // add only only if the baton has moved at least a decent amount of distance 
             {
                 buffer.Add(input);
             }
+
+            lastKs = ks;
 
             base.Update(gameTime);
         }

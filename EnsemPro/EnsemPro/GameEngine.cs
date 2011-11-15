@@ -12,6 +12,10 @@ namespace EnsemPro
         public const int WIDTH = 800;
         public const int HEIGHT = 600;
 
+        // for later
+        IUpdateable ActiveController;
+        IDrawable ActiveView;
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -51,7 +55,7 @@ namespace EnsemPro
 
             buffer = new InputBuffer();
             gameState = new GameModel();
-            gameState.SelectedLevel = "Levels/B5/b5-edited-2"; // TODO: move out this hard coding
+            gameState.SelectedLevel = "Levels/B5/b5-edited-2";
 
             input = new MouseController(this, gameState, buffer);
 

@@ -5,8 +5,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace EnsemPro
 {
-    // Sorry Caleb, for changing your code, please fix it if you are unsatisfied with the design
-    class MenuController // : DrawableGameComponent
+    class MenuController : IUpdateable
     {
         public enum Hover
         {
@@ -104,10 +103,25 @@ namespace EnsemPro
             }
         }
 
-        public /*override*/ void Draw(GameTime gameTime)
+        public void Draw(GameTime gameTime)
         {
             //base.Draw(gameTime);
             menuView.Draw(hover);
         }
+
+
+        public bool Enabled
+        {
+            get { return true; }
+        }
+
+        public event System.EventHandler<System.EventArgs> EnabledChanged;
+
+        public int UpdateOrder
+        {
+            get { return 5; }
+        }
+
+        public event System.EventHandler<System.EventArgs> UpdateOrderChanged;
     }
 }

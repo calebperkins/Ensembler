@@ -12,7 +12,6 @@ namespace EnsemPro
 
         ChooseLevelScreen levelSelectScreen;
         int selected = 0;
-        KeyboardState lastState = Keyboard.GetState();
 
         public LevelSelectController(GameModel gm, SpriteBatch sb)
         {
@@ -33,19 +32,15 @@ namespace EnsemPro
 
         public void Update(GameTime t)
         {
-            // todo: support for Wii and mouse
-            KeyboardState ks = Keyboard.GetState();
-            if (ks.IsKeyDown(Keys.Down) && lastState.IsKeyUp(Keys.Down))
+            if (gameState.Input.Down)
                 selected = (selected + 1) % gameState.Levels.Length;
-            else if (ks.IsKeyDown(Keys.Up) && lastState.IsKeyUp(Keys.Up))
+            else if (gameState.Input.Up)
                 selected = (selected == 0) ? (gameState.Levels.Length - 1) : (selected - 1);
             else if (gameState.Input.Confirm)
             {
                 gameState.CurrentScreen = DataTypes.Screens.PlayLevel;
                 gameState.SelectedLevel = gameState.Levels[selected].AssetName;
             }
-            
-            lastState = ks;
         }
 
         /// <summary>

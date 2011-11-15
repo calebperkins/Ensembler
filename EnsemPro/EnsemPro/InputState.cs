@@ -9,4 +9,6 @@ public struct InputState
     public bool Pause;
     public bool Confirm;
     public Keys Key;
+    public bool Up;
+    public bool Down;
 }
