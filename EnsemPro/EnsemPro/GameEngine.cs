@@ -19,7 +19,7 @@ namespace EnsemPro
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        GameModel gameState;
+        GameState gameState;
         DataTypes.Screens lastState = DataTypes.Screens.Initial;
 
         MenuController menuController;
@@ -56,12 +56,12 @@ namespace EnsemPro
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             buffer = new InputBuffer();
-            gameState = new GameModel();
+            gameState = new GameState();
             gameState.SelectedLevel = "Levels/B5/b5-edited-2";
 
             input = new MouseController(this, gameState, buffer);
 
-            Services.AddService(typeof(GameModel), gameState);
+            Services.AddService(typeof(GameState), gameState);
 
             menuController = new MenuController(this, gameState, spriteBatch);
             menuController.Initialize();

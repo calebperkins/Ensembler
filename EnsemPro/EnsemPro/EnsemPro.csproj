@@ -119,7 +119,7 @@
     <Compile Include="DialogModel.cs" />
     <Compile Include="DialogView.cs" />
     <Compile Include="Function.cs" />
-    <Compile Include="GameModel.cs" />
+    <Compile Include="Models\GameState.cs" />
     <Compile Include="InputBuffer.cs" />
     <Compile Include="Controllers\Input\InputController.cs" />
     <Compile Include="InputState.cs" />

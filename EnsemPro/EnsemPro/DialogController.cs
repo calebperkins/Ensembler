@@ -12,7 +12,7 @@ namespace EnsemPro
 {
     public class DialogController
     {
-        GameModel gameState;
+        GameState gameState;
         SpriteBatch spriteBatch;
         ContentManager contentManager;
 
@@ -33,7 +33,7 @@ namespace EnsemPro
 
         bool IsFinished;
 
-        public DialogController(GameModel gm, SpriteBatch sb, DialogModel dm, string cityName)
+        public DialogController(GameState gm, SpriteBatch sb, DialogModel dm, string cityName)
         {
             gameState = gm;
             spriteBatch = sb;

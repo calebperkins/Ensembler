@@ -9,7 +9,7 @@ namespace EnsemPro
     {
         KeyboardState lastKs = Keyboard.GetState();
 
-        public MouseController(Game game, GameModel gm, InputBuffer b)
+        public MouseController(Game game, GameState gm, InputBuffer b)
             : base(game, gm, b)
         {
         }

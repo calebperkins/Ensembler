@@ -16,7 +16,7 @@ namespace EnsemPro
         public const int AGE_DECR = 3;
         public const int AGE_INCR = 1;
         bool failed;
-        GameModel gameState;
+        GameState gameState;
         //public const float INTERVAL_TIME = 1.0f;
         Stopwatch watch = new Stopwatch();
         int current_beat;
@@ -55,7 +55,7 @@ namespace EnsemPro
 
         List<Musician> musicians = new List<Musician>();
 
-        public PlayLevel(Game g, GameModel gm, SpriteBatch sb, InputBuffer buf) : base(g)
+        public PlayLevel(Game g, GameState gm, SpriteBatch sb, InputBuffer buf) : base(g)
         {
             gameState = gm;
             actionList = new LinkedList<Movement>();

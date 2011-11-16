@@ -8,7 +8,7 @@ namespace EnsemPro
 {
     class LevelSelectController
     {
-        GameModel gameState;
+        GameState gameState;
         SpriteBatch spriteBatch;
 
         ChooseLevelScreen levelSelectScreen;
@@ -17,7 +17,7 @@ namespace EnsemPro
         SoundEffect MenuMove;
         SoundEffect MenuSelect;
 
-        public LevelSelectController(GameModel gm, SpriteBatch sb)
+        public LevelSelectController(GameState gm, SpriteBatch sb)
         {
             gameState = gm;
             spriteBatch = sb;

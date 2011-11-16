@@ -3,7 +3,12 @@ using Microsoft.Xna.Framework;
 
 namespace EnsemPro
 {
-    public class GameModel
+    /// <summary>
+    /// Provides getters and setters for "global" game properties, such as the current resolution and screen.
+    /// 
+    /// This class should provide high-level objects, not primitives, when possible.
+    /// </summary>
+    public class GameState
     {
         private DataTypes.Screens _current;
 
@@ -16,6 +21,9 @@ namespace EnsemPro
             set {PreviousScreen = _current; _current = value;}
         }
 
+        /// <summary>
+        /// Stores the previous screen the player was on.
+        /// </summary>
         public DataTypes.Screens PreviousScreen
         {
             get;

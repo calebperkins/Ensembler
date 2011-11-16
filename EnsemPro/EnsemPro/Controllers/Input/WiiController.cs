@@ -8,7 +8,7 @@ namespace EnsemPro
         WiimoteLib.Wiimote wm;
         Vector2 lastPosition = new Vector2();
 
-        public WiiController(Game game, GameModel gm, InputBuffer b)
+        public WiiController(Game game, GameState gm, InputBuffer b)
             : base(game, gm, b)
         {
             wm = new WiimoteLib.Wiimote();

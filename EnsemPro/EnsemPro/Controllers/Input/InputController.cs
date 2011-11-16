@@ -11,9 +11,9 @@ namespace EnsemPro
         protected InputState input;
         protected InputState lastState = new InputState();
         protected const float POS_DIFF_THRESHOLD = 5.0f;
-        protected GameModel gameState;
+        protected GameState gameState;
 
-        public InputController(Game game, GameModel gm, InputBuffer b)
+        public InputController(Game game, GameState gm, InputBuffer b)
             : base(game)
         {
             buffer = b;

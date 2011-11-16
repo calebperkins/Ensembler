@@ -16,7 +16,7 @@ namespace EnsemPro
 
         GameEngine game;
         SpriteBatch spriteBatch;
-        GameModel gameState;
+        GameState gameState;
         WorldMapView worldView;
 
         KeyboardState lastState = Keyboard.GetState();
@@ -41,7 +41,7 @@ namespace EnsemPro
         Models.City SelectedCity;
 
 
-        public WorldMapController (GameEngine g, GameModel gm, SpriteBatch sb, InputBuffer bf)
+        public WorldMapController (GameEngine g, GameState gm, SpriteBatch sb, InputBuffer bf)
         {
             game = g;
             gameState = gm;

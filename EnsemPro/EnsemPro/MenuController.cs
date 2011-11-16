@@ -16,7 +16,7 @@ namespace EnsemPro
         }
 
         public Game game;
-        public GameModel gameState;
+        public GameState gameState;
         public MenuView menuView;
         public Hover hover;
         KeyboardState lastState = Keyboard.GetState();
@@ -24,7 +24,7 @@ namespace EnsemPro
         SoundEffect TitleMove;
         SoundEffect TitleSelect;
 
-        public MenuController(Game g, GameModel gm, SpriteBatch sb)
+        public MenuController(Game g, GameState gm, SpriteBatch sb)
             //: base(g)
         {
             game = g;

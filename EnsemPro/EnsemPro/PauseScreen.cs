@@ -11,7 +11,7 @@ namespace EnsemPro
     {
         SpriteBatch spriteBatch;
         SpriteFont menuFont;
-        GameModel state;
+        GameState state;
 
         public PauseScreen(Game game, SpriteBatch sb)
             : base(game)
@@ -35,7 +35,7 @@ namespace EnsemPro
         {
             Visible = false;
             Enabled = false;
-            state = Game.Services.GetService(typeof(GameModel)) as GameModel;
+            state = Game.Services.GetService(typeof(GameState)) as GameState;
 
             base.Initialize();
         }
