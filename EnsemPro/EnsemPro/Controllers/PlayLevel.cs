@@ -117,17 +117,6 @@ namespace EnsemPro
 
         public override void Initialize()
         {
-            //buffer = new InputBuffer();
-            /*try
-            {
-                input = new WiiController(Game, buffer);
-            }
-            catch (WiimoteLib.WiimoteNotFoundException)
-            {
-                input = new MouseController(Game, buffer);
-            }*/
-            //input = new MouseController(Game, buffer);
-
             baton = new BatonView(Game, spriteBatch, buffer);
             baton.Initialize();
             satisfaction = new SatisfactionQueue(buffer);
@@ -382,27 +371,19 @@ namespace EnsemPro
             select m;
             foreach (Movement m in drawing)
             {
-                // the following code is for controlling the alpha value, please do not change
-                float alpha = 0f;
                 if (m.startBeat > current_beat)
                 {
-                    int total = (m.startBeat - m.showBeat) * beatTime / 2;
-                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.showBeat * beatTime);
-                    alpha = elapsed / (float)total;
+                    float alpha = Alpha(m.startBeat, m.showBeat);
                     m.Draw(spriteBatch, alpha, Movement.Stages.Show);
                 }
                 else if (m.endBeat > current_beat)
                 {
-                    int total = (m.endBeat - m.startBeat) * beatTime / 2;
-                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.startBeat * beatTime);
-                    alpha = elapsed / (float)total;
+                    float alpha = Alpha(m.endBeat, m.startBeat);
                     m.Draw(spriteBatch, alpha, Movement.Stages.Ready);
                 }
                 else
                 {
-                    int total = (m.fadeBeat - m.endBeat) * beatTime / 2;
-                    int elapsed = Math.Max(0, (int)watch.ElapsedMilliseconds - m.endBeat * beatTime);
-                    alpha = elapsed / (float)total;
+                    float alpha = Alpha(m.fadeBeat, m.endBeat);
                     m.Draw(spriteBatch, alpha, Movement.Stages.Fade);
                 }
                 //Debug.WriteLine(alpha);
@@ -421,6 +402,18 @@ namespace EnsemPro
                 failScale = Math.Max(1, failScale - 0.01f);
                 spriteBatch.Draw(failTexture, center, null, Color.White, 0.0f, origin, failScale, SpriteEffects.None, 0);
             }
+        }
+
+        /// <summary>
+        /// Calculates alpha between two beat points. a > b!
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        private float Alpha(int a, int b)
+        {
+            int duration = a - b;
+            return Math.Max(0, (int)watch.ElapsedMilliseconds - b * beatTime)/ (duration * beatTime / 2);
         }
 
     }
