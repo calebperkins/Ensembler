@@ -42,17 +42,17 @@ namespace EnsemPro
             // TODO CHANGE TEXTURES OF THESE
             background1 = cm.Load<Texture2D>("images\\WorldMap\\map1");
             background2 = cm.Load<Texture2D>("images\\WorldMap\\map2");
-            lockedTexture = cm.Load<Texture2D>("images\\dot_fail");
-            newlyUnlockedTexture = cm.Load<Texture2D>("images\\dot");
-            unlockedTexture = cm.Load<Texture2D>("images\\dot_win");
-            clearedTexture = cm.Load<Texture2D>("images\\line");
+            lockedTexture = cm.Load<Texture2D>("images\\WorldMap\\locked");
+            newlyUnlockedTexture = cm.Load<Texture2D>("images\\WorldMap\\newly_unlocked");
+            unlockedTexture = cm.Load<Texture2D>("images\\WorldMap\\unlocked");
+            clearedTexture = cm.Load<Texture2D>("images\\WorldMap\\cleared");
             selectedTexture = cm.Load<Texture2D>("images\\ring");
         }
 
         public void Draw(HashSet<Models.City> cities, Models.City selected)
         {
             spriteBatch.Draw(background1, CurBackgroundPos, Color.White);
-            spriteBatch.Draw(background2, new Vector2 (CurBackgroundPos.X + background1.Width, CurBackgroundPos.Y), Color.White);
+            spriteBatch.Draw(background2, new Vector2(CurBackgroundPos.X + background1.Width, CurBackgroundPos.Y), Color.White);
             foreach (Models.City node in cities)
             {
                 Texture2D current = null;
@@ -76,11 +76,6 @@ namespace EnsemPro
 
                 Vector2 origin = new Vector2(current.Width / 2, current.Height / 2);
                 float scale = 1.0f;
-
-                if (current == newlyUnlockedTexture)
-                {
-                    scale = 0.2f;
-                }
 
                 spriteBatch.Draw(current, node.AbsolutePosition, null, Color.White, 0.0f, origin, scale, SpriteEffects.None, 0);
 

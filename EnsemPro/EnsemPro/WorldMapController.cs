@@ -140,7 +140,7 @@ namespace EnsemPro
                         SelectedCity.DialogControl.LoadContent(game.Content); // MOVE TO NODE'S 
                     }
                 }
-                worldView.WantedBackgroundPosX = MathHelper.Clamp(-1 * (SelectedCity.AbsolutePosition.X - GameEngine.WIDTH / 2), -1 * (MAP_WIDTH - GameEngine.WIDTH), 0);
+                worldView.WantedBackgroundPosX = MathHelper.Clamp(-1 * (SelectedCity.RelativePosition.X - GameEngine.WIDTH / 2), -1 * (MAP_WIDTH - GameEngine.WIDTH), 0);
                 lastState = ks;
 
                 float diff = worldView.WantedBackgroundPosX - worldView.CurBackgroundPos.X;
