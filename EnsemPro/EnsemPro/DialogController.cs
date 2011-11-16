@@ -22,6 +22,7 @@ namespace EnsemPro
 
         String speaker;
         String speech;
+        String color;
 
         DialogModel dialogModel;
         DialogView screen;
