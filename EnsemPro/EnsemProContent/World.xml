@@ -14,6 +14,13 @@
         <ClearedDialogAsset>Cities\\AForestHome\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\AForestHome\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\AForestHome\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>2</ID>
@@ -27,6 +34,13 @@
         <ClearedDialogAsset>Cities\\BParis\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\BParis\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\BParis\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>3</ID>
@@ -40,6 +54,13 @@
         <ClearedDialogAsset>Cities\\CReine\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\CReine\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\CReine\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>4</ID>
@@ -53,6 +74,13 @@
         <ClearedDialogAsset>Cities\\DCiboure\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\DCiboure\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\DCiboure\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>5</ID>
@@ -66,6 +94,13 @@
         <ClearedDialogAsset>Cities\\ELondon\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\ELondon\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\ELondon\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>6</ID>
@@ -79,6 +114,13 @@
         <ClearedDialogAsset>Cities\\FMontmartre\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\FMontmartre\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\FMontmartre\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>7</ID>
@@ -92,6 +134,13 @@
         <ClearedDialogAsset>Cities\\GMilan\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\GMilan\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\GMilan\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>8</ID>
@@ -105,6 +154,13 @@
         <ClearedDialogAsset>Cities\\HSaltzburg\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\HSaltzburg\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\HSaltzburg\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>9</ID>
@@ -118,6 +174,13 @@
         <ClearedDialogAsset>Cities\\IBonn\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\IBonn\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\IBonn\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>10</ID>
@@ -131,6 +194,13 @@
         <ClearedDialogAsset>Cities\\JModena\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\JModena\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\JModena\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>11</ID>
@@ -144,6 +214,13 @@
         <ClearedDialogAsset>Cities\\KNewYorkCity\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\KNewYorkCity\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\KNewYorkCity\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>12</ID>
@@ -157,6 +234,13 @@
         <ClearedDialogAsset>Cities\\LHamburg\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\LHamburg\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\LHamburg\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>13</ID>
@@ -170,6 +254,13 @@
         <ClearedDialogAsset>Cities\\MMoscow\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\MMoscow\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\MMoscow\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>14</ID>
@@ -183,6 +274,13 @@
         <ClearedDialogAsset>Cities\\NSaintPetersburg\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\NSaintPetersburg\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\NSaintPetersburg\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>15</ID>
@@ -196,6 +294,13 @@
         <ClearedDialogAsset>Cities\\OBerlin\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\OBerlin\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\OBerlin\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>16</ID>
@@ -209,6 +314,13 @@
         <ClearedDialogAsset>Cities\\PWarsaw\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\PWarsaw\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\PWarsaw\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>17</ID>
@@ -222,6 +334,13 @@
         <ClearedDialogAsset>Cities\\QVienna\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\QVienna\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\QVienna\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <ComboReq>0</ComboReq>
+        <ScoreReq>0</ScoreReq>
+        <Unlock1>0</Unlock1>
+        <Unlock2>0</Unlock2>
+        <Unlock3>0</Unlock3>
+        <BigSix>false</BigSix>
       </Item>
     </Cities>
   </Asset>
