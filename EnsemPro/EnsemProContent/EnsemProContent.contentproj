@@ -842,9 +842,9 @@
       <Name>NewlyUnLocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-	  </Compile>
-</ItemGroup>
-<ItemGroup>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Sounds\TitleMove.mp3">
       <Name>TitleMove</Name>
       <Importer>Mp3Importer</Importer>
@@ -903,6 +903,27 @@
     </Compile>
     <Compile Include="Sounds\MapMove.mp3">
       <Name>MapMove</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\WorldMap\fbg.png">
+      <Name>fbg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\WorldMap\fbg_edited.png">
+      <Name>fbg_edited</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sounds\ReceiveItem.mp3">
+      <Name>ReceiveItem</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
