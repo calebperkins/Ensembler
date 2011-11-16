@@ -19,8 +19,6 @@ namespace EnsemPro
         GameModel gameState;
         WorldMapView worldView;
 
-        Node[] nodes; //invariant: nodes[i+1].oriX >= nodes[i].oriX
-        int selected;
         KeyboardState lastState = Keyboard.GetState();
         SoundEffect MapMove;
         SoundEffect EnterCity;
@@ -38,6 +36,8 @@ namespace EnsemPro
         }
 
 
+
+        Models.City SelectedCity;
 
         public bool inDialog; // SET THIS TO FALSE AT SOME POINT
 
@@ -63,32 +63,36 @@ namespace EnsemPro
             MapMove = cm.Load<SoundEffect>("Sounds//MapMove");
             EnterCity = cm.Load<SoundEffect>("Sounds//EnterCity");
             LevelUnlock = cm.Load<SoundEffect>("Sounds//LevelUnlock");
-            nodes = new Node[data.Cities.Length];
-            for (int i = 0; i < data.Cities.Length; i++)
-            {
-                nodes[i] = new Node(data.Cities[i].State, data.Cities[i].Position, data.Cities[i].ClearedDialogAsset, data.Cities[i].UnlockedDialogAsset, data.Cities[i].NewlyUnlockedDialogAsset, data.Cities[i].Name);
-            }
 
+            Dictionary<uint, Models.City> map = new Dictionary<uint, Models.City>();
 
-            // Really nasty but hey
             foreach (DataTypes.WorldData.City city in data.Cities)
             {
-                Cities.Add(new Models.City(city));
+                Models.City c = new Models.City(city);
+                map.Add(city.ID, c); 
             }
-            foreach (Models.City c1 in Cities)
+
+            foreach (DataTypes.WorldData.City city_data in data.Cities)
             {
-                foreach (Models.City c2 in Cities)
-                {
-                    
-                }
+                Models.City c = map[city_data.ID];
+                if (city_data.Left > 0)
+                    c.Left = map[city_data.Left];
+                if (city_data.Right > 0)
+                    c.Right = map[city_data.Right];
+                if (city_data.Up > 0)
+                    c.Up = map[city_data.Up];
+                if (city_data.Down > 0)
+                    c.Down = map[city_data.Down];
             }
+
+            Cities = new HashSet<Models.City>(map.Values);
+            SelectedCity = map[1];
 
         }
 
         public void Update(GameTime gameTime)
         {
             KeyboardState ks = Keyboard.GetState();
-            Node node = nodes[selected];
 
             switch (currentState)
             {
@@ -100,18 +104,18 @@ namespace EnsemPro
                     }
                     else
                     {
-                        if (node.dialogController.Finished()) 
+                        if (SelectedCity.DialogControl.Finished()) 
                         {
-                            if (node.nodeState == DataTypes.WorldData.CityState.Cleared)
+                            if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared)
                                 currentState = State.inMap;
                             else
                             {
-                                gameState.SelectedLevel = node.playlevelName;
+                                //gameState.SelectedLevel = SelectedCity.PlayName;
                                 gameState.CurrentScreen = DataTypes.Screens.PlayLevel;
                                 currentState = State.inGame;
                             }
                         }
-                        else node.dialogController.Update(gameTime);
+                        else SelectedCity.DialogControl.Update(gameTime);
                     }
                     break;
 
@@ -122,29 +126,39 @@ namespace EnsemPro
                     break;
 
                 default : //inMap
-                     if (ks.IsKeyDown(Keys.Left) && lastState.IsKeyUp(Keys.Left) && selected > 0)
+                  if (ks.IsKeyDown(Keys.Left) && lastState.IsKeyUp(Keys.Left) && SelectedCity.Left != null)
                 {
-                    selected--;
+                    SelectedCity = SelectedCity.Left;
                     MapMove.Play();
                 }
-                else if (ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right) && selected < nodes.Length - 1)
+                else if (ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right) && SelectedCity.Right != null)
                 {
-                    selected++;
+                    SelectedCity = SelectedCity.Right;
+                    MapMove.Play();
+                }
+                else if (ks.IsKeyDown(Keys.Up) && lastState.IsKeyUp(Keys.Up) && SelectedCity.Up != null)
+                {
+                    SelectedCity = SelectedCity.Up;
+                    MapMove.Play();
+                }
+                else if (ks.IsKeyDown(Keys.Down) && lastState.IsKeyUp(Keys.Down) && SelectedCity.Down != null)
+                {
+                    SelectedCity = SelectedCity.Down;
                     MapMove.Play();
                 }
                 if (ks.IsKeyDown(Keys.D) && lastState.IsKeyUp(Keys.D))
                 {
                     DialogModel toLoad = null;
-                    switch (node.nodeState)
+                    switch (SelectedCity.State)
                     {
                         case DataTypes.WorldData.CityState.Cleared:
-                            toLoad = node.clearedDialogue;
+                            toLoad = SelectedCity.clearedDialogue;
                             break;
                         case DataTypes.WorldData.CityState.NewlyUnlocked:
-                            toLoad = node.newlyUnlockedDialogue;
+                            toLoad = SelectedCity.newlyUnlockedDialogue;
                             break;
                         case DataTypes.WorldData.CityState.Unlocked:
-                            toLoad = node.unlockedDialogue;
+                            toLoad = SelectedCity.unlockedDialogue;
                             break;
                         default: //if the node is locked, though this shouldn't be reachable
                             break;
@@ -154,14 +168,16 @@ namespace EnsemPro
                         EnterCity.Play();
                         inDialog = true;
                         toLoad.LoadContent(game.Content);
-                        node.dialogController = new DialogController(gameState, spriteBatch, toLoad, node.cityName);
-                        node.dialogController.Initialize();
-                        node.dialogController.LoadContent(game.Content); // MOVE TO NODE'S 
+                        SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, toLoad, SelectedCity.Name);
+                        SelectedCity.DialogControl.Initialize();
+                        SelectedCity.DialogControl.LoadContent(game.Content); // MOVE TO NODE'S 
                     }
                     currentState = State.inDialog;
-                }
+                }  
+                
+                
+                worldView.WantedBackgroundPosX = MathHelper.Clamp(-1 * (SelectedCity.AbsolutePosition.X - GameEngine.WIDTH / 2), -1 * (MAP_WIDTH - GameEngine.WIDTH), 0);
 
-                worldView.WantedBackgroundPosX = MathHelper.Clamp(-1 * (nodes[selected].oriX - GameEngine.WIDTH / 2), -1 * (MAP_WIDTH - GameEngine.WIDTH), 0);
                 lastState = ks;
 
                 float diff = worldView.WantedBackgroundPosX - worldView.CurBackgroundPos.X;
@@ -193,8 +209,8 @@ namespace EnsemPro
 
         public void Draw(GameTime gameTime)
         {
-            worldView.Draw(nodes, selected);
-            if (inDialog) nodes[selected].dialogController.Draw(gameTime);
+            worldView.Draw(Cities, SelectedCity);
+            if (inDialog) SelectedCity.DialogControl.Draw(gameTime);
         }
     }
 }
