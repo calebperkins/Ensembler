@@ -23,7 +23,7 @@ namespace EnsemPro
         DataTypes.Screens lastState = DataTypes.Screens.Initial;
 
         MenuController menuController;
-        PlayLevel rhythmController;
+        public PlayLevel rhythmController;
         LevelSelectController levelController;
 
         WorldMapController worldController;
@@ -38,6 +38,8 @@ namespace EnsemPro
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
+
+
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -70,7 +72,7 @@ namespace EnsemPro
             rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
             rhythmController.Initialize();
 
-            worldController = new WorldMapController(this, gameState, spriteBatch);
+            worldController = new WorldMapController(this, gameState, spriteBatch, buffer);
             worldController.Initialize();
             pauseController = new PauseScreen(this, spriteBatch);
             pauseController.Initialize();
@@ -133,10 +135,20 @@ namespace EnsemPro
                             buffer.Clear();
                             rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
                             rhythmController.Initialize();
-                            rhythmController.Start();
+                            //rhythmController.Start();
+                        }
+                        break;
+                    case DataTypes.Screens.WorldMap:
+                        if (gameState.CurrentScreen == DataTypes.Screens.PlayLevel)
+                        {
+                            buffer.Clear();
+                            rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
+                            rhythmController.Initialize();
+                            //rhythmController.Start();
                         }
                         break;
                 }
+
                 switch (gameState.CurrentScreen)
                 {
                     case DataTypes.Screens.Pause:

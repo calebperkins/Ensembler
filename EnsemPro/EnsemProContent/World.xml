@@ -10,7 +10,7 @@
         <Down>2</Down>
         <Name>Forest Home</Name>
         <Position>132 280</Position>
-        <State>Cleared</State>
+        <State>NewlyUnlocked</State>
         <ClearedDialogAsset>Cities\\AForestHome\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\AForestHome\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\AForestHome\\NewlyUnlocked</NewlyUnlockedDialogAsset>
@@ -34,7 +34,7 @@
         <ClearedDialogAsset>Cities\\BParis\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\BParis\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\BParis\\NewlyUnlocked</NewlyUnlockedDialogAsset>
-        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <PlayLevel>Levels\\Aquarium\\aqu</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
         <Unlock1>0</Unlock1>
@@ -334,7 +334,7 @@
         <ClearedDialogAsset>Cities\\QVienna\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\QVienna\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\QVienna\\NewlyUnlocked</NewlyUnlockedDialogAsset>
-        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <PlayLevel>Levels\\Aquarium\\aqu</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
         <Unlock1>0</Unlock1>
