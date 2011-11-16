@@ -21,6 +21,8 @@ namespace DataTypes
 
     public class GameData
     {
+        public int Height;
+        public int Width;
         public Screens Screen;
         public LevelSummary[] Levels;
     }

@@ -23,6 +23,13 @@ namespace EnsemPro
             None
         }
 
+        public enum Stages
+        {
+            Show,
+            Ready,
+            Fade,
+        }
+
         Texture2D current_trace;
         Texture2D current_circle;
         Texture2D current_shake;
@@ -122,23 +129,16 @@ namespace EnsemPro
             showBeat = md.ShowBeat - 1;
             fadeBeat = md.FadeBeat -1;
             myState = States.None;
-            switch (md.Kind)
+            myType = (Types) Enum.Parse(typeof(Types), md.Kind);
+            switch (myType)
             {
-                case "Wave":
-                    myType = Types.Wave;
+                case Types.Wave:
                     startCoordinate = new Point(md.StartX, md.StartY);
                     endCoordinate = new Point(md.EndX, md.EndY);
                     f = new Function(this, lastBPM, md.A);
                     break;
-                case "Shake":
-                    myType = Types.Shake;
-                    break;
-                case "Control":
-                    myType = Types.Control;
+                case Types.Control:
                     BPM = md.NewBPM;
-                    break;
-                default:
-                    myType = Types.Noop;
                     break;
             }
         }
@@ -166,8 +166,7 @@ namespace EnsemPro
 
         }
 
-        // action : 0 -- show stage; 1 -- start-end stage; 2 -- fade stage
-        public void Draw(SpriteBatch spriteBatch, float progress, int stage)
+        public void Draw(SpriteBatch spriteBatch, float progress, Stages stage)
         {
             if (current_shake == null || current_circle == null || current_trace == null) setState(myState);
 
@@ -181,7 +180,7 @@ namespace EnsemPro
                 
                 switch (stage)
                 {
-                    case 0:
+                    case Stages.Show:
                         // draw the start circle
                         spriteBatch.Draw(circleTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.White, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
                         spriteBatch.Draw(ringTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.Lerp(Color.White, Color.Transparent, progress), 0.0f, RingOrigin, 1 -　progress, SpriteEffects.None, 0.0f);
@@ -201,7 +200,7 @@ namespace EnsemPro
                             }
                             
                         break;
-                    case 1:
+                    case Stages.Ready:
                         spriteBatch.Draw(circleReadyTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.White, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
                         float lPx = -1;
                         float lPy = -1;
@@ -220,7 +219,7 @@ namespace EnsemPro
                             }
                             spriteBatch.Draw(circleReadyTexture, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, Color.Lerp(Color.White, Color.Transparent, progress), 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
                             break;
-                    case 2:
+                    case Stages.Fade:
                         Color alpha = Color.Lerp(Color.White, Color.Transparent, progress);
                         spriteBatch.Draw(circleTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, alpha, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
                         float lPx2 = -1;

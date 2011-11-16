@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <Asset Type="DataTypes.GameData">
+    <Height>600</Height>
+    <Width>800</Width>
     <Screen>Title</Screen>
     <Levels>
       <Item>
