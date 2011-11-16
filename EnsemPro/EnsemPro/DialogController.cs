@@ -14,9 +14,11 @@ namespace EnsemPro
     {
         GameModel gameState;
         SpriteBatch spriteBatch;
+        ContentManager contentManager;
 
         Queue<String> names;
         Queue<String> lines;
+        Queue<String> colors;
 
         String speaker;
         String speech;
@@ -26,6 +28,7 @@ namespace EnsemPro
         //DataTypes.WorldData.CityState nodeState;
         KeyboardState lastState;
         SoundEffect NextDialog;
+        SoundEffect ReceiveItem;
 
         public DialogController(GameModel gm, SpriteBatch sb, DialogModel dm, string cityName)
         {
@@ -35,6 +38,7 @@ namespace EnsemPro
 
             names = new Queue<String>();
             lines = new Queue<String>();
+            colors = new Queue<String>();
             Parse();
             speaker = "";
             speech = cityName;
@@ -44,13 +48,20 @@ namespace EnsemPro
 
         public void Initialize()
         {
-            
+
         }
 
         public void LoadContent(ContentManager cm)
         {
             screen.LoadContent(cm);
             NextDialog = cm.Load<SoundEffect>("Sounds//NextDialog");
+            ReceiveItem = cm.Load<SoundEffect>("Sounds//ReceiveItem");
+            contentManager = cm;
+        }
+
+        public void UnloadContent() 
+        {
+            contentManager.Unload();
         }
 
         private void Parse()
@@ -59,6 +70,7 @@ namespace EnsemPro
             {
                 names.Enqueue(dialogModel.Content[i].Character);
                 lines.Enqueue(dialogModel.Content[i].Line);
+               // colors.Enqueue(dialogModel.Content[i].Color);
             }
             /*
             switch (nodeState)
@@ -104,6 +116,7 @@ namespace EnsemPro
                     NextDialog.Play();
                     speaker = names.Dequeue();
                     speech = lines.Dequeue();
+                    if (speech[0] == '*') ReceiveItem.Play();
                 }
                 lastState = ks;
             }

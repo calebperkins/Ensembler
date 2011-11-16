@@ -27,7 +27,7 @@ namespace EnsemPro
         public void LoadContent(ContentManager cm)
         {
             background = cm.Load<Texture2D>("Images//SelectionScreen//background");
-            dialogBox = cm.Load<Texture2D>("images/dialogBoxTest");
+            dialogBox = cm.Load<Texture2D>("Images//WorldMap//fbg_edited");
             font = cm.Load<SpriteFont>("images/Lucidia");
         }
 
@@ -35,8 +35,8 @@ namespace EnsemPro
         {
           //  spriteBatch.Draw(background, new Vector2(), Color.White);
             spriteBatch.Draw(dialogBox, new Vector2(50, 350), Color.White);
-            spriteBatch.DrawString(font, n, new Vector2(100, 370), Color.Black);
-            spriteBatch.DrawString(font, s, new Vector2(100, 420), Color.Black, 0.0f, new Vector2(), 0.9f, SpriteEffects.None, 0.0f);
+            spriteBatch.DrawString(font, n, new Vector2(90, 365), Color.Black);
+            spriteBatch.DrawString(font, s, new Vector2(90, 440), Color.Black, 0.0f, new Vector2(), 0.9f, SpriteEffects.None, 0.0f);
         }
     }
 }
