@@ -34,6 +34,12 @@ namespace EnsemPro.Models
             set;
         }
 
+        public City[] Unlocked
+        {
+            get;
+            set;
+        }
+
         public Vector2 AbsolutePosition;
         public DialogController DialogControl
         {
@@ -57,6 +63,8 @@ namespace EnsemPro.Models
             newlyUnlockedDialogue = new DialogModel(c.NewlyUnlockedDialogAsset);
             Name = c.Name;
 
+            Unlocked = new Models.City[] { null, null, null };
+
             Data = c;
         }
 
@@ -66,5 +74,16 @@ namespace EnsemPro.Models
         public string Name;
 
         public Vector2 RelativePosition;
+
+        public bool Locked
+        {
+            get { return State == DataTypes.WorldData.CityState.Locked; }
+        }
+
+        public bool NotLocked
+        {
+            get { return !Locked; }
+        }
+
     }
 }

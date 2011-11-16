@@ -83,6 +83,12 @@ namespace EnsemPro
                     c.Up = map[city_data.Up];
                 if (city_data.Down > 0)
                     c.Down = map[city_data.Down];
+                if (city_data.Unlock1 > 0)
+                    c.Unlocked[0] = map[city_data.Unlock1];
+                if (city_data.Unlock2 > 0)
+                    c.Unlocked[1] = map[city_data.Unlock1];
+                if (city_data.Unlock3 > 0)
+                    c.Unlocked[2] = map[city_data.Unlock1];
             }
 
             Cities = new HashSet<Models.City>(map.Values);
@@ -118,6 +124,12 @@ namespace EnsemPro
                     if (gameState.Score > SelectedCity.Data.ScoreReq && gameState.Combo > SelectedCity.Data.ComboReq)
                     {
                         SelectedCity.State = DataTypes.WorldData.CityState.Cleared;
+                        foreach (Models.City c in SelectedCity.Unlocked){
+                            if (c != null)
+                            {
+                                c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
+                            }
+                        }
                     }
                     else
                     {
@@ -128,22 +140,22 @@ namespace EnsemPro
                     break;
 
                 default : //inMap
-                  if (ks.IsKeyDown(Keys.Left) && lastState.IsKeyUp(Keys.Left) && SelectedCity.Left != null)
+                  if (ks.IsKeyDown(Keys.Left) && lastState.IsKeyUp(Keys.Left) && SelectedCity.Left != null && SelectedCity.Left.NotLocked)
                 {
                     SelectedCity = SelectedCity.Left;
                     MapMove.Play();
                 }
-                else if (ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right) && SelectedCity.Right != null)
+                  else if (ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right) && SelectedCity.Right != null && SelectedCity.Right.NotLocked)
                 {
                     SelectedCity = SelectedCity.Right;
                     MapMove.Play();
                 }
-                else if (ks.IsKeyDown(Keys.Up) && lastState.IsKeyUp(Keys.Up) && SelectedCity.Up != null)
+                else if (ks.IsKeyDown(Keys.Up) && lastState.IsKeyUp(Keys.Up) && SelectedCity.Up != null && SelectedCity.Up.NotLocked)
                 {
                     SelectedCity = SelectedCity.Up;
                     MapMove.Play();
                 }
-                else if (ks.IsKeyDown(Keys.Down) && lastState.IsKeyUp(Keys.Down) && SelectedCity.Down != null)
+                else if (ks.IsKeyDown(Keys.Down) && lastState.IsKeyUp(Keys.Down) && SelectedCity.Down != null && SelectedCity.Down.NotLocked)
                 {
                     SelectedCity = SelectedCity.Down;
                     MapMove.Play();
