@@ -118,6 +118,7 @@ namespace EnsemPro
                     if (gameState.Score > SelectedCity.Data.ScoreReq && gameState.Combo > SelectedCity.Data.ComboReq)
                     {
                         SelectedCity.State = DataTypes.WorldData.CityState.Cleared;
+
                     }
                     else
                     {
