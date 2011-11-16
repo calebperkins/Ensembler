@@ -178,7 +178,6 @@ namespace EnsemPro
                 
                 
                 worldView.WantedBackgroundPosX = MathHelper.Clamp(-1 * (SelectedCity.AbsolutePosition.X - GameEngine.WIDTH / 2), -1 * (MAP_WIDTH - GameEngine.WIDTH), 0);
-
                 lastState = ks;
 
                 float diff = worldView.WantedBackgroundPosX - worldView.CurBackgroundPos.X;
