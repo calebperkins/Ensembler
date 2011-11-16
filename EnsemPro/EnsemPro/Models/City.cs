@@ -8,6 +8,8 @@ namespace EnsemPro.Models
 {
     public class City
     {
+        public DataTypes.WorldData.City Data;
+
         public City Up
         {
             get;
@@ -54,6 +56,8 @@ namespace EnsemPro.Models
             unlockedDialogue = new DialogModel(c.UnlockedDialogAsset);
             newlyUnlockedDialogue = new DialogModel(c.NewlyUnlockedDialogAsset);
             Name = c.Name;
+
+            Data = c;
         }
 
         public DialogModel clearedDialogue;
