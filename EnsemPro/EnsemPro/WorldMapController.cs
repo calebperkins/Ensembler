@@ -83,6 +83,12 @@ namespace EnsemPro
                     c.Up = map[city_data.Up];
                 if (city_data.Down > 0)
                     c.Down = map[city_data.Down];
+                if (city_data.Unlock1 > 0)
+                    c.Unlocked[0] = map[city_data.Unlock1];
+                if (city_data.Unlock2 > 0)
+                    c.Unlocked[1] = map[city_data.Unlock1];
+                if (city_data.Unlock3 > 0)
+                    c.Unlocked[2] = map[city_data.Unlock1];
             }
 
             Cities = new HashSet<Models.City>(map.Values);

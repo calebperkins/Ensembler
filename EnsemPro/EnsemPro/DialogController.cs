@@ -22,6 +22,7 @@ namespace EnsemPro
 
         String speaker;
         String speech;
+        String color;
 
         DialogModel dialogModel;
         DialogView screen;
@@ -123,6 +124,16 @@ namespace EnsemPro
                     speaker = names.Dequeue();
                     speech = lines.Dequeue();
                     if (speech[0] == '*') ReceiveItem.Play();
+                    string firstPart = "";
+                    string secondPart = speech;
+                    while (secondPart.Length > 55)
+                    {
+                        string subSpeech = secondPart.Substring(0,55);
+                        int lastSpace = subSpeech.LastIndexOf(" ");
+                        firstPart = firstPart + secondPart.Substring(0, lastSpace) + "\n";
+                        secondPart = secondPart.Substring(lastSpace, secondPart.Length - lastSpace);
+                    }
+                    speech = firstPart + secondPart;
                 }
                 lastState = ks;
             }
