@@ -15,6 +15,11 @@ namespace DataTypes
 
         public struct City
         {
+            public uint ID;
+            public uint Left;
+            public uint Right;
+            public uint Up;
+            public uint Down;
             public string Name;
             public Vector2 Position;
             public CityState State;

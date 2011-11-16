@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Audio;
+using System.Collections.Generic;
 
 namespace EnsemPro
 {
@@ -18,13 +19,15 @@ namespace EnsemPro
         GameModel gameState;
         WorldMapView worldView;
 
-
         Node[] nodes; //invariant: nodes[i+1].oriX >= nodes[i].oriX
         int selected;
         KeyboardState lastState = Keyboard.GetState();
         SoundEffect MapMove;
         SoundEffect EnterCity;
         SoundEffect LevelUnlock;
+
+        HashSet<Models.City> Cities = new HashSet<Models.City>();
+
 
         public bool inDialog; // SET THIS TO FALSE AT SOME POINT
 
@@ -53,6 +56,21 @@ namespace EnsemPro
             {
                 nodes[i] = new Node(data.Cities[i].State, data.Cities[i].Position, data.Cities[i].ClearedDialogAsset, data.Cities[i].UnlockedDialogAsset, data.Cities[i].NewlyUnlockedDialogAsset, data.Cities[i].Name);
             }
+
+
+            // Really nasty but hey
+            foreach (DataTypes.WorldData.City city in data.Cities)
+            {
+                Cities.Add(new Models.City(city));
+            }
+            foreach (Models.City c1 in Cities)
+            {
+                foreach (Models.City c2 in Cities)
+                {
+                    
+                }
+            }
+
         }
 
         public void Update(GameTime gameTime)

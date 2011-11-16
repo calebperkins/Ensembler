@@ -126,6 +126,8 @@
     <Compile Include="MenuController.cs" />
     <Compile Include="MenuView.cs" />
     <Compile Include="Controllers\Input\MouseController.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\World.cs" />
     <Compile Include="Musician.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="PauseScreen.cs" />
@@ -185,7 +187,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
