@@ -3,10 +3,9 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>Player</Character>
-        <Line>I cannot go back home yet, not until I become the best conductor in the world!</Line>
+        <Character>A</Character>
+        <Line>Lol cleared</Line>
       </Item>
-      
     </Content>
   </Asset>
 </XnaContent>

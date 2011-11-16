@@ -3,8 +3,178 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol newly unlocked</Line>
+        <Character>Bartender</Character>
+        <Line>Welcome, traveler.
+        How may I help you?</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>
+          I would like some apple cider please. 
+        </Line>
+      </Item>
+      <Item>
+        <Character>Bartender</Character>
+        <Line>
+          You got it.
+        </Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>
+          .......
+          Wow, is this place usually this crowded?
+        </Line>
+      </Item>
+      <Item>
+        <Character>Bartender</Character>
+        <Line>
+          Yes, and it is all thanks to Frederic.
+        </Line>
+      </Item>
+      <Item>
+      <Character>Player</Character>
+      <Line>
+        Who is Frederic?
+      </Line>
+      </Item>
+      <Item>
+        <Character>Bartender</Character>
+        <Line>
+          You will see. Here he comes!
+        </Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>A timid looking person holding a violin enters the bar.
+          The crowd immediately quieted down.
+        </Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>
+          Is he Frederic?
+        </Line>
+      </Item>
+      <Item>
+        <Character>Bartender</Character>
+        <Line>
+          sshhhh!
+        </Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>Without warning, the person started to play a nocturne.
+          He does not play loudly, but he clearly captures everyone in the audience with his music.
+          His voilin sings with the sweetest voice in the world.
+        </Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>
+          Wow, is he a professional?
+        </Line>
+      </Item>
+      <Item>
+        <Character>Bartender</Character>
+        <Line>I'd say he is even better than the professionals out there.
+          But let me tell you a secret...
+          Violin is not his main instrument.
+        </Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>
+          Then what is?
+        </Line>
+      </Item>
+      <Item>
+        <Character>Bartender</Character>
+        <Line>Piano. But he plays the violin here because there ain't no piano in this bar.
+        </Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>
+          Okay... I have to go talk to him.
+        </Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>Frederic finishes playing, and sits down at a corner.
+          He starts to drink a cup of apple cider nonchalantly.  
+          You decided to approach him.
+        </Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Hey... your playing was great!
+          And I don't say this to just anyone...
+          My mother was a professional violinist, 
+          so I know it when I hear a good musician play.
+        </Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>Thanks. Your mother "was" a professional violinist?</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>
+          She... was dead 10 years ago.
+        </Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>I am sorry to hear that.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>My dad was also a musician too.
+          And he left this baton for me.
+        </Line>
+      </Item>
+        <Item>
+          <Character>Frederic</Character>
+          <Line>!!This baton belongs to a legendary conductor.
+        And you are his son?</Line>
+        </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>
+          Yes.
+        </Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>Interesting. So tell me, what brings you here?
+        </Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>I want to become a conductor as well. 
+        I heard there is a conservatory in this city, so I thought I might recruit some players for my ensemble here.
+        </Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>Indeed, and I happen to be one of the instructors of that conservatory.
+        </Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Cool!
+        </Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>I have an idea. If you can impress me with your conducting, not only I will join your ensemble, but I will also urge my students to join.
+        </Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Okay!
+        </Line>
       </Item>
     </Content>
   </Asset>

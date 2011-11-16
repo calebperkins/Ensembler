@@ -79,6 +79,7 @@ namespace EnsemPro
             DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>(gameState.SelectedLevel);
             song = Game.Content.Load<Song>(data.SongAssetName);
             MediaPlayer.IsRepeating = false;
+            Console.WriteLine(gameState.SelectedLevel);
 
             SmallApplause = Game.Content.Load<SoundEffect>("Sounds//SmallApplause");
             LargeApplause = Game.Content.Load<SoundEffect>("Sounds//LargeApplause");

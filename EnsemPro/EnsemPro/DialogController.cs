@@ -112,6 +112,7 @@ namespace EnsemPro
             KeyboardState ks = Keyboard.GetState();
             if (names.Count == 0 && ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right)) // end of this dialog mode, move on to playlevel or map
             {
+               
                 IsFinished = true;
             }
             else

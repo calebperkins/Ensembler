@@ -14,7 +14,7 @@ namespace EnsemPro
         public const int MAP_WIDTH = 4000;
         public const int SHIFT_PER_FRAME = 6;
 
-        Game game;
+        GameEngine game;
         SpriteBatch spriteBatch;
         GameModel gameState;
         WorldMapView worldView;
@@ -24,7 +24,6 @@ namespace EnsemPro
         SoundEffect EnterCity;
         SoundEffect LevelUnlock;
         State currentState;
-        PlayLevel levelController;
         InputBuffer buffer;
 
         HashSet<Models.City> Cities = new HashSet<Models.City>();
@@ -33,22 +32,23 @@ namespace EnsemPro
             inDialog,
             inGame,
             inMap,
+            begin,
+            end
         }
 
 
 
         Models.City SelectedCity;
 
-        public bool inDialog; // SET THIS TO FALSE AT SOME POINT
 
-        public WorldMapController (Game g, GameModel gm, SpriteBatch sb, InputBuffer bf)
+        public WorldMapController (GameEngine g, GameModel gm, SpriteBatch sb, InputBuffer bf)
         {
             game = g;
             gameState = gm;
             worldView = new WorldMapView(sb);
-            inDialog = false;
             spriteBatch = sb;
             buffer = bf;
+           
         }
 
         public void Initialize() 
@@ -98,31 +98,33 @@ namespace EnsemPro
             {
                     /// code for inDialog
                 case State.inDialog :
-                    if (ks.IsKeyDown(Keys.Q) && lastState.IsKeyUp(Keys.Q))
-                    {
-                        inDialog = false;
-                    }
-                    else
-                    {
-                        if (SelectedCity.DialogControl.Finished()) 
+                    if (SelectedCity.DialogControl.Finished()) 
                         {
                             if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared)
                                 currentState = State.inMap;
                             else
                             {
-                                //gameState.SelectedLevel = SelectedCity.PlayName;
-                                gameState.CurrentScreen = DataTypes.Screens.PlayLevel;
+                                gameState.SelectedLevel = SelectedCity.Data.PlayLevel;
+                                Console.WriteLine(gameState.SelectedLevel);
+                                gameState.CurrentScreen = DataTypes.Screens.PlayLevel;;
                                 currentState = State.inGame;
                             }
                         }
-                        else SelectedCity.DialogControl.Update(gameTime);
-                    }
+                     else SelectedCity.DialogControl.Update(gameTime);
                     break;
 
                     /// code for inGame
                 case State.inGame :
-                    
+                    if (gameState.Score > SelectedCity.Data.ScoreReq && gameState.Combo > SelectedCity.Data.ComboReq)
+                    {
+                        SelectedCity.State = DataTypes.WorldData.CityState.Cleared;
+                    }
+                    else
+                    {
+                        SelectedCity.State = DataTypes.WorldData.CityState.Unlocked;
+                    }
                     // TODO
+                    currentState = State.inMap;
                     break;
 
                 default : //inMap
@@ -166,7 +168,6 @@ namespace EnsemPro
                     if (toLoad != null)
                     {
                         EnterCity.Play();
-                        inDialog = true;
                         toLoad.LoadContent(game.Content);
                         SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, toLoad, SelectedCity.Name);
                         SelectedCity.DialogControl.Initialize();
@@ -210,7 +211,7 @@ namespace EnsemPro
         public void Draw(GameTime gameTime)
         {
             worldView.Draw(Cities, SelectedCity);
-            if (inDialog) SelectedCity.DialogControl.Draw(gameTime);
+            if (currentState == State.inDialog) SelectedCity.DialogControl.Draw(gameTime);
         }
     }
 }

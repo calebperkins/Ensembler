@@ -3,8 +3,8 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol unlocked</Line>
+        <Character>Player</Character>
+        <Line>I must make Frederic join my ensemble!!</Line>
       </Item>
     </Content>
   </Asset>

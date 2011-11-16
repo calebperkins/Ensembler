@@ -23,7 +23,7 @@ namespace EnsemPro
         DataTypes.Screens lastState = DataTypes.Screens.Initial;
 
         MenuController menuController;
-        PlayLevel rhythmController;
+        public PlayLevel rhythmController;
         LevelSelectController levelController;
 
         WorldMapController worldController;
@@ -135,10 +135,20 @@ namespace EnsemPro
                             buffer.Clear();
                             rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
                             rhythmController.Initialize();
-                            rhythmController.Start();
+                            //rhythmController.Start();
                         }
-                    break;
+                        break;
+                    case DataTypes.Screens.WorldMap:
+                        if (gameState.CurrentScreen == DataTypes.Screens.PlayLevel)
+                        {
+                            buffer.Clear();
+                            rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
+                            rhythmController.Initialize();
+                            //rhythmController.Start();
+                        }
+                        break;
                 }
+
                 switch (gameState.CurrentScreen)
                 {
                     case DataTypes.Screens.Pause:
