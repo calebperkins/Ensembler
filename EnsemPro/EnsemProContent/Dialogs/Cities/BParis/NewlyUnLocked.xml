@@ -3,8 +3,43 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol newly unlocked</Line>
+        <Character>Saint Saens</Character>
+        <Line>Bonjour monseiur.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>er... Wassup</Line>
+      </Item>
+      <Item>
+        <Character>Saint Saens</Character>
+        <Line>Is that a baton you are holding on your hand? May I have a look?</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Sure.</Line>
+      </Item>
+      <Item>
+        <Character>Saint Saens</Character>
+        <Line>!!! I once met a conductor who used the exact same baton as this. He was one of the finest musician I have ever met!
+        </Line>
+      </Item>
+        <Item>
+          <Character>Player</Character>
+          <Line>er... Thanks, I believe this baton belongs to my father.</Line>
+        </Item>
+      <Item>
+        <Character>Saint Saens</Character>
+        <Line>I see. Here, I have something for you.</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>*player receives a new piece: aquarium*
+        *player can now choose aquarium from level selection*</Line>
+      </Item>
+      <Item>
+        <Character>Saint Saens</Character>
+        <Line>This is my latest composition. I trust that you are the right person to perform this piece.
+        Anyways, farewell, and remember to make good use of that baton!</Line>
       </Item>
     </Content>
   </Asset>

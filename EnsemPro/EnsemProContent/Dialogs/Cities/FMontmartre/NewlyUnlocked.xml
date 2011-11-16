@@ -3,9 +3,34 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol newly unlocked</Line>
+        <Character>Frederic</Character>
+        <Line>This is Montmartre, where musicians gather and perform around the streets. I have just purchased a new piece of music for us to perform later.</Line>
       </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>*player receives Gymnopedie* *player can now choose Gymnopedie from level selection*</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>Playing on the streets is a good way to gain some actual performance experience. It is also a good way to broaden our horizons by listening to other performers.</Line>
+      </Item>
+      <Item>
+        <Character>Student 1</Character>
+        <Line>Gymnopedie... the famous piece by Satie?</Line>
+      </Item>
+      <Item>
+        <Character>Student 2</Character>
+        <Line>Oooohhh I know this piece!</Line>
+      </Item>
+      <Item>
+        <Character>Student 3</Character>
+        <Line>I bet I can sight-read this piece. Lets start performing NOW!</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Fine with me.</Line>
+      </Item>
+      <!-- A lot of pre-game dialogue waiting to be inserted! -->
     </Content>
   </Asset>
 </XnaContent>

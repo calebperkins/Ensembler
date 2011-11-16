@@ -3,8 +3,8 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol cleared</Line>
+        <Character>Bartender</Character>
+        <Line>Are you back for another cup of apple cider? Sure thing, here you go!</Line>
       </Item>
     </Content>
   </Asset>

@@ -17,12 +17,18 @@ namespace EnsemPro
 
         Vector2 personAPos;
         Vector2 personBPos;
+        Vector2 dialogBoxPos;
+        Vector2 namePos;
+        Vector2 linePos;
 
         public DialogView(SpriteBatch sb)
         {
             spriteBatch = sb;
             personAPos = new Vector2(200, 400);
             personBPos = new Vector2(600, 400);
+            dialogBoxPos = new Vector2(50, 350);
+            namePos = new Vector2(60, 365);
+            linePos = new Vector2(90, 440);
         }
 
         public void LoadContent(ContentManager cm)
@@ -35,9 +41,9 @@ namespace EnsemPro
         public void Draw(GameTime t,String n, String s)
         {
           //  spriteBatch.Draw(background, new Vector2(), Color.White);
-            spriteBatch.Draw(dialogBox, new Vector2(50, 350), Color.White);
-            spriteBatch.DrawString(font, n, new Vector2(90, 365), Color.Black);
-            spriteBatch.DrawString(font, s, new Vector2(90, 440), Color.Black, 0.0f, new Vector2(), 0.9f, SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(dialogBox, dialogBoxPos, Color.White);
+            spriteBatch.DrawString(font, n, namePos, Color.Black, 0.0f, new Vector2(),0.85f,SpriteEffects.None,0.0f);
+            spriteBatch.DrawString(font, s, linePos, Color.Black, 0.0f, new Vector2(), 0.75f, SpriteEffects.None, 0.0f);
         }
     }
 }
