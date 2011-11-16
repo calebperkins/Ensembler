@@ -17,7 +17,7 @@
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>0</Unlock1>
+        <Unlock1>2</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>false</BigSix>
@@ -30,7 +30,7 @@
         <Down>0</Down>
         <Name>Paris</Name>
         <Position>80 446</Position>
-        <State>NewlyUnlocked</State>
+        <State>Locked</State>
         <ClearedDialogAsset>Cities\\BParis\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\BParis\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\BParis\\NewlyUnlocked</NewlyUnlockedDialogAsset>

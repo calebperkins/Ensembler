@@ -124,7 +124,12 @@ namespace EnsemPro
                     if (gameState.Score > SelectedCity.Data.ScoreReq && gameState.Combo > SelectedCity.Data.ComboReq)
                     {
                         SelectedCity.State = DataTypes.WorldData.CityState.Cleared;
-
+                        foreach (Models.City c in SelectedCity.Unlocked){
+                            if (c != null)
+                            {
+                                c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
+                            }
+                        }
                     }
                     else
                     {
