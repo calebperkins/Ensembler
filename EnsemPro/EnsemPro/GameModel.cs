@@ -34,6 +34,20 @@ namespace EnsemPro
             set;
         }
 
+        // the score of the last played game
+        public int Score
+        {
+            get;
+            set;
+        }
+
+        // the combo of the last played game
+        public int Combo
+        {
+            get;
+            set;
+        }
+
         public void LoadContent(ContentManager cm)
         {
             DataTypes.GameData data = cm.Load<DataTypes.GameData>("Levels//Index");

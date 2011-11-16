@@ -471,6 +471,7 @@
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -842,9 +843,9 @@
       <Name>NewlyUnLocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-	  </Compile>
-</ItemGroup>
-<ItemGroup>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Sounds\TitleMove.mp3">
       <Name>TitleMove</Name>
       <Importer>Mp3Importer</Importer>

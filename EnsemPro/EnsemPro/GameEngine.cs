@@ -39,6 +39,8 @@ namespace EnsemPro
             Content.RootDirectory = "Content";
         }
 
+
+
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic
@@ -70,7 +72,7 @@ namespace EnsemPro
             rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
             rhythmController.Initialize();
 
-            worldController = new WorldMapController(this, gameState, spriteBatch);
+            worldController = new WorldMapController(this, gameState, spriteBatch, buffer);
             worldController.Initialize();
             pauseController = new PauseScreen(this, spriteBatch);
             pauseController.Initialize();
@@ -135,7 +137,7 @@ namespace EnsemPro
                             rhythmController.Initialize();
                             rhythmController.Start();
                         }
-                        break;
+                    break;
                 }
                 switch (gameState.CurrentScreen)
                 {

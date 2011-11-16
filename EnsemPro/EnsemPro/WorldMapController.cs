@@ -25,23 +25,35 @@ namespace EnsemPro
         SoundEffect MapMove;
         SoundEffect EnterCity;
         SoundEffect LevelUnlock;
+        State currentState;
+        PlayLevel levelController;
+        InputBuffer buffer;
 
         HashSet<Models.City> Cities = new HashSet<Models.City>();
+
+        public enum State { 
+            inDialog,
+            inGame,
+            inMap,
+        }
+
 
 
         public bool inDialog; // SET THIS TO FALSE AT SOME POINT
 
-        public WorldMapController (Game g, GameModel gm, SpriteBatch sb)
+        public WorldMapController (Game g, GameModel gm, SpriteBatch sb, InputBuffer bf)
         {
             game = g;
             gameState = gm;
             worldView = new WorldMapView(sb);
             inDialog = false;
             spriteBatch = sb;
+            buffer = bf;
         }
 
         public void Initialize() 
-        { 
+        {
+            currentState = State.inMap;
         }
 
         public void LoadContent(ContentManager cm)
@@ -77,21 +89,40 @@ namespace EnsemPro
         {
             KeyboardState ks = Keyboard.GetState();
             Node node = nodes[selected];
-            if (inDialog)
+
+            switch (currentState)
             {
-                if (ks.IsKeyDown(Keys.Q) && lastState.IsKeyUp(Keys.Q))
-                {
-                    inDialog = false;
-                }
-                else
-                {
-                    node.dialogController.Update(gameTime);
-                }
-            }
-            else
-            {
-                
-                if (ks.IsKeyDown(Keys.Left) && lastState.IsKeyUp(Keys.Left) && selected > 0)
+                    /// code for inDialog
+                case State.inDialog :
+                    if (ks.IsKeyDown(Keys.Q) && lastState.IsKeyUp(Keys.Q))
+                    {
+                        inDialog = false;
+                    }
+                    else
+                    {
+                        if (node.dialogController.Finished()) 
+                        {
+                            if (node.nodeState == DataTypes.WorldData.CityState.Cleared)
+                                currentState = State.inMap;
+                            else
+                            {
+                                gameState.SelectedLevel = node.playlevelName;
+                                gameState.CurrentScreen = DataTypes.Screens.PlayLevel;
+                                currentState = State.inGame;
+                            }
+                        }
+                        else node.dialogController.Update(gameTime);
+                    }
+                    break;
+
+                    /// code for inGame
+                case State.inGame :
+                    
+                    // TODO
+                    break;
+
+                default : //inMap
+                     if (ks.IsKeyDown(Keys.Left) && lastState.IsKeyUp(Keys.Left) && selected > 0)
                 {
                     selected--;
                     MapMove.Play();
@@ -127,7 +158,9 @@ namespace EnsemPro
                         node.dialogController.Initialize();
                         node.dialogController.LoadContent(game.Content); // MOVE TO NODE'S 
                     }
+                    currentState = State.inDialog;
                 }
+
                 worldView.WantedBackgroundPosX = MathHelper.Clamp(-1 * (nodes[selected].oriX - GameEngine.WIDTH / 2), -1 * (MAP_WIDTH - GameEngine.WIDTH), 0);
                 lastState = ks;
 
@@ -154,7 +187,7 @@ namespace EnsemPro
                         worldView.CurBackgroundPos = new Vector2(worldView.WantedBackgroundPosX, worldView.CurBackgroundPos.Y);
                     }
                 }
-                
+                break;
             }
         }
 

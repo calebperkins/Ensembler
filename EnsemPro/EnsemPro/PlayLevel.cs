@@ -16,7 +16,6 @@ namespace EnsemPro
         public const int AGE_DECR = 3;
         public const int AGE_INCR = 1;
         bool failed;
-
         GameModel gameState;
         //public const float INTERVAL_TIME = 1.0f;
         Stopwatch watch = new Stopwatch();
@@ -69,6 +68,7 @@ namespace EnsemPro
             comboCount = -1;
             failed = false;
         }
+
 
         protected override void LoadContent()
         {
@@ -134,7 +134,6 @@ namespace EnsemPro
 
             current_beat = 0;
             last_beat = -1;
-
             base.Initialize();
         }
 
@@ -299,7 +298,17 @@ namespace EnsemPro
             if (backToMenu >= 420)
             {
                 //UnloadContent(); // doesn't seem to work, i.e. memory usage does not decrease
-                gameState.CurrentScreen = DataTypes.Screens.SelectLevel;
+                if (!failed)
+                {
+                    gameState.Score = current_score;
+                    gameState.Combo = (maxCombo > 1 ? maxCombo : 0);
+                }
+                else
+                {
+                    gameState.Score = -1;
+                    gameState.Combo = -1;
+                }
+                gameState.CurrentScreen = gameState.PreviousScreen;
             }
 
         }

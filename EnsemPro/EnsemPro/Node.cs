@@ -12,6 +12,12 @@ namespace EnsemPro
         public DialogModel unlockedDialogue;
         public DialogModel newlyUnlockedDialogue;
         public DialogController dialogController;
+        public string playlevelName;
+        public int unlock1;
+        public int unlock2;
+        public int unlock3;
+        public int combo_req;
+        public int score_req;
 
         public Node(DataTypes.WorldData.CityState ns, Vector2 p, string cd, string ud, string nud, string cn)
         {
