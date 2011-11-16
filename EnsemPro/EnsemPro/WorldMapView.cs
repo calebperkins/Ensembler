@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 
 namespace EnsemPro
 {
@@ -48,14 +49,14 @@ namespace EnsemPro
             selectedTexture = cm.Load<Texture2D>("images\\ring");
         }
 
-        public void Draw(Node[] nodes, int selected)
+        public void Draw(HashSet<Models.City> cities, Models.City selected)
         {
             spriteBatch.Draw(background1, CurBackgroundPos, Color.White);
             spriteBatch.Draw(background2, new Vector2 (CurBackgroundPos.X + background1.Width, CurBackgroundPos.Y), Color.White);
-            for (int i = 0; i< nodes.Length; i++)
+            foreach (Models.City node in cities)
             {
                 Texture2D current = null;
-                switch (nodes[i].nodeState)
+                switch (node.State)
                 {
                     case DataTypes.WorldData.CityState.Locked:
                         current = lockedTexture;
@@ -71,7 +72,7 @@ namespace EnsemPro
                         break;
                 }
 
-                nodes[i].curPos.X = CurBackgroundPos.X + nodes[i].oriX;
+                node.AbsolutePosition.X = CurBackgroundPos.X + node.RelativePosition.X;
 
                 Vector2 origin = new Vector2(current.Width / 2, current.Height / 2);
                 float scale = 1.0f;
@@ -81,12 +82,12 @@ namespace EnsemPro
                     scale = 0.2f;
                 }
 
-                spriteBatch.Draw(current, nodes[i].curPos, null, Color.White, 0.0f, origin, scale, SpriteEffects.None, 0);
+                spriteBatch.Draw(current, node.AbsolutePosition, null, Color.White, 0.0f, origin, scale, SpriteEffects.None, 0);
 
-                if (i == selected)
+                if (node == selected)
                 {
                     origin = new Vector2(selectedTexture.Width / 2, selectedTexture.Height / 2);
-                    spriteBatch.Draw(selectedTexture, nodes[i].curPos, null, Color.White, 0.0f, origin, scale, SpriteEffects.None, 0);
+                    spriteBatch.Draw(selectedTexture, node.AbsolutePosition, null, Color.White, 0.0f, origin, scale, SpriteEffects.None, 0);
                 }
             }
         }
