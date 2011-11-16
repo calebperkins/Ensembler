@@ -74,5 +74,16 @@ namespace EnsemPro.Models
         public string Name;
 
         public Vector2 RelativePosition;
+
+        public bool Locked
+        {
+            get { return State == DataTypes.WorldData.CityState.Locked; }
+        }
+
+        public bool NotLocked
+        {
+            get { return !Locked; }
+        }
+
     }
 }
