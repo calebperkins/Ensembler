@@ -5,7 +5,7 @@
       <Item>
         <ID>1</ID>
         <Left>0</Left>
-        <Right>3</Right>
+        <Right>4</Right>
         <Up>0</Up>
         <Down>2</Down>
         <Name>Forest Home</Name>
@@ -17,20 +17,20 @@
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>0</Unlock1>
-        <Unlock2>0</Unlock2>
+        <Unlock1>4</Unlock1>
+        <Unlock2>2</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>2</ID>
         <Left>0</Left>
-        <Right>0</Right>
+        <Right>3</Right>
         <Up>1</Up>
         <Down>0</Down>
         <Name>Paris</Name>
         <Position>80 446</Position>
-        <State>NewlyUnlocked</State>
+        <State>Locked</State>
         <ClearedDialogAsset>Cities\\BParis\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\BParis\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\BParis\\NewlyUnlocked</NewlyUnlockedDialogAsset>
@@ -45,29 +45,29 @@
       <Item>
         <ID>3</ID>
         <Left>1</Left>
-        <Right>0</Right>
-        <Up>0</Up>
+        <Right>5</Right>
+        <Up>4</Up>
         <Down>0</Down>
         <Name>Reine</Name>
         <Position>516 506</Position>
-        <State>Unlocked</State>
+        <State>Locked</State>
         <ClearedDialogAsset>Cities\\CReine\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\CReine\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\CReine\\NewlyUnlocked</NewlyUnlockedDialogAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>0</Unlock1>
+        <Unlock1>5</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>4</ID>
-        <Left>0</Left>
-        <Right>0</Right>
+        <Left>1</Left>
+        <Right>6</Right>
         <Up>0</Up>
-        <Down>0</Down>
+        <Down>3</Down>
         <Name>Ciboure</Name>
         <Position>670 170</Position>
         <State>Locked</State>
@@ -77,14 +77,14 @@
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>0</Unlock1>
-        <Unlock2>0</Unlock2>
+        <Unlock1>3</Unlock1>
+        <Unlock2>6</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>5</ID>
-        <Left>0</Left>
+        <Left>3</Left>
         <Right>0</Right>
         <Up>0</Up>
         <Down>0</Down>
@@ -104,10 +104,10 @@
       </Item>
       <Item>
         <ID>6</ID>
-        <Left>0</Left>
-        <Right>0</Right>
+        <Left>4</Left>
+        <Right>7</Right>
         <Up>0</Up>
-        <Down>0</Down>
+        <Down>7</Down>
         <Name>Montmartre</Name>
         <Position>1086 84</Position>
         <State>Locked</State>
@@ -117,16 +117,16 @@
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>0</Unlock1>
+        <Unlock1>7</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>false</BigSix>
       </Item>
       <Item>
         <ID>7</ID>
-        <Left>0</Left>
+        <Left>6</Left>
         <Right>0</Right>
-        <Up>0</Up>
+        <Up>6</Up>
         <Down>0</Down>
         <Name>Milan</Name>
         <Position>1308 236</Position>

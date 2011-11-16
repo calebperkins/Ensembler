@@ -86,9 +86,9 @@ namespace EnsemPro
                 if (city_data.Unlock1 > 0)
                     c.Unlocked[0] = map[city_data.Unlock1];
                 if (city_data.Unlock2 > 0)
-                    c.Unlocked[1] = map[city_data.Unlock1];
+                    c.Unlocked[1] = map[city_data.Unlock2];
                 if (city_data.Unlock3 > 0)
-                    c.Unlocked[2] = map[city_data.Unlock1];
+                    c.Unlocked[2] = map[city_data.Unlock3];
             }
 
             Cities = new HashSet<Models.City>(map.Values);
@@ -121,9 +121,16 @@ namespace EnsemPro
 
                     /// code for inGame
                 case State.inGame :
-                    if (gameState.Score > SelectedCity.Data.ScoreReq && gameState.Combo > SelectedCity.Data.ComboReq)
+                    if (gameState.Score >= SelectedCity.Data.ScoreReq && gameState.Combo >= SelectedCity.Data.ComboReq)
                     {
                         SelectedCity.State = DataTypes.WorldData.CityState.Cleared;
+                        foreach (Models.City c in SelectedCity.Unlocked){
+                            if (c != null)
+                            {
+                                Console.WriteLine("here at city" + c.Data.Name);
+                                c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
+                            }
+                        }
                     }
                     else
                     {
