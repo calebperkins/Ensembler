@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Audio;
+using XnaColor = Microsoft.Xna.Framework.Color;
 
 
 namespace EnsemPro
@@ -19,12 +20,12 @@ namespace EnsemPro
 
         Queue<String> names;
         Queue<String> lines;
-        Queue<String> colors;
+        Dictionary<String,XnaColor> colors;
         Dictionary<String,Texture2D> faces;
 
         String speaker;
         String speech;
-        String color;
+        XnaColor color;
         Texture2D face;
 
         DialogModel dialogModel;
@@ -44,12 +45,12 @@ namespace EnsemPro
 
             names = new Queue<String>();
             lines = new Queue<String>();
-            colors = new Queue<String>();
+            colors = new Dictionary<String,XnaColor>();
             faces = new Dictionary<String,Texture2D>();
             Parse();
             speaker = "";
             speech = cityName;
-            color = "Black";
+            color = XnaColor.Black;
             screen = new DialogView(sb);
             
         }
@@ -74,6 +75,14 @@ namespace EnsemPro
 
         private void Parse()
         {
+            for (int i = 0; i < dialogModel.Colors.Length; i++)
+            {
+                string characterName = dialogModel.Colors[i].Character;
+                string colorName = dialogModel.Colors[i].Color;
+                System.Drawing.Color color = System.Drawing.Color.FromName(colorName);
+                XnaColor xnaColor = new XnaColor(color.R, color.G, color.B, color.A);
+                colors.Add(characterName, xnaColor);
+            }
             for (int i = 0; i < dialogModel.Faces.Length; i++)
             {
                 string face = dialogModel.Faces[i].FaceAssetName;
@@ -87,7 +96,6 @@ namespace EnsemPro
             {
                 names.Enqueue(dialogModel.Content[i].Character);
                 lines.Enqueue(dialogModel.Content[i].Line);
-                colors.Enqueue(dialogModel.Content[i].Color);
             }
         }
 
@@ -108,6 +116,7 @@ namespace EnsemPro
                     NextDialog.Play();
                     speaker = names.Dequeue();
                     speech = lines.Dequeue();
+                    color = colors[speaker];
                     if (faces.ContainsKey(speaker))
                     {
                         face = faces[speaker];
@@ -127,8 +136,6 @@ namespace EnsemPro
                         secondPart = secondPart.Substring(lastSpace, secondPart.Length - lastSpace);
                     }
                     speech = firstPart + secondPart;
-
-                    color = colors.Dequeue();
                 }
                 lastState = ks;
             }

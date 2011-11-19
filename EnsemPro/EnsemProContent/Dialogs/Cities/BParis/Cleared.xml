@@ -5,8 +5,18 @@
       <Item>
         <Character>Player</Character>
         <Line>Lol cleared</Line>
-        <Color>Blue</Color>
       </Item>
     </Content>
+    <Colors>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName>
+      </Item>
+    </Faces>
   </Asset>
 </XnaContent>

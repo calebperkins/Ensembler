@@ -8,6 +8,11 @@ namespace DataTypes
     {
         public string Character;
         public string Line;
+    }
+
+    public struct ColorSummary
+    {
+        public string Character;
         public string Color;
     }
 
@@ -19,6 +24,7 @@ namespace DataTypes
     public class DialogData
     {
         public ContentSummary[] Content;
+        public ColorSummary[] Colors;
         public FaceTexturePath[] Faces;
     }
 }

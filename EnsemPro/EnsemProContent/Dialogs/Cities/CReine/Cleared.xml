@@ -5,8 +5,18 @@
       <Item>
         <Character>Bartender</Character>
         <Line>Are you back for another cup of apple cider? Sure thing, here you go!</Line>
-        <Color>Brown</Color>
       </Item>
     </Content>
+    <Colors>
+      <Item>
+        <Character>Bartender</Character>
+        <Color>OliveDrab</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item>
+        <FaceAssetName>null</FaceAssetName>
+      </Item>
+    </Faces>
   </Asset>
 </XnaContent>

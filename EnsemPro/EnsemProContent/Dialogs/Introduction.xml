@@ -5,30 +5,31 @@
       <Item>
         <Character>Mysterious voice from the dark</Character>
         <Line>......</Line>
-        <Color>Black</Color>
       </Item>
       <Item>
         <Character>Mysterious voice from the dark</Character>
         <Line>welcome to the world of Ensembler!</Line>
-        <Color>Black</Color>
       </Item>
       <Item>
         <Character>Mysterious voice from the dark</Character>
         <Line>In this magical world, you have the opportunity to encounter musical masters from 
         any time in history, and anywhere in the world.</Line>
-        <Color>Black</Color>
       </Item>
       <Item>
         <Character>Mysterious voice from the dark</Character>
         <Line>You will embark on a journey to become the world's most prominent conductor and ensembler,</Line>
-        <Color>Black</Color>
       </Item>
       <Item>
         <Character>Mysterious voice from the dark</Character>
         <Line>but first you will need to learn the basics of conducting in this world.</Line>
-        <Color>Black</Color>
       </Item>
     </Content>
+    <Colors>
+      <Item>
+        <Character>Mysterious voice from the dark</Character>
+        <Color>Black</Color>
+      </Item>
+    </Colors>
     <Faces>
       <Item>
         <FaceAssetName>null</FaceAssetName>

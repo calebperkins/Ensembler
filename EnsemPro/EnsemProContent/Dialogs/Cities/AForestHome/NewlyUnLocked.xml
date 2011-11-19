@@ -1,80 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <Asset Type="DataTypes.DialogData">
-    
     <Content>
       <Item>
-        <Character>Sister</Character>
+        <Character>Alice</Character>
         <Line>Hey, player...
         </Line>
-        <Color>Orange</Color>
       </Item>
       <Item>
         <Character>Player</Character>
         <Line>I am listening, sister.</Line>
-        <Color>Blue</Color>
       </Item>
       <Item>
-        <Character>Sister</Character>
+        <Character>Alice</Character>
         <Line>I know you are determined to leave, no matter what I say...
         </Line>
-        <Color>Orange</Color>
       </Item>
       <Item>
         <Character>Player</Character>
         <Line>I have made up my mind.</Line>
-        <Color>Blue</Color>
       </Item>
       <Item>
-        <Character>Sister</Character>
+        <Character>Alice</Character>
         <Line>But!... At least take this with you...</Line>
-        <Color>Orange</Color>
       </Item>
       <Item>
         <Character>Game</Character>
         <Line>*player receives baton*</Line>
-        <Color>Red</Color>
       </Item>
       <Item>
-        <Character>Sister</Character>
+        <Character>Alice</Character>
         <Line>You don't have to thank me, this belongs to your father
         </Line>
-        <Color>Orange</Color>
       </Item>
       <Item>
         <Character>Player</Character>
         <Line>Father......</Line>
-        <Color>Blue</Color>
       </Item>
       <Item>
-        <Character>Sister</Character>
+        <Character>Alice</Character>
         <Line>Hey player...
         </Line>
-        <Color>Orange</Color>
       </Item>
       <Item>
         <Character>Player</Character>
         <Line>Yes?</Line>
-        <Color>Blue</Color>
       </Item>
       <Item>
-        <Character>Sister</Character>
+        <Character>Alice</Character>
         <Line>Can you wave that baton one last time... for me? I will play my favourite piece: Air on G String.
         </Line>
-        <Color>Orange</Color>
       </Item>
       <Item>
         <Character>Player</Character>
         <Line>Of course.</Line>
-        <Color>Blue</Color>
       </Item>
     </Content>
-    <Faces>
+    <Colors>
       <Item>
-        <FaceAssetName>Images\\Sister</FaceAssetName>
+        <Character>Game</Character>
+        <Color>Red</Color>
       </Item>
       <Item>
-        <FaceAssetName>Images\\Player</FaceAssetName>
+        <Character>Alice</Character>
+        <Color>Orange</Color>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Alice</FaceAssetName>
+      </Item>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName>
       </Item>
     </Faces>
   </Asset>

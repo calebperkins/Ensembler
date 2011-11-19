@@ -5,8 +5,18 @@
       <Item>
         <Character>Saint Saens</Character>
         <Line>Hello Young man, how do you like my new piece?</Line>
-        <Color>Purple</Color>
       </Item>
     </Content>
+    <Colors>
+      <Item>
+        <Character>Saint Saens</Character>
+        <Color>Purple</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item>
+        <FaceAssetName>null</FaceAssetName>
+      </Item>
+    </Faces>
   </Asset>
 </XnaContent>

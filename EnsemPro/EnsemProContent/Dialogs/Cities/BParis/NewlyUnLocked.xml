@@ -5,51 +5,61 @@
       <Item>
         <Character>Saint Saens</Character>
         <Line>Bonjour monseiur.</Line>
-        <Color>Purple</Color>
       </Item>
       <Item>
         <Character>Player</Character>
         <Line>er... Wassup</Line>
-        <Color>Blue</Color>
       </Item>
       <Item>
         <Character>Saint Saens</Character>
         <Line>Is that a baton you are holding on your hand? May I have a look?</Line>
-        <Color>Purple</Color>
       </Item>
       <Item>
         <Character>Player</Character>
         <Line>Sure.</Line>
-        <Color>Blue</Color>
       </Item>
       <Item>
         <Character>Saint Saens</Character>
         <Line>!!! I once met a conductor who used the exact same baton as this. He was one of the finest musician I have ever met!
         </Line>
-        <Color>Purple</Color>
       </Item>
         <Item>
           <Character>Player</Character>
           <Line>er... Thanks, I believe this baton belongs to my father.</Line>
-          <Color>Blue</Color>
         </Item>
       <Item>
         <Character>Saint Saens</Character>
         <Line>I see. Here, I have something for you.</Line>
-        <Color>Purple</Color>
       </Item>
       <Item>
         <Character>Game</Character>
         <Line>*player receives a new piece: aquarium*
         *player can now choose aquarium from level selection*</Line>
-        <Color>Red</Color>
       </Item>
       <Item>
         <Character>Saint Saens</Character>
         <Line>This is my latest composition. I trust that you are the right person to perform this piece.
         Anyways, farewell, and remember to make good use of that baton!</Line>
-        <Color>Purple</Color>
       </Item>
     </Content>
+    <Colors>
+      <Item>
+        <Character>Game</Character>
+        <Color>Red</Color>
+      </Item>
+      <Item>
+        <Character>Saint Saens</Character>
+        <Color>Purple</Color>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName>
+      </Item>
+    </Faces>
   </Asset>
 </XnaContent>

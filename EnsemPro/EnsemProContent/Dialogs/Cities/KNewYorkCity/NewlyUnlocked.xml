@@ -7,5 +7,16 @@
         <Line>Lol newly unlocked</Line>
       </Item>
     </Content>
+    <Colors>
+      <Item>
+        <Character>A</Character>
+        <Color>Red</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item>
+        <FaceAssetName>null</FaceAssetName>
+      </Item>
+    </Faces>
   </Asset>
 </XnaContent>
