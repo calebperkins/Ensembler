@@ -328,12 +328,16 @@ namespace EnsemPro
             spriteBatch.Draw(background, new Vector2(), Color.White);
 
             // Draw beat and score
+#if DEBUG
             string beat = "beat " + current_beat;
+            spriteBatch.DrawString(font, beat, new Vector2(0, 0), Color.White);
+#endif
+
+
             // Find the center of the string
             // Vector2 FontOrigin = font.MeasureString(output) / 2;
             string vol = "volume: " + (int) (volume * 10);
             // Draw the string
-            spriteBatch.DrawString(font, beat, new Vector2(0, 0), Color.White);
             spriteBatch.DrawString(font, vol, new Vector2(125, 0), Color.White);
             spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.White);
             spriteBatch.DrawString(font, actionList.Count!=0 ? (gainedScore >= 0 ? "+"+gainedScore : ""+gainedScore) : "", new Vector2(460, 0), 
@@ -394,6 +398,15 @@ namespace EnsemPro
             baton.Draw(t);
             satisfaction.Draw(spriteBatch);
 
+            // Draw beginning countdown
+            if (current_beat < 3)
+            {
+                string counter = (3 - current_beat).ToString();
+                Vector2 textCenter = new Vector2(Game.GraphicsDevice.Viewport.Width, Game.GraphicsDevice.Viewport.Height);
+                Vector2 counterSize = font.MeasureString(counter);
+                spriteBatch.DrawString(font, counter, (textCenter - counterSize) / 2, Color.White);
+            }
+
             // Draw to screen if level failed
             if (failed)
             {
@@ -412,8 +425,8 @@ namespace EnsemPro
         /// <returns></returns>
         private float Alpha(int a, int b)
         {
-            int duration = a - b;
-            return Math.Max(0, (int)watch.ElapsedMilliseconds - b * beatTime)/ (duration * beatTime / 2);
+            float total = (a-b) * beatTime / 2;
+            return Math.Max(0, (int)watch.ElapsedMilliseconds - b * beatTime)/ total;
         }
 
     }
