@@ -5,6 +5,7 @@
       <Item>
         <Character>Player</Character>
         <Line>It is so nice to be in a place surrounded by music! But I have more important things to do now...</Line>
+        <Color>Blue</Color>
       </Item>
     </Content>
   </Asset>

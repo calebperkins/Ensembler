@@ -12,7 +12,13 @@ namespace EnsemPro
             get;
             set;
         }
-        
+
+        public DataTypes.FaceTexturePath[] Faces
+        {
+            get;
+            set;
+        }
+
         public DialogModel(string filename)
         {
             DialogFileName = filename;
@@ -21,6 +27,7 @@ namespace EnsemPro
         public void LoadContent(ContentManager cm)
         {
             Content = cm.Load<DataTypes.DialogData>("Dialogs//" + DialogFileName).Content;
+            Faces = cm.Load<DataTypes.DialogData>("Dialogs//" + DialogFileName).Faces;
         }
     }
 }

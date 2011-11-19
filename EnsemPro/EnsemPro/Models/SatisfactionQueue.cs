@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+using System;
 
 namespace EnsemPro
 {
@@ -16,9 +17,9 @@ namespace EnsemPro
         }
 
 
-        public void LoadContent(ContentManager content)
+        public void LoadContent(ContentManager content, String path)
         {
-            base.LoadContent(content, "images\\love");
+            base.LoadContent(content, path);
         }
 
         public override void Update(GameTime gameTime)

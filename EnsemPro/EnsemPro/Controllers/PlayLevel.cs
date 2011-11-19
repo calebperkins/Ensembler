@@ -31,6 +31,7 @@ namespace EnsemPro
         int comboCount;
         int maxCombo;
         int backToMenu;
+        String satisfactionImagePath="Images\\aquarium";
 
         SpriteFont font;
         SpriteBatch spriteBatch;
@@ -78,6 +79,9 @@ namespace EnsemPro
             // todo: dynamic loading
             DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>(gameState.SelectedLevel);
             song = Game.Content.Load<Song>(data.SongAssetName);
+            satisfactionImagePath = data.SatisfactionAssetName;
+            satisfaction.LoadContent(Game.Content, satisfactionImagePath);
+
             MediaPlayer.IsRepeating = false;
             Console.WriteLine(gameState.SelectedLevel);
 
@@ -120,8 +124,6 @@ namespace EnsemPro
             baton = new BatonView(Game, spriteBatch, buffer);
             baton.Initialize();
             satisfaction = new SatisfactionQueue(buffer);
-            satisfaction.LoadContent(Game.Content);
-
             current_beat = 0;
             last_beat = -1;
             base.Initialize();

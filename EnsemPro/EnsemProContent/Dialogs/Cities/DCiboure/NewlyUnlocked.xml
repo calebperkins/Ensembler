@@ -5,59 +5,73 @@
       <Item>
         <Character>Frederic</Character>
         <Line>Welcome to the conservatory!</Line>
+        <Color>Aqua</Color>
       </Item>
       <Item>
         <Character>Game</Character>
         <Line>The hall is full of practice room. You feel like you are surrounded by music.</Line>
+        <Color>Red</Color>
       </Item>
       <Item>
         <Character>Frederic</Character>
         <Line>Let's see if my students have been practicing lately...</Line>
+        <Color>Aqua</Color>
       </Item>
       <Item>
         <Character>Game</Character>
         <Line>Frederic leads you to a room upstairs. A string trio is playing Ravel's Bolero inside. You stand there and listen for a while.</Line>
+        <Color>Red</Color>
       </Item>
       <Item>
         <Character>Frederic</Character>
         <Line>hmm... not bad, but something is not right.</Line>
+        <Color>Aqua</Color>
       </Item>
       <Item>
         <Character>Student 1</Character>
         <Line>Frederic!</Line>
+        <Color>Maroon</Color>
       </Item>
       <Item>
         <Character>Student 2</Character>
         <Line>We need your help!</Line>
+        <Color>Tomato</Color>
       </Item>
       <Item>
         <Character>Student 3</Character>
         <Line>For some reason our Bolero just does not sound good even though we can play all the notes perfectly...</Line>
+        <Color>Wheat</Color>
       </Item>
       <Item>
         <Character>Frederic</Character>
         <Line>I am glad that you girls have realized music is more than just hitting the correct notes. For a piece like Bolero, effective dynamics control is crucial to demonstrating the genius of Ravel's orchestration...</Line>
+        <Color>Aqua</Color>
       </Item>
       <Item>
         <Character>Student 1</Character>
         <Line>Wait wait!! I don't think I understand...</Line>
+        <Color>Maroon</Color>
       </Item>
       <Item>
         <Character>Student 2</Character>
         <Line>How do we know when to change dynamics?</Line>
+        <Color>Tomato</Color>
       </Item>
       <Item>
         <Character>Student 3</Character>
         <Line>And how do we make sure we are all doing it at the same time?</Line>
+        <Color>Wheat</Color>
       </Item>
       <Item>
         <Character>Frederic</Character>
         <Line>This reminds me! We have a guest today... meet player! Player, if you don't mind, can you conduct the girls and show them the right way of performing Bolero?
         </Line>
+        <Color>Aqua</Color>
       </Item>
       <Item>
         <Character>Player</Character>
         <Line>I will do my best.</Line>
+        <Color>Blue</Color>
       </Item>
     </Content>
   </Asset>

@@ -56,6 +56,7 @@ namespace DataTypes
         public string Title;
         public int BPM;
         public string SongAssetName;
+        public string SatisfactionAssetName;
         public string Artist;
         public string Background;
         public List<MovementData> Movements;

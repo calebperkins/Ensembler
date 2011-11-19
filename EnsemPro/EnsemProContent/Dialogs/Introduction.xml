@@ -29,5 +29,10 @@
         <Color>Black</Color>
       </Item>
     </Content>
+    <Faces>
+      <Item>
+        <FaceAssetName>null</FaceAssetName>
+      </Item>
+    </Faces>
   </Asset>
 </XnaContent>

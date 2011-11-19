@@ -20,35 +20,38 @@ namespace EnsemPro
         Queue<String> names;
         Queue<String> lines;
         Queue<String> colors;
+        Dictionary<String,Texture2D> faces;
 
         String speaker;
         String speech;
         String color;
+        Texture2D face;
 
         DialogModel dialogModel;
         DialogView screen;
-        //DataTypes.WorldData.CityState nodeState;
         KeyboardState lastState;
         SoundEffect NextDialog;
         SoundEffect ReceiveItem;
 
         bool IsFinished;
 
-        public DialogController(GameState gm, SpriteBatch sb, DialogModel dm, string cityName)
+        public DialogController(GameState gm, SpriteBatch sb, DialogModel dm, string cityName, ContentManager cm)
         {
             gameState = gm;
             spriteBatch = sb;
             dialogModel = dm;
+            contentManager = cm;
 
             names = new Queue<String>();
             lines = new Queue<String>();
             colors = new Queue<String>();
+            faces = new Dictionary<String,Texture2D>();
             Parse();
             speaker = "";
             speech = cityName;
             color = "Black";
             screen = new DialogView(sb);
-
+            
         }
 
         public void Initialize()
@@ -62,7 +65,6 @@ namespace EnsemPro
             screen.LoadContent(cm);
             NextDialog = cm.Load<SoundEffect>("Sounds//NextDialog");
             ReceiveItem = cm.Load<SoundEffect>("Sounds//ReceiveItem");
-            contentManager = cm;
         }
 
         public void UnloadContent() 
@@ -72,6 +74,15 @@ namespace EnsemPro
 
         private void Parse()
         {
+            for (int i = 0; i < dialogModel.Faces.Length; i++)
+            {
+                string face = dialogModel.Faces[i].FaceAssetName;
+                if (face != null)
+                {
+                    string characterName = face.Substring(face.LastIndexOf("\\") + 1, face.Length - (face.LastIndexOf("\\") + 1));
+                    faces.Add(characterName, contentManager.Load<Texture2D>(face));
+                }
+            }
             for (int i = 0; i< dialogModel.Content.Length; i++)
             {
                 names.Enqueue(dialogModel.Content[i].Character);
@@ -97,6 +108,14 @@ namespace EnsemPro
                     NextDialog.Play();
                     speaker = names.Dequeue();
                     speech = lines.Dequeue();
+                    if (faces.ContainsKey(speaker))
+                    {
+                        face = faces[speaker];
+                    }
+                    else
+                    {
+                        face = null;
+                    }
                     if (speech[0] == '*') ReceiveItem.Play();
                     string firstPart = "";
                     string secondPart = speech;
@@ -121,7 +140,7 @@ namespace EnsemPro
         /// <param name="t"></param>
         public void Draw(GameTime t)
         {
-            screen.Draw(t,speaker,speech,color);
+            screen.Draw(t,speaker,speech,color,face);
         }
     }
 }

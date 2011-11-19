@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <Asset Type="DataTypes.DialogData">
+    
     <Content>
       <Item>
         <Character>Sister</Character>
         <Line>Hey, player...
         </Line>
-        <Color>Black</Color>
+        <Color>Orange</Color>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -17,7 +18,7 @@
         <Character>Sister</Character>
         <Line>I know you are determined to leave, no matter what I say...
         </Line>
-        <Color>Black</Color>
+        <Color>Orange</Color>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -27,18 +28,18 @@
       <Item>
         <Character>Sister</Character>
         <Line>But!... At least take this with you...</Line>
-        <Color>Black</Color>
+        <Color>Orange</Color>
       </Item>
       <Item>
         <Character>Game</Character>
         <Line>*player receives baton*</Line>
-        <Color>Yellow</Color>
+        <Color>Red</Color>
       </Item>
       <Item>
         <Character>Sister</Character>
         <Line>You don't have to thank me, this belongs to your father
         </Line>
-        <Color>Black</Color>
+        <Color>Orange</Color>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -49,7 +50,7 @@
         <Character>Sister</Character>
         <Line>Hey player...
         </Line>
-        <Color>Black</Color>
+        <Color>Orange</Color>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -60,7 +61,7 @@
         <Character>Sister</Character>
         <Line>Can you wave that baton one last time... for me? I will play my favourite piece: Air on G String.
         </Line>
-        <Color>Black</Color>
+        <Color>Orange</Color>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -68,5 +69,13 @@
         <Color>Blue</Color>
       </Item>
     </Content>
+    <Faces>
+      <Item>
+        <FaceAssetName>Images\\Sister</FaceAssetName>
+      </Item>
+      <Item>
+        <FaceAssetName>Images\\Player</FaceAssetName>
+      </Item>
+    </Faces>
   </Asset>
 </XnaContent>

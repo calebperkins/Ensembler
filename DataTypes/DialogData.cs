@@ -10,9 +10,15 @@ namespace DataTypes
         public string Line;
         public string Color;
     }
+
+    public struct FaceTexturePath
+    {
+        public string FaceAssetName;
+    }
     
     public class DialogData
     {
         public ContentSummary[] Content;
+        public FaceTexturePath[] Faces;
     }
 }

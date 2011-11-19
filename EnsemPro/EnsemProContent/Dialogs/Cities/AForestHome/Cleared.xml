@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
-  <Asset Type="DataTypes.DialogData">
+  <Asset Type="DataTypes.DialogData"> 
     <Content>
       <Item>
         <Character>Player</Character>
@@ -8,5 +8,8 @@
         <Color>Blue</Color>
       </Item>
     </Content>
+    <Faces>
+      <Item><FaceAssetName>Images\\Player</FaceAssetName></Item>
+    </Faces>
   </Asset>
 </XnaContent>
