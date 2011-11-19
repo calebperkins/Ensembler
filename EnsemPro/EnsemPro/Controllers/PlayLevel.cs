@@ -271,6 +271,7 @@ namespace EnsemPro
 
             if (actionList.Count == 0 || failed) 
             {
+                MediaPlayer.Stop();
                 if (backToMenu == 0)
                 {
                     if (!failed)
@@ -294,6 +295,8 @@ namespace EnsemPro
                 {
                     gameState.Score = current_score;
                     gameState.Combo = (maxCombo > 1 ? maxCombo : 0);
+
+                    gameState.UpdateStats();
                 }
                 else
                 {

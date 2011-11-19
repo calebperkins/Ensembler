@@ -11,7 +11,7 @@ namespace EnsemPro
         GameState gameState;
         SpriteBatch spriteBatch;
 
-        ChooseLevelScreen levelSelectScreen;
+        LevelSelectView levelSelectScreen;
         int selected = 0;
 
         SoundEffect MenuMove;
@@ -21,7 +21,7 @@ namespace EnsemPro
         {
             gameState = gm;
             spriteBatch = sb;
-            levelSelectScreen = new ChooseLevelScreen(sb);
+            levelSelectScreen = new LevelSelectView(sb);
         }
 
         public void Initialize()

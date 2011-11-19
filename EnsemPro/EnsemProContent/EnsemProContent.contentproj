@@ -366,18 +366,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\WorldMap\map1.jpg">
-      <Name>map1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\WorldMap\map2.jpg">
-      <Name>map2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Levels\B5\Background.png">
       <Name>Background</Name>
       <Importer>TextureImporter</Importer>
@@ -603,6 +591,9 @@
     </Compile>
     <Compile Include="Images\Sister.png">
       <Name>Sister</Name>
+    </Compile>
+    <Compile Include="Images\WorldMap\map.png">
+      <Name>map</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
