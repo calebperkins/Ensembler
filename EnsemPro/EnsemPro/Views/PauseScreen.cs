@@ -7,13 +7,13 @@ namespace EnsemPro
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class PauseScreen : DrawableGameComponent
+    public class PauseScreenController : DrawableGameComponent
     {
         SpriteBatch spriteBatch;
         SpriteFont menuFont;
         GameState state;
 
-        public PauseScreen(Game game, SpriteBatch sb)
+        public PauseScreenController(Game game, SpriteBatch sb)
             : base(game)
         {
             spriteBatch = sb;
