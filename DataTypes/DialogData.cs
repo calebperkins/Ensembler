@@ -8,7 +8,7 @@ namespace DataTypes
     {
         public string Character;
         public string Line;
-       // public string Color;
+        public string Color;
     }
     
     public class DialogData

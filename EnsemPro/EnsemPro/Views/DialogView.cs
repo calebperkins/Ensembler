@@ -1,8 +1,9 @@
 ﻿using System;
-//using System.Drawing;
+using System.Drawing;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using XnaColor = Microsoft.Xna.Framework.Color;
 
 namespace EnsemPro
 {
@@ -38,12 +39,13 @@ namespace EnsemPro
             font = cm.Load<SpriteFont>("images/Lucidia");
         }
 
-        public void Draw(GameTime t,String n, String s)
+        public void Draw(GameTime t,String n, String s, String c)
         {
-          //  spriteBatch.Draw(background, new Vector2(), Color.White);
-            spriteBatch.Draw(dialogBox, dialogBoxPos, Color.White);
-            spriteBatch.DrawString(font, n, namePos, Color.Black, 0.0f, new Vector2(),0.85f,SpriteEffects.None,0.0f);
-            spriteBatch.DrawString(font, s, linePos, Color.Black, 0.0f, new Vector2(), 0.75f, SpriteEffects.None, 0.0f);
+            System.Drawing.Color color = System.Drawing.Color.FromName(c);
+            XnaColor xnaColor = new XnaColor(color.R, color.G, color.B, color.A);
+            spriteBatch.Draw(dialogBox, dialogBoxPos, XnaColor.White);
+            spriteBatch.DrawString(font, n, namePos, xnaColor, 0.0f, new Vector2(),0.85f,SpriteEffects.None,0.0f);
+            spriteBatch.DrawString(font, s, linePos, XnaColor.Black, 0.0f, new Vector2(), 0.75f, SpriteEffects.None, 0.0f);
         }
     }
 }

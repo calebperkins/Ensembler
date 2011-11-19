@@ -4,56 +4,73 @@
     <Content>
       <Item>
         <Character>Sister</Character>
-        <Line>Hey, player...
+        <Line>
+          Hey, player...
         </Line>
+        <Color>Black</Color>
       </Item>
       <Item>
         <Character>Player</Character>
         <Line>I am listening, sister.</Line>
+        <Color>Blue</Color>
       </Item>
       <Item>
         <Character>Sister</Character>
-        <Line>I know you are determined to leave, no matter what I say...
+        <Line>
+          I know you are determined to leave, no matter what I say...
         </Line>
+        <Color>Black</Color>
       </Item>
       <Item>
         <Character>Player</Character>
         <Line>I have made up my mind.</Line>
+        <Color>Blue</Color>
       </Item>
       <Item>
         <Character>Sister</Character>
         <Line>But!... At least take this with you...</Line>
+        <Color>Black</Color>
       </Item>
       <Item>
         <Character>Game</Character>
         <Line>*player receives baton*</Line>
+        <Color>Red</Color>
       </Item>
       <Item>
         <Character>Sister</Character>
-        <Line>You don't have to thank me, this belongs to your father.
+        <Line>
+          You don't have to thank me, this belongs to your father
         </Line>
+        <Color>Black</Color>
       </Item>
       <Item>
         <Character>Player</Character>
         <Line>Father......</Line>
+        <Color>Blue</Color>
       </Item>
       <Item>
         <Character>Sister</Character>
-        <Line>Hey player...
+        <Line>
+          Hey player...
         </Line>
+        <Color>Black</Color>
       </Item>
       <Item>
         <Character>Player</Character>
         <Line>Yes?</Line>
+        <Color>Blue</Color>
       </Item>
       <Item>
         <Character>Sister</Character>
-        <Line>Can you wave that baton one last time... for me? I will play my favourite piece: Air on G String.
+        <Line>
+          Can you wave that baton one last time... for me? I will play my favourite piece: Air on G String.
         </Line>
+        <Color>Black</Color>
       </Item>
       <Item>
         <Character>Player</Character>
         <Line>Of course.</Line>
+        <Color>Blue</Color>
       </Item>
     </Content>
   </Asset>

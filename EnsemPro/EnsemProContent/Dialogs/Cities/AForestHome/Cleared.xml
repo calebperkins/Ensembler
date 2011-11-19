@@ -5,8 +5,8 @@
       <Item>
         <Character>Player</Character>
         <Line>I cannot go back home yet, not until I become the best conductor in the world!</Line>
+        <Color>Blue</Color>
       </Item>
-      
     </Content>
   </Asset>
 </XnaContent>

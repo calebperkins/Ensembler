@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Audio;
 
+
 namespace EnsemPro
 {
     public class DialogController
@@ -45,6 +46,7 @@ namespace EnsemPro
             Parse();
             speaker = "";
             speech = cityName;
+            color = "Black";
             screen = new DialogView(sb);
 
         }
@@ -74,36 +76,8 @@ namespace EnsemPro
             {
                 names.Enqueue(dialogModel.Content[i].Character);
                 lines.Enqueue(dialogModel.Content[i].Line);
-               // colors.Enqueue(dialogModel.Content[i].Color);
+                colors.Enqueue(dialogModel.Content[i].Color);
             }
-            /*
-            switch (nodeState)
-            {
-                case DataTypes.WorldData.CityState.NewlyUnlocked:
-                    for (int i = 0; i < dialogModel.NewlyUnlocked.Length; i++)
-                    {
-                        names.Enqueue(dialogModel.NewlyUnlocked[i].Character);
-                        lines.Enqueue(dialogModel.NewlyUnlocked[i].Line);
-                    }
-                    break;
-                case DataTypes.WorldData.CityState.Unlocked:
-                    for (int i = 0; i < dialogModel.Unlocked.Length; i++)
-                    {
-                        names.Enqueue(dialogModel.Unlocked[i].Character);
-                        lines.Enqueue(dialogModel.Unlocked[i].Line);
-                    }
-                    break;
-                case DataTypes.WorldData.CityState.Cleared:
-                    for (int i = 0; i < dialogModel.Cleared.Length; i++)
-                    {
-                        names.Enqueue(dialogModel.Cleared[i].Character);
-                        lines.Enqueue(dialogModel.Cleared[i].Line);
-                    }
-                    break;
-                default:
-                    break;
-            }
-            */
         }
 
         public bool Finished() { return IsFinished; }
@@ -134,6 +108,8 @@ namespace EnsemPro
                         secondPart = secondPart.Substring(lastSpace, secondPart.Length - lastSpace);
                     }
                     speech = firstPart + secondPart;
+
+                    color = colors.Dequeue();
                 }
                 lastState = ks;
             }
@@ -145,7 +121,7 @@ namespace EnsemPro
         /// <param name="t"></param>
         public void Draw(GameTime t)
         {
-            screen.Draw(t,speaker,speech);
+            screen.Draw(t,speaker,speech,color);
         }
     }
 }
