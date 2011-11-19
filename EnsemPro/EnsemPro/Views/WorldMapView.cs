@@ -10,8 +10,7 @@ namespace EnsemPro
         public static int nodeXShift = 0;
 
         SpriteBatch spriteBatch;
-        Texture2D background1;
-        Texture2D background2;
+        Texture2D background;
         Texture2D lockedTexture;
         Texture2D newlyUnlockedTexture;
         Texture2D unlockedTexture;
@@ -19,29 +18,15 @@ namespace EnsemPro
 
         Texture2D selectedTexture;
 
-        public Vector2 CurBackgroundPos
-        {
-            get;
-            set;
-        }
-
-        public float WantedBackgroundPosX
-        {
-            get;
-            set;
-        }
-        
         public WorldMapView(SpriteBatch sb)
         {
             spriteBatch = sb;
-            CurBackgroundPos = new Vector2();
         }
 
         public void LoadContent(ContentManager cm)
         {
             // TODO CHANGE TEXTURES OF THESE
-            background1 = cm.Load<Texture2D>("images\\WorldMap\\map1");
-            background2 = cm.Load<Texture2D>("images\\WorldMap\\map2");
+            background = cm.Load<Texture2D>("images\\WorldMap\\map");
             lockedTexture = cm.Load<Texture2D>("images\\WorldMap\\locked");
             newlyUnlockedTexture = cm.Load<Texture2D>("images\\WorldMap\\newly_unlocked");
             unlockedTexture = cm.Load<Texture2D>("images\\WorldMap\\unlocked");
@@ -51,8 +36,7 @@ namespace EnsemPro
 
         public void Draw(HashSet<Models.City> cities, Models.City selected)
         {
-            spriteBatch.Draw(background1, CurBackgroundPos, Color.White);
-            spriteBatch.Draw(background2, new Vector2(CurBackgroundPos.X + background1.Width, CurBackgroundPos.Y), Color.White);
+            spriteBatch.Draw(background, new Vector2(), Color.White);
             foreach (Models.City node in cities)
             {
                 Texture2D current = null;
@@ -71,8 +55,6 @@ namespace EnsemPro
                         current = clearedTexture;
                         break;
                 }
-
-                node.AbsolutePosition.X = CurBackgroundPos.X + node.RelativePosition.X;
 
                 Vector2 origin = new Vector2(current.Width / 2, current.Height / 2);
                 float scale = 1.0f;

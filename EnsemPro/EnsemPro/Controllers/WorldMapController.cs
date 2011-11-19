@@ -10,10 +10,6 @@ namespace EnsemPro
 {
     class WorldMapController
     {
-        // TODO NEEDS TO CHANGE DYNAMICALLY
-        public const int MAP_WIDTH = 4000;
-        public const int SHIFT_PER_FRAME = 6;
-
         GameEngine game;
         SpriteBatch spriteBatch;
         GameState gameState;
@@ -102,29 +98,30 @@ namespace EnsemPro
 
             switch (currentState)
             {
-                    /// code for inDialog
-                case State.inDialog :
-                    if (SelectedCity.DialogControl.Finished()) 
+                /// code for inDialog
+                case State.inDialog:
+                    if (SelectedCity.DialogControl.Finished())
+                    {
+                        if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared)
+                            currentState = State.inMap;
+                        else
                         {
-                            if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared)
-                                currentState = State.inMap;
-                            else
-                            {
-                                gameState.SelectedLevel = SelectedCity.Data.PlayLevel;
-                                Console.WriteLine(gameState.SelectedLevel);
-                                gameState.CurrentScreen = DataTypes.Screens.PlayLevel;;
-                                currentState = State.inGame;
-                            }
+                            gameState.SelectedLevel = SelectedCity.Data.PlayLevel;
+                            Console.WriteLine(gameState.SelectedLevel);
+                            gameState.CurrentScreen = DataTypes.Screens.PlayLevel; ;
+                            currentState = State.inGame;
                         }
-                     else SelectedCity.DialogControl.Update(gameTime);
+                    }
+                    else SelectedCity.DialogControl.Update(gameTime);
                     break;
 
-                    /// code for inGame
-                case State.inGame :
+                /// code for inGame
+                case State.inGame:
                     if (gameState.Score >= SelectedCity.Data.ScoreReq && gameState.Combo >= SelectedCity.Data.ComboReq)
                     {
                         SelectedCity.State = DataTypes.WorldData.CityState.Cleared;
-                        foreach (Models.City c in SelectedCity.Unlocked){
+                        foreach (Models.City c in SelectedCity.Unlocked)
+                        {
                             if (c != null)
                             {
                                 Console.WriteLine("here at city" + c.Data.Name);
@@ -140,83 +137,55 @@ namespace EnsemPro
                     currentState = State.inMap;
                     break;
 
-                default : //inMap
-                  if (ks.IsKeyDown(Keys.Left) && lastState.IsKeyUp(Keys.Left) && SelectedCity.Left != null && SelectedCity.Left.NotLocked)
-                {
-                    SelectedCity = SelectedCity.Left;
-                    MapMove.Play();
-                }
-                  else if (ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right) && SelectedCity.Right != null && SelectedCity.Right.NotLocked)
-                {
-                    SelectedCity = SelectedCity.Right;
-                    MapMove.Play();
-                }
-                else if (ks.IsKeyDown(Keys.Up) && lastState.IsKeyUp(Keys.Up) && SelectedCity.Up != null && SelectedCity.Up.NotLocked)
-                {
-                    SelectedCity = SelectedCity.Up;
-                    MapMove.Play();
-                }
-                else if (ks.IsKeyDown(Keys.Down) && lastState.IsKeyUp(Keys.Down) && SelectedCity.Down != null && SelectedCity.Down.NotLocked)
-                {
-                    SelectedCity = SelectedCity.Down;
-                    MapMove.Play();
-                }
-                if (ks.IsKeyDown(Keys.D) && lastState.IsKeyUp(Keys.D))
-                {
-                    DialogModel toLoad = null;
-                    switch (SelectedCity.State)
+                default: //inMap
+                    if (ks.IsKeyDown(Keys.Left) && lastState.IsKeyUp(Keys.Left) && SelectedCity.Left != null && SelectedCity.Left.NotLocked)
                     {
-                        case DataTypes.WorldData.CityState.Cleared:
-                            toLoad = SelectedCity.clearedDialogue;
-                            break;
-                        case DataTypes.WorldData.CityState.NewlyUnlocked:
-                            toLoad = SelectedCity.newlyUnlockedDialogue;
-                            break;
-                        case DataTypes.WorldData.CityState.Unlocked:
-                            toLoad = SelectedCity.unlockedDialogue;
-                            break;
-                        default: //if the node is locked, though this shouldn't be reachable
-                            break;
+                        SelectedCity = SelectedCity.Left;
+                        MapMove.Play();
                     }
-                    if (toLoad != null)
+                    else if (ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right) && SelectedCity.Right != null && SelectedCity.Right.NotLocked)
                     {
-                        EnterCity.Play();
-                        toLoad.LoadContent(game.Content);
-                        SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, toLoad, SelectedCity.Name);
-                        SelectedCity.DialogControl.Initialize();
-                        SelectedCity.DialogControl.LoadContent(game.Content); // MOVE TO NODE'S 
+                        SelectedCity = SelectedCity.Right;
+                        MapMove.Play();
                     }
-                    currentState = State.inDialog;
-                }  
-                
-                
-                worldView.WantedBackgroundPosX = MathHelper.Clamp(-1 * (SelectedCity.RelativePosition.X - GameEngine.WIDTH / 2), -1 * (MAP_WIDTH - GameEngine.WIDTH), 0);
-                lastState = ks;
-
-                float diff = worldView.WantedBackgroundPosX - worldView.CurBackgroundPos.X;
-                if (diff > 0) // Want to shift origin of background to right
-                {
-                    if (Math.Abs(diff) > SHIFT_PER_FRAME)
+                    else if (ks.IsKeyDown(Keys.Up) && lastState.IsKeyUp(Keys.Up) && SelectedCity.Up != null && SelectedCity.Up.NotLocked)
                     {
-                        worldView.CurBackgroundPos = new Vector2(worldView.CurBackgroundPos.X + SHIFT_PER_FRAME, worldView.CurBackgroundPos.Y);
+                        SelectedCity = SelectedCity.Up;
+                        MapMove.Play();
                     }
-                    else
+                    else if (ks.IsKeyDown(Keys.Down) && lastState.IsKeyUp(Keys.Down) && SelectedCity.Down != null && SelectedCity.Down.NotLocked)
                     {
-                        worldView.CurBackgroundPos = new Vector2(worldView.WantedBackgroundPosX, worldView.CurBackgroundPos.Y);
+                        SelectedCity = SelectedCity.Down;
+                        MapMove.Play();
                     }
-                }
-                else if (diff < 0)
-                {
-                    if (Math.Abs(diff) > SHIFT_PER_FRAME)
+                    if (ks.IsKeyDown(Keys.D) && lastState.IsKeyUp(Keys.D))
                     {
-                        worldView.CurBackgroundPos = new Vector2(worldView.CurBackgroundPos.X - SHIFT_PER_FRAME, worldView.CurBackgroundPos.Y);
+                        DialogModel toLoad = null;
+                        switch (SelectedCity.State)
+                        {
+                            case DataTypes.WorldData.CityState.Cleared:
+                                toLoad = SelectedCity.clearedDialogue;
+                                break;
+                            case DataTypes.WorldData.CityState.NewlyUnlocked:
+                                toLoad = SelectedCity.newlyUnlockedDialogue;
+                                break;
+                            case DataTypes.WorldData.CityState.Unlocked:
+                                toLoad = SelectedCity.unlockedDialogue;
+                                break;
+                            default: //if the node is locked, though this shouldn't be reachable
+                                break;
+                        }
+                        if (toLoad != null)
+                        {
+                            EnterCity.Play();
+                            toLoad.LoadContent(game.Content);
+                            SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, toLoad, SelectedCity.Name);
+                            SelectedCity.DialogControl.Initialize();
+                            SelectedCity.DialogControl.LoadContent(game.Content); // MOVE TO NODE'S 
+                        }
+                        currentState = State.inDialog;
                     }
-                    else
-                    {
-                        worldView.CurBackgroundPos = new Vector2(worldView.WantedBackgroundPosX, worldView.CurBackgroundPos.Y);
-                    }
-                }
-                break;
+                    break;
             }
         }
 

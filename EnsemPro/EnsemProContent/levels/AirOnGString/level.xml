@@ -872,7 +872,7 @@
         <A>80</A>
       </Item>
       <Item>
-        <Kind>noop</Kind>
+        <Kind>Noop</Kind>
         <ShowBeat>73</ShowBeat>
         <StartBeat>73</StartBeat>
         <EndBeat>77</EndBeat>
