@@ -269,6 +269,7 @@ namespace EnsemPro
 
             if (actionList.Count == 0 || failed) 
             {
+                MediaPlayer.Stop();
                 if (backToMenu == 0)
                 {
                     if (!failed)
