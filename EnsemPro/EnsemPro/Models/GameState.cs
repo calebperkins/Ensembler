@@ -103,10 +103,11 @@ namespace EnsemPro
         public void UpdateStats()
         {
             int index = 0;
-            
+            Console.WriteLine("SELECTED IS " + SelectedLevel);
             // Finds index of city with SelectedLevel in Levels
             for (int i = 0; i < Levels.Length; i++)
             {
+                Console.WriteLine(i + " " + Levels[i].AssetName);
                 if (Levels[i].AssetName == SelectedLevel)
                 {
                     index = i;
