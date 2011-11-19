@@ -87,6 +87,11 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="Images\Sister.png">
+      <Name>Sister</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="journey.mp3">
       <Name>journey</Name>
       <Importer>Mp3Importer</Importer>
@@ -588,9 +593,6 @@
       <Name>Player</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Sister.png">
-      <Name>Sister</Name>
     </Compile>
     <Compile Include="Images\WorldMap\map.png">
       <Name>map</Name>
