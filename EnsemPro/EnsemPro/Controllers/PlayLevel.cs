@@ -292,6 +292,8 @@ namespace EnsemPro
                 {
                     gameState.Score = current_score;
                     gameState.Combo = (maxCombo > 1 ? maxCombo : 0);
+
+                    gameState.UpdateStats();
                 }
                 else
                 {

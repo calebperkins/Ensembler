@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System;
 
 namespace EnsemPro
 {
@@ -95,5 +96,26 @@ namespace EnsemPro
             return new Vector2(ViewPort.Width/2, ViewPort.Height/2);
         }
 
+        /// <summary>
+        /// Updates high score and high combo of a level
+        /// </summary>
+        /// <returns></returns>
+        public void UpdateStats()
+        {
+            int index = 0;
+            
+            // Finds index of city with SelectedLevel in Levels
+            for (int i = 0; i < Levels.Length; i++)
+            {
+                if (Levels[i].AssetName == SelectedLevel)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            Levels[index].HighScore = Math.Max(Levels[index].HighScore, Score);
+            Levels[index].HighCombo = Math.Max(Levels[index].HighCombo, Combo);                            
+        }
     }
 }

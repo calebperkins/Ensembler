@@ -1,10 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace EnsemPro
 {
-    class ChooseLevelScreen
+    class LevelSelectView
     {
         Texture2D background;
         SpriteBatch spriteBatch;
@@ -12,7 +13,7 @@ namespace EnsemPro
         Texture2D selectedTexture;
         SpriteFont font;
 
-        public ChooseLevelScreen(SpriteBatch sb)
+        public LevelSelectView(SpriteBatch sb)
         {
             spriteBatch = sb;
         }
@@ -34,6 +35,12 @@ namespace EnsemPro
                 spriteBatch.DrawString(font, levels[i].Title, new Vector2(450, 30+i*100), Color.Black);
             }
             
+            // Draws data about the selected level
+            float offsetBottom = GameEngine.HEIGHT - 100;
+            spriteBatch.DrawString(font, "High Score: " + levels[selected].HighScore, new Vector2(10, offsetBottom - 150), Color.Black);
+            spriteBatch.DrawString(font, "Developer High Score: " + levels[selected].DeveloperHighScore, new Vector2(10, offsetBottom - 100), Color.Black);
+            spriteBatch.DrawString(font, "High Combo: " + levels[selected].HighCombo, new Vector2(10, offsetBottom - 50), Color.Black);
+            spriteBatch.DrawString(font, "Developer High Combo: " + levels[selected].DeveloperHighCombo, new Vector2(10, offsetBottom), Color.Black);
         }
     }
 }
