@@ -30,7 +30,7 @@
         <Down>0</Down>
         <Name>Paris</Name>
         <Position>80 446</Position>
-        <State>Locked</State>
+        <State>NewlyUnlocked</State>
         <ClearedDialogAsset>Cities\\BParis\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\BParis\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\BParis\\NewlyUnlocked</NewlyUnlockedDialogAsset>
@@ -50,7 +50,7 @@
         <Down>0</Down>
         <Name>Reine</Name>
         <Position>516 506</Position>
-        <State>Locked</State>
+        <State>NewlyUnlocked</State>
         <ClearedDialogAsset>Cities\\CReine\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\CReine\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\CReine\\NewlyUnlocked</NewlyUnlockedDialogAsset>

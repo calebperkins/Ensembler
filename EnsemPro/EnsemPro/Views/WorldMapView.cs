@@ -9,6 +9,7 @@ namespace EnsemPro
     {
         public static int nodeXShift = 0;
 
+        SpriteFont font;
         SpriteBatch spriteBatch;
         Texture2D background;
         Texture2D lockedTexture;
@@ -26,9 +27,10 @@ namespace EnsemPro
         public void LoadContent(ContentManager cm)
         {
             // TODO CHANGE TEXTURES OF THESE
+            font = cm.Load<SpriteFont>("images\\WorldMap\\text");
             background = cm.Load<Texture2D>("images\\WorldMap\\map");
             lockedTexture = cm.Load<Texture2D>("images\\WorldMap\\locked");
-            newlyUnlockedTexture = cm.Load<Texture2D>("images\\WorldMap\\newly_unlocked");
+            newlyUnlockedTexture = cm.Load<Texture2D>("images\\WorldMap\\unlocked");
             unlockedTexture = cm.Load<Texture2D>("images\\WorldMap\\unlocked");
             clearedTexture = cm.Load<Texture2D>("images\\WorldMap\\cleared");
             selectedTexture = cm.Load<Texture2D>("images\\ring");
@@ -63,8 +65,8 @@ namespace EnsemPro
 
                 if (node == selected)
                 {
-                    origin = new Vector2(selectedTexture.Width / 2, selectedTexture.Height / 2);
-                    spriteBatch.Draw(selectedTexture, node.AbsolutePosition, null, Color.White, 0.0f, origin, scale, SpriteEffects.None, 0);
+                    //System.Console.Write("here");
+                    spriteBatch.DrawString(font, node.Data.Name, new Vector2(node.AbsolutePosition.X + 8, node.AbsolutePosition.Y - 7), Color.Black);
                 }
             }
         }
