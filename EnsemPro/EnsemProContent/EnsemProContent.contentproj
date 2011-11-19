@@ -42,6 +42,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialogs\Cities\BParis\Cleared.xml">
+      <Name>Cleared</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Dialogs\Cities\BParis\NewlyUnLocked.xml">
+      <Name>NewlyUnLocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Dialogs\Cities\BParis\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Dialogs\Cities\CReine\Cleared.xml">
+      <Name>Cleared</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Dialogs\Cities\CReine\NewlyUnlocked.xml">
+      <Name>NewlyUnlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Dialogs\Cities\CReine\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
     <Compile Include="Images\dot.png">
       <Name>dot</Name>
       <Importer>TextureImporter</Importer>

@@ -3,8 +3,9 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
+        <Character>Player</Character>
         <Line>Lol cleared</Line>
+        <Color>Blue</Color>
       </Item>
     </Content>
   </Asset>

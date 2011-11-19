@@ -47,7 +47,7 @@ namespace DataTypes
 
         public override string ToString()
         {
-            return Kind + "/" + StartBeat; 
+            return Kind + "/" + StartBeat;
         }
     }
 

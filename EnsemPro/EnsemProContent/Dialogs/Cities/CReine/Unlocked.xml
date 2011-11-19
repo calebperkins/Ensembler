@@ -5,6 +5,7 @@
       <Item>
         <Character>Player</Character>
         <Line>I must make Frederic join my ensemble!!</Line>
+        <Color>Blue</Color>
       </Item>
     </Content>
   </Asset>

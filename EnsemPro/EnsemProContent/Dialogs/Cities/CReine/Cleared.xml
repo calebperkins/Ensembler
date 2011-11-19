@@ -5,6 +5,7 @@
       <Item>
         <Character>Bartender</Character>
         <Line>Are you back for another cup of apple cider? Sure thing, here you go!</Line>
+        <Color>Brown</Color>
       </Item>
     </Content>
   </Asset>
