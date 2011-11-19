@@ -4,6 +4,7 @@
     <Title>Aquarium</Title>
     <BPM>65</BPM>
     <SongAssetName>Levels\\Aquarium\\aquarium</SongAssetName>
+    <SatisfactionAssetName>Images\\aquarium</SatisfactionAssetName>
     <Artist>Beethoven</Artist>
     <Background>Levels\\B5\\background</Background>
     <Movements>

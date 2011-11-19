@@ -179,7 +179,7 @@ namespace EnsemPro
                         {
                             EnterCity.Play();
                             toLoad.LoadContent(game.Content);
-                            SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, toLoad, SelectedCity.Name);
+                            SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, toLoad, SelectedCity.Name,game.Content);
                             SelectedCity.DialogControl.Initialize();
                             SelectedCity.DialogControl.LoadContent(game.Content); // MOVE TO NODE'S 
                         }

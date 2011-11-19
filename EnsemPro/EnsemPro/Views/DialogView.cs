@@ -1,5 +1,4 @@
 ﻿using System;
-//using System.Drawing;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,12 +10,9 @@ namespace EnsemPro
         SpriteBatch spriteBatch;
         Texture2D background;
         Texture2D dialogBox;
-        Texture2D personATexture;
-        Texture2D personBTexture;
         SpriteFont font;
 
-        Vector2 personAPos;
-        Vector2 personBPos;
+        Vector2 facePos;
         Vector2 dialogBoxPos;
         Vector2 namePos;
         Vector2 linePos;
@@ -24,9 +20,9 @@ namespace EnsemPro
         public DialogView(SpriteBatch sb)
         {
             spriteBatch = sb;
-            personAPos = new Vector2(200, 400);
-            personBPos = new Vector2(600, 400);
+            // TODO: remove the hardcoding
             dialogBoxPos = new Vector2(50, 350);
+            facePos = new Vector2(40, 170);
             namePos = new Vector2(60, 365);
             linePos = new Vector2(90, 440);
         }
@@ -38,12 +34,15 @@ namespace EnsemPro
             font = cm.Load<SpriteFont>("images/Lucidia");
         }
 
-        public void Draw(GameTime t,String n, String s)
+        public void Draw(GameTime t,String n, String s, Color c, Texture2D f)
         {
-          //  spriteBatch.Draw(background, new Vector2(), Color.White);
             spriteBatch.Draw(dialogBox, dialogBoxPos, Color.White);
-            spriteBatch.DrawString(font, n, namePos, Color.Black, 0.0f, new Vector2(),0.85f,SpriteEffects.None,0.0f);
+            spriteBatch.DrawString(font, n, namePos, c, 0.0f, new Vector2(),0.85f,SpriteEffects.None,0.0f);
             spriteBatch.DrawString(font, s, linePos, Color.Black, 0.0f, new Vector2(), 0.75f, SpriteEffects.None, 0.0f);
+            if (f != null) 
+            {
+                spriteBatch.Draw(f, facePos, Color.White);
+            }
         }
     }
 }

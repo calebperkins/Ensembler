@@ -4,6 +4,7 @@
     <Title>Air On G String</Title>
     <BPM>40</BPM>
     <SongAssetName>Levels\\AirOnGString\\song</SongAssetName>
+    <SatisfactionAssetName>Images\\love</SatisfactionAssetName>
     <Artist>Bach</Artist>
     <Background>Levels\\B5\\background</Background>
     <Movements>

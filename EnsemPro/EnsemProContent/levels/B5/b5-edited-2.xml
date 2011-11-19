@@ -4,6 +4,7 @@
     <Title>Symphony No. 5</Title>
     <BPM>100</BPM>
     <SongAssetName>Levels\\B5\\b5complete</SongAssetName>
+    <SatisfactionAssetName>Images\\sparkle</SatisfactionAssetName>
     <Artist>Beethoven</Artist>
     <Background>Levels\\B5\\background</Background>
     <Movements>

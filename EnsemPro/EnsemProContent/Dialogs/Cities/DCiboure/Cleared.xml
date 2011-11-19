@@ -7,5 +7,16 @@
         <Line>It is so nice to be in a place surrounded by music! But I have more important things to do now...</Line>
       </Item>
     </Content>
+    <Colors>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName>
+      </Item>
+    </Faces>
   </Asset>
 </XnaContent>

@@ -24,5 +24,16 @@
         <Line>but first you will need to learn the basics of conducting in this world.</Line>
       </Item>
     </Content>
+    <Colors>
+      <Item>
+        <Character>Mysterious voice from the dark</Character>
+        <Color>Black</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item>
+        <FaceAssetName>null</FaceAssetName>
+      </Item>
+    </Faces>
   </Asset>
 </XnaContent>

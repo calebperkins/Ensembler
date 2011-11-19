@@ -4,6 +4,7 @@
     <Title>Bolero</Title>
     <BPM>70</BPM>
     <SongAssetName>Levels\\Bolero\\song</SongAssetName>
+    <SatisfactionAssetName>Images\\sparkle</SatisfactionAssetName>
     <Artist>Ravel</Artist>
     <Background>Levels\\B5\\background</Background>
     <Movements>

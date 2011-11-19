@@ -7,5 +7,16 @@
         <Line>I need to play something that reminds the old lady of the creatures of the sea...</Line>
       </Item>
     </Content>
+    <Colors>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName>
+      </Item>
+    </Faces>
   </Asset>
 </XnaContent>
