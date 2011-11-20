@@ -117,14 +117,7 @@ namespace EnsemPro
                     speaker = names.Dequeue();
                     speech = lines.Dequeue();
                     color = colors[speaker];
-                    if (faces.ContainsKey(speaker))
-                    {
-                        face = faces[speaker];
-                    }
-                    else
-                    {
-                        face = null;
-                    }
+                    face = (faces.ContainsKey(speaker) ? faces[speaker] : null);
                     if (speech[0] == '*') ReceiveItem.Play();
                     string firstPart = "";
                     string secondPart = speech;

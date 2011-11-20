@@ -113,6 +113,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AudioManager.cs" />
+    <Compile Include="Controllers\SaveGameManager.cs" />
+    <Compile Include="Controllers\unit.cs" />
     <Compile Include="Views\BatonView.cs" />
     <Compile Include="Views\LevelSelectView.cs" />
     <Compile Include="Controllers\ScreenManager.cs" />

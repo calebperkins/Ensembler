@@ -57,47 +57,47 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Images\dot.png">
+    <Compile Include="Levels\Images\dot.png">
       <Name>dot</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\dot_fail.png">
+    <Compile Include="Levels\Images\dot_fail.png">
       <Name>dot_fail</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\dot_ready.png">
+    <Compile Include="Levels\Images\dot_ready.png">
       <Name>dot_ready</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\dot_win.png">
+    <Compile Include="Levels\Images\dot_win.png">
       <Name>dot_win</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\flower.png">
+    <Compile Include="Levels\Images\flower.png">
       <Name>flower</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\heart.bmp">
+    <Compile Include="Levels\Images\heart.bmp">
       <Name>heart</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\line.png">
+    <Compile Include="Levels\Images\line.png">
       <Name>line</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\note_blue.png">
+    <Compile Include="Levels\Images\note_blue.png">
       <Name>note_blue</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\note_yellow.bmp">
+    <Compile Include="Levels\Images\note_yellow.bmp">
       <Name>note_yellow</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -107,26 +107,26 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>
-    <Compile Include="Images\star.bmp">
+    <Compile Include="Levels\Images\star.bmp">
       <Name>star</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\baton.png">
+    <Compile Include="Levels\Images\baton.png">
       <Name>baton</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\Lucidia.bmp">
+    <Compile Include="Levels\Images\Lucidia.bmp">
       <Name>Lucidia</Name>
       <Importer>TextureImporter</Importer>
       <Processor>FontTextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\circle.png">
+    <Compile Include="Levels\Images\circle.png">
       <Name>circle</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -140,7 +140,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\shake.png">
+    <Compile Include="Levels\Images\shake.png">
       <Name>shake</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -188,7 +188,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\ring.png">
+    <Compile Include="Levels\Images\ring.png">
       <Name>ring</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -202,7 +202,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\sparkle.png">
+    <Compile Include="Levels\Images\sparkle.png">
       <Name>sparkle</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -216,14 +216,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\love.png">
+    <Compile Include="Levels\Images\love.png">
       <Name>love</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\aquarium.png">
+    <Compile Include="Levels\Images\aquarium.png">
       <Name>aquarium</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -244,7 +244,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\circle_ready.png">
+    <Compile Include="Levels\Images\circle_ready.png">
       <Name>circle_ready</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -258,7 +258,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\ScoreFont.bmp">
+    <Compile Include="Levels\Images\ScoreFont.bmp">
       <Name>ScoreFont</Name>
       <Importer>TextureImporter</Importer>
       <Processor>FontTextureProcessor</Processor>
@@ -279,22 +279,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\SelectionScreen\background.jpg">
+    <Compile Include="Levels\Images\SelectionScreen\background.jpg">
       <Name>background</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\SelectionScreen\normalbox.png">
+    <Compile Include="Levels\Images\SelectionScreen\normalbox.png">
       <Name>normalbox</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\SelectionScreen\selectedbox.png">
+    <Compile Include="Levels\Images\SelectionScreen\selectedbox.png">
       <Name>selectedbox</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\SelectionScreen\win.png">
+    <Compile Include="Levels\Images\SelectionScreen\win.png">
       <Name>win</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -339,32 +339,32 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\dialogBoxTest.png">
+    <Compile Include="Levels\Images\dialogBoxTest.png">
       <Name>dialogBoxTest</Name>
     </Compile>
-    <Compile Include="Images\WorldMap\split2-2.jpg">
+    <Compile Include="Levels\Images\WorldMap\split2-2.jpg">
       <Name>split2-2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\MainMenu\cover.jpg">
+    <Compile Include="Levels\Images\MainMenu\cover.jpg">
       <Name>cover</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\MainMenu\exit_hover.png">
+    <Compile Include="Levels\Images\MainMenu\exit_hover.png">
       <Name>exit_hover</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\MainMenu\free_hover.png">
+    <Compile Include="Levels\Images\MainMenu\free_hover.png">
       <Name>free_hover</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\MainMenu\story_hover.png">
+    <Compile Include="Levels\Images\MainMenu\story_hover.png">
       <Name>story_hover</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -381,12 +381,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\WorldMap\map1.jpg">
+    <Compile Include="Levels\Images\WorldMap\map1.jpg">
       <Name>map1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\WorldMap\map2.jpg">
+    <Compile Include="Levels\Images\WorldMap\map2.jpg">
       <Name>map2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -412,7 +412,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\Fail.png">
+    <Compile Include="Levels\Images\Fail.png">
       <Name>Fail</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -568,14 +568,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\WorldMap\fbg.png">
+    <Compile Include="Levels\Images\WorldMap\fbg.png">
       <Name>fbg</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\WorldMap\fbg_edited.png">
+    <Compile Include="Levels\Images\WorldMap\fbg_edited.png">
       <Name>fbg_edited</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -589,50 +589,50 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\WorldMap\cleared.png">
+    <Compile Include="Levels\Images\WorldMap\cleared.png">
       <Name>cleared</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\WorldMap\locked.png">
+    <Compile Include="Levels\Images\WorldMap\locked.png">
       <Name>locked</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\WorldMap\newly_unlocked.png">
+    <Compile Include="Levels\Images\WorldMap\newly_unlocked.png">
       <Name>newly_unlocked</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\WorldMap\map.png">
+    <Compile Include="Levels\Images\WorldMap\map.png">
       <Name>map</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\WorldMap\unlocked.png">
+    <Compile Include="Levels\Images\WorldMap\unlocked.png">
       <Name>unlocked</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\WorldMap\text.bmp">
+    <Compile Include="Levels\Images\WorldMap\text.bmp">
       <Name>text</Name>
       <Importer>TextureImporter</Importer>
       <Processor>FontTextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\DialogueFace\Alice.png">
+    <Compile Include="Levels\Images\DialogueFace\Alice.png">
       <Name>Alice</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\DialogueFace\Player.png">
+    <Compile Include="Levels\Images\DialogueFace\Player.png">
       <Name>Player</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -665,6 +665,7 @@
       <Name>NewlyUnlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
     <Compile Include="Dialogs\Cities\CReine\Unlocked.xml">
       <Name>Unlocked</Name>
@@ -673,7 +674,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\DialogueFace\Frederic.png">
+    <Compile Include="Levels\Images\DialogueFace\Frederic.png">
       <Name>Frederic</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
