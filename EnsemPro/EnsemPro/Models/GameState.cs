@@ -61,7 +61,7 @@ namespace EnsemPro
 
         public void LoadContent(ContentManager cm)
         {
-            DataTypes.GameData data = cm.Load<DataTypes.GameData>("Levels//Index");
+            DataTypes.GameData data = cm.Load<DataTypes.GameData>("Levels\\Index");
             CurrentScreen = data.Screen;
             PreviousScreen = data.Screen;
             Levels = data.Levels;

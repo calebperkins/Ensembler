@@ -5,6 +5,7 @@
     <Width>800</Width>
     <Screen>Title</Screen>
     <Levels>
+      <!--Please use only "\\" for subdirectories in AssetName-->
       <Item>
         <Title>Symphony No. 5</Title>
         <AssetName>Levels\\B5\\b5-edited-2</AssetName>
