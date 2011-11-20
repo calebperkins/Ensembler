@@ -16,9 +16,14 @@ namespace EnsemPro
         public const int AGE_DECR = 3;
         public const int AGE_INCR = 1;
         bool failed;
+
+        Stopwatch countdownWatch = new Stopwatch();
+        public const int COUNTDOWN = 3;
+
         GameState gameState;
         //public const float INTERVAL_TIME = 1.0f;
         Stopwatch watch = new Stopwatch();
+        
         int current_beat;
         int last_beat;
         // beat_sum is for the purpose of beat time change
@@ -131,21 +136,37 @@ namespace EnsemPro
 
         public void Start()
         {
-            if (MediaPlayer.State == MediaState.Paused)
-                MediaPlayer.Resume();
+            if (CountDownDone())
+            {
+                countdownWatch.Stop();
+                if (MediaPlayer.State == MediaState.Paused)
+                    MediaPlayer.Resume();
+                else
+                    MediaPlayer.Play(song);
+                watch.Start();
+            }
             else
-                MediaPlayer.Play(song);
-            watch.Start();
+            {
+                countdownWatch.Start();
+            }
         }
 
         public void Pause()
         {
-            watch.Stop();
-            MediaPlayer.Pause();
+            if (CountDownDone())
+            {
+                watch.Stop();
+                MediaPlayer.Pause();
+            }
         }
 
         public override void Update(GameTime gameTime)
         {
+            if (CountDownDone() && !watch.IsRunning)
+            {
+                Start();
+            }
+
             if (satisfaction.maxAge == 0 )
             {
                 if (!failed)
@@ -163,7 +184,6 @@ namespace EnsemPro
                 Keys key = buffer.VolumeChange;
                 if (key != Keys.None)
                 {
-                    //Console.WriteLine(key);
                     if (key == Keys.A)
                     {
                         volume = MathHelper.Clamp(volume + 0.01f, 0.1f, 1);
@@ -227,7 +247,6 @@ namespace EnsemPro
                             }
                         }
                         else break;
-                        // Console.WriteLine("this is movement " + c);5
                     } while (true);
 
                     if (current_act != null)
@@ -271,7 +290,6 @@ namespace EnsemPro
 
             if (actionList.Count == 0 || failed) 
             {
-                MediaPlayer.Stop();
                 if (backToMenu == 0)
                 {
                     if (!failed)
@@ -332,8 +350,9 @@ namespace EnsemPro
             // Draw background
             spriteBatch.Draw(background, new Vector2(), Color.White);
 
-            // Draw beat and score
+            
 #if DEBUG
+            // Draw beat and score
             string beat = "beat " + current_beat;
             spriteBatch.DrawString(font, beat, new Vector2(0, 0), Color.White);
 #endif
@@ -395,7 +414,6 @@ namespace EnsemPro
                     float alpha = Alpha(m.fadeBeat, m.endBeat);
                     m.Draw(spriteBatch, alpha, Movement.Stages.Fade);
                 }
-                //Debug.WriteLine(alpha);
                 satisfaction.Draw(spriteBatch);
                 baton.Draw(t);
             }
@@ -404,9 +422,9 @@ namespace EnsemPro
             satisfaction.Draw(spriteBatch);
 
             // Draw beginning countdown
-            if (current_beat < 3)
+            if (!CountDownDone())
             {
-                string counter = (3 - current_beat).ToString();
+                string counter = (COUNTDOWN - countdownWatch.Elapsed.Seconds).ToString();
                 Vector2 textCenter = new Vector2(Game.GraphicsDevice.Viewport.Width, Game.GraphicsDevice.Viewport.Height);
                 Vector2 counterSize = font.MeasureString(counter);
                 spriteBatch.DrawString(font, counter, (textCenter - counterSize) / 2, Color.White);
@@ -415,8 +433,8 @@ namespace EnsemPro
             // Draw to screen if level failed
             if (failed)
             {
-                Vector2 center = new Vector2(GameEngine.WIDTH / 2, GameEngine.HEIGHT / 2);
-                Vector2 origin = new Vector2(failTexture.Width / 2, failTexture.Height / 2);
+                Vector2 center = gameState.ScreenCenter();
+                Vector2 origin = gameState.ScreenCenter();
                 failScale = Math.Max(1, failScale - 0.01f);
                 spriteBatch.Draw(failTexture, center, null, Color.White, 0.0f, origin, failScale, SpriteEffects.None, 0);
             }
@@ -432,6 +450,11 @@ namespace EnsemPro
         {
             float total = (a-b) * beatTime / 2;
             return Math.Max(0, (int)watch.ElapsedMilliseconds - b * beatTime)/ total;
+        }
+
+        private bool CountDownDone()
+        {
+            return countdownWatch.Elapsed.Seconds >= COUNTDOWN;
         }
 
     }

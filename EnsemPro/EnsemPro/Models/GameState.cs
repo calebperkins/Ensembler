@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework;
 using System;
 
@@ -79,21 +80,13 @@ namespace EnsemPro
         /// </summary>
         public Viewport ViewPort
         {
-            /*get
-            {
-                return game.GraphicsDevice.Viewport;
-            }
-            set
-            {
-                game.GraphicsDevice.Viewport = value;
-            }*/
             get;
             set;
         }
 
         public Vector2 ScreenCenter()
         {
-            return new Vector2(ViewPort.Width/2, ViewPort.Height/2);
+            return new Vector2(ViewPort.Width, ViewPort.Height)/2;
         }
 
         /// <summary>

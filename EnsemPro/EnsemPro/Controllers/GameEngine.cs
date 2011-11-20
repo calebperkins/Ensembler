@@ -9,8 +9,9 @@ namespace EnsemPro
     /// </summary>
     public class GameEngine : Game
     {
-        public const int WIDTH = 800;
-        public const int HEIGHT = 600;
+        // Deprecated
+        public static int HEIGHT;
+        public static int WIDTH;
 
         // for later
         IUpdateable ActiveController;
@@ -49,9 +50,7 @@ namespace EnsemPro
         /// </summary>
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = WIDTH;
-            graphics.PreferredBackBufferHeight = HEIGHT;
-            graphics.ApplyChanges();
+            
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -88,6 +87,16 @@ namespace EnsemPro
         protected override void LoadContent()
         {
             gameState.LoadContent(Content);
+
+            // Deprecated
+            WIDTH = gameState.ViewPort.Width;
+            HEIGHT = gameState.ViewPort.Height;
+
+            graphics.PreferredBackBufferWidth = gameState.ViewPort.Width;
+            graphics.PreferredBackBufferHeight = gameState.ViewPort.Height;
+            graphics.ApplyChanges();
+
+
             menuController.LoadContent(Content);
             levelController.LoadContent(Content);
 

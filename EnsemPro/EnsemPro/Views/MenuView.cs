@@ -12,6 +12,7 @@ namespace EnsemPro
         Texture2D storyHover;
         Texture2D freeHover;
         Texture2D exitHover;
+        Song song;
 
         public MenuView(SpriteBatch sb)
         {
@@ -24,13 +25,16 @@ namespace EnsemPro
             storyHover = cm.Load<Texture2D>("Images\\MainMenu\\storymode_hover");
             freeHover = cm.Load<Texture2D>("Images\\MainMenu\\freemode_hover");
             exitHover = cm.Load<Texture2D>("Images\\MainMenu\\exitmode_hover");
-            Song s = cm.Load<Song>("journey");
-            MediaPlayer.Play(s);
+            song = cm.Load<Song>("journey");
+            MediaPlayer.Play(song);
             MediaPlayer.Volume = 0.3f;
         }
 
         public void Draw(MenuController.Hover hover)
         {
+            if (MediaPlayer.State != MediaState.Playing)
+                MediaPlayer.Play(song);
+
             spriteBatch.Draw(background, new Vector2(), Color.White);
             switch (hover)
             {

@@ -21,7 +21,7 @@ namespace EnsemPro
         {
             gameState = gm;
             spriteBatch = sb;
-            levelSelectScreen = new LevelSelectView(sb);
+            levelSelectScreen = new LevelSelectView(sb, gameState);
         }
 
         public void Initialize()
