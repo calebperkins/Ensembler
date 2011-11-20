@@ -21,10 +21,10 @@ namespace EnsemPro
 
         public void LoadContent(ContentManager cm)
         {
-            background = cm.Load<Texture2D>("Images\\MainMenu\\cover");
-            storyHover = cm.Load<Texture2D>("Images\\MainMenu\\story_hover");
-            freeHover = cm.Load<Texture2D>("Images\\MainMenu\\free_hover");
-            exitHover = cm.Load<Texture2D>("Images\\MainMenu\\exit_hover");
+            background = cm.Load<Texture2D>("Images\\MainMenu\\newtitle");
+            storyHover = cm.Load<Texture2D>("Images\\MainMenu\\storymode_hover");
+            freeHover = cm.Load<Texture2D>("Images\\MainMenu\\freemode_hover");
+            exitHover = cm.Load<Texture2D>("Images\\MainMenu\\exitmode_hover");
             song = cm.Load<Song>("journey");
             MediaPlayer.Play(song);
             MediaPlayer.Volume = 0.3f;

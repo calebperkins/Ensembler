@@ -28,7 +28,7 @@ namespace EnsemPro
         LevelSelectController levelController;
 
         WorldMapController worldController;
-        PauseScreen pauseController; // a misnomer
+        PauseScreenController pauseController; // a misnomer
 
         InputBuffer buffer;
 
@@ -73,7 +73,7 @@ namespace EnsemPro
 
             worldController = new WorldMapController(this, gameState, spriteBatch, buffer);
             worldController.Initialize();
-            pauseController = new PauseScreen(this, spriteBatch);
+            pauseController = new PauseScreenController(this, spriteBatch);
             pauseController.Initialize();
 
             base.Initialize();
