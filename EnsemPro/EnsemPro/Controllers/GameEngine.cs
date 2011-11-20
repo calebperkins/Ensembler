@@ -9,8 +9,9 @@ namespace EnsemPro
     /// </summary>
     public class GameEngine : Game
     {
-        public const int WIDTH = 800;
-        public const int HEIGHT = 600;
+        // Deprecated
+        public static int HEIGHT;
+        public static int WIDTH;
 
         // for later
         IUpdateable ActiveController;
@@ -23,7 +24,7 @@ namespace EnsemPro
         DataTypes.Screens lastState = DataTypes.Screens.Initial;
 
         MenuController menuController;
-        public PlayLevel rhythmController;
+        public PlayLevel playlevel;
         LevelSelectController levelController;
 
         WorldMapController worldController;
@@ -49,9 +50,7 @@ namespace EnsemPro
         /// </summary>
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = WIDTH;
-            graphics.PreferredBackBufferHeight = HEIGHT;
-            graphics.ApplyChanges();
+            
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -69,8 +68,8 @@ namespace EnsemPro
             levelController = new LevelSelectController(gameState, spriteBatch);
             levelController.Initialize();
 
-            rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
-            rhythmController.Initialize();
+            playlevel = new PlayLevel(this, gameState, spriteBatch, buffer);
+            playlevel.Initialize();
 
             worldController = new WorldMapController(this, gameState, spriteBatch, buffer);
             worldController.Initialize();
@@ -88,6 +87,16 @@ namespace EnsemPro
         protected override void LoadContent()
         {
             gameState.LoadContent(Content);
+
+            // Deprecated
+            WIDTH = gameState.ViewPort.Width;
+            HEIGHT = gameState.ViewPort.Height;
+
+            graphics.PreferredBackBufferWidth = gameState.ViewPort.Width;
+            graphics.PreferredBackBufferHeight = gameState.ViewPort.Height;
+            graphics.ApplyChanges();
+
+
             menuController.LoadContent(Content);
             levelController.LoadContent(Content);
 
@@ -126,15 +135,15 @@ namespace EnsemPro
                     case DataTypes.Screens.PlayLevel:
                         if (gameState.CurrentScreen == DataTypes.Screens.Pause)
                         {
-                            rhythmController.Pause();
+                            playlevel.Pause();
                         }
                         break;
                     case DataTypes.Screens.SelectLevel:
                         if (gameState.CurrentScreen == DataTypes.Screens.PlayLevel)
                         {
                             buffer.Clear();
-                            rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
-                            rhythmController.Initialize();
+                            playlevel = new PlayLevel(this, gameState, spriteBatch, buffer);
+                            playlevel.Initialize();
                             //rhythmController.Start();
                         }
                         break;
@@ -142,8 +151,8 @@ namespace EnsemPro
                         if (gameState.CurrentScreen == DataTypes.Screens.PlayLevel)
                         {
                             buffer.Clear();
-                            rhythmController = new PlayLevel(this, gameState, spriteBatch, buffer);
-                            rhythmController.Initialize();
+                            playlevel = new PlayLevel(this, gameState, spriteBatch, buffer);
+                            playlevel.Initialize();
                             //rhythmController.Start();
                         }
                         break;
@@ -152,10 +161,10 @@ namespace EnsemPro
                 switch (gameState.CurrentScreen)
                 {
                     case DataTypes.Screens.Pause:
-                        rhythmController.Pause();
+                        playlevel.Pause();
                         break;
                     case DataTypes.Screens.PlayLevel:
-                        rhythmController.Start();
+                        playlevel.Start();
                         break;
                 }
                 
@@ -174,7 +183,7 @@ namespace EnsemPro
                     levelController.Update(gameTime);
                     break;
                 case DataTypes.Screens.PlayLevel:
-                    rhythmController.Update(gameTime);
+                    playlevel.Update(gameTime);
                     break;
                 case DataTypes.Screens.WorldMap:
                     worldController.Update(gameTime);
@@ -206,7 +215,7 @@ namespace EnsemPro
                     levelController.Draw(gameTime);
                     break;
                 case DataTypes.Screens.PlayLevel:
-                    rhythmController.Draw(gameTime);
+                    playlevel.Draw(gameTime);
                     break;
                 case DataTypes.Screens.WorldMap:
                     worldController.Draw(gameTime);

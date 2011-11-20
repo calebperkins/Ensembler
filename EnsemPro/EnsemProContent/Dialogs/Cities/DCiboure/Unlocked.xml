@@ -7,5 +7,16 @@
         <Line>Would you mind conducting my students?</Line>
       </Item>
     </Content>
+    <Colors>
+      <Item>
+        <Character>Frederic</Character>
+        <Color>Aqua</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Frederic</FaceAssetName>
+      </Item>
+    </Faces>
   </Asset>
 </XnaContent>

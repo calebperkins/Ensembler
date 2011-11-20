@@ -3,7 +3,7 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>Sister</Character>
+        <Character>Alice</Character>
         <Line>Hey, player...
         </Line>
       </Item>
@@ -12,7 +12,7 @@
         <Line>I am listening, sister.</Line>
       </Item>
       <Item>
-        <Character>Sister</Character>
+        <Character>Alice</Character>
         <Line>I know you are determined to leave, no matter what I say...
         </Line>
       </Item>
@@ -21,7 +21,7 @@
         <Line>I have made up my mind.</Line>
       </Item>
       <Item>
-        <Character>Sister</Character>
+        <Character>Alice</Character>
         <Line>But!... At least take this with you...</Line>
       </Item>
       <Item>
@@ -29,7 +29,7 @@
         <Line>*player receives baton*</Line>
       </Item>
       <Item>
-        <Character>Sister</Character>
+        <Character>Alice</Character>
         <Line>You don't have to thank me, this belongs to your father
         </Line>
       </Item>
@@ -38,7 +38,7 @@
         <Line>Father......</Line>
       </Item>
       <Item>
-        <Character>Sister</Character>
+        <Character>Alice</Character>
         <Line>Hey player...
         </Line>
       </Item>
@@ -47,7 +47,7 @@
         <Line>Yes?</Line>
       </Item>
       <Item>
-        <Character>Sister</Character>
+        <Character>Alice</Character>
         <Line>Can you wave that baton one last time... for me? I will play my favourite piece: Air on G String.
         </Line>
       </Item>
@@ -56,5 +56,27 @@
         <Line>Of course.</Line>
       </Item>
     </Content>
+    <Colors>
+      <Item>
+        <Character>Game</Character>
+        <Color>Red</Color>
+      </Item>
+      <Item>
+        <Character>Alice</Character>
+        <Color>Orange</Color>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Alice</FaceAssetName>
+      </Item>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName>
+      </Item>
+    </Faces>
   </Asset>
 </XnaContent>

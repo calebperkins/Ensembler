@@ -30,7 +30,42 @@
         <Character>Player</Character>
         <Line>Fine with me.</Line>
       </Item>
-      <!-- A lot of pre-game dialogue waiting to be inserted! -->
     </Content>
+      <!-- A lot of pre-game dialogue waiting to be inserted! -->
+
+    <Colors>
+      <Item>
+        <Character>Game</Character>
+        <Color>Red</Color>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Color>Aqua</Color>
+      </Item>
+      <Item>
+        <Character>Student 1</Character>
+        <Color>Maroon</Color>
+      </Item>
+      <Item>
+        <Character>Student 2</Character>
+        <Color>Tomato</Color>
+      </Item>
+      <Item>
+        <Character>Student 3</Character>
+        <Color>Wheat</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName>
+      </Item>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Frederic</FaceAssetName>
+      </Item>
+    </Faces>
   </Asset>
 </XnaContent>

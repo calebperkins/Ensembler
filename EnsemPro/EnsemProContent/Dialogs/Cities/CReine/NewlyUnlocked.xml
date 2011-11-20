@@ -29,23 +29,19 @@
       </Item>
       <Item>
       <Character>Player</Character>
-      <Line>Who is Frederic?
-      </Line>
+      <Line>Who is Frederic?</Line>
       </Item>
       <Item>
         <Character>Bartender</Character>
-        <Line>You will see. Here he comes!
-        </Line>
+        <Line>You will see. Here he comes!</Line>
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>A timid looking person holding a violin enters the bar. The crowd immediately quieted down.
-        </Line>
+        <Line>A timid looking person holding a violin enters the bar. The crowd immediately quieted down.</Line>
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>Is he Frederic?
-        </Line>
+        <Line>Is he Frederic?</Line>
       </Item>
       <Item>
         <Character>Bartender</Character>
@@ -59,8 +55,7 @@
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>Wow, is he a professional?
-        </Line>
+        <Line>Wow, is he a professional?</Line>
       </Item>
       <Item>
         <Character>Bartender</Character>
@@ -69,18 +64,15 @@
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>Then what is?
-        </Line>
+        <Line>Then what is?</Line>
       </Item>
       <Item>
         <Character>Bartender</Character>
-        <Line>Piano. But he plays the violin here because there ain't no piano in this bar.
-        </Line>
+        <Line>Piano. But he plays the violin here because there ain't no piano in this bar.</Line>
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>Okay... I have to go talk to him.
-        </Line>
+        <Line>Okay... I have to go talk to him.</Line>
       </Item>
       <Item>
         <Character>Game</Character>
@@ -150,5 +142,31 @@
         </Line>
       </Item>
     </Content>
+    <Colors>
+      <Item>
+        <Character>Game</Character>
+        <Color>Red</Color>
+      </Item>
+      <Item>
+        <Character>Bartender</Character>
+        <Color>OliveDrab</Color>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Color>Aqua</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Frederic</FaceAssetName>
+      </Item>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName>
+      </Item>
+    </Faces>
   </Asset>
 </XnaContent>

@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Audio;
+using XnaColor = Microsoft.Xna.Framework.Color;
+
 
 namespace EnsemPro
 {
@@ -18,35 +20,39 @@ namespace EnsemPro
 
         Queue<String> names;
         Queue<String> lines;
-        Queue<String> colors;
+        Dictionary<String,XnaColor> colors;
+        Dictionary<String,Texture2D> faces;
 
         String speaker;
         String speech;
-        String color;
+        XnaColor color;
+        Texture2D face;
 
         DialogModel dialogModel;
         DialogView screen;
-        //DataTypes.WorldData.CityState nodeState;
         KeyboardState lastState;
         SoundEffect NextDialog;
         SoundEffect ReceiveItem;
 
         bool IsFinished;
 
-        public DialogController(GameState gm, SpriteBatch sb, DialogModel dm, string cityName)
+        public DialogController(GameState gm, SpriteBatch sb, DialogModel dm, string cityName, ContentManager cm)
         {
             gameState = gm;
             spriteBatch = sb;
             dialogModel = dm;
+            contentManager = cm;
 
             names = new Queue<String>();
             lines = new Queue<String>();
-            colors = new Queue<String>();
+            colors = new Dictionary<String,XnaColor>();
+            faces = new Dictionary<String,Texture2D>();
             Parse();
             speaker = "";
             speech = cityName;
+            color = XnaColor.Black;
             screen = new DialogView(sb);
-
+            
         }
 
         public void Initialize()
@@ -60,7 +66,6 @@ namespace EnsemPro
             screen.LoadContent(cm);
             NextDialog = cm.Load<SoundEffect>("Sounds//NextDialog");
             ReceiveItem = cm.Load<SoundEffect>("Sounds//ReceiveItem");
-            contentManager = cm;
         }
 
         public void UnloadContent() 
@@ -70,40 +75,28 @@ namespace EnsemPro
 
         private void Parse()
         {
+            for (int i = 0; i < dialogModel.Colors.Length; i++)
+            {
+                string characterName = dialogModel.Colors[i].Character;
+                string colorName = dialogModel.Colors[i].Color;
+                System.Drawing.Color color = System.Drawing.Color.FromName(colorName);
+                XnaColor xnaColor = new XnaColor(color.R, color.G, color.B, color.A);
+                colors.Add(characterName, xnaColor);
+            }
+            for (int i = 0; i < dialogModel.Faces.Length; i++)
+            {
+                string face = dialogModel.Faces[i].FaceAssetName;
+                if (face != null)
+                {
+                    string characterName = face.Substring(face.LastIndexOf("\\") + 1, face.Length - (face.LastIndexOf("\\") + 1));
+                    faces.Add(characterName, contentManager.Load<Texture2D>(face));
+                }
+            }
             for (int i = 0; i< dialogModel.Content.Length; i++)
             {
                 names.Enqueue(dialogModel.Content[i].Character);
                 lines.Enqueue(dialogModel.Content[i].Line);
-               // colors.Enqueue(dialogModel.Content[i].Color);
             }
-            /*
-            switch (nodeState)
-            {
-                case DataTypes.WorldData.CityState.NewlyUnlocked:
-                    for (int i = 0; i < dialogModel.NewlyUnlocked.Length; i++)
-                    {
-                        names.Enqueue(dialogModel.NewlyUnlocked[i].Character);
-                        lines.Enqueue(dialogModel.NewlyUnlocked[i].Line);
-                    }
-                    break;
-                case DataTypes.WorldData.CityState.Unlocked:
-                    for (int i = 0; i < dialogModel.Unlocked.Length; i++)
-                    {
-                        names.Enqueue(dialogModel.Unlocked[i].Character);
-                        lines.Enqueue(dialogModel.Unlocked[i].Line);
-                    }
-                    break;
-                case DataTypes.WorldData.CityState.Cleared:
-                    for (int i = 0; i < dialogModel.Cleared.Length; i++)
-                    {
-                        names.Enqueue(dialogModel.Cleared[i].Character);
-                        lines.Enqueue(dialogModel.Cleared[i].Line);
-                    }
-                    break;
-                default:
-                    break;
-            }
-            */
         }
 
         public bool Finished() { return IsFinished; }
@@ -123,6 +116,15 @@ namespace EnsemPro
                     NextDialog.Play();
                     speaker = names.Dequeue();
                     speech = lines.Dequeue();
+                    color = colors[speaker];
+                    if (faces.ContainsKey(speaker))
+                    {
+                        face = faces[speaker];
+                    }
+                    else
+                    {
+                        face = null;
+                    }
                     if (speech[0] == '*') ReceiveItem.Play();
                     string firstPart = "";
                     string secondPart = speech;
@@ -145,7 +147,7 @@ namespace EnsemPro
         /// <param name="t"></param>
         public void Draw(GameTime t)
         {
-            screen.Draw(t,speaker,speech);
+            screen.Draw(t,speaker,speech,color,face);
         }
     }
 }

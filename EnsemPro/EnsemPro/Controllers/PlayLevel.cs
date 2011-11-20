@@ -36,6 +36,7 @@ namespace EnsemPro
         int comboCount;
         int maxCombo;
         int backToMenu;
+        String satisfactionImagePath="Images\\aquarium";
 
         SpriteFont font;
         SpriteBatch spriteBatch;
@@ -83,6 +84,9 @@ namespace EnsemPro
             // todo: dynamic loading
             DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>(gameState.SelectedLevel);
             song = Game.Content.Load<Song>(data.SongAssetName);
+            satisfactionImagePath = data.SatisfactionAssetName;
+            satisfaction.LoadContent(Game.Content, satisfactionImagePath);
+
             MediaPlayer.IsRepeating = false;
             Console.WriteLine(gameState.SelectedLevel);
 
@@ -125,8 +129,6 @@ namespace EnsemPro
             baton = new BatonView(Game, spriteBatch, buffer);
             baton.Initialize();
             satisfaction = new SatisfactionQueue(buffer);
-            satisfaction.LoadContent(Game.Content);
-
             current_beat = 0;
             last_beat = -1;
             base.Initialize();
@@ -311,6 +313,8 @@ namespace EnsemPro
                 {
                     gameState.Score = current_score;
                     gameState.Combo = (maxCombo > 1 ? maxCombo : 0);
+
+                    gameState.UpdateStats();
                 }
                 else
                 {
@@ -429,8 +433,8 @@ namespace EnsemPro
             // Draw to screen if level failed
             if (failed)
             {
-                Vector2 center = new Vector2(GameEngine.WIDTH, GameEngine.HEIGHT)/2;
-                Vector2 origin = new Vector2(failTexture.Width, failTexture.Height)/2;
+                Vector2 center = gameState.ScreenCenter();
+                Vector2 origin = gameState.ScreenCenter();
                 failScale = Math.Max(1, failScale - 0.01f);
                 spriteBatch.Draw(failTexture, center, null, Color.White, 0.0f, origin, failScale, SpriteEffects.None, 0);
             }

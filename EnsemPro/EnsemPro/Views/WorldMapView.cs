@@ -9,9 +9,9 @@ namespace EnsemPro
     {
         public static int nodeXShift = 0;
 
+        SpriteFont font;
         SpriteBatch spriteBatch;
-        Texture2D background1;
-        Texture2D background2;
+        Texture2D background;
         Texture2D lockedTexture;
         Texture2D newlyUnlockedTexture;
         Texture2D unlockedTexture;
@@ -19,31 +19,18 @@ namespace EnsemPro
 
         Texture2D selectedTexture;
 
-        public Vector2 CurBackgroundPos
-        {
-            get;
-            set;
-        }
-
-        public float WantedBackgroundPosX
-        {
-            get;
-            set;
-        }
-        
         public WorldMapView(SpriteBatch sb)
         {
             spriteBatch = sb;
-            CurBackgroundPos = new Vector2();
         }
 
         public void LoadContent(ContentManager cm)
         {
             // TODO CHANGE TEXTURES OF THESE
-            background1 = cm.Load<Texture2D>("images\\WorldMap\\map1");
-            background2 = cm.Load<Texture2D>("images\\WorldMap\\map2");
+            font = cm.Load<SpriteFont>("images\\WorldMap\\text");
+            background = cm.Load<Texture2D>("images\\WorldMap\\map");
             lockedTexture = cm.Load<Texture2D>("images\\WorldMap\\locked");
-            newlyUnlockedTexture = cm.Load<Texture2D>("images\\WorldMap\\newly_unlocked");
+            newlyUnlockedTexture = cm.Load<Texture2D>("images\\WorldMap\\unlocked");
             unlockedTexture = cm.Load<Texture2D>("images\\WorldMap\\unlocked");
             clearedTexture = cm.Load<Texture2D>("images\\WorldMap\\cleared");
             selectedTexture = cm.Load<Texture2D>("images\\ring");
@@ -51,8 +38,7 @@ namespace EnsemPro
 
         public void Draw(HashSet<Models.City> cities, Models.City selected)
         {
-            spriteBatch.Draw(background1, CurBackgroundPos, Color.White);
-            spriteBatch.Draw(background2, new Vector2(CurBackgroundPos.X + background1.Width, CurBackgroundPos.Y), Color.White);
+            spriteBatch.Draw(background, new Vector2(), Color.White);
             foreach (Models.City node in cities)
             {
                 Texture2D current = null;
@@ -72,8 +58,6 @@ namespace EnsemPro
                         break;
                 }
 
-                node.AbsolutePosition.X = CurBackgroundPos.X + node.RelativePosition.X;
-
                 Vector2 origin = new Vector2(current.Width / 2, current.Height / 2);
                 float scale = 1.0f;
 
@@ -81,8 +65,8 @@ namespace EnsemPro
 
                 if (node == selected)
                 {
-                    origin = new Vector2(selectedTexture.Width / 2, selectedTexture.Height / 2);
-                    spriteBatch.Draw(selectedTexture, node.AbsolutePosition, null, Color.White, 0.0f, origin, scale, SpriteEffects.None, 0);
+                    //System.Console.Write("here");
+                    spriteBatch.DrawString(font, node.Data.Name, new Vector2(node.AbsolutePosition.X + 8, node.AbsolutePosition.Y - 7), Color.Black);
                 }
             }
         }

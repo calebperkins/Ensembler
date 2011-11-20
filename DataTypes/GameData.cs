@@ -17,6 +17,10 @@ namespace DataTypes
     {
         public string Title;
         public string AssetName;
+        public int HighScore;
+        public int DeveloperHighScore;
+        public int HighCombo;
+        public int DeveloperHighCombo;
     }
 
     public class GameData
