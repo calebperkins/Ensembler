@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 
 namespace EnsemPro
 {
@@ -11,6 +12,7 @@ namespace EnsemPro
         Texture2D normalTexture;
         Texture2D selectedTexture;
         SpriteFont font;
+        Song bgSong;
 
         public ChooseLevelScreen(SpriteBatch sb)
         {
@@ -23,10 +25,14 @@ namespace EnsemPro
             normalTexture = cm.Load<Texture2D>("Images//SelectionScreen//normalbox");
             selectedTexture = cm.Load<Texture2D>("Images//SelectionScreen//selectedbox");
             font = cm.Load<SpriteFont>("images//ScoreFont");
+            bgSong = cm.Load<Song>("journey");
         }
 
         public void Draw(GameTime t, DataTypes.LevelSummary[] levels, int selected)
         {
+            if (MediaPlayer.State != MediaState.Playing)
+                MediaPlayer.Play(bgSong);
+
             spriteBatch.Draw(background, new Vector2(), Color.White);
             for (int i = 0; i < levels.Length; i++)
             {
