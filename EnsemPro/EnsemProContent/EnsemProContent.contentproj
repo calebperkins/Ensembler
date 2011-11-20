@@ -92,6 +92,11 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="Images\MainMenu\newtitle.jpg">
+      <Name>newtitle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Images\note_blue.png">
       <Name>note_blue</Name>
       <Importer>TextureImporter</Importer>
@@ -349,26 +354,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\MainMenu\cover.jpg">
-      <Name>cover</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\MainMenu\exit_hover.png">
-      <Name>exit_hover</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\MainMenu\free_hover.png">
-      <Name>free_hover</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\MainMenu\story_hover.png">
-      <Name>story_hover</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Levels\AirOnGString\level.xml">
       <Name>level</Name>
       <Importer>XmlImporter</Importer>
@@ -897,7 +882,23 @@
       <Processor>PassThroughProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Images\MainMenu\exitmode_hover.png">
+      <Name>exitmode_hover</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\MainMenu\freemode_hover.png">
+      <Name>freemode_hover</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\MainMenu\storymode_hover.png">
+      <Name>storymode_hover</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Images\PauseScreen\normalbox.png">
       <Name>normalbox</Name>
