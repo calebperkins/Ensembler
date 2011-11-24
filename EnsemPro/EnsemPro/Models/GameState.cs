@@ -73,7 +73,8 @@ namespace EnsemPro
             DataTypes.GameData data = cm.Load<DataTypes.GameData>("Levels\\Index");
             CurrentScreen = data.Screen;
             PreviousScreen = data.Screen;
-            Levels = data.Levels;
+            if (Levels == null) // hack!
+                Levels = data.Levels;
             ViewPort = new Viewport(0, 0, data.Width, data.Height);
         }
 
