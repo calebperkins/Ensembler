@@ -104,14 +104,14 @@ namespace EnsemPro
         public void Update(GameTime t)
         {
             KeyboardState ks = Keyboard.GetState();
-            if (names.Count == 0 && ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right)) // end of this dialog mode, move on to playlevel or map
+            if (names.Count == 0 && gameState.Input.Confirm || ks.IsKeyDown(Keys.Q) && lastState.IsKeyUp(Keys.Q)) // end of this dialog mode, move on to playlevel or map
             {
                
                 IsFinished = true;
             }
             else
             {
-                if (ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right))
+                if (gameState.Input.Confirm)
                 {
                     NextDialog.Play();
                     speaker = names.Dequeue();

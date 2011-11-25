@@ -158,7 +158,7 @@ namespace EnsemPro
                         SelectedCity = SelectedCity.Down;
                         MapMove.Play();
                     }
-                    if (ks.IsKeyDown(Keys.D) && lastState.IsKeyUp(Keys.D))
+                    if (gameState.Input.Confirm)
                     {
                         DialogModel toLoad = null;
                         switch (SelectedCity.State)

@@ -48,6 +48,8 @@ namespace EnsemPro
         HashSet<Movement> drawSet;
 
         Movement current_act;
+        Movement lastAct;
+
 
         int evalStart=1;
         
@@ -123,7 +125,7 @@ namespace EnsemPro
             //musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/clara_sprite", "Characters/clara_map", new Vector2(200, 400), 20));
             //musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/robert_sprite", "Characters/robert_map", new Vector2(200, 400), 20));
             
-            moveEval = new MovementEvaluator(actionList.First.Value);
+            moveEval = new MovementEvaluator(null);
             base.LoadContent();
         }
 
@@ -203,8 +205,8 @@ namespace EnsemPro
                 current_beat = beat_sum + (int)Math.Round((float)watch.ElapsedMilliseconds / beatTime);
                 bool newMovement = false;
                 if (current_beat > last_beat) // new beat
-                {
-
+                {;
+                   // buffer.Clear();
                     last_beat = current_beat;
                     if (current_act != null && current_act.endBeat < current_beat)
                     {
@@ -234,8 +236,10 @@ namespace EnsemPro
                         // check and remove the head of the list
                         if (actionList.First != null && actionList.First.Value.startBeat == current_beat)
                         {
-                          //  buffer.Clear();
+                         //   buffer.Clear();
                             current_act = actionList.First.Value;
+                         //   moveEval.currentMovement = current_act;
+                           // evalBeat = current_beat + 1;
                             if (current_act.myType != Movement.Types.Control)
                             {
                                 actionList.RemoveFirst();
@@ -258,6 +262,7 @@ namespace EnsemPro
                     {
                         Movement.Types type = current_act.myType;
                         float score = moveEval.Accuracy(current_act, buffer, gameTime);
+
                         gainedScore = (int)(score * 10);
                         
                         // Adjusts age of satisfaction queue
@@ -287,8 +292,9 @@ namespace EnsemPro
                          * If there is a combo and the most recent score is non-negative (e.g. Shaking is succuessful), also add the current combo count to the score */
                         current_score += (gainedScore + (comboCount > 1 && gainedScore > 0 ? comboCount : 0));
                         current_score = Math.Max(0, current_score);
-                        if (newMovement) buffer.Clear();
+                        
                         moveEval.Update(current_act, score, (newMovement || actionList.Count == 0), gameTime);
+                        if (newMovement) { buffer.Clear();  }
                     }
                 }
             }
