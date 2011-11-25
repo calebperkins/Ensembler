@@ -48,6 +48,9 @@ namespace EnsemPro
         HashSet<Movement> drawSet;
 
         Movement current_act;
+
+        int evalStart=1;
+        
         BatonView baton;
         MovementEvaluator moveEval;
         InputBuffer buffer;
@@ -217,6 +220,7 @@ namespace EnsemPro
 
                         if (checkMove.Value.showBeat == current_beat)
                         {
+                          //  evalStart = checkMove.Value.showBeat+1;
                             drawSet.Add(checkMove.Value);
                             checkMove = checkMove.Next;
                         }
@@ -226,15 +230,16 @@ namespace EnsemPro
 
                     do
                     {
-
+                        
                         // check and remove the head of the list
                         if (actionList.First != null && actionList.First.Value.startBeat == current_beat)
                         {
-
+                          //  buffer.Clear();
                             current_act = actionList.First.Value;
                             if (current_act.myType != Movement.Types.Control)
                             {
                                 actionList.RemoveFirst();
+
                                 c++;
                                 newMovement = true;
                             }
@@ -254,14 +259,14 @@ namespace EnsemPro
                         Movement.Types type = current_act.myType;
                         float score = moveEval.Accuracy(current_act, buffer, gameTime);
                         gainedScore = (int)(score * 10);
-
+                        
                         // Adjusts age of satisfaction queue
                         if (gainedScore < 0)
                         {
                             if (satisfaction.maxAge < 5) satisfaction.maxAge = 0;
                             else satisfaction.maxAge = Math.Max(4, satisfaction.maxAge - AGE_DECR);
                         }
-                        else if (gainedScore > 0)
+                        else
                         {
                             satisfaction.maxAge = Math.Min(SatisfactionQueue.MAX_AGE, satisfaction.maxAge + AGE_INCR);
                         }
@@ -290,18 +295,15 @@ namespace EnsemPro
 
             if (actionList.Count == 0 || failed) 
             {
-                if (backToMenu == 0)
+                if (!failed && backToMenu == 0)
                 {
-                    if (!failed)
+                    if (current_score < 1000)
                     {
-                        if (current_score < 1000)
-                        {
-                            SmallApplause.Play();
-                        }
-                        else
-                        {
-                            LargeApplause.Play();
-                        }
+                        SmallApplause.Play();
+                    }
+                    else
+                    {
+                        LargeApplause.Play();
                     }
                 }
                 backToMenu++; 
@@ -391,7 +393,6 @@ namespace EnsemPro
             {
                 m.Draw(t, !failed);
             }
-
             // sort it in ascending way
             var drawing =
             from m in drawSet
@@ -417,7 +418,6 @@ namespace EnsemPro
                 satisfaction.Draw(spriteBatch);
                 baton.Draw(t);
             }
-
             baton.Draw(t);
             satisfaction.Draw(spriteBatch);
 
