@@ -1,6 +1,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Storage;
+using System;
 
 namespace EnsemPro
 {
@@ -56,7 +59,6 @@ namespace EnsemPro
 
             buffer = new InputBuffer();
             gameState = new GameState();
-            gameState.SelectedLevel = "Levels/B5/b5-edited-2";
 
             input = new MouseController(this, gameState, buffer);
 
@@ -75,6 +77,9 @@ namespace EnsemPro
             worldController.Initialize();
             pauseController = new PauseScreenController(this, spriteBatch);
             pauseController.Initialize();
+
+            Components.Add(new GamerServicesComponent(this));
+            Components.Add(new Controllers.SaveManager(this));
 
             base.Initialize();
             
@@ -156,6 +161,13 @@ namespace EnsemPro
                             //rhythmController.Start();
                         }
                         break;
+                    case DataTypes.Screens.Title:
+                        if (gameState.CurrentScreen == DataTypes.Screens.WorldMap)
+                        {
+                            buffer.Clear();
+                            worldController.Update(gameTime, false);
+                        }
+                        break;
                 }
 
                 switch (gameState.CurrentScreen)
@@ -169,8 +181,6 @@ namespace EnsemPro
                 }
                 
             }
-
-            
 
             lastState = gameState.CurrentScreen;
             
@@ -186,7 +196,7 @@ namespace EnsemPro
                     playlevel.Update(gameTime);
                     break;
                 case DataTypes.Screens.WorldMap:
-                    worldController.Update(gameTime);
+                    worldController.Update(gameTime,true);
                     break;
                 case DataTypes.Screens.Pause:
                     pauseController.Update(gameTime);

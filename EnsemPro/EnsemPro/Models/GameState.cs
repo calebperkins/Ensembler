@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Storage;
 using System;
 
 namespace EnsemPro
@@ -13,6 +14,13 @@ namespace EnsemPro
     /// </summary>
     public class GameState
     {
+
+        public GameState()
+        {
+            // todo: remove these!!!
+            SelectedLevel = "Levels/B5/b5-edited-2";
+            //SaveRequested = true;
+        }
 
         private DataTypes.Screens _current;
 
@@ -65,8 +73,15 @@ namespace EnsemPro
             DataTypes.GameData data = cm.Load<DataTypes.GameData>("Levels\\Index");
             CurrentScreen = data.Screen;
             PreviousScreen = data.Screen;
-            Levels = data.Levels;
+            if (Levels == null) // hack!
+                Levels = data.Levels;
             ViewPort = new Viewport(0, 0, data.Width, data.Height);
+        }
+
+        public bool SaveRequested
+        {
+            get;
+            set;
         }
 
         public InputState Input
@@ -89,27 +104,38 @@ namespace EnsemPro
             return new Vector2(ViewPort.Width, ViewPort.Height)/2;
         }
 
+        public DataTypes.GameData Serialized()
+        {
+            DataTypes.GameData data = new DataTypes.GameData();
+            data.Screen = DataTypes.Screens.Title;
+            data.Height = ViewPort.Height;
+            data.Width = ViewPort.Width;
+            data.Levels = Levels;
+            return data;
+        }
+
         /// <summary>
-        /// Updates high score and high combo of a level
+        /// Updates high score and high combo of a level. TODO: move this somewhere better
         /// </summary>
         /// <returns></returns>
         public void UpdateStats()
         {
-            int index = 0;
+            int index;
             Console.WriteLine("SELECTED IS " + SelectedLevel);
             // Finds index of city with SelectedLevel in Levels
-            for (int i = 0; i < Levels.Length; i++)
+            for (index = 0; index < Levels.Length; index++)
             {
-                Console.WriteLine(i + " " + Levels[i].AssetName);
-                if (Levels[i].AssetName == SelectedLevel)
+                Console.WriteLine(index + " " + Levels[index].AssetName);
+                if (Levels[index].AssetName == SelectedLevel)
                 {
-                    index = i;
                     break;
                 }
             }
 
             Levels[index].HighScore = Math.Max(Levels[index].HighScore, Score);
-            Levels[index].HighCombo = Math.Max(Levels[index].HighCombo, Combo);                            
+            Levels[index].HighCombo = Math.Max(Levels[index].HighCombo, Combo);
+
+            SaveRequested = true;  
         }
     }
 }

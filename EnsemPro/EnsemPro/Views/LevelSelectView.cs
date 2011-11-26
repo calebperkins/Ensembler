@@ -33,8 +33,7 @@ namespace EnsemPro
 
         public void Draw(GameTime t, DataTypes.LevelSummary[] levels, int selected)
         {
-            if (MediaPlayer.State != MediaState.Playing)
-                MediaPlayer.Play(bgSong);
+            
 
             spriteBatch.Draw(background, new Vector2(), Color.White);
             for (int i = 0; i < levels.Length; i++)

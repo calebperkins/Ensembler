@@ -13,12 +13,12 @@ namespace EnsemPro
     public class PlayLevel : DrawableGameComponent
     {
         // For adjusting curMaxAge of satisfaction queue
-        public const int AGE_DECR = 3;
+        public const int AGE_DECR = 2;
         public const int AGE_INCR = 1;
         bool failed;
 
         Stopwatch countdownWatch = new Stopwatch();
-        public const int COUNTDOWN = 3;
+        public const int COUNTDOWN = 4;
 
         GameState gameState;
         //public const float INTERVAL_TIME = 1.0f;
@@ -28,6 +28,7 @@ namespace EnsemPro
         int last_beat;
         // beat_sum is for the purpose of beat time change
         int beat_sum = 0;
+        int countDownBeatSum = 0;
         int beatTime;
         int c = 0;
         int current_score;
@@ -36,7 +37,7 @@ namespace EnsemPro
         int comboCount;
         int maxCombo;
         int backToMenu;
-        String satisfactionImagePath="Images\\aquarium";
+        String satisfactionImagePath="Images\\aquarium"; // stubbed, but doesnt matter
 
         SpriteFont font;
         SpriteBatch spriteBatch;
@@ -48,6 +49,10 @@ namespace EnsemPro
         HashSet<Movement> drawSet;
 
         Movement current_act;
+
+        bool startTiming;
+        bool endTiming;
+        
         BatonView baton;
         MovementEvaluator moveEval;
         InputBuffer buffer;
@@ -57,6 +62,7 @@ namespace EnsemPro
 
         SoundEffect SmallApplause;
         SoundEffect LargeApplause;
+        SoundEffect CountDown;
         Song LevelFail;
 
         List<Musician> musicians = new List<Musician>();
@@ -90,6 +96,7 @@ namespace EnsemPro
             MediaPlayer.IsRepeating = false;
             Console.WriteLine(gameState.SelectedLevel);
 
+            CountDown = Game.Content.Load<SoundEffect>("Sounds//CountDown");
             SmallApplause = Game.Content.Load<SoundEffect>("Sounds//SmallApplause");
             LargeApplause = Game.Content.Load<SoundEffect>("Sounds//LargeApplause");
             LevelFail = Game.Content.Load<Song>("Sounds//LevelFail");
@@ -120,7 +127,7 @@ namespace EnsemPro
             //musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/clara_sprite", "Characters/clara_map", new Vector2(200, 400), 20));
             //musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/robert_sprite", "Characters/robert_map", new Vector2(200, 400), 20));
             
-            moveEval = new MovementEvaluator(actionList.First.Value);
+            moveEval = new MovementEvaluator(null);
             base.LoadContent();
         }
 
@@ -199,9 +206,24 @@ namespace EnsemPro
 
                 current_beat = beat_sum + (int)Math.Round((float)watch.ElapsedMilliseconds / beatTime);
                 bool newMovement = false;
+                startTiming = true;
+                endTiming = true;
                 if (current_beat > last_beat) // new beat
                 {
-
+                    if (current_act != null)
+                    {
+                        if (current_act.myType == Movement.Types.Wave)
+                        {
+                            if (Alpha(current_act.endBeat, current_act.startBeat) > 0.0f)
+                            {
+                                startTiming = moveEval.Timing(buffer, current_act.startCoordinate, true);
+                            }
+                            if (current_beat == current_act.endBeat)
+                            {
+                                endTiming = moveEval.Timing(buffer, current_act.endCoordinate, false);
+                            }
+                        }
+                    }
                     last_beat = current_beat;
                     if (current_act != null && current_act.endBeat < current_beat)
                     {
@@ -226,15 +248,18 @@ namespace EnsemPro
 
                     do
                     {
-
+                        
                         // check and remove the head of the list
                         if (actionList.First != null && actionList.First.Value.startBeat == current_beat)
                         {
-
+                         //   buffer.Clear();
                             current_act = actionList.First.Value;
+                         //   moveEval.currentMovement = current_act;
+                           // evalBeat = current_beat + 1;
                             if (current_act.myType != Movement.Types.Control)
                             {
                                 actionList.RemoveFirst();
+
                                 c++;
                                 newMovement = true;
                             }
@@ -252,16 +277,17 @@ namespace EnsemPro
                     if (current_act != null)
                     {
                         Movement.Types type = current_act.myType;
-                        float score = moveEval.Accuracy(current_act, buffer, gameTime);
-                        gainedScore = (int)(score * 10);
+                        float score = moveEval.Accuracy(current_act, buffer, startTiming&&endTiming, gameTime);
 
+                        gainedScore = (int)(score * 10);
+                        
                         // Adjusts age of satisfaction queue
                         if (gainedScore < 0)
                         {
                             if (satisfaction.maxAge < 5) satisfaction.maxAge = 0;
                             else satisfaction.maxAge = Math.Max(4, satisfaction.maxAge - AGE_DECR);
                         }
-                        else if (gainedScore > 0)
+                        else
                         {
                             satisfaction.maxAge = Math.Min(SatisfactionQueue.MAX_AGE, satisfaction.maxAge + AGE_INCR);
                         }
@@ -282,26 +308,24 @@ namespace EnsemPro
                          * If there is a combo and the most recent score is non-negative (e.g. Shaking is succuessful), also add the current combo count to the score */
                         current_score += (gainedScore + (comboCount > 1 && gainedScore > 0 ? comboCount : 0));
                         current_score = Math.Max(0, current_score);
-                        if (newMovement) buffer.Clear();
+                        
                         moveEval.Update(current_act, score, (newMovement || actionList.Count == 0), gameTime);
+                        if (newMovement) { buffer.Clear();  }
                     }
                 }
             }
 
             if (actionList.Count == 0 || failed) 
             {
-                if (backToMenu == 0)
+                if (!failed && backToMenu == 0)
                 {
-                    if (!failed)
+                    if (current_score < 1000)
                     {
-                        if (current_score < 1000)
-                        {
-                            SmallApplause.Play();
-                        }
-                        else
-                        {
-                            LargeApplause.Play();
-                        }
+                        SmallApplause.Play();
+                    }
+                    else
+                    {
+                        LargeApplause.Play();
                     }
                 }
                 backToMenu++; 
@@ -348,8 +372,11 @@ namespace EnsemPro
         public override void Draw(GameTime t)
         {
             // Draw background
-            spriteBatch.Draw(background, new Vector2(), Color.White);
-
+            int colorChange = satisfaction.MaxAge()-satisfaction.maxAge;
+            int newRGB = 255-(int)255/satisfaction.MaxAge()*colorChange;
+            Color tint = new Color(newRGB, newRGB, newRGB);
+            spriteBatch.Draw(background, new Vector2(), tint);
+            
             
 #if DEBUG
             // Draw beat and score
@@ -389,9 +416,8 @@ namespace EnsemPro
 
             foreach (Musician m in musicians)
             {
-                m.Draw(t, !failed);
+                m.Draw(t, !failed, tint);
             }
-
             // sort it in ascending way
             var drawing =
             from m in drawSet
@@ -417,17 +443,25 @@ namespace EnsemPro
                 satisfaction.Draw(spriteBatch);
                 baton.Draw(t);
             }
-
-            baton.Draw(t);
             satisfaction.Draw(spriteBatch);
+            baton.Draw(t);
 
             // Draw beginning countdown
             if (!CountDownDone())
             {
-                string counter = (COUNTDOWN - countdownWatch.Elapsed.Seconds).ToString();
-                Vector2 textCenter = new Vector2(Game.GraphicsDevice.Viewport.Width, Game.GraphicsDevice.Viewport.Height);
-                Vector2 counterSize = font.MeasureString(counter);
-                spriteBatch.DrawString(font, counter, (textCenter - counterSize) / 2, Color.White);
+                int increment = (int)Math.Round((float)countdownWatch.ElapsedMilliseconds / beatTime);
+                if (increment > 0)
+                {
+                    if (increment > countDownBeatSum) 
+                    {
+                        if (increment <= COUNTDOWN) CountDown.Play();
+                        countDownBeatSum++; 
+                    }
+                    string counter = countDownBeatSum < COUNTDOWN ? (COUNTDOWN - countDownBeatSum).ToString() : "Go!";
+                    Vector2 textCenter = new Vector2(Game.GraphicsDevice.Viewport.Width, Game.GraphicsDevice.Viewport.Height);
+                    Vector2 counterSize = font.MeasureString(counter);
+                    spriteBatch.DrawString(font, counter, (textCenter - counterSize) / 2, Color.White);
+                }
             }
 
             // Draw to screen if level failed
@@ -454,7 +488,7 @@ namespace EnsemPro
 
         private bool CountDownDone()
         {
-            return countdownWatch.Elapsed.Seconds >= COUNTDOWN;
+            return countDownBeatSum > COUNTDOWN;
         }
 
     }

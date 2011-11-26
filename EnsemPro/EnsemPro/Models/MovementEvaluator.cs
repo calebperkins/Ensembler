@@ -9,73 +9,101 @@ namespace EnsemPro
         public const float ACC_THRESHOLD = 0.05f;
         public const float MAGIC_WAVE_THRESHOLD = 0.6f / 1f;
 
-        Movement currentMovement;
+        public Movement currentMovement
+        {
+            get;
+            set;
+        }
 
         public MovementEvaluator(Movement m)
         {
             currentMovement = m;
         }
 
+        public bool Timing(InputBuffer inputs, Point p, bool start)
+        {
+            if (inputs.Count != 0)
+            {
+                Vector2 coords = new Vector2(p.X, 600 - p.Y);
+                Vector2 pos = (start ? inputs[0].Position : inputs[inputs.Count - 1].Position);
+                //  Console.WriteLine("coords is " + coords);
+                //  Console.WriteLine("pos is " + pos);
+                //  Console.WriteLine("difference in pos is " + Vector2.Distance(coords, pos)+"\n");
+                return Vector2.Distance(coords, pos) <= 70;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         /*Returns a floating number 0 to 1 which indicates how well the input is matching the movement */
-        public float Accuracy(Movement m, InputBuffer inputs, GameTime t)
+        public float Accuracy(Movement m, InputBuffer inputs, bool timing, GameTime t)
         {
             int totalInput = inputs.Count;
             int correct = 0;
-            
-            switch (currentMovement.myType)
+
+            if (currentMovement != null)
             {
-                case Movement.Types.Noop:
-                    return (totalInput > 20 ? -0.5f : 0.0f);
-                case Movement.Types.Shake:
-                    if (totalInput < 20)
-                    {
-                        return 0.0f;
-                    }
-                    else
-                    {
-                        foreach (InputState state in inputs)
+                switch (currentMovement.myType)
+                {
+                    case Movement.Types.Noop:
+                        return (totalInput > 20 ? -0.5f : 0.0f);
+                    case Movement.Types.Shake:
+                        if (totalInput < 20)
                         {
-                            if (Math.Abs(state.Acceleration.X) > ACC_THRESHOLD || Math.Abs(state.Acceleration.Y) > ACC_THRESHOLD)
-                            {
-                                correct++;
-                            }
-                        }
-                        return (float)correct / totalInput / 2;
-                    }
-                case Movement.Types.Wave:
-                    if (totalInput < 5)
-                    {
-                        return -0.3f;
-                    }
-                    else
-                    {
-                        Vector2 startPos = new Vector2(currentMovement.startCoordinate.X, currentMovement.startCoordinate.Y);
-                        Vector2 endPos = new Vector2(currentMovement.endCoordinate.X, currentMovement.endCoordinate.Y);
-                        float DIST_THRESHOLD = 0.55f * Vector2.Distance(startPos, endPos);
-
-                        Vector2[] slopes = currentMovement.f.Slope(totalInput - 1);
-                        float errorSum = 0.0f;
-                        float dist = Vector2.Distance(inputs[totalInput - 1].Position,inputs[0].Position);
-
-                        if (dist >= DIST_THRESHOLD)
-                        {
-                            for (int i = 1; i < totalInput; i++)
-                            {
-                                Vector2 normVel = Vector2.Normalize(inputs[i].Velocity);
-                                Vector2 slope = slopes[i];
-                                errorSum += (normVel.X - slope.X) * (normVel.X - slope.X) + (normVel.Y - slope.Y) * (normVel.Y - slope.Y);
-                            }
-                            float rmsError = (float)Math.Sqrt((double)errorSum / (double)(totalInput - 1));
-                            float accuracy = (1 - rmsError * MAGIC_WAVE_THRESHOLD);
-                            return (accuracy > FAIL_THRESHOLD ? accuracy : -0.3f);
+                            return 0.0f;
                         }
                         else
                         {
+                            foreach (InputState state in inputs)
+                            {
+                                if (Math.Abs(state.Acceleration.X) > ACC_THRESHOLD || Math.Abs(state.Acceleration.Y) > ACC_THRESHOLD)
+                                {
+                                    correct++;
+                                }
+                            }
+                            return (float)correct / totalInput / 2;
+                        }
+                    case Movement.Types.Wave:
+                        if (totalInput < 5 || !timing)
+                        {
                             return -0.3f;
                         }
-                    }
-                default:
-                    return 0.0f;
+                        else
+                        {
+                            Vector2 startPos = new Vector2(currentMovement.startCoordinate.X, currentMovement.startCoordinate.Y);
+                            Vector2 endPos = new Vector2(currentMovement.endCoordinate.X, currentMovement.endCoordinate.Y);
+                            float DIST_THRESHOLD = 0.55f * Vector2.Distance(startPos, endPos);
+
+                            Vector2[] slopes = currentMovement.f.Slope(totalInput - 1);
+                            float errorSum = 0.0f;
+                            float dist = Vector2.Distance(inputs[totalInput - 1].Position, inputs[0].Position);
+
+                            if (dist >= DIST_THRESHOLD)
+                            {
+                                for (int i = 1; i < totalInput; i++)
+                                {
+                                    Vector2 normVel = Vector2.Normalize(inputs[i].Velocity);
+                                    Vector2 slope = slopes[i];
+                                    errorSum += (normVel.X - slope.X) * (normVel.X - slope.X) + (normVel.Y - slope.Y) * (normVel.Y - slope.Y);
+                                }
+                                float rmsError = (float)Math.Sqrt((double)errorSum / (double)(totalInput - 1));
+                                float accuracy = (1 - rmsError * MAGIC_WAVE_THRESHOLD);
+                                return (accuracy > FAIL_THRESHOLD ? accuracy : -0.3f);
+                            }
+                            else
+                            {
+                                return -0.3f;
+                            }
+                        }
+                    default:
+                        return 0.0f;
+                }
+            }
+            else
+            {
+                return 0.0f;
             }
         }
 
@@ -85,19 +113,21 @@ namespace EnsemPro
             {
                 //Debug.WriteLine("NEW MOVEMENT!");
                 // send score back to Movement
-                if (score <= FAIL_THRESHOLD)
+                if (currentMovement != null)
                 {
-                    currentMovement.setState(Movement.States.Fail);
+                    if (score <= FAIL_THRESHOLD)
+                    {
+                        currentMovement.setState(Movement.States.Fail);
+                    }
+                    else if (score > FAIL_THRESHOLD)
+                    {
+                        currentMovement.setState(Movement.States.Succeed);
+                    }
+                    else // no op
+                    {
+                        currentMovement.setState(Movement.States.None);
+                    }
                 }
-                else if (score > FAIL_THRESHOLD)
-                {
-                    currentMovement.setState(Movement.States.Succeed);
-                }
-                else // no op
-                {
-                    currentMovement.setState(Movement.States.None);
-                }
-
                 currentMovement = m; // update movement
             }
         }

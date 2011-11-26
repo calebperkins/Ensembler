@@ -16,6 +16,10 @@ namespace EnsemPro
             buf = b;
         }
 
+        public int MaxAge()
+        {
+            return MAX_AGE;
+        }
 
         public void LoadContent(ContentManager content, String path)
         {
