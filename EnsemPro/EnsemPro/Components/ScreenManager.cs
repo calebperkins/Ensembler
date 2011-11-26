@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace EnsemPro.Controllers
+namespace EnsemPro.Components
 {
     // TODO: add state management here
     class ScreenManager : GameComponent

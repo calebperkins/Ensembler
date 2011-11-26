@@ -1,9 +1,6 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.GamerServices;
-using Microsoft.Xna.Framework.Storage;
-using System;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace EnsemPro
 {
@@ -79,7 +76,7 @@ namespace EnsemPro
             pauseController.Initialize();
 
             Components.Add(new GamerServicesComponent(this));
-            Components.Add(new Controllers.SaveManager(this));
+            Components.Add(new Components.SaveManager(this));
 
             base.Initialize();
             

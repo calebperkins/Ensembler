@@ -1,8 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 
-namespace EnsemPro.Controllers
+namespace EnsemPro.Components
 {
     class AudioManager : GameComponent
     {

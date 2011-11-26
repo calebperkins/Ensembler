@@ -1,11 +1,11 @@
 using System;
+using System.IO;
+using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Storage;
-using System.Xml.Serialization;
-using System.IO;
 
-namespace EnsemPro.Controllers
+namespace EnsemPro.Components
 {
     /// <summary>
     /// This is a game component that saves the game asynchronously (mostly).
