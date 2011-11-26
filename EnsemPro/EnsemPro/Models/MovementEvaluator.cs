@@ -20,8 +20,25 @@ namespace EnsemPro
             currentMovement = m;
         }
 
+        public bool Timing(InputBuffer inputs, Point p, bool start)
+        {
+            if (inputs.Count != 0)
+            {
+                Vector2 coords = new Vector2(p.X, 600 - p.Y);
+                Vector2 pos = (start ? inputs[0].Position : inputs[inputs.Count - 1].Position);
+                //  Console.WriteLine("coords is " + coords);
+                //  Console.WriteLine("pos is " + pos);
+                //  Console.WriteLine("difference in pos is " + Vector2.Distance(coords, pos)+"\n");
+                return Vector2.Distance(coords, pos) <= 70;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         /*Returns a floating number 0 to 1 which indicates how well the input is matching the movement */
-        public float Accuracy(Movement m, InputBuffer inputs, GameTime t)
+        public float Accuracy(Movement m, InputBuffer inputs, bool timing, GameTime t)
         {
             int totalInput = inputs.Count;
             int correct = 0;
@@ -49,7 +66,7 @@ namespace EnsemPro
                             return (float)correct / totalInput / 2;
                         }
                     case Movement.Types.Wave:
-                        if (totalInput < 5)
+                        if (totalInput < 5 || !timing)
                         {
                             return -0.3f;
                         }

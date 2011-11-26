@@ -24,10 +24,10 @@ namespace EnsemPro
             spriteBatch = sb;
         }
 
-        public void Draw(GameTime t, bool update)
+        public void Draw(GameTime t, bool update, Color tint)
         {
             if (update) src = map[(int)(t.TotalGameTime.TotalSeconds * frameRate) % map.Length];
-            spriteBatch.Draw(texture, position, src, Color.White);
+            spriteBatch.Draw(texture, position, src, tint);
         }
 
         public bool Visible

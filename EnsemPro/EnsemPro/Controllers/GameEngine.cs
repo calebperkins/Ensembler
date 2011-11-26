@@ -161,6 +161,13 @@ namespace EnsemPro
                             //rhythmController.Start();
                         }
                         break;
+                    case DataTypes.Screens.Title:
+                        if (gameState.CurrentScreen == DataTypes.Screens.WorldMap)
+                        {
+                            buffer.Clear();
+                            worldController.Update(gameTime, false);
+                        }
+                        break;
                 }
 
                 switch (gameState.CurrentScreen)
@@ -174,8 +181,6 @@ namespace EnsemPro
                 }
                 
             }
-
-            
 
             lastState = gameState.CurrentScreen;
             
@@ -191,7 +196,7 @@ namespace EnsemPro
                     playlevel.Update(gameTime);
                     break;
                 case DataTypes.Screens.WorldMap:
-                    worldController.Update(gameTime);
+                    worldController.Update(gameTime,true);
                     break;
                 case DataTypes.Screens.Pause:
                     pauseController.Update(gameTime);

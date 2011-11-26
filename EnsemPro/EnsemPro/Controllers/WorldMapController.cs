@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 using System.Collections.Generic;
 
 namespace EnsemPro
@@ -32,10 +33,7 @@ namespace EnsemPro
             end
         }
 
-
-
         Models.City SelectedCity;
-
 
         public WorldMapController (GameEngine g, GameState gm, SpriteBatch sb, InputBuffer bf)
         {
@@ -44,7 +42,6 @@ namespace EnsemPro
             worldView = new WorldMapView(sb);
             spriteBatch = sb;
             buffer = bf;
-           
         }
 
         public void Initialize() 
@@ -92,10 +89,14 @@ namespace EnsemPro
 
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, bool stayInDialogue)
         {
             KeyboardState ks = Keyboard.GetState();
 
+            if (!stayInDialogue) 
+            {
+                currentState = State.inMap;
+            }
             switch (currentState)
             {
                 /// code for inDialog
@@ -106,9 +107,10 @@ namespace EnsemPro
                             currentState = State.inMap;
                         else
                         {
+                            MediaPlayer.Stop();
                             gameState.SelectedLevel = SelectedCity.Data.PlayLevel;
                             Console.WriteLine(gameState.SelectedLevel);
-                            gameState.CurrentScreen = DataTypes.Screens.PlayLevel; ;
+                            gameState.CurrentScreen = DataTypes.Screens.PlayLevel;
                             currentState = State.inGame;
                         }
                     }
