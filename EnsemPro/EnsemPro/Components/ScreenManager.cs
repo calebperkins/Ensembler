@@ -5,9 +5,6 @@ namespace EnsemPro.Components
     // TODO: add state management here
     class ScreenManager : GameComponent
     {
-        DataTypes.Screens lastState;
-        GameState gameState;
-
         public ScreenManager(Game g) 
             : base(g)
         {
