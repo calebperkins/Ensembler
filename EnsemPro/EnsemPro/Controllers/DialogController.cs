@@ -32,8 +32,6 @@ namespace EnsemPro
         SoundEffect NextDialog;
         SoundEffect ReceiveItem;
 
-        bool IsFinished;
-
         public DialogController(GameState gm, SpriteBatch sb, DialogModel dm, string cityName, ContentManager cm)
         {
             gameState = gm;
@@ -55,7 +53,7 @@ namespace EnsemPro
 
         public void Initialize()
         {
-            IsFinished = false;
+            Finished = false;
 
         }
 
@@ -97,7 +95,11 @@ namespace EnsemPro
             }
         }
 
-        public bool Finished() { return IsFinished; }
+        public bool Finished
+        {
+            get;
+            private set;
+        }
 
         public void Update(GameTime t)
         {
@@ -105,7 +107,7 @@ namespace EnsemPro
             if (names.Count == 0 && gameState.Input.Confirm || ks.IsKeyDown(Keys.Q) && lastState.IsKeyUp(Keys.Q)) // end of this dialog mode, move on to playlevel or map
             {
                
-                IsFinished = true;
+                Finished = true;
             }
             else
             {

@@ -13,10 +13,6 @@ namespace EnsemPro
         public static int HEIGHT;
         public static int WIDTH;
 
-        // for later
-        IUpdateable ActiveController;
-        IDrawable ActiveView;
-
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -24,7 +20,7 @@ namespace EnsemPro
         DataTypes.Screens lastState = DataTypes.Screens.Initial;
 
         MenuController menuController;
-        public PlayLevel playlevel;
+        PlayLevel playlevel;
         LevelSelectController levelController;
 
         WorldMapController worldController;
@@ -127,8 +123,6 @@ namespace EnsemPro
         {
             input.Update(gameTime);
 
-           // dialogController.Update(gameTime);
-            
             // transitioning to new state
             if (lastState != gameState.CurrentScreen)
             {
@@ -146,7 +140,6 @@ namespace EnsemPro
                             buffer.Clear();
                             playlevel = new PlayLevel(this, gameState, spriteBatch, buffer);
                             playlevel.Initialize();
-                            //rhythmController.Start();
                         }
                         break;
                     case DataTypes.Screens.WorldMap:
@@ -155,7 +148,6 @@ namespace EnsemPro
                             buffer.Clear();
                             playlevel = new PlayLevel(this, gameState, spriteBatch, buffer);
                             playlevel.Initialize();
-                            //rhythmController.Start();
                         }
                         break;
                     case DataTypes.Screens.Title:
@@ -211,7 +203,6 @@ namespace EnsemPro
         protected override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
-           // 5Controller.Draw(gameTime);
             
             switch (gameState.CurrentScreen)
             {

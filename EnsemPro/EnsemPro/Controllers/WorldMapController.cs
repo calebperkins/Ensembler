@@ -101,7 +101,7 @@ namespace EnsemPro
             {
                 /// code for inDialog
                 case State.inDialog:
-                    if (SelectedCity.DialogControl.Finished())
+                    if (SelectedCity.DialogControl.Finished)
                     {
                         if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared)
                             currentState = State.inMap;
