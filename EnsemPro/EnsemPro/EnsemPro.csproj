@@ -137,12 +137,9 @@
     <Compile Include="Models\Movement.cs" />
     <Compile Include="Models\MovementEvaluator.cs" />
     <Compile Include="Controllers\PlayLevel.cs" />
-    <Compile Include="Models\HitQueue.cs" />
-    <Compile Include="Models\NoteQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Controllers\GameEngine.cs" />
-    <Compile Include="Models\ObQueue.cs" />
     <Compile Include="Models\SatisfactionQueue.cs" />
     <Compile Include="Controllers\Input\WiiController.cs" />
     <Compile Include="Controllers\WorldMapController.cs" />
