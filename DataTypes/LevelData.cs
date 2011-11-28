@@ -1,9 +1,18 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework;
 
 namespace DataTypes
 {
+    public struct MusicianData
+    {
+        public string Texture;
+        public string SpriteMap;
+        public Vector2 Position;
+        public int FrameRate;
+    }
+
     public struct MovementData
     {
         public string Kind;
@@ -59,6 +68,10 @@ namespace DataTypes
         public string SatisfactionAssetName;
         public string Artist;
         public string Background;
+
+        [ContentSerializer(Optional = true)]
+        public List<MusicianData> Musicians;
+
         public List<MovementData> Movements;
     }
 }

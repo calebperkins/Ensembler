@@ -15,12 +15,12 @@ namespace EnsemPro
         SpriteBatch spriteBatch;
         int frameRate;
 
-        public Musician(ContentManager cm, SpriteBatch sb, string texture_name, string texture_map, Vector2 pos, int frameRate)
+        public Musician(DataTypes.MusicianData md, ContentManager cm, SpriteBatch sb)
         {
-            texture = cm.Load<Texture2D>(texture_name);
-            map = cm.Load<Dictionary<string, Rectangle>>(texture_map).Values.ToArray();
-            position = pos;
-            this.frameRate = frameRate;
+            texture = cm.Load<Texture2D>(md.Texture);
+            map = cm.Load<Dictionary<string, Rectangle>>(md.SpriteMap).Values.ToArray();
+            position = md.Position;
+            frameRate = md.FrameRate;
             spriteBatch = sb;
         }
 

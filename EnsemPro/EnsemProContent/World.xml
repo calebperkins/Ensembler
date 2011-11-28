@@ -9,7 +9,7 @@
         <Up>0</Up>
         <Down>2</Down>
         <Name>Forest Home</Name>
-        <Position>132 280</Position>
+        <Position>580 110</Position>
         <State>NewlyUnlocked</State>
         <ClearedDialogAsset>Cities\\AForestHome\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\AForestHome\\Unlocked</UnlockedDialogAsset>
@@ -29,7 +29,7 @@
         <Up>1</Up>
         <Down>0</Down>
         <Name>Paris</Name>
-        <Position>80 446</Position>
+        <Position>674 209</Position>
         <State>NewlyUnlocked</State>
         <ClearedDialogAsset>Cities\\BParis\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\BParis\\Unlocked</UnlockedDialogAsset>
@@ -49,7 +49,7 @@
         <Up>4</Up>
         <Down>0</Down>
         <Name>Reine</Name>
-        <Position>516 506</Position>
+        <Position>555 181</Position>
         <State>NewlyUnlocked</State>
         <ClearedDialogAsset>Cities\\CReine\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\CReine\\Unlocked</UnlockedDialogAsset>
@@ -69,7 +69,7 @@
         <Up>0</Up>
         <Down>3</Down>
         <Name>Ciboure</Name>
-        <Position>670 170</Position>
+        <Position>608 260</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\DCiboure\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\DCiboure\\Unlocked</UnlockedDialogAsset>
@@ -89,7 +89,7 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>London</Name>
-        <Position>1046 348</Position>
+        <Position>646 363</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\ELondon\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\ELondon\\Unlocked</UnlockedDialogAsset>
@@ -109,7 +109,7 @@
         <Up>0</Up>
         <Down>7</Down>
         <Name>Montmartre</Name>
-        <Position>1086 84</Position>
+        <Position>575 399</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\FMontmartre\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\FMontmartre\\Unlocked</UnlockedDialogAsset>
@@ -129,7 +129,7 @@
         <Up>6</Up>
         <Down>0</Down>
         <Name>Milan</Name>
-        <Position>1308 236</Position>
+        <Position>484 394</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\GMilan\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\GMilan\\Unlocked</UnlockedDialogAsset>
@@ -149,7 +149,7 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Saltzburg</Name>
-        <Position>1638 476</Position>
+        <Position>382 461</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\HSaltzburg\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\HSaltzburg\\Unlocked</UnlockedDialogAsset>
@@ -160,7 +160,7 @@
         <Unlock1>0</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
-        <BigSix>false</BigSix>
+        <BigSix>true</BigSix>
       </Item>
       <Item>
         <ID>9</ID>
@@ -169,7 +169,7 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Bonn</Name>
-        <Position>1364 418</Position>
+        <Position>477 470</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\IBonn\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\IBonn\\Unlocked</UnlockedDialogAsset>
@@ -180,16 +180,16 @@
         <Unlock1>0</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
-        <BigSix>false</BigSix>
+        <BigSix>true</BigSix>
       </Item>
       <Item>
-        <ID>10</ID>
+        <ID>10  </ID>
         <Left>0</Left>
         <Right>0</Right>
         <Up>0</Up>
         <Down>0</Down>
         <Name>Modena</Name>
-        <Position>2010 224</Position>
+        <Position>320 354</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\JModena\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\JModena\\Unlocked</UnlockedDialogAsset>
@@ -200,7 +200,7 @@
         <Unlock1>0</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
-        <BigSix>false</BigSix>
+        <BigSix>true</BigSix>
       </Item>
       <Item>
         <ID>11</ID>
@@ -209,7 +209,7 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>NewYorkCity</Name>
-        <Position>2482 80</Position>
+        <Position>378 260</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\KNewYorkCity\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\KNewYorkCity\\Unlocked</UnlockedDialogAsset>
@@ -220,7 +220,7 @@
         <Unlock1>0</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
-        <BigSix>false</BigSix>
+        <BigSix>true</BigSix>
       </Item>
       <Item>
         <ID>12</ID>
@@ -229,7 +229,7 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Hamburg</Name>
-        <Position>2494 510</Position>
+        <Position>168 385</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\LHamburg\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\LHamburg\\Unlocked</UnlockedDialogAsset>
@@ -240,7 +240,7 @@
         <Unlock1>0</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
-        <BigSix>false</BigSix>
+        <BigSix>true</BigSix>
       </Item>
       <Item>
         <ID>13</ID>
@@ -249,7 +249,7 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Moscow</Name>
-        <Position>2124 458</Position>
+        <Position>85 448</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\MMoscow\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\MMoscow\\Unlocked</UnlockedDialogAsset>
@@ -260,7 +260,7 @@
         <Unlock1>0</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
-        <BigSix>false</BigSix>
+        <BigSix>true</BigSix>
       </Item>
       <Item>
         <ID>14</ID>
@@ -269,7 +269,7 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>SaintPetersburg</Name>
-        <Position>2850 230</Position>
+        <Position>323 102</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\NSaintPetersburg\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\NSaintPetersburg\\Unlocked</UnlockedDialogAsset>
@@ -289,7 +289,7 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Berlin</Name>
-        <Position>2946 136</Position>
+        <Position>304 198</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\OBerlin\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\OBerlin\\Unlocked</UnlockedDialogAsset>
@@ -309,7 +309,7 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Warsaw</Name>
-        <Position>3178 196</Position>
+        <Position>191 168</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\PWarsaw\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\PWarsaw\\Unlocked</UnlockedDialogAsset>
@@ -329,7 +329,7 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Vienna</Name>
-        <Position>3612 210</Position>
+        <Position>156 224</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\QVienna\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\QVienna\\Unlocked</UnlockedDialogAsset>

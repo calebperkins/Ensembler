@@ -101,6 +101,7 @@ namespace EnsemPro
             private set;
         }
 
+        public DialogModel getModel() { return dialogModel; }
         public void Update(GameTime t)
         {
             KeyboardState ks = Keyboard.GetState();
