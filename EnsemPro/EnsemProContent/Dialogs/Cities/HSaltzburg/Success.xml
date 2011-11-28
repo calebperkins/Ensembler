@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="DataTypes.DialogData"> 
+    <Content>
+      <Item>
+        <Character>Player</Character>
+        <Line>null</Line>
+      </Item>
+    </Content>
+    <Colors>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item><FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName></Item>
+    </Faces>
+  </Asset>
+</XnaContent>

@@ -57,6 +57,7 @@ namespace EnsemPro.Models
             clearedDialogue = new DialogModel(c.ClearedDialogAsset);
             unlockedDialogue = new DialogModel(c.UnlockedDialogAsset);
             newlyUnlockedDialogue = new DialogModel(c.NewlyUnlockedDialogAsset);
+            successDialogue = new DialogModel(c.SuccessAsset);
             Name = c.Name;
 
             Unlocked = new Models.City[] { null, null, null };
@@ -67,6 +68,7 @@ namespace EnsemPro.Models
         public DialogModel clearedDialogue;
         public DialogModel unlockedDialogue;
         public DialogModel newlyUnlockedDialogue;
+        public DialogModel successDialogue;
         public string Name;
 
         public Vector2 RelativePosition;
