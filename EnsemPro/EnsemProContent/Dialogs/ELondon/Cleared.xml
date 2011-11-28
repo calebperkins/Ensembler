@@ -3,22 +3,20 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>Frederic</Character>
-        <Line>Would you mind conducting my students?</Line>
+        <Character>Game</Character>
+        <Line>The house is now deserted. But you can still remember the old woman's smile after you played aquarium to her.</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>Frederic</Character>
-        <Color>Aqua</Color>
+        <Character>Game</Character>
+        <Color>Red</Color>
       </Item>
     </Colors>
     <Faces>
       <Item>
-        <FaceAssetName>Images\\DialogueFace\\Frederic</FaceAssetName>
+        <FaceAssetName>null</FaceAssetName>
       </Item>
     </Faces>
-    <CutScenes>
-    </CutScenes>
   </Asset>
 </XnaContent>

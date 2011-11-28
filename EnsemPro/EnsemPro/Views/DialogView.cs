@@ -12,6 +12,7 @@ namespace EnsemPro
         Texture2D dialogBox;
         SpriteFont font;
 
+        Vector2 cutscenePos;
         Vector2 facePos;
         Vector2 dialogBoxPos;
         Vector2 namePos;
@@ -20,7 +21,8 @@ namespace EnsemPro
         public DialogView(SpriteBatch sb)
         {
             spriteBatch = sb;
-            // TODO: remove the hardcoding
+            // TODO: add dynamic coords
+            cutscenePos = new Vector2(0,0);
             dialogBoxPos = new Vector2(50, 350);
             facePos = new Vector2(40, 170);
             namePos = new Vector2(60, 365);
@@ -34,15 +36,13 @@ namespace EnsemPro
             font = cm.Load<SpriteFont>("images/Lucidia");
         }
 
-        public void Draw(GameTime t,String n, String s, Color c, Texture2D f)
+        public void Draw(GameTime t,String n, String s, Color c, Texture2D f, Texture2D cs)
         {
+            if (cs != null) spriteBatch.Draw(cs, cutscenePos, null, Color.White, 0.0f, new Vector2(), 0.5f, SpriteEffects.None, 0.0f);
             spriteBatch.Draw(dialogBox, dialogBoxPos, Color.White);
             spriteBatch.DrawString(font, n, namePos, c, 0.0f, new Vector2(),0.85f,SpriteEffects.None,0.0f);
             spriteBatch.DrawString(font, s, linePos, Color.Black, 0.0f, new Vector2(), 0.75f, SpriteEffects.None, 0.0f);
-            if (f != null) 
-            {
-                spriteBatch.Draw(f, facePos, Color.White);
-            }
+            if (f != null) spriteBatch.Draw(f, facePos, Color.White);
         }
     }
 }
