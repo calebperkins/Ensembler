@@ -20,11 +20,19 @@ namespace DataTypes
     {
         public string FaceAssetName;
     }
+
+    public struct CutSceneSummary
+    {
+        public string Picture;
+        public string StartCue;
+        public string StopCue;
+    }
     
     public class DialogData
     {
         public ContentSummary[] Content;
         public ColorSummary[] Colors;
         public FaceTexturePath[] Faces;
+        public CutSceneSummary[] CutScenes;
     }
 }

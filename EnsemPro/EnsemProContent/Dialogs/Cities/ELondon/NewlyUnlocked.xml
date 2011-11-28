@@ -29,9 +29,8 @@
         </Item>
       </Colors>
       <Faces>
-        <Item>
-          <FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName>
-        </Item>
       </Faces>
+      <CutScenes>
+      </CutScenes>
   </Asset>
 </XnaContent>

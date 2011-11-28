@@ -4,7 +4,7 @@
     <Content>
       <Item>
         <Character>Game</Character>
-        <Line>The house is now deserted. But you can still remember the old woman's smile after you played aquarium to her.</Line>
+        <Line>(The house is now deserted. But you can still remember the old woman's smile after you played aquarium to her.)</Line>
       </Item>
     </Content>
     <Colors>
@@ -14,9 +14,8 @@
       </Item>
     </Colors>
     <Faces>
-      <Item>
-        <FaceAssetName>null</FaceAssetName>
-      </Item>
     </Faces>
+    <CutScenes>
+    </CutScenes>
   </Asset>
 </XnaContent>

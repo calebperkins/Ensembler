@@ -2,114 +2,91 @@
 <XnaContent>
   <Asset Type="DataTypes.DialogData">
     <Content>
-
       <Item>
         <Character>???</Character>
         <Line>......</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
-        <Line>welcome to the world of Ensembler!</Line>
+        <Line>Welcome to the world of Ensembler!</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>You will embark on a journey to become the world's most prominent conductor and ensembler</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>but first you will need to learn the basics of conducting in this world.</Line>
       </Item>
-
       <!-- show screenshot from game manual! -->
       <Item>
         <Character>???</Character>
-
         <Line>In the performance interface,you will see the following things: beat, volume, score, and combo on top of the screen.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>Beat is the basic unit of time in a piece of music.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>Musical notes will appear on the screen at the same rate as the beat progresses.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>Volume can be increased by pressing "A", and decreased by pressing "Z"</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>Score shows how well you are doing in a level.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>Consecutive right moves will result in the score accumulating in an increasing rate.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>Lastly, Combo shows the number of consecutive right moves you have done in the level.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>Now, to the actual game play.</Line>
       </Item>
-
       <!-- show another screenshot from game manual! -->
       <Item>
         <Character>???</Character>
-
         <Line>To conduct your ensemble, simply move your baton according to the notes that appear in the screen.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>Trace your baton from the initial note to the note that appears next.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>This is almost everything you need to know to play this game.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>One last thing, notice the trail of stars that follow your baton?</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>It is also an indication on how well you are doing in the level.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
-        <Line> While the score determines if you have passed a level, the trail of stars determines if you have failed a level.</Line>
+        <Line>While the score determines if you have passed a level, the trail of stars determines if you have failed a level.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>Consecutive incorrect moves will result in decreasing the number of stars that follow your baton.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
         <Line>When the number of stars reaches zero, you will have to try the level again.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-
-        <Line>Alright, this is all you need to know about conducting in the world of Ensembler.  Good luck and have fun!</Line>
+        <Line>Alright, this is all you need to know about conducting in the world of Ensembler. Good luck and have fun!</Line>
       </Item>
     </Content>
     <Colors>
@@ -120,5 +97,7 @@
     </Colors>
     <Faces>
     </Faces>
+    <CutScenes>
+    </CutScenes>
   </Asset>
 </XnaContent>

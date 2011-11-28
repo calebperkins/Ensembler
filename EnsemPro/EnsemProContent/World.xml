@@ -15,8 +15,8 @@
         <UnlockedDialogAsset>Cities\\AForestHome\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\AForestHome\\NewlyUnlocked</NewlyUnlockedDialogAsset>
         <SuccessAsset>Cities\\AForestHome\\Success</SuccessAsset>
-        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
-        <ComboReq>0</ComboReq>
+        <PlayLevel>Levels\\Bolero\\level</PlayLevel>
+        <ComboReq>-1</ComboReq>
         <ScoreReq>0</ScoreReq>
         <Unlock1>4</Unlock1>
         <Unlock2>2</Unlock2>

@@ -100,7 +100,7 @@ namespace EnsemPro
                 start = true;
                 DialogModel dm = new DialogModel("Introduction");
                 dm.LoadContent(game.Content);
-                SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "", game.Content);
+                SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "Welcome", game.Content);
                 SelectedCity.DialogControl.Initialize();
                 SelectedCity.DialogControl.LoadContent(game.Content); 
                 currentState = State.inDialog;
@@ -109,8 +109,6 @@ namespace EnsemPro
             {
                 currentState = State.inMap;
             }
-
-
             switch (currentState)
             {
                 /// code for inDialog
@@ -119,7 +117,7 @@ namespace EnsemPro
                     {
                         if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared)
                             currentState = State.inMap;
-                        else if (SelectedCity.DialogControl.getModel().getName() == "Introduction")
+                        else if (SelectedCity.DialogControl.getModel().getName() == "Introduction" || SelectedCity.DialogControl.getModel() == SelectedCity.successDialogue)
                         {
                             currentState = State.inMap;
                         }
@@ -148,13 +146,19 @@ namespace EnsemPro
                                 c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
                             }
                         }
+                        DialogModel dm = SelectedCity.successDialogue;
+                        dm.LoadContent(game.Content);
+                        SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "Cleared!", game.Content);
+                        SelectedCity.DialogControl.Initialize();
+                        SelectedCity.DialogControl.LoadContent(game.Content);
+                        currentState = State.inDialog;
                     }
                     else
                     {
                         SelectedCity.State = DataTypes.WorldData.CityState.Unlocked;
+                        currentState = State.inMap;
                     }
                     // TODO
-                    currentState = State.inMap;
                     break;
 
                 default: //inMap

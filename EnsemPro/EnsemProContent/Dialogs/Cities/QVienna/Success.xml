@@ -3,8 +3,52 @@
   <Asset Type="DataTypes.DialogData"> 
     <Content>
       <Item>
+        <Character>Alice</Character>
+        <Line>Player!!!</Line>
+      </Item>
+      <Item>
         <Character>Player</Character>
-        <Line>null</Line>
+        <Line>Long time no see.</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(Sister hugs you until you cannot breathe.)</Line>
+      </Item>
+      <Item>
+        <Character>Alice</Character>
+        <Line>How was your journey?</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>I made it! After winning the competition, I am qualified as a grand master now.</Line>
+      </Item>
+      <Item>
+        <Character>Alice</Character>
+        <Line>Congratulations!</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Here, take this.</Line>
+      </Item>
+      <Item>
+        <Character>Alice</Character>
+        <Line>Why are you returning the baton? Are you quitting music...?</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Of course not. I just want to stop being labeled as "the son of the legendary conductor". I want to be recognized as what I do, but not who was I born as.</Line>
+      </Item>
+      <Item>
+        <Character>Alice</Character>
+        <Line>Oh player...!</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Even though I have won first place in the competition, I know I have yet to surpass my father. I won't stop until I know I am as good as father, if not better!</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>*Father scores unlocked in free mode*</Line>
       </Item>
     </Content>
     <Colors>
@@ -12,9 +56,13 @@
         <Character>Player</Character>
         <Color>Blue</Color>
       </Item>
+      <Item>
+        <Character>Alice</Character>
+        <Color>Orange</Color>
+      </Item>
     </Colors>
     <Faces>
-      <Item><FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName></Item>
     </Faces>
+    <CutScenes></CutScenes>
   </Asset>
 </XnaContent>

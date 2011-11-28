@@ -8,17 +8,12 @@
     <Artist>Ravel</Artist>
     <Background>Levels\\B5\\background</Background>
     <Movements>
-        <Item>
-        <Kind>Wave</Kind>
+      <Item>
+        <Kind>Shake</Kind>
         <ShowBeat>1</ShowBeat>
         <StartBeat>1</StartBeat>
-        <EndBeat>2</EndBeat>
-        <FadeBeat>3</FadeBeat>
-        <StartX>100</StartX>
-        <StartY>300</StartY>
-        <EndX>250</EndX>
-        <EndY>500</EndY>
-        <A>80</A>
+        <EndBeat>7</EndBeat>
+        <FadeBeat>7</FadeBeat>
       </Item>
     </Movements>
   </Asset>

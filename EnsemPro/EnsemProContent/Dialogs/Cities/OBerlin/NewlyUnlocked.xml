@@ -3,20 +3,40 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol newly unlocked</Line>
+        <Character>Rival</Character>
+        <Line>We meet once again.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>I have gathered the recogniztion from the grandmasters. There is nothing stopping me from entering the conducting competition now.</Line>
+      </Item>
+      <Item>
+        <Character>Rival</Character>
+        <Line>Impressive. Let me see how much you have improved since the last time I saw you.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>You will be blown away.</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
-        <Color>Red</Color>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+      <Item>
+        <Character>Rival</Character>
+        <Color>LightSeaGreen</Color>
       </Item>
     </Colors>
     <Faces>
-      <Item>
-        <FaceAssetName>null</FaceAssetName>
-      </Item>
     </Faces>
+    <CutScenes>
+      <Item>
+        <Picture>Images\\CutScene\\rival_small</Picture>
+        <StartCue>We meet once again.</StartCue>
+        <StopCue></StopCue>
+      </Item>
+    </CutScenes>
   </Asset>
 </XnaContent>

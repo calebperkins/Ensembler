@@ -3,20 +3,42 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol newly unlocked</Line>
+        <Character>Game</Character>
+        <Line>(This is the dream, the goal, the pinnacle of any musican in the world.)</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(On the prestigous stage of the Vienna Concert Hall, numerous grand masters performed and awed their audiences with their inparalleled skill and talent.)</Line>
+      </Item>
+      <Item>
+        <Character>Voice</Character>
+        <Line>Ladies and Gentlemen, welcome to the 100th International Conducting Competition!</Line>
+      </Item>
+      <Item>
+        <Character>Voice</Character>
+        <Line>Since the legendary couple 10 years ago, no one has ever won the first title in this competition.</Line>
+      </Item>
+      <Item>
+        <Character>Voice</Character>
+        <Line>Can anyone make it this year?</Line>
+      </Item>
+      <Item>
+        <Character>Voice</Character>
+        <Line>Without further adieu, let's BEGIN!</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
+        <Character>Game</Character>
         <Color>Red</Color>
+      </Item>
+      <Item>
+        <Character>Voice</Character>
+        <Color>Black</Color>
       </Item>
     </Colors>
     <Faces>
-      <Item>
-        <FaceAssetName>null</FaceAssetName>
-      </Item>
     </Faces>
+    <CutScenes></CutScenes>
   </Asset>
 </XnaContent>
