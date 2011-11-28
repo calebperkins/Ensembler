@@ -15,6 +15,6 @@
     </Colors>
     <Faces>
     </Faces>
-    <CutScene></CutScene>
+    <CutScenes></CutScenes>
   </Asset>
 </XnaContent>
