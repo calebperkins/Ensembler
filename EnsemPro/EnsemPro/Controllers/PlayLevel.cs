@@ -116,17 +116,14 @@ namespace EnsemPro
                 actionList.AddLast(new Movement(md, lastBeatTime));
             }
 
-            // TODO: put this in XML
-            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/Lance_sprite", "Characters/Lance_map", new Vector2(50, 400), 20));
-            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/dante_sprite", "Characters/dante_map", new Vector2(200, 400), 20));
-            //musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/Johannes_sprite", "Characters/Johannes_map", new Vector2(200, 400), 20));
-            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/alice_sprite", "Characters/alice_map", new Vector2(350, 400), 10));
-            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/thorsten_sprite", "Characters/thorsten_map", new Vector2(450, 400), 20));
-            //musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/bella_sprite", "Characters/bella_map", new Vector2(600, 400), 20));
-            musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/violet_sprite", "Characters/violet_map", new Vector2(600, 400), 20));
-            //musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/clara_sprite", "Characters/clara_map", new Vector2(200, 400), 20));
-            //musicians.Add(new Musician(Game.Content, spriteBatch, "Characters/robert_sprite", "Characters/robert_map", new Vector2(200, 400), 20));
-            
+            if (data.Musicians != null)
+            {
+                foreach (DataTypes.MusicianData md in data.Musicians)
+                {
+                    musicians.Add(new Musician(md, Game.Content, spriteBatch));
+                }
+            }
+                   
             moveEval = new MovementEvaluator(null);
             base.LoadContent();
         }

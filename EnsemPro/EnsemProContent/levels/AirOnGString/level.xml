@@ -7,8 +7,28 @@
     <SatisfactionAssetName>Images\\love</SatisfactionAssetName>
     <Artist>Bach</Artist>
     <Background>Levels\\B5\\background</Background>
+    <Musicians>
+      <Item>
+        <Texture>Characters\\Lance_sprite</Texture>
+        <SpriteMap>Characters\\Lance_map</SpriteMap>
+        <Position>50 400</Position>
+        <FrameRate>20</FrameRate>
+      </Item>
+      <Item>
+        <Texture>Characters\\dante_sprite</Texture>
+        <SpriteMap>Characters\\dante_map</SpriteMap>
+        <Position>200 400</Position>
+        <FrameRate>20</FrameRate>
+      </Item>
+      <Item>
+        <Texture>Characters\\Johannes_sprite</Texture>
+        <SpriteMap>Characters\\Johannes_map</SpriteMap>
+        <Position>250 400</Position>
+        <FrameRate>40</FrameRate>
+      </Item>
+    </Musicians>
     <Movements>
-        <Item>
+      <Item>
         <Kind>Wave</Kind>
         <ShowBeat>1</ShowBeat>
         <StartBeat>1</StartBeat>
