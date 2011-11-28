@@ -15,7 +15,7 @@ namespace EnsemPro
         SpriteBatch spriteBatch;
         GameState gameState;
         WorldMapView worldView;
-
+        
         KeyboardState lastState = Keyboard.GetState();
         SoundEffect MapMove;
         SoundEffect EnterCity;
@@ -24,6 +24,8 @@ namespace EnsemPro
         InputBuffer buffer;
 
         HashSet<Models.City> Cities = new HashSet<Models.City>();
+
+        bool start = false;
 
         public enum State { 
             inDialog,
@@ -93,10 +95,22 @@ namespace EnsemPro
         {
             KeyboardState ks = Keyboard.GetState();
 
-            if (!stayInDialogue) 
+            if (!start)
+            {
+                start = true;
+                DialogModel dm = new DialogModel("Introduction");
+                dm.LoadContent(game.Content);
+                SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "", game.Content);
+                SelectedCity.DialogControl.Initialize();
+                SelectedCity.DialogControl.LoadContent(game.Content); 
+                currentState = State.inDialog;
+            }
+            else if (!stayInDialogue) 
             {
                 currentState = State.inMap;
             }
+
+
             switch (currentState)
             {
                 /// code for inDialog
@@ -105,6 +119,10 @@ namespace EnsemPro
                     {
                         if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared)
                             currentState = State.inMap;
+                        else if (SelectedCity.DialogControl.getModel().getName() == "Introduction")
+                        {
+                            currentState = State.inMap;
+                        }
                         else
                         {
                             MediaPlayer.Stop();
