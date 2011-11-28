@@ -29,6 +29,7 @@ namespace EnsemPro
             get;
             set;
         }
+        public string getName(){return DialogFileName;}
 
         public DialogModel(string filename)
         {

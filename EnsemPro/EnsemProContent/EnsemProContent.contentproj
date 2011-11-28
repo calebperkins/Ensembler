@@ -267,6 +267,21 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
+    <Compile Include="Dialogs\Cities\QVienna\Cleared.xml">
+      <Name>Cleared</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Dialogs\Cities\QVienna\NewlyUnlocked.xml">
+      <Name>NewlyUnlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Dialogs\Cities\QVienna\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
     <Compile Include="Images\dot.png">
       <Name>dot</Name>
       <Importer>TextureImporter</Importer>

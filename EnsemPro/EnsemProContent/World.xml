@@ -9,13 +9,14 @@
         <Up>0</Up>
         <Down>2</Down>
         <Name>Forest Home</Name>
-        <Position>132 280</Position>
+        <Position>580 110</Position>
         <State>NewlyUnlocked</State>
         <ClearedDialogAsset>Cities\\AForestHome\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\AForestHome\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\AForestHome\\NewlyUnlocked</NewlyUnlockedDialogAsset>
-        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
-        <ComboReq>0</ComboReq>
+        <SuccessAsset>Cities\\AForestHome\\Success</SuccessAsset>
+        <PlayLevel>Levels\\Bolero\\level</PlayLevel>
+        <ComboReq>-1</ComboReq>
         <ScoreReq>0</ScoreReq>
         <Unlock1>4</Unlock1>
         <Unlock2>2</Unlock2>
@@ -29,11 +30,12 @@
         <Up>1</Up>
         <Down>0</Down>
         <Name>Paris</Name>
-        <Position>80 446</Position>
+        <Position>674 209</Position>
         <State>NewlyUnlocked</State>
         <ClearedDialogAsset>Cities\\BParis\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\BParis\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\BParis\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\BParis\\Success</SuccessAsset>
         <PlayLevel>Levels\\Aquarium\\aqu</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
@@ -49,11 +51,12 @@
         <Up>4</Up>
         <Down>0</Down>
         <Name>Reine</Name>
-        <Position>516 506</Position>
+        <Position>555 181</Position>
         <State>NewlyUnlocked</State>
         <ClearedDialogAsset>Cities\\CReine\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\CReine\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\CReine\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\CReine\\Success</SuccessAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
@@ -69,11 +72,12 @@
         <Up>0</Up>
         <Down>3</Down>
         <Name>Ciboure</Name>
-        <Position>670 170</Position>
+        <Position>608 260</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\DCiboure\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\DCiboure\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\DCiboure\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\DCiboure\\Success</SuccessAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
@@ -89,11 +93,12 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>London</Name>
-        <Position>1046 348</Position>
+        <Position>646 363</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\ELondon\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\ELondon\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\ELondon\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\ELondon\\Success</SuccessAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
@@ -109,11 +114,12 @@
         <Up>0</Up>
         <Down>7</Down>
         <Name>Montmartre</Name>
-        <Position>1086 84</Position>
+        <Position>575 399</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\FMontmartre\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\FMontmartre\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\FMontmartre\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\FMontmartre\\Success</SuccessAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
@@ -129,11 +135,12 @@
         <Up>6</Up>
         <Down>0</Down>
         <Name>Milan</Name>
-        <Position>1308 236</Position>
+        <Position>484 394</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\GMilan\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\GMilan\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\GMilan\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\GMilan\\Success</SuccessAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
@@ -149,18 +156,19 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Saltzburg</Name>
-        <Position>1638 476</Position>
+        <Position>382 461</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\HSaltzburg\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\HSaltzburg\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\HSaltzburg\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\HSaltzburg\\Success</SuccessAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
         <Unlock1>0</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
-        <BigSix>false</BigSix>
+        <BigSix>true</BigSix>
       </Item>
       <Item>
         <ID>9</ID>
@@ -169,18 +177,19 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Bonn</Name>
-        <Position>1364 418</Position>
+        <Position>477 470</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\IBonn\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\IBonn\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\IBonn\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\IBonn\\Success</SuccessAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
         <Unlock1>0</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
-        <BigSix>false</BigSix>
+        <BigSix>true</BigSix>
       </Item>
       <Item>
         <ID>10</ID>
@@ -189,18 +198,19 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Modena</Name>
-        <Position>2010 224</Position>
+        <Position>320 354</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\JModena\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\JModena\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\JModena\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\JModena\\Success</SuccessAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
         <Unlock1>0</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
-        <BigSix>false</BigSix>
+        <BigSix>true</BigSix>
       </Item>
       <Item>
         <ID>11</ID>
@@ -209,18 +219,19 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>NewYorkCity</Name>
-        <Position>2482 80</Position>
+        <Position>378 260</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\KNewYorkCity\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\KNewYorkCity\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\KNewYorkCity\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\KNewYorkCity\\Success</SuccessAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
         <Unlock1>0</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
-        <BigSix>false</BigSix>
+        <BigSix>true</BigSix>
       </Item>
       <Item>
         <ID>12</ID>
@@ -229,18 +240,19 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Hamburg</Name>
-        <Position>2494 510</Position>
+        <Position>168 385</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\LHamburg\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\LHamburg\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\LHamburg\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\LHamburg\\Success</SuccessAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
         <Unlock1>0</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
-        <BigSix>false</BigSix>
+        <BigSix>true</BigSix>
       </Item>
       <Item>
         <ID>13</ID>
@@ -249,18 +261,19 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Moscow</Name>
-        <Position>2124 458</Position>
+        <Position>85 448</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\MMoscow\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\MMoscow\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\MMoscow\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\MMoscow\\Success</SuccessAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
         <Unlock1>0</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
-        <BigSix>false</BigSix>
+        <BigSix>true</BigSix>
       </Item>
       <Item>
         <ID>14</ID>
@@ -269,11 +282,12 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>SaintPetersburg</Name>
-        <Position>2850 230</Position>
+        <Position>323 102</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\NSaintPetersburg\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\NSaintPetersburg\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\NSaintPetersburg\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\NSaintPetersburg\\Success</SuccessAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
@@ -289,11 +303,12 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Berlin</Name>
-        <Position>2946 136</Position>
+        <Position>304 198</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\OBerlin\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\OBerlin\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\OBerlin\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\OBerlin\\Success</SuccessAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
@@ -309,11 +324,12 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Warsaw</Name>
-        <Position>3178 196</Position>
+        <Position>191 168</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\PWarsaw\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\PWarsaw\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\PWarsaw\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\PWarsaw\\Success</SuccessAsset>
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
@@ -329,11 +345,12 @@
         <Up>0</Up>
         <Down>0</Down>
         <Name>Vienna</Name>
-        <Position>3612 210</Position>
+        <Position>156 224</Position>
         <State>Locked</State>
         <ClearedDialogAsset>Cities\\QVienna\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\QVienna\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\QVienna\\NewlyUnlocked</NewlyUnlockedDialogAsset>
+        <SuccessAsset>Cities\\QVienna\\Success</SuccessAsset>
         <PlayLevel>Levels\\Aquarium\\aqu</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>

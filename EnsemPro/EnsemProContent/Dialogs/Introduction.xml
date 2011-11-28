@@ -8,7 +8,7 @@
       </Item>
       <Item>
         <Character>???</Character>
-        <Line>welcome to the world of Ensembler!</Line>
+        <Line>Welcome to the world of Ensembler!</Line>
       </Item>
       <Item>
         <Character>???</Character>
@@ -74,7 +74,7 @@
       </Item>
       <Item>
         <Character>???</Character>
-        <Line> While the score determines if you have passed a level, the trail of stars determines if you have failed a level.</Line>
+        <Line>While the score determines if you have passed a level, the trail of stars determines if you have failed a level.</Line>
       </Item>
       <Item>
         <Character>???</Character>
@@ -86,7 +86,7 @@
       </Item>
       <Item>
         <Character>???</Character>
-        <Line>Alright, this is all you need to know about conducting in the world of Ensembler.  Good luck and have fun!</Line>
+        <Line>Alright, this is all you need to know about conducting in the world of Ensembler. Good luck and have fun!</Line>
       </Item>
     </Content>
     <Colors>
