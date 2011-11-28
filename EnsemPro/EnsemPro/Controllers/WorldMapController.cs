@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
-using System.Collections.Generic;
 
 namespace EnsemPro
 {
@@ -101,7 +101,7 @@ namespace EnsemPro
             {
                 /// code for inDialog
                 case State.inDialog:
-                    if (SelectedCity.DialogControl.Finished())
+                    if (SelectedCity.DialogControl.Finished)
                     {
                         if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared)
                             currentState = State.inMap;

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Audio;
 
 namespace EnsemPro
 {
@@ -115,7 +115,6 @@ namespace EnsemPro
 
         public void Draw(GameTime gameTime)
         {
-            //base.Draw(gameTime);
             menuView.Draw(hover);
         }
 
@@ -125,13 +124,21 @@ namespace EnsemPro
             get { return true; }
         }
 
-        public event System.EventHandler<System.EventArgs> EnabledChanged;
+        public event System.EventHandler<System.EventArgs> EnabledChanged
+        {
+            add { }
+            remove { }
+        }
 
         public int UpdateOrder
         {
             get { return 5; }
         }
 
-        public event System.EventHandler<System.EventArgs> UpdateOrderChanged;
+        public event System.EventHandler<System.EventArgs> UpdateOrderChanged
+        {
+            add { }
+            remove { }
+        }
     }
 }
