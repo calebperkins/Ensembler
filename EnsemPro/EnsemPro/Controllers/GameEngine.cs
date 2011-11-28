@@ -52,6 +52,7 @@ namespace EnsemPro
 
             buffer = new InputBuffer();
             gameState = new GameState();
+            gameState.LoadContent(Content); // hack
 
             input = new MouseController(this, gameState, buffer);
 
@@ -84,7 +85,7 @@ namespace EnsemPro
         /// </summary>
         protected override void LoadContent()
         {
-            gameState.LoadContent(Content);
+            
 
             // Deprecated
             WIDTH = gameState.ViewPort.Width;
