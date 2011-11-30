@@ -9,15 +9,15 @@ namespace EnsemPro
         public const float ACC_THRESHOLD = 0.05f;
         public const float MAGIC_WAVE_THRESHOLD = 0.6f / 1f;
 
-        public Movement currentMovement
+        public Movement CurrentMovement
         {
             get;
-            set;
+            private set;
         }
 
         public MovementEvaluator(Movement m)
         {
-            currentMovement = m;
+            CurrentMovement = m;
         }
 
         public bool Timing(InputBuffer inputs, Point p, bool start)
@@ -43,9 +43,9 @@ namespace EnsemPro
             int totalInput = inputs.Count;
             int correct = 0;
 
-            if (currentMovement != null)
+            if (CurrentMovement != null)
             {
-                switch (currentMovement.myType)
+                switch (CurrentMovement.myType)
                 {
                     case Movement.Types.Noop:
                         return (totalInput > 20 ? -0.5f : 0.0f);
@@ -72,11 +72,11 @@ namespace EnsemPro
                         }
                         else
                         {
-                            Vector2 startPos = new Vector2(currentMovement.startCoordinate.X, currentMovement.startCoordinate.Y);
-                            Vector2 endPos = new Vector2(currentMovement.endCoordinate.X, currentMovement.endCoordinate.Y);
+                            Vector2 startPos = new Vector2(CurrentMovement.startCoordinate.X, CurrentMovement.startCoordinate.Y);
+                            Vector2 endPos = new Vector2(CurrentMovement.endCoordinate.X, CurrentMovement.endCoordinate.Y);
                             float DIST_THRESHOLD = 0.55f * Vector2.Distance(startPos, endPos);
 
-                            Vector2[] slopes = currentMovement.f.Slope(totalInput - 1);
+                            Vector2[] slopes = CurrentMovement.f.Slope(totalInput - 1);
                             float errorSum = 0.0f;
                             float dist = Vector2.Distance(inputs[totalInput - 1].Position, inputs[0].Position);
 
@@ -113,22 +113,22 @@ namespace EnsemPro
             {
                 //Debug.WriteLine("NEW MOVEMENT!");
                 // send score back to Movement
-                if (currentMovement != null)
+                if (CurrentMovement != null)
                 {
                     if (score <= FAIL_THRESHOLD)
                     {
-                        currentMovement.setState(Movement.States.Fail);
+                        CurrentMovement.setState(Movement.States.Fail);
                     }
                     else if (score > FAIL_THRESHOLD)
                     {
-                        currentMovement.setState(Movement.States.Succeed);
+                        CurrentMovement.setState(Movement.States.Succeed);
                     }
                     else // no op
                     {
-                        currentMovement.setState(Movement.States.None);
+                        CurrentMovement.setState(Movement.States.None);
                     }
                 }
-                currentMovement = m; // update movement
+                CurrentMovement = m; // update movement
             }
         }
     }

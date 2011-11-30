@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.GamerServices;
@@ -54,7 +56,28 @@ namespace EnsemPro.Components
                 Stream stream = container.OpenFile(filename, FileMode.Open);
                 XmlSerializer serializer = new XmlSerializer(typeof(DataTypes.GameData));
                 DataTypes.GameData data = serializer.Deserialize(stream) as DataTypes.GameData;
-                state.Levels = data.Levels;
+
+                // Merge scores
+                Dictionary<string, DataTypes.LevelSummary> scoredLevels;
+                try
+                {
+                    scoredLevels = data.Levels.ToDictionary<DataTypes.LevelSummary, string>(k => k.Title);
+                }
+                catch (ArgumentException)
+                {
+                    Console.Error.WriteLine("Save file corrupted.");
+                    scoredLevels = new Dictionary<string, DataTypes.LevelSummary>();
+                }
+                for (int i = 0; i < state.Levels.Length; i++)
+                {
+                    try
+                    {
+                        state.Levels[i].HighScore = scoredLevels[state.Levels[i].Title].HighScore;
+                        state.Levels[i].HighCombo = scoredLevels[state.Levels[i].Title].HighCombo;
+                    }
+                    catch (KeyNotFoundException) { }
+                }
+
             }
             container.Dispose();
             base.Initialize();
