@@ -6,7 +6,7 @@
         <ID>1</ID>
         <Left>0</Left>
         <Right>4</Right>
-        <Up>0</Up>
+        <Up>6</Up>
         <Down>2</Down>
         <Name>Forest Home</Name>
         <Position>580 110</Position>
@@ -115,7 +115,7 @@
         <Down>7</Down>
         <Name>Montmartre</Name>
         <Position>575 399</Position>
-        <State>Locked</State>
+        <State>NewlyUnlocked</State>
         <ClearedDialogAsset>Cities\\FMontmartre\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\FMontmartre\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\FMontmartre\\NewlyUnlocked</NewlyUnlockedDialogAsset>
