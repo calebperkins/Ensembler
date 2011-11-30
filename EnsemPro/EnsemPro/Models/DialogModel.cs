@@ -17,11 +17,19 @@ namespace EnsemPro
             get;
             set;
         }
+
         public DataTypes.FaceTexturePath[] Faces
         {
             get;
             set;
         }
+
+        public DataTypes.CutSceneSummary[] CutScenes
+        {
+            get;
+            set;
+        }
+        public string getName(){return DialogFileName;}
 
         public DialogModel(string filename)
         {
@@ -33,6 +41,7 @@ namespace EnsemPro
             Content = cm.Load<DataTypes.DialogData>("Dialogs//" + DialogFileName).Content;
             Colors = cm.Load<DataTypes.DialogData>("Dialogs//" + DialogFileName).Colors;
             Faces = cm.Load<DataTypes.DialogData>("Dialogs//" + DialogFileName).Faces;
+            CutScenes = cm.Load<DataTypes.DialogData>("Dialogs//" + DialogFileName).CutScenes;
         }
     }
 }

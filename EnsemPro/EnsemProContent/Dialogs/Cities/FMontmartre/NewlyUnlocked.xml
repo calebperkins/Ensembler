@@ -3,32 +3,56 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>Frederic</Character>
-        <Line>This is Montmartre, where musicians gather and perform around the streets. I have just purchased a new piece of music for us to perform later.</Line>
-      </Item>
-      <Item>
         <Character>Game</Character>
-        <Line>*player receives Gymnopedie* *player can now choose Gymnopedie from level selection*</Line>
-      </Item>
-      <Item>
-        <Character>Frederic</Character>
-        <Line>Playing on the streets is a good way to gain some actual performance experience. It is also a good way to broaden our horizons by listening to other performers.</Line>
+        <Line>(A guy with green hair from the audience did not clap at the end of your performance. He has a smirk on his face.)</Line>
       </Item>
       <Item>
         <Character>Student 1</Character>
-        <Line>Gymnopedie... the famous piece by Satie?</Line>
+        <Line>Hey, why are you staring at us!</Line>
       </Item>
       <Item>
         <Character>Student 2</Character>
-        <Line>Oooohhh I know this piece!</Line>
+        <Line>What is with that cocky smile?</Line>
       </Item>
       <Item>
         <Character>Student 3</Character>
-        <Line>I bet I can sight-read this piece. Lets start performing NOW!</Line>
+        <Line>He is probably just ignorant and does not appreciate music at all.</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(The guy with green hair is not angry at all. He takes out his violin and started playing a Jazzy version of Autumn Leaves. A crowd started to gather around the teenager.)</Line>
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>Fine with me.</Line>
+        <Line>I have a feeling he is provoking me especially. Have I met him before?</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(The guy with green hair finishes playing, and the audience clapped for over a minute.)</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Hey... who are you?</Line>
+      </Item>
+      <Item>
+        <Character>Rival</Character>
+        <Line>I...will be the winner of the next International Conducting Competition, so you better remember me.</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(After acknowledging the crowd, the guy with green hair left.)</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>Seems like you have a rival now.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>I wonder who he is.</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>That green hair reminds me of someone I know from a long time ago. I think I should follow him and see what he is up to. You should proceed without me.</Line>
       </Item>
     </Content>
       <!-- A lot of pre-game dialogue waiting to be inserted! -->
@@ -44,7 +68,7 @@
       </Item>
       <Item>
         <Character>Frederic</Character>
-        <Color>Aqua</Color>
+        <Color>DarkViolet</Color>
       </Item>
       <Item>
         <Character>Student 1</Character>
@@ -58,14 +82,22 @@
         <Character>Student 3</Character>
         <Color>Wheat</Color>
       </Item>
+      <Item>
+        <Character>Rival</Character>
+        <Color>LightSeaGreen</Color>
+      </Item>
     </Colors>
     <Faces>
-      <Item>
-        <FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName>
-      </Item>
       <Item>
         <FaceAssetName>Images\\DialogueFace\\Frederic</FaceAssetName>
       </Item>
     </Faces>
+    <CutScenes>
+      <Item>
+        <Picture>Images\\CutScene\\rival_small</Picture>
+        <StartCue>I...will be the winner of the next International Conducting Competition, so you better remember me.</StartCue>
+        <StopCue>(After acknowledging the crowd, the guy with green hair left.)</StopCue>
+      </Item>
+    </CutScenes>
   </Asset>
 </XnaContent>

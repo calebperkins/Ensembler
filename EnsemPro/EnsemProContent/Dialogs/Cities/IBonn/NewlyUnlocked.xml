@@ -3,20 +3,43 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol newly unlocked</Line>
+        <Character>Game</Character>
+        <Line>(A grumpy middle aged man with a wig is sitting behind a desk furiously scribbling something on paper.)</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Hi, I assume you are Mr. Beethoven?</Line>
+      </Item>
+      <Item>
+        <Character>Beethoven</Character>
+        <Line>......</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(And then you remember, Beethoven is almost deaf. You passed him a note explaining why you are here.)</Line>
+      </Item>
+      <Item>
+        <Character>Beethoven</Character>
+        <Line>Play my symphony no.5. I can "hear" the music in my mind just by watching you conduct. And I should also warn you my symphonies are much more serious than the ones by Mozart.</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
+        <Character>Game</Character>
         <Color>Red</Color>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+      <Item>
+        <Character>Beethoven</Character>
+        <Color>Gold</Color>
       </Item>
     </Colors>
     <Faces>
-      <Item>
-        <FaceAssetName>null</FaceAssetName>
-      </Item>
     </Faces>
+    <CutScenes>
+    </CutScenes>
   </Asset>
 </XnaContent>

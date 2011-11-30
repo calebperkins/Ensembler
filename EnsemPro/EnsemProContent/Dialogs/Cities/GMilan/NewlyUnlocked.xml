@@ -3,20 +3,71 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol newly unlocked</Line>
+        <Character>Old man</Character>
+        <Line>Hello, what brings you to this city?</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>I want to be a conductor, so I am travelling around to recruit players for my ensemble.</Line>
+      </Item>
+      <Item>
+        <Character>Old man</Character>
+        <Line>Then you must have heard of the international conducting competition.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>I have heard of it, but I am not sure what it is about.</Line>
+      </Item>
+      <Item>
+        <Character>Old man</Character>
+        <Line>It is held in Vienna, which is not too far from here.But to be qualified to enter the competition, you must first get recognition from four of the six grand masters.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>What grand masters...?</Line>
+      </Item>
+      <Item>
+        <Character>Old man</Character>
+        <Line>Okay, listen carefully. From Milan you can reach six different cities, each guarded by one of the six grand masters. Two of them love the symphony, two of them love the opera, and the other two love the concerto.</Line>
+      </Item>
+      <Item>
+        <Character>Old man</Character>
+        <Line>They will give you a letter of recommendation if you can please them with your music. Remember, you only need play for four out of the six grand masters!</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Thank you for the information!</Line>
+      </Item>
+      <Item>
+        <Character>Old Man</Character>
+        <Line>By the way, I think you will need a larger ensemble in order to impress the grandmasters. How about this, I will let my two grandsons join your ensemble, and you will promise me to win the conducting competition?</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Deal!</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(Bruce Lee and his brother have joined your ensemble!)</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
+        <Character>Game</Character>
         <Color>Red</Color>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+      <Item>
+        <Character>Old man</Character>
+        <Color>Plum</Color>
       </Item>
     </Colors>
     <Faces>
-      <Item>
-        <FaceAssetName>null</FaceAssetName>
-      </Item>
     </Faces>
+    <CutScenes>
+    </CutScenes>
   </Asset>
 </XnaContent>

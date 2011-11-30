@@ -26,6 +26,7 @@ namespace DataTypes
             public string ClearedDialogAsset;
             public string UnlockedDialogAsset;
             public string NewlyUnlockedDialogAsset;
+            public string SuccessAsset;
 
             public string PlayLevel;
             public int ComboReq;

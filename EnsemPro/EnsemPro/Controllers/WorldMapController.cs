@@ -15,7 +15,7 @@ namespace EnsemPro
         SpriteBatch spriteBatch;
         GameState gameState;
         WorldMapView worldView;
-
+        
         KeyboardState lastState = Keyboard.GetState();
         SoundEffect MapMove;
         SoundEffect EnterCity;
@@ -24,6 +24,8 @@ namespace EnsemPro
         InputBuffer buffer;
 
         HashSet<Models.City> Cities = new HashSet<Models.City>();
+
+        bool start = false;
 
         public enum State { 
             inDialog,
@@ -93,7 +95,17 @@ namespace EnsemPro
         {
             KeyboardState ks = Keyboard.GetState();
 
-            if (!stayInDialogue) 
+            if (!start)
+            {
+                start = true;
+                DialogModel dm = new DialogModel("Introduction");
+                dm.LoadContent(game.Content);
+                SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "Welcome", game.Content);
+                SelectedCity.DialogControl.Initialize();
+                SelectedCity.DialogControl.LoadContent(game.Content); 
+                currentState = State.inDialog;
+            }
+            else if (!stayInDialogue) 
             {
                 currentState = State.inMap;
             }
@@ -105,6 +117,10 @@ namespace EnsemPro
                     {
                         if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared)
                             currentState = State.inMap;
+                        else if (SelectedCity.DialogControl.getModel().getName() == "Introduction" || SelectedCity.DialogControl.getModel() == SelectedCity.successDialogue)
+                        {
+                            currentState = State.inMap;
+                        }
                         else
                         {
                             MediaPlayer.Stop();
@@ -119,7 +135,7 @@ namespace EnsemPro
 
                 /// code for inGame
                 case State.inGame:
-                    if (gameState.Score >= SelectedCity.Data.ScoreReq && gameState.Combo >= SelectedCity.Data.ComboReq)
+                    if (gameState.Score > SelectedCity.Data.ScoreReq && gameState.Combo > SelectedCity.Data.ComboReq)
                     {
                         SelectedCity.State = DataTypes.WorldData.CityState.Cleared;
                         foreach (Models.City c in SelectedCity.Unlocked)
@@ -130,13 +146,19 @@ namespace EnsemPro
                                 c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
                             }
                         }
+                        DialogModel dm = SelectedCity.successDialogue;
+                        dm.LoadContent(game.Content);
+                        SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "Cleared!", game.Content);
+                        SelectedCity.DialogControl.Initialize();
+                        SelectedCity.DialogControl.LoadContent(game.Content);
+                        currentState = State.inDialog;
                     }
                     else
                     {
                         SelectedCity.State = DataTypes.WorldData.CityState.Unlocked;
+                        currentState = State.inMap;
                     }
                     // TODO
-                    currentState = State.inMap;
                     break;
 
                 default: //inMap

@@ -4,8 +4,7 @@
     <Content>
       <Item>
         <Character>Alice</Character>
-        <Line>Hey, player...
-        </Line>
+        <Line>Hey, player...</Line>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -13,8 +12,7 @@
       </Item>
       <Item>
         <Character>Alice</Character>
-        <Line>I know you are determined to leave, no matter what I say...
-        </Line>
+        <Line>I know you are determined to leave, no matter what I say...</Line>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -39,8 +37,7 @@
       </Item>
       <Item>
         <Character>Alice</Character>
-        <Line>Hey player...
-        </Line>
+        <Line>Hey player...</Line>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -48,8 +45,7 @@
       </Item>
       <Item>
         <Character>Alice</Character>
-        <Line>Can you wave that baton one last time... for me? I will play my favourite piece: Air on G String.
-        </Line>
+        <Line>Can you wave that baton one last time... for me? I will play my favourite piece: Air on G String.</Line>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -74,9 +70,13 @@
       <Item>
         <FaceAssetName>Images\\DialogueFace\\Alice</FaceAssetName>
       </Item>
-      <Item>
-        <FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName>
-      </Item>
     </Faces>
+    <CutScenes>
+      <Item>
+        <Picture>Images\\CutScene\\GoodbyeAlice</Picture>
+        <StartCue>But!... At least take this with you...</StartCue>
+        <StopCue>Hey player...</StopCue>
+      </Item>
+    </CutScenes>
   </Asset>
 </XnaContent>

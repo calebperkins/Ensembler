@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="DataTypes.DialogData"> 
+    <Content>
+      <Item>
+        <Character>Rival</Character>
+        <Line>......Indeed, you have become a fine musician.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Thank you.</Line>
+      </Item>
+      <Item>
+        <Character>Rival</Character>
+        <Line>......</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Do you wish to say something?</Line>
+      </Item>
+      <Item>
+        <Character>Rival</Character>
+        <Line>Nevermind. Good luck with the competition. I won't be participating this year. I realize I still have a long way to go.</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(With that said, the mysterious young man left without saying another word.)</Line>
+      </Item>
+    </Content>
+    <Colors>
+      <Item>
+        <Character>Game</Character>
+        <Color>Red</Color>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+      <Item>
+        <Character>Rival</Character>
+        <Color>LightSeaGreen</Color>
+      </Item>
+    </Colors>
+    <Faces>
+      <Item><FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName></Item>
+    </Faces>
+    <CutScenes></CutScenes>
+  </Asset>
+</XnaContent>

@@ -37,7 +37,7 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>A timid looking person holding a violin enters the bar. The crowd immediately quieted down.</Line>
+        <Line>(A timid looking person holding a violin enters the bar. The crowd immediately quieted down.)</Line>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -50,8 +50,7 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>Without warning, the person started to play a nocturne. He does not play loudly, but he clearly captures everyone in the audience with his music. His voilin sings with the sweetest voice in the world.
-        </Line>
+        <Line>(Without warning, the person started to play a nocturne. He does not play loudly, but he clearly captures everyone in the audience with his music. His voilin sings with the sweetest voice in the world.)</Line>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -76,8 +75,7 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>Frederic finishes playing, and sits down at a corner. He starts to drink a cup of apple cider nonchalantly. You decided to approach him.
-        </Line>
+        <Line>(Frederic finishes playing, and sits down at a corner. He starts to drink a cup of apple cider nonchalantly. You decided to approach him.)</Line>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -157,16 +155,15 @@
       </Item>
       <Item>
         <Character>Frederic</Character>
-        <Color>Aqua</Color>
+        <Color>DarkViolet</Color>
       </Item>
     </Colors>
     <Faces>
       <Item>
         <FaceAssetName>Images\\DialogueFace\\Frederic</FaceAssetName>
       </Item>
-      <Item>
-        <FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName>
-      </Item>
     </Faces>
+    <CutScenes>
+    </CutScenes>
   </Asset>
 </XnaContent>

@@ -20,11 +20,15 @@ namespace EnsemPro
         Queue<String> lines;
         Dictionary<String,XnaColor> colors;
         Dictionary<String,Texture2D> faces;
+        Dictionary<String, Texture2D> cutscenes;
+        Dictionary<String, String> startStopCues;
 
         String speaker;
         String speech;
         XnaColor color;
         Texture2D face;
+        Texture2D cutscene;
+        String stopCue;
 
         DialogModel dialogModel;
         DialogView screen;
@@ -43,12 +47,14 @@ namespace EnsemPro
             lines = new Queue<String>();
             colors = new Dictionary<String,XnaColor>();
             faces = new Dictionary<String,Texture2D>();
+            cutscenes = new Dictionary<String, Texture2D>();
+            startStopCues = new Dictionary<String, String>();
             Parse();
             speaker = "";
             speech = cityName;
             color = XnaColor.Black;
             screen = new DialogView(sb);
-            
+            stopCue = "";
         }
 
         public void Initialize()
@@ -88,10 +94,15 @@ namespace EnsemPro
                     faces.Add(characterName, contentManager.Load<Texture2D>(face));
                 }
             }
-            for (int i = 0; i< dialogModel.Content.Length; i++)
+            for (int i = 0; i < dialogModel.Content.Length; i++)
             {
                 names.Enqueue(dialogModel.Content[i].Character);
                 lines.Enqueue(dialogModel.Content[i].Line);
+            }
+            for (int i = 0; i < dialogModel.CutScenes.Length; i++)
+            {
+                cutscenes.Add(dialogModel.CutScenes[i].StartCue, contentManager.Load<Texture2D>(dialogModel.CutScenes[i].Picture));
+                startStopCues.Add(dialogModel.CutScenes[i].StartCue, dialogModel.CutScenes[i].StopCue);
             }
         }
 
@@ -101,6 +112,7 @@ namespace EnsemPro
             private set;
         }
 
+        public DialogModel getModel() { return dialogModel; }
         public void Update(GameTime t)
         {
             KeyboardState ks = Keyboard.GetState();
@@ -118,6 +130,16 @@ namespace EnsemPro
                     speech = lines.Dequeue();
                     color = colors[speaker];
                     face = (faces.ContainsKey(speaker) ? faces[speaker] : null);
+                    if (cutscenes.ContainsKey(speech)) // start of a cutscene
+                    {
+                        cutscene = cutscenes[speech];
+                        stopCue = startStopCues[speech];
+                    }
+                    if (speech == stopCue)
+                    { 
+                        cutscene = null;
+                        stopCue = "";
+                    }
                     if (speech[0] == '*') ReceiveItem.Play();
                     string firstPart = "";
                     string secondPart = speech;
@@ -140,7 +162,7 @@ namespace EnsemPro
         /// <param name="t"></param>
         public void Draw(GameTime t)
         {
-            screen.Draw(t,speaker,speech,color,face);
+            screen.Draw(t,speaker,speech,color,face,cutscene);
         }
     }
 }

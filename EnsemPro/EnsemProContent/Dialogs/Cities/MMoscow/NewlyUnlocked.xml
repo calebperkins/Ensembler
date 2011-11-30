@@ -3,20 +3,39 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol newly unlocked</Line>
+        <Character>Game</Character>
+        <Line>(A calm looking old man sits peacefully in front of a grand piano.)</Line>
+      </Item>
+      <Item>
+        <Character>Horowitz</Character>
+        <Line>Lang Lang must had made you play Mozart right? Then I shall test you with something completely different.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Yes sir.</Line>
+      </Item>
+      <Item>
+        <Character>Horowitz</Character>
+        <Line>Play me the finale of Rachmaninoff's piano concerto no.2.</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
+        <Character>Game</Character>
         <Color>Red</Color>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+      <Item>
+        <Character>Horowitz</Character>
+        <Color>DarkSlateGray</Color>
       </Item>
     </Colors>
     <Faces>
-      <Item>
-        <FaceAssetName>null</FaceAssetName>
-      </Item>
     </Faces>
+    <CutScenes>
+    </CutScenes>
   </Asset>
 </XnaContent>
