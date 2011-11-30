@@ -55,6 +55,7 @@ namespace EnsemPro
             }
 
             lastKs = ks;
+            lastMouse = ms;
 
             base.Update(gameTime);
         }
