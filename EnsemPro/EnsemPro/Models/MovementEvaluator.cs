@@ -9,10 +9,10 @@ namespace EnsemPro
         public const float ACC_THRESHOLD = 0.05f;
         public const float MAGIC_WAVE_THRESHOLD = 0.6f / 1f;
 
-        Movement CurrentMovement
+        public Movement CurrentMovement
         {
-            public get;
-            set;
+            get;
+            private set;
         }
 
         public MovementEvaluator(Movement m)
