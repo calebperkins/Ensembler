@@ -25,6 +25,7 @@ namespace EnsemPro
         SoundEffect TitleMove;
         SoundEffect TitleSelect;
 
+        // todo: remove magic numbers
         Rectangle storyBox = new Rectangle(300, 390, 310, 40);
         Rectangle freeBox = new Rectangle(460, 440, 240, 40);
         Rectangle exitBox = new Rectangle(630, 490, 110, 40);

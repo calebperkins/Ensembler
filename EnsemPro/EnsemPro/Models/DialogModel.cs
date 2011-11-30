@@ -4,7 +4,6 @@ namespace EnsemPro
 {
     public class DialogModel
     {
-        private string DialogFileName;
 
         public DataTypes.ContentSummary[] Content
         {
@@ -29,7 +28,12 @@ namespace EnsemPro
             get;
             set;
         }
-        public string getName(){return DialogFileName;}
+
+        public string DialogFileName
+        {
+            get;
+            private set;
+        }
 
         public DialogModel(string filename)
         {

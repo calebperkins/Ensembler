@@ -40,7 +40,7 @@ namespace EnsemPro
         {
             gameState = gm;
             spriteBatch = sb;
-            dialogModel = dm;
+            Dialog = dm;
             contentManager = cm;
 
             names = new Queue<String>();
@@ -60,7 +60,6 @@ namespace EnsemPro
         public void Initialize()
         {
             Finished = false;
-
         }
 
         public void LoadContent(ContentManager cm)
@@ -112,7 +111,12 @@ namespace EnsemPro
             private set;
         }
 
-        public DialogModel getModel() { return dialogModel; }
+        public DialogModel Dialog
+        {
+            get {return dialogModel;}
+            private set {dialogModel = value;}
+        }
+
         public void Update(GameTime t)
         {
             KeyboardState ks = Keyboard.GetState();

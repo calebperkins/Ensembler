@@ -17,6 +17,9 @@ namespace EnsemPro
 
         public override void Update(GameTime gameTime)
         {
+            if (!Game.IsActive)
+                return;
+
             input = new InputState();
             MouseState ms = Mouse.GetState();
             KeyboardState ks = Keyboard.GetState();
@@ -45,9 +48,6 @@ namespace EnsemPro
             {
                 input.Key = Keys.Z;
             }
-
-            input.Down = ks.IsKeyDown(Keys.Down) && lastKs.IsKeyUp(Keys.Down);
-            input.Up = ks.IsKeyDown(Keys.Up) && lastKs.IsKeyUp(Keys.Up);
 
             if (Math.Abs(posDiff.X) > POS_DIFF_THRESHOLD || Math.Abs(posDiff.Y) > POS_DIFF_THRESHOLD && !input.Pause) // add only only if the baton has moved at least a decent amount of distance 
             {
