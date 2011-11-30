@@ -16,7 +16,6 @@ namespace EnsemPro
         GameState gameState;
         WorldMapView worldView;
         
-        KeyboardState lastState = Keyboard.GetState();
         SoundEffect MapMove;
         SoundEffect EnterCity;
         SoundEffect LevelUnlock;
@@ -36,6 +35,7 @@ namespace EnsemPro
         }
 
         Models.City SelectedCity;
+        Models.City LastCity;
 
         public WorldMapController (GameEngine g, GameState gm, SpriteBatch sb, InputBuffer bf)
         {
@@ -88,6 +88,7 @@ namespace EnsemPro
 
             Cities = new HashSet<Models.City>(map.Values);
             SelectedCity = map[1];
+            LastCity = SelectedCity;
 
         }
 
@@ -162,26 +163,19 @@ namespace EnsemPro
                     break;
 
                 default: //inMap
-                    if (ks.IsKeyDown(Keys.Left) && lastState.IsKeyUp(Keys.Left) && SelectedCity.Left != null && SelectedCity.Left.NotLocked)
+                    foreach (Models.City city in Cities)
                     {
-                        SelectedCity = SelectedCity.Left;
-                        MapMove.Play();
+                        // TODO: remove magic constant!
+                        if (Vector2.Distance(city.AbsolutePosition, gameState.Input.Position) < 20.0f)
+                        {
+                            SelectedCity = city;
+                            break;
+                        }
                     }
-                    else if (ks.IsKeyDown(Keys.Right) && lastState.IsKeyUp(Keys.Right) && SelectedCity.Right != null && SelectedCity.Right.NotLocked)
-                    {
-                        SelectedCity = SelectedCity.Right;
+                    if (SelectedCity != LastCity)
                         MapMove.Play();
-                    }
-                    else if (ks.IsKeyDown(Keys.Up) && lastState.IsKeyUp(Keys.Up) && SelectedCity.Up != null && SelectedCity.Up.NotLocked)
-                    {
-                        SelectedCity = SelectedCity.Up;
-                        MapMove.Play();
-                    }
-                    else if (ks.IsKeyDown(Keys.Down) && lastState.IsKeyUp(Keys.Down) && SelectedCity.Down != null && SelectedCity.Down.NotLocked)
-                    {
-                        SelectedCity = SelectedCity.Down;
-                        MapMove.Play();
-                    }
+                    LastCity = SelectedCity;
+
                     if (gameState.Input.Confirm)
                     {
                         DialogModel toLoad = null;

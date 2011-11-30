@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
+using System;
 
 namespace EnsemPro
 {
@@ -13,6 +14,7 @@ namespace EnsemPro
 
         LevelSelectView levelSelectScreen;
         int selected = 0;
+        int lastSelected = 0;
 
         SoundEffect MenuMove;
         SoundEffect MenuSelect;
@@ -39,28 +41,33 @@ namespace EnsemPro
             bgSong = cm.Load<Song>("journey");
         }
 
+        void SetSelected()
+        {
+            // TODO: remove these magic constants :)
+            Vector2 p = gameState.Input.Position;
+            if (p.X < GameEngine.WIDTH/2)
+                return;
+            selected = (int) p.Y / 105;
+        }
+
         public void Update(GameTime t)
         {
             if (MediaPlayer.State != MediaState.Playing)
                 MediaPlayer.Play(bgSong);
 
-            if (gameState.Input.Down)
-            {
-                selected = (selected + 1) % gameState.Levels.Length;
+            SetSelected();
+
+            if (lastSelected != selected)
                 MenuMove.Play();
-            }
-            else if (gameState.Input.Up)
-            {
-                selected = (selected == 0) ? (gameState.Levels.Length - 1) : (selected - 1);
-                MenuMove.Play();
-            }
-            else if (gameState.Input.Confirm)
+
+            lastSelected = selected;
+
+            if (gameState.Input.Confirm)
             {
                 MenuSelect.Play();
                 MediaPlayer.Stop();
                 gameState.CurrentScreen = DataTypes.Screens.PlayLevel;
                 gameState.SelectedLevel = gameState.Levels[selected].AssetName;
-                // gameState.Input.Confirm = false;
             }
         }
 

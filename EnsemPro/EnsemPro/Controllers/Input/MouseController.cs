@@ -8,16 +8,13 @@ namespace EnsemPro
     public class MouseController : InputController
     {
         KeyboardState lastKs = Keyboard.GetState();
+        MouseState lastMouse = Mouse.GetState();
 
         public MouseController(Game game, GameState gm, InputBuffer b)
             : base(game, gm, b)
         {
         }
 
-        /// <summary>
-        /// Allows the game component to update itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
             input = new InputState();
@@ -36,7 +33,7 @@ namespace EnsemPro
             input.Velocity = newVel;
             input.Acceleration = newAcc;
 
-            input.Confirm = (ks.IsKeyDown(Keys.Space) && lastKs.IsKeyUp(Keys.Space)) || (ks.IsKeyDown(Keys.Enter) && lastKs.IsKeyUp(Keys.Enter));
+            input.Confirm = lastMouse.LeftButton == ButtonState.Released && ms.LeftButton == ButtonState.Pressed;
             
             input.Pause = ks.IsKeyDown(Keys.Escape);
             if (ks.IsKeyDown(Keys.A) && ks.IsKeyDown(Keys.Z)) { }
@@ -58,6 +55,7 @@ namespace EnsemPro
             }
 
             lastKs = ks;
+            lastMouse = ms;
 
             base.Update(gameTime);
         }
