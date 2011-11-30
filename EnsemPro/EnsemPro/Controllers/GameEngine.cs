@@ -75,6 +75,8 @@ namespace EnsemPro
             Components.Add(new GamerServicesComponent(this));
             Components.Add(new Components.SaveManager(this));
 
+            Components.Add(new BatonView(this, spriteBatch));
+
             base.Initialize();
             
         }

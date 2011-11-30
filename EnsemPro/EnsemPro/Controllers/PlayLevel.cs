@@ -53,7 +53,6 @@ namespace EnsemPro
         bool startTiming;
         bool endTiming;
         
-        BatonView baton;
         MovementEvaluator moveEval;
         InputBuffer buffer;
         SatisfactionQueue satisfaction;
@@ -130,8 +129,6 @@ namespace EnsemPro
 
         public override void Initialize()
         {
-            baton = new BatonView(Game, spriteBatch, buffer);
-            baton.Initialize();
             satisfaction = new SatisfactionQueue(buffer);
             current_beat = 0;
             last_beat = -1;
@@ -438,10 +435,8 @@ namespace EnsemPro
                     m.Draw(spriteBatch, alpha, Movement.Stages.Fade);
                 }
                 satisfaction.Draw(spriteBatch);
-                baton.Draw(t);
             }
             satisfaction.Draw(spriteBatch);
-            baton.Draw(t);
 
             // Draw beginning countdown
             if (!CountDownDone())
