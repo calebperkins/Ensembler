@@ -3,6 +3,26 @@
   <Asset Type="DataTypes.DialogData"> 
     <Content>
       <Item>
+        <Character>Game</Character>
+        <Line>(Everything happened so quickly.)</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(Roars of "Bravos", cheers, claps...)</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(There are many thoughts that enter your mind at the same time.)</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(But one thing stood out. You must return home.)</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(.............)</Line>
+      </Item>
+      <Item>
         <Character>Alice</Character>
         <Line>Player!!!</Line>
       </Item>
@@ -12,7 +32,7 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>(Sister hugs you until you cannot breathe.)</Line>
+        <Line>(Alice hugs you until you cannot breathe.)</Line>
       </Item>
       <Item>
         <Character>Alice</Character>
@@ -44,7 +64,7 @@
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>Even though I have won first place in the competition, I know I have yet to surpass my father. I won't stop until I know I am as good as father, if not better!</Line>
+        <Line>Even though I have won first place in the competition, I know I have yet to surpass my father I won't stop until I know I am as good as father, if not better!</Line>
       </Item>
       <Item>
         <Character>Game</Character>
@@ -52,6 +72,10 @@
       </Item>
     </Content>
     <Colors>
+      <Item>
+        <Character>Game</Character>
+        <Color>Red</Color>
+      </Item>
       <Item>
         <Character>Player</Character>
         <Color>Blue</Color>

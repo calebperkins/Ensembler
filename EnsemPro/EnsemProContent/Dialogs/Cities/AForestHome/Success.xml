@@ -1,20 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
-  <Asset Type="DataTypes.DialogData"> 
+  <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>Player</Character>
-        <Line>null</Line>
+        <Character>Game</Character>
+        <Line>(After listening to your performance, your sister covers her face and slams the door.)</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(Guess you have no choice but to begin your journey.)</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>Player</Character>
-        <Color>Blue</Color>
+        <Character>Game</Character>
+        <Color>Red</Color>
       </Item>
     </Colors>
     <Faces>
     </Faces>
-    <CutScenes></CutScenes>
+    <CutScenes>
+    </CutScenes>
   </Asset>
 </XnaContent>

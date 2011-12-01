@@ -3,13 +3,17 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol cleared</Line>
+        <Character>Game</Character>
+        <Line>("...it seemed impossible to leave the world until I had produced all that I felt called upon me to produce, and so I endured this wretched existence")</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(From the Heiligenstadt Testament, Beethoven explains why he could not suicide after he became deaf.)</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
+        <Character>Game</Character>
         <Color>Red</Color>
       </Item>
     </Colors>

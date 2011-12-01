@@ -96,8 +96,6 @@ namespace EnsemPro
         /// </summary>
         protected override void LoadContent()
         {
-            
-
             // Deprecated
             WIDTH = gameState.ViewPort.Width;
             HEIGHT = gameState.ViewPort.Height;

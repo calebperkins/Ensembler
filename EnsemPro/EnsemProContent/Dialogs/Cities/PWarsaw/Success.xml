@@ -3,14 +3,18 @@
   <Asset Type="DataTypes.DialogData"> 
     <Content>
       <Item>
-        <Character>Player</Character>
-        <Line>null</Line>
+        <Character>Frederic</Character>
+        <Line>You have come a long way. And indeed, you have enough skill to compete in the conducting competition now.</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>I shall follow you to the very end and witness the birth of a new champion!</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>Player</Character>
-        <Color>Blue</Color>
+        <Character>Frederic</Character>
+        <Color>DarkViolet</Color>
       </Item>
     </Colors>
     <Faces>

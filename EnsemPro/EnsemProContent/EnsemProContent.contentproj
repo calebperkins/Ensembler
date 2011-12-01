@@ -52,11 +52,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\BParis\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Dialogs\Cities\CReine\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -64,11 +59,6 @@
     </Compile>
     <Compile Include="Dialogs\Cities\CReine\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-    <Compile Include="Dialogs\Cities\CReine\Unlocked.xml">
-      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -82,11 +72,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\DCiboure\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Dialogs\Cities\ELondon\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -94,11 +79,6 @@
     </Compile>
     <Compile Include="Dialogs\Cities\ELondon\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-    <Compile Include="Dialogs\Cities\ELondon\Unlocked.xml">
-      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -112,11 +92,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\FMontmartre\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Dialogs\Cities\GMilan\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -124,11 +99,6 @@
     </Compile>
     <Compile Include="Dialogs\Cities\GMilan\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-    <Compile Include="Dialogs\Cities\GMilan\Unlocked.xml">
-      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -142,11 +112,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\HSaltzburg\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Dialogs\Cities\IBonn\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -154,11 +119,6 @@
     </Compile>
     <Compile Include="Dialogs\Cities\IBonn\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-    <Compile Include="Dialogs\Cities\IBonn\Unlocked.xml">
-      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -172,11 +132,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\JModena\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Dialogs\Cities\KNewYorkCity\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -184,11 +139,6 @@
     </Compile>
     <Compile Include="Dialogs\Cities\KNewYorkCity\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-    <Compile Include="Dialogs\Cities\KNewYorkCity\Unlocked.xml">
-      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -202,11 +152,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\LHamburg\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Dialogs\Cities\MMoscow\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -214,11 +159,6 @@
     </Compile>
     <Compile Include="Dialogs\Cities\MMoscow\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-    <Compile Include="Dialogs\Cities\MMoscow\Unlocked.xml">
-      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -247,11 +187,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\OBerlin\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Dialogs\Cities\PWarsaw\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -259,11 +194,6 @@
     </Compile>
     <Compile Include="Dialogs\Cities\PWarsaw\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-    <Compile Include="Dialogs\Cities\PWarsaw\Unlocked.xml">
-      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -889,11 +819,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\AForestHome\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dialogs\Cities\AForestHome\Success.xml">
@@ -1101,9 +1026,115 @@
       <Name>PauseScreen_temp</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-	</Compile>
+    </Compile>
     <Compile Include="Dialogs\Introduction2.xml">
       <Name>Introduction2</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\AForestHome\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\BParis\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\CReine\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\DCiboure\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\ELondon\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\FMontmartre\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\GMilan\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\HSaltzburg\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\IBonn\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\JModena\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\KNewYorkCity\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\LHamburg\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\MMoscow\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\OBerlin\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\PWarsaw\Unlocked.xml">
+      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
