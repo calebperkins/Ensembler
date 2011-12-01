@@ -643,6 +643,13 @@
         <A>0</A>
       </Item>
       <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>56</ShowBeat>
+        <StartBeat>56</StartBeat>
+        <EndBeat>57</EndBeat>
+        <FadeBeat>57</FadeBeat>
+       </Item>
+      <Item>
         <Kind>Wave</Kind>
         <ShowBeat>56</ShowBeat>
         <StartBeat>57</StartBeat>
@@ -653,6 +660,13 @@
         <EndX>600</EndX>
         <EndY>150</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>58</ShowBeat>
+        <StartBeat>58</StartBeat>
+        <EndBeat>59</EndBeat>
+        <FadeBeat>59</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -667,6 +681,13 @@
         <A>0</A>
       </Item>
       <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>60</ShowBeat>
+        <StartBeat>60</StartBeat>
+        <EndBeat>61</EndBeat>
+        <FadeBeat>61</FadeBeat>
+      </Item>
+      <Item>
         <Kind>Wave</Kind>
         <ShowBeat>60</ShowBeat>
         <StartBeat>61</StartBeat>
@@ -677,6 +698,13 @@
         <EndX>400</EndX>
         <EndY>300</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>62</ShowBeat>
+        <StartBeat>62</StartBeat>
+        <EndBeat>63</EndBeat>
+        <FadeBeat>63</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -691,6 +719,13 @@
         <A>0</A>
       </Item>
       <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>64</ShowBeat>
+        <StartBeat>64</StartBeat>
+        <EndBeat>65</EndBeat>
+        <FadeBeat>65</FadeBeat>
+      </Item>
+      <Item>
         <Kind>Wave</Kind>
         <ShowBeat>64</ShowBeat>
         <StartBeat>65</StartBeat>
@@ -701,6 +736,13 @@
         <EndX>200</EndX>
         <EndY>450</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>66</ShowBeat>
+        <StartBeat>66</StartBeat>
+        <EndBeat>67</EndBeat>
+        <FadeBeat>67</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -715,6 +757,13 @@
         <A>0</A>
       </Item>
       <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>68</ShowBeat>
+        <StartBeat>68</StartBeat>
+        <EndBeat>69</EndBeat>
+        <FadeBeat>69</FadeBeat>
+      </Item>
+      <Item>
         <Kind>Wave</Kind>
         <ShowBeat>68</ShowBeat>
         <StartBeat>69</StartBeat>
@@ -725,6 +774,13 @@
         <EndX>400</EndX>
         <EndY>300</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>70</ShowBeat>
+        <StartBeat>70</StartBeat>
+        <EndBeat>71</EndBeat>
+        <FadeBeat>71</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -739,6 +795,13 @@
         <A>0</A>
       </Item>
       <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>72</ShowBeat>
+        <StartBeat>72</StartBeat>
+        <EndBeat>73</EndBeat>
+        <FadeBeat>73</FadeBeat>
+      </Item>
+      <Item>
         <Kind>Wave</Kind>
         <ShowBeat>72</ShowBeat>
         <StartBeat>73</StartBeat>
@@ -749,6 +812,13 @@
         <EndX>600</EndX>
         <EndY>150</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>74</ShowBeat>
+        <StartBeat>74</StartBeat>
+        <EndBeat>75</EndBeat>
+        <FadeBeat>75</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -857,8 +927,8 @@
         <Kind>Noop</Kind>
         <ShowBeat>88</ShowBeat>
         <StartBeat>88</StartBeat>
-        <EndBeat>90</EndBeat>
-        <FadeBeat>90</FadeBeat>
+        <EndBeat>91</EndBeat>
+        <FadeBeat>91</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -871,6 +941,13 @@
         <EndX>100</EndX>
         <EndY>450</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>92</ShowBeat>
+        <StartBeat>92</StartBeat>
+        <EndBeat>93</EndBeat>
+        <FadeBeat>93</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -909,6 +986,13 @@
         <A>0</A>
       </Item>
       <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>96</ShowBeat>
+        <StartBeat>96</StartBeat>
+        <EndBeat>97</EndBeat>
+        <FadeBeat>97</FadeBeat>
+      </Item>
+      <Item>
         <Kind>Wave</Kind>
         <ShowBeat>96</ShowBeat>
         <StartBeat>97</StartBeat>
@@ -943,6 +1027,13 @@
         <EndX>500</EndX>
         <EndY>450</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>100</ShowBeat>
+        <StartBeat>100</StartBeat>
+        <EndBeat>101</EndBeat>
+        <FadeBeat>101</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -981,6 +1072,13 @@
         <A>0</A>
       </Item>
       <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>104</ShowBeat>
+        <StartBeat>104</StartBeat>
+        <EndBeat>105</EndBeat>
+        <FadeBeat>105</FadeBeat>
+      </Item>
+      <Item>
         <Kind>Wave</Kind>
         <ShowBeat>104</ShowBeat>
         <StartBeat>105</StartBeat>
@@ -993,6 +1091,13 @@
         <A>0</A>
       </Item>
       <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>106</ShowBeat>
+        <StartBeat>106</StartBeat>
+        <EndBeat>107</EndBeat>
+        <FadeBeat>107</FadeBeat>
+      </Item>
+      <Item>
         <Kind>Wave</Kind>
         <ShowBeat>106</ShowBeat>
         <StartBeat>107</StartBeat>
@@ -1003,6 +1108,13 @@
         <EndX>100</EndX>
         <EndY>450</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>108</ShowBeat>
+        <StartBeat>108</StartBeat>
+        <EndBeat>109</EndBeat>
+        <FadeBeat>109</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -1041,6 +1153,13 @@
         <A>0</A>
       </Item>
       <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>112</ShowBeat>
+        <StartBeat>112</StartBeat>
+        <EndBeat>113</EndBeat>
+        <FadeBeat>113</FadeBeat>
+      </Item>
+      <Item>
         <Kind>Wave</Kind>
         <ShowBeat>112</ShowBeat>
         <StartBeat>113</StartBeat>
@@ -1075,6 +1194,13 @@
         <EndX>500</EndX>
         <EndY>450</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>116</ShowBeat>
+        <StartBeat>116</StartBeat>
+        <EndBeat>117</EndBeat>
+        <FadeBeat>117</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -1113,6 +1239,13 @@
         <A>0</A>
       </Item>
       <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>120</ShowBeat>
+        <StartBeat>120</StartBeat>
+        <EndBeat>121</EndBeat>
+        <FadeBeat>121</FadeBeat>
+      </Item>
+      <Item>
         <Kind>Wave</Kind>
         <ShowBeat>120</ShowBeat>
         <StartBeat>121</StartBeat>
@@ -1125,12 +1258,26 @@
         <A>0</A>
       </Item>
       <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>122</ShowBeat>
+        <StartBeat>122</StartBeat>
+        <EndBeat>123</EndBeat>
+        <FadeBeat>123</FadeBeat>
+      </Item>
+      <Item>
         <Kind>Shake</Kind>
         <ShowBeat>123</ShowBeat>
         <StartBeat>123</StartBeat>
         <EndBeat>126</EndBeat>
         <FadeBeat>126</FadeBeat>
       </Item>
+        <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>126</ShowBeat>
+        <StartBeat>126</StartBeat>
+        <EndBeat>127</EndBeat>
+        <FadeBeat>127</FadeBeat>
+       </Item>
       <Item>
         <Kind>Wave</Kind>
         <ShowBeat>126</ShowBeat>
@@ -1142,6 +1289,13 @@
         <EndX>300</EndX>
         <EndY>150</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>128</ShowBeat>
+        <StartBeat>128</StartBeat>
+        <EndBeat>129</EndBeat>
+        <FadeBeat>129</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -1180,6 +1334,13 @@
         <A>0</A>
       </Item>
       <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>132</ShowBeat>
+        <StartBeat>132</StartBeat>
+        <EndBeat>133</EndBeat>
+        <FadeBeat>133</FadeBeat>
+      </Item>
+      <Item>
         <Kind>Wave</Kind>
         <ShowBeat>132</ShowBeat>
         <StartBeat>133</StartBeat>
@@ -1190,6 +1351,13 @@
         <EndX>700</EndX>
         <EndY>450</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>134</ShowBeat>
+        <StartBeat>134</StartBeat>
+        <EndBeat>135</EndBeat>
+        <FadeBeat>135</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -1204,6 +1372,13 @@
         <A>0</A>
       </Item>
       <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>136</ShowBeat>
+        <StartBeat>136</StartBeat>
+        <EndBeat>137</EndBeat>
+        <FadeBeat>137</FadeBeat>
+      </Item>
+      <Item>
         <Kind>Wave</Kind>
         <ShowBeat>136</ShowBeat>
         <StartBeat>137</StartBeat>
@@ -1216,11 +1391,25 @@
         <A>0</A>
       </Item>
       <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>138</ShowBeat>
+        <StartBeat>138</StartBeat>
+        <EndBeat>139</EndBeat>
+        <FadeBeat>139</FadeBeat>
+      </Item>
+      <Item>
         <Kind>Shake</Kind>
         <ShowBeat>139</ShowBeat>
         <StartBeat>139</StartBeat>
         <EndBeat>142</EndBeat>
         <FadeBeat>142</FadeBeat>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>142</ShowBeat>
+        <StartBeat>142</StartBeat>
+        <EndBeat>143</EndBeat>
+        <FadeBeat>143</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -1233,6 +1422,13 @@
         <EndX>100</EndX>
         <EndY>450</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>144</ShowBeat>
+        <StartBeat>144</StartBeat>
+        <EndBeat>145</EndBeat>
+        <FadeBeat>145</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -1269,6 +1465,13 @@
         <EndX>300</EndX>
         <EndY>150</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>148</ShowBeat>
+        <StartBeat>148</StartBeat>
+        <EndBeat>149</EndBeat>
+        <FadeBeat>149</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
