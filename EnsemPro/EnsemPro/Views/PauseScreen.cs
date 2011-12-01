@@ -59,8 +59,8 @@ namespace EnsemPro
         {
             spriteBatch.Draw(background, new Vector2(), Color.White);
             string pauseText = "- Paused -";
-            string backText = "Back (esc)";
-            string titleText = "To title screen (spacebar)";
+            string backText = "Back (Esc)";
+            string titleText = "To Title Screen (left click)";
             Vector2 pauseSize = menuFont.MeasureString(pauseText);
             Vector2 backSize = menuFont.MeasureString(backText);
             Vector2 titleSize = menuFont.MeasureString(titleText);

@@ -134,16 +134,16 @@ namespace EnsemPro
                     speech = lines.Dequeue();
                     color = colors[speaker];
                     face = (faces.ContainsKey(speaker) ? faces[speaker] : null);
-                    if (cutscenes.ContainsKey(speech)) // start of a cutscene
-                    {
-                        cutscene = cutscenes[speech];
-                        stopCue = startStopCues[speech];
-                    }
                     if (speech == stopCue)
                     { 
                         cutscene = null;
                         stopCue = "";
                     }
+                    if (cutscenes.ContainsKey(speech)) // start of a cutscene
+                    {
+                        cutscene = cutscenes[speech];
+                        stopCue = startStopCues[speech];
+                    } 
                     if (speech[0] == '*') ReceiveItem.Play();
                     string firstPart = "";
                     string secondPart = speech;
