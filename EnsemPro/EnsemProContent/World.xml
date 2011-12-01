@@ -15,10 +15,10 @@
         <UnlockedDialogAsset>Cities\\AForestHome\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\AForestHome\\NewlyUnlocked</NewlyUnlockedDialogAsset>
         <SuccessAsset>Cities\\AForestHome\\Success</SuccessAsset>
-        <PlayLevel>Levels\\Bolero\\level</PlayLevel>
+        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>-1</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>4</Unlock1>
+        <Unlock1>3</Unlock1>
         <Unlock2>2</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>false</BigSix>
@@ -31,14 +31,14 @@
         <Down>0</Down>
         <Name>Paris</Name>
         <Position>674 209</Position>
-        <State>NewlyUnlocked</State>
+        <State>Locked</State>
         <ClearedDialogAsset>Cities\\BParis\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\BParis\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\BParis\\NewlyUnlocked</NewlyUnlockedDialogAsset>
         <SuccessAsset>Cities\\BParis\\Success</SuccessAsset>
         <PlayLevel>Levels\\Aquarium\\aqu</PlayLevel>
         <ComboReq>0</ComboReq>
-        <ScoreReq>0</ScoreReq>
+        <ScoreReq>500</ScoreReq>
         <Unlock1>0</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
@@ -52,15 +52,15 @@
         <Down>0</Down>
         <Name>Reine</Name>
         <Position>555 181</Position>
-        <State>NewlyUnlocked</State>
+        <State>Locked</State>
         <ClearedDialogAsset>Cities\\CReine\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\CReine\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\CReine\\NewlyUnlocked</NewlyUnlockedDialogAsset>
         <SuccessAsset>Cities\\CReine\\Success</SuccessAsset>
-        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <PlayLevel>Levels\\William Tell\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>5</Unlock1>
+        <Unlock1>4</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>false</BigSix>
@@ -78,10 +78,10 @@
         <UnlockedDialogAsset>Cities\\DCiboure\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\DCiboure\\NewlyUnlocked</NewlyUnlockedDialogAsset>
         <SuccessAsset>Cities\\DCiboure\\Success</SuccessAsset>
-        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <PlayLevel>Levels\\Bolero\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>3</Unlock1>
+        <Unlock1>5</Unlock1>
         <Unlock2>6</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>false</BigSix>
@@ -99,7 +99,7 @@
         <UnlockedDialogAsset>Cities\\ELondon\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\ELondon\\NewlyUnlocked</NewlyUnlockedDialogAsset>
         <SuccessAsset>Cities\\ELondon\\Success</SuccessAsset>
-        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <PlayLevel>Levels\\Aquarium\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
         <Unlock1>0</Unlock1>
@@ -144,9 +144,9 @@
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>0</Unlock1>
-        <Unlock2>0</Unlock2>
-        <Unlock3>0</Unlock3>
+        <Unlock1>8</Unlock1>
+        <Unlock2>10</Unlock2>
+        <Unlock3>12</Unlock3>
         <BigSix>false</BigSix>
       </Item>
       <Item>
@@ -165,7 +165,7 @@
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>0</Unlock1>
+        <Unlock1>9</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>true</BigSix>
@@ -207,7 +207,7 @@
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>0</Unlock1>
+        <Unlock1>11</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>true</BigSix>
@@ -249,7 +249,7 @@
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>0</Unlock1>
+        <Unlock1>13</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>true</BigSix>
@@ -312,7 +312,7 @@
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>0</Unlock1>
+        <Unlock1>16</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>false</BigSix>
@@ -333,7 +333,7 @@
         <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>0</Unlock1>
+        <Unlock1>17</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>false</BigSix>

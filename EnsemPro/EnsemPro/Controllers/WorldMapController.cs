@@ -25,6 +25,7 @@ namespace EnsemPro
         HashSet<Models.City> Cities = new HashSet<Models.City>();
 
         bool start = false;
+        int big_Six = 0;
 
         public enum State { 
             inDialog,
@@ -146,6 +147,25 @@ namespace EnsemPro
                                 Console.WriteLine("here at city" + c.Data.Name);
                                 c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
                             }
+                        }
+                        if (SelectedCity.Data.BigSix)
+                        {
+                            this.big_Six++;
+                            if (big_Six >= 4)
+                            {
+                                foreach (Models.City c in Cities)
+                                {
+                                    if (c.Data.ID == 15) c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
+                                }
+                            }
+                            else if (big_Six == 6)
+                            {
+                                foreach (Models.City c in Cities)
+                                {
+                                    if (c.Data.ID == 14) c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
+                                }
+                            }
+
                         }
                         DialogModel dm = SelectedCity.successDialogue;
                         dm.LoadContent(game.Content);

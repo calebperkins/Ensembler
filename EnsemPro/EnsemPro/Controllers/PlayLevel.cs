@@ -13,7 +13,7 @@ namespace EnsemPro
     public class PlayLevel : DrawableGameComponent
     {
         // For adjusting curMaxAge of satisfaction queue
-        public const int AGE_DECR = 2;
+        public const int AGE_DECR = 0;
         public const int AGE_INCR = 1;
         bool failed;
 
@@ -28,6 +28,7 @@ namespace EnsemPro
         int last_beat;
         // beat_sum is for the purpose of beat time change
         int beat_sum = 0;
+        int accumulated_ms = 0;
         int countDownBeatSum = 0;
         int beatTime;
         int c = 0;
@@ -218,7 +219,9 @@ namespace EnsemPro
                             }
                         }
                     }
+
                     last_beat = current_beat;
+                    
                     if (current_act != null && current_act.endBeat < current_beat)
                     {
                         current_act = null;
@@ -259,6 +262,7 @@ namespace EnsemPro
                             else
                             {
                                 beat_sum = current_beat;
+                                accumulated_ms = accumulated_ms + (int)watch.ElapsedMilliseconds;
                                 beatTime = 60000 / current_act.BPM;
                                 actionList.RemoveFirst();
                                 watch.Restart();
@@ -474,7 +478,9 @@ namespace EnsemPro
         private float Alpha(int a, int b)
         {
             float total = (a-b) * beatTime / 2;
-            return Math.Max(0, (int)watch.ElapsedMilliseconds - b * beatTime)/ total;
+            //Console.WriteLine(watch.ElapsedMilliseconds + " " + " " + (b - beat_sum) * beatTime + " "+ total + " " + b);
+            return Math.Max(0, (int)watch.ElapsedMilliseconds - (b - beat_sum) * beatTime) / total;
+
         }
 
         private bool CountDownDone()
