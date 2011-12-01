@@ -12,6 +12,7 @@ namespace EnsemPro
         SpriteBatch spriteBatch;
         SpriteFont menuFont;
         GameState state;
+        Texture2D background;
 
         public PauseScreenController(Game game, SpriteBatch sb)
             : base(game)
@@ -23,7 +24,8 @@ namespace EnsemPro
 
         protected override void LoadContent()
         {
-            menuFont = Game.Content.Load<SpriteFont>("images/Lucidia");
+            menuFont = Game.Content.Load<SpriteFont>("Images//SelectionScreen//GermanUnderground");
+            background = Game.Content.Load<Texture2D>("Images//PauseScreen//PauseScreen_temp");
             base.LoadContent();
         }
 
@@ -55,6 +57,7 @@ namespace EnsemPro
 
         public override void Draw(GameTime gameTime)
         {
+            spriteBatch.Draw(background, new Vector2(), Color.White);
             string pauseText = "- Paused -";
             string backText = "Back (esc)";
             string titleText = "To title screen (spacebar)";

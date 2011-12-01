@@ -271,7 +271,7 @@ namespace EnsemPro
                     if (current_act != null)
                     {
                         Movement.Types type = current_act.myType;
-                        float score = moveEval.Accuracy(current_act, buffer, startTiming&&endTiming, gameTime);
+                        float score = moveEval.Accuracy(current_act, buffer, (current_beat ==0 ? true : startTiming&&endTiming), gameTime);
 
                         gainedScore = (int)(score * 10);
                         

@@ -35,12 +35,12 @@ namespace EnsemPro
         {
             background = cm.Load<Texture2D>("Images//SelectionScreen//background");
             dialogBox = cm.Load<Texture2D>("Images//WorldMap//fbg_edited");
-            font = cm.Load<SpriteFont>("images/Lucidia");
+            font = cm.Load<SpriteFont>("Images/Lucidia");
         }
 
         public void Draw(GameTime t,String n, String s, Color c, Texture2D f, Texture2D cs)
         {
-            if (cs != null) spriteBatch.Draw(cs, cutscenePos, null, Color.White, 0.0f, new Vector2(), 0.5f, SpriteEffects.None, 0.0f);
+            if (cs != null) spriteBatch.Draw(cs, cutscenePos, null, Color.White);
             spriteBatch.Draw(dialogBox, dialogBoxPos, Color.White);
             Vector2 nameOrigin = font.MeasureString(n)/2;
             Color outlineColor = new Color(255, 255, 255, (byte)MathHelper.Clamp(255, 255, 255));

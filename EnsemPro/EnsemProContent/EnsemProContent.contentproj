@@ -283,6 +283,21 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
+    <Compile Include="Images\CutScene\FederickIsBack_small.jpg">
+      <Name>FederickIsBack_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\GoodbyeAlice.jpg">
+      <Name>GoodbyeAlice</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\rival_small.jpg">
+      <Name>rival_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Images\dot.png">
       <Name>dot</Name>
       <Importer>TextureImporter</Importer>
@@ -332,6 +347,11 @@
       <Name>note_yellow</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\SelectionScreen\PillboxOpaque.bmp">
+      <Name>PillboxOpaque</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>FontTextureProcessor</Processor>
     </Compile>
     <Compile Include="journey.mp3">
       <Name>journey</Name>
@@ -859,13 +879,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\CutScene\GoodbyeAlice.jpg">
-      <Name>GoodbyeAlice</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Dialogs\Cities\AForestHome\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -880,18 +893,6 @@
       <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\CutScene\FederickIsBack_small.jpg">
-      <Name>FederickIsBack_small</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\CutScene\rival_small.jpg">
-      <Name>rival_small</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1028,7 +1029,7 @@
       <Name>normalbox</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-	</Compile>
+    </Compile>
     <Compile Include="Levels\William Tell\level.xml">
       <Name>level</Name>
       <Importer>XmlImporter</Importer>
@@ -1038,6 +1039,68 @@
       <Name>song</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\SelectionScreen\VTKAnimal2.bmp">
+      <Name>VTKAnimal2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>FontTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\SelectionScreen\GermanUnderground.bmp">
+      <Name>GermanUnderground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>FontTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\fbg_edited.png">
+      <Name>fbg_edited</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\CutScene\Tutorial_Bad.jpg">
+      <Name>Tutorial_Bad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\Tutorial_Fail.jpg">
+      <Name>Tutorial_Fail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\Tutorial_Noop.jpg">
+      <Name>Tutorial_Noop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\Tutorial_Shake.jpg">
+      <Name>Tutorial_Shake</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\Tutorial_Trace.jpg">
+      <Name>Tutorial_Trace</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\PauseScreen_temp.jpg">
+      <Name>PauseScreen_temp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\PauseScreen\PauseScreen_temp.jpg">
+      <Name>PauseScreen_temp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
