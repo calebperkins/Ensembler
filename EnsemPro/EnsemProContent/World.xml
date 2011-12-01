@@ -6,7 +6,7 @@
         <ID>1</ID>
         <Left>0</Left>
         <Right>4</Right>
-        <Up>0</Up>
+        <Up>6</Up>
         <Down>2</Down>
         <Name>Forest Home</Name>
         <Position>580 110</Position>
@@ -36,7 +36,7 @@
         <UnlockedDialogAsset>Cities\\BParis\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\BParis\\NewlyUnlocked</NewlyUnlockedDialogAsset>
         <SuccessAsset>Cities\\BParis\\Success</SuccessAsset>
-        <PlayLevel>Levels\\Aquarium\\aqu</PlayLevel>
+        <PlayLevel>Levels\\William tell\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>500</ScoreReq>
         <Unlock1>0</Unlock1>
@@ -57,7 +57,7 @@
         <UnlockedDialogAsset>Cities\\CReine\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\CReine\\NewlyUnlocked</NewlyUnlockedDialogAsset>
         <SuccessAsset>Cities\\CReine\\Success</SuccessAsset>
-        <PlayLevel>Levels\\William Tell\\level</PlayLevel>
+        <PlayLevel>Levels\\Aquarium\\aqu</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
         <Unlock1>4</Unlock1>
@@ -99,10 +99,10 @@
         <UnlockedDialogAsset>Cities\\ELondon\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\ELondon\\NewlyUnlocked</NewlyUnlockedDialogAsset>
         <SuccessAsset>Cities\\ELondon\\Success</SuccessAsset>
-        <PlayLevel>Levels\\Aquarium\\level</PlayLevel>
+        <PlayLevel>Levels\\B5\\b5-edited-2</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
-        <Unlock1>0</Unlock1>
+        <Unlock1>6</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>false</BigSix>

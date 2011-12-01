@@ -3,13 +3,13 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol cleared</Line>
+        <Character>Game</Character>
+        <Line>(Horowitz is known for his seeminly effortless playing... his fingers appear to just float elegantly above the keys.)</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
+        <Character>Game</Character>
         <Color>Red</Color>
       </Item>
     </Colors>

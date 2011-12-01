@@ -3,14 +3,26 @@
   <Asset Type="DataTypes.DialogData"> 
     <Content>
       <Item>
-        <Character>Player</Character>
-        <Line>null</Line>
+        <Character>Pavarotti</Character>
+        <Line>Bravo!</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>*Received recommendation letter from Mozart!*</Line>
+      </Item>
+      <Item>
+        <Character>Pavarotti</Character>
+        <Line>I shall bring you to the next master of the opera... She is one of the greatest diva of the 20th century!</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>Player</Character>
-        <Color>Blue</Color>
+        <Character>Game</Character>
+        <Color>Red</Color>
+      </Item>
+      <Item>
+        <Character>Pavarotti</Character>
+        <Color>LightCoral</Color>
       </Item>
     </Colors>
     <Faces>

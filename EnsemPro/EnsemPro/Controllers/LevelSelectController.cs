@@ -47,7 +47,7 @@ namespace EnsemPro
             Vector2 p = gameState.Input.Position;
             if (p.X < GameEngine.WIDTH/2)
                 return;
-            selected = (int) p.Y / 105;
+            selected = Math.Max(0,(int) (p.Y-120) / 105);
         }
 
         public void Update(GameTime t)

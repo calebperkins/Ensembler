@@ -100,9 +100,9 @@ namespace EnsemPro
             if (!start)
             {
                 start = true;
-                DialogModel dm = new DialogModel("Introduction");
+                DialogModel dm = new DialogModel("Introduction2");
                 dm.LoadContent(game.Content);
-                SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "Welcome", game.Content);
+                SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "Tutorial", game.Content);
                 SelectedCity.DialogControl.Initialize();
                 SelectedCity.DialogControl.LoadContent(game.Content); 
                 currentState = State.inDialog;
@@ -119,7 +119,7 @@ namespace EnsemPro
                     {
                         if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared)
                             currentState = State.inMap;
-                        else if (SelectedCity.DialogControl.Dialog.DialogFileName == "Introduction" || SelectedCity.DialogControl.Dialog == SelectedCity.successDialogue)
+                        else if (SelectedCity.DialogControl.Dialog.DialogFileName == "Introduction2" || SelectedCity.DialogControl.Dialog == SelectedCity.successDialogue)
                         {
                             currentState = State.inMap;
                         }
@@ -132,7 +132,17 @@ namespace EnsemPro
                             currentState = State.inGame;
                         }
                     }
-                    else SelectedCity.DialogControl.Update(gameTime);
+                    else
+                    {
+                        if (!gameState.Input.Cancel)
+                        {
+                            SelectedCity.DialogControl.Update(gameTime);
+                        }
+                        else
+                        {
+                            currentState = State.inMap;
+                        }
+                    }
                     break;
 
                 /// code for inGame

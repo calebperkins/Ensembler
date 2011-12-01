@@ -1,20 +1,100 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
-  <Asset Type="DataTypes.DialogData"> 
+  <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
+        <Character>Game</Character>
+        <Line>(A guy with green hair from the audience did not clap at the end of your performance. He has a smirk on his face.)</Line>
+      </Item>
+      <Item>
+        <Character>Student 1</Character>
+        <Line>Hey, why are you staring at us!</Line>
+      </Item>
+      <Item>
+        <Character>Student 2</Character>
+        <Line>What is with that cocky smile?</Line>
+      </Item>
+      <Item>
+        <Character>Student 3</Character>
+        <Line>He is probably just ignorant and does not appreciate music at all.</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(The guy with green hair is not angry at all. He takes out his violin and started playing a Jazzy version of Autumn Leaves. A crowd started to gather around the teenager.)</Line>
+      </Item>
+      <Item>
         <Character>Player</Character>
-        <Line>null</Line>
+        <Line>I have a feeling he is provoking me especially. Have I met him before?</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(The guy with green hair finishes playing, and the audience clapped for over a minute.)</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Hey... who are you?</Line>
+      </Item>
+      <Item>
+        <Character>Rival</Character>
+        <Line>I...will be the winner of the next International Conducting Competition, so you better remember me.</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>(After acknowledging the crowd, the guy with green hair left.)</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>Seems like you have a rival now.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>I wonder who he is.</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>That green hair reminds me of someone I know from a long time ago. I think I should follow him and see what he is up to. You should proceed without me.</Line>
       </Item>
     </Content>
+    <!-- A lot of pre-game dialogue waiting to be inserted! -->
+
     <Colors>
+      <Item>
+        <Character>Game</Character>
+        <Color>Red</Color>
+      </Item>
       <Item>
         <Character>Player</Character>
         <Color>Blue</Color>
       </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Color>DarkViolet</Color>
+      </Item>
+      <Item>
+        <Character>Student 1</Character>
+        <Color>Maroon</Color>
+      </Item>
+      <Item>
+        <Character>Student 2</Character>
+        <Color>Tomato</Color>
+      </Item>
+      <Item>
+        <Character>Student 3</Character>
+        <Color>Wheat</Color>
+      </Item>
+      <Item>
+        <Character>Rival</Character>
+        <Color>LightSeaGreen</Color>
+      </Item>
     </Colors>
     <Faces>
     </Faces>
-    <CutScenes></CutScenes>
+    <CutScenes>
+      <Item>
+        <Picture>Images\\CutScene\\rival_small</Picture>
+        <StartCue>I...will be the winner of the next International Conducting Competition, so you better remember me.</StartCue>
+        <StopCue>(After acknowledging the crowd, the guy with green hair left.)</StopCue>
+      </Item>
+    </CutScenes>
   </Asset>
 </XnaContent>
