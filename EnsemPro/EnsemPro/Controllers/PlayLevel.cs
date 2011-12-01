@@ -256,7 +256,6 @@ namespace EnsemPro
                             if (current_act.myType != Movement.Types.Control)
                             {
                                 actionList.RemoveFirst();
-
                                 c++;
                                 newMovement = true;
                             }
