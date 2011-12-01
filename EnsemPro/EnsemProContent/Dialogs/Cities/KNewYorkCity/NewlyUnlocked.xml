@@ -3,20 +3,39 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol newly unlocked</Line>
+        <Character>Game</Character>
+        <Line>(An elegant looking Greek lady nods slightly as you walk in.)</Line>
+      </Item>
+      <Item>
+        <Character>Callas</Character>
+        <Line>So, you managed to please Pavarotti? Impressive, let me give you something mroe challenging.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Sure.</Line>
+      </Item>
+      <Item>
+        <Character>Callas</Character>
+        <Line>Here, play me the Queen of Night aria from Mozart's Magic Flute.</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
+        <Character>Game</Character>
         <Color>Red</Color>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+      <Item>
+        <Character>Callas</Character>
+        <Color>MistyRose</Color>
       </Item>
     </Colors>
     <Faces>
-      <Item>
-        <FaceAssetName>null</FaceAssetName>
-      </Item>
     </Faces>
+    <CutScenes>
+    </CutScenes>
   </Asset>
 </XnaContent>

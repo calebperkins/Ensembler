@@ -8,18 +8,18 @@ namespace EnsemPro
     public class MouseController : InputController
     {
         KeyboardState lastKs = Keyboard.GetState();
+        MouseState lastMouse = Mouse.GetState();
 
         public MouseController(Game game, GameState gm, InputBuffer b)
             : base(game, gm, b)
         {
         }
 
-        /// <summary>
-        /// Allows the game component to update itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
+            if (!Game.IsActive)
+                return;
+
             input = new InputState();
             MouseState ms = Mouse.GetState();
             KeyboardState ks = Keyboard.GetState();
@@ -36,7 +36,7 @@ namespace EnsemPro
             input.Velocity = newVel;
             input.Acceleration = newAcc;
 
-            input.Confirm = (ks.IsKeyDown(Keys.Space) && lastKs.IsKeyUp(Keys.Space)) || (ks.IsKeyDown(Keys.Enter) && lastKs.IsKeyUp(Keys.Enter));
+            input.Confirm = lastMouse.LeftButton == ButtonState.Released && ms.LeftButton == ButtonState.Pressed;
             
             input.Pause = ks.IsKeyDown(Keys.Escape);
             if (ks.IsKeyDown(Keys.A) && ks.IsKeyDown(Keys.Z)) { }
@@ -49,15 +49,13 @@ namespace EnsemPro
                 input.Key = Keys.Z;
             }
 
-            input.Down = ks.IsKeyDown(Keys.Down) && lastKs.IsKeyUp(Keys.Down);
-            input.Up = ks.IsKeyDown(Keys.Up) && lastKs.IsKeyUp(Keys.Up);
-
             if (Math.Abs(posDiff.X) > POS_DIFF_THRESHOLD || Math.Abs(posDiff.Y) > POS_DIFF_THRESHOLD && !input.Pause) // add only only if the baton has moved at least a decent amount of distance 
             {
                 buffer.Add(input);
             }
 
             lastKs = ks;
+            lastMouse = ms;
 
             base.Update(gameTime);
         }

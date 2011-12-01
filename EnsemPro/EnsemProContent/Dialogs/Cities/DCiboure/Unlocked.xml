@@ -18,5 +18,7 @@
         <FaceAssetName>Images\\DialogueFace\\Frederic</FaceAssetName>
       </Item>
     </Faces>
+    <CutScenes>
+    </CutScenes>
   </Asset>
 </XnaContent>

@@ -31,7 +31,15 @@
         <DeveloperHighCombo>30</DeveloperHighCombo>
       </Item>
       <Item>
-        <Title>Bolero</Title>
+        <Title>William tell</Title>
+        <AssetName>Levels//William tell//level</AssetName>
+        <HighScore>0</HighScore>
+        <DeveloperHighScore>500</DeveloperHighScore>
+        <HighCombo>0</HighCombo>
+        <DeveloperHighCombo>50</DeveloperHighCombo>
+      </Item>
+      <Item>
+        <Title>Bolero 2</Title>
         <AssetName>Levels\\Bolero\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>400</DeveloperHighScore>
@@ -39,7 +47,7 @@
         <DeveloperHighCombo>40</DeveloperHighCombo>
       </Item>
       <Item>
-        <Title>Symphony No. 5</Title>
+        <Title>Symphony No. 5 2</Title>
         <AssetName>Levels\\B5\\b5-edited-2</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>100</DeveloperHighScore>
@@ -47,7 +55,7 @@
         <DeveloperHighCombo>10</DeveloperHighCombo>
       </Item>
       <Item>
-        <Title>Aquarium</Title>
+        <Title>Aquarium 2</Title>
         <AssetName>Levels\\Aquarium\\aqu</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>200</DeveloperHighScore>
@@ -55,7 +63,7 @@
         <DeveloperHighCombo>20</DeveloperHighCombo>
       </Item>
       <Item>
-        <Title>Air On G String</Title>
+        <Title>Air On G String 2</Title>
         <AssetName>Levels\\AirOnGString\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>300</DeveloperHighScore>
@@ -63,7 +71,7 @@
         <DeveloperHighCombo>30</DeveloperHighCombo>
       </Item>
       <Item>
-        <Title>Bolero</Title>
+        <Title>Bolero 3</Title>
         <AssetName>Levels\\Bolero\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>400</DeveloperHighScore>

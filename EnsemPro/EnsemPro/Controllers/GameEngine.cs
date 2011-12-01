@@ -52,8 +52,18 @@ namespace EnsemPro
 
             buffer = new InputBuffer();
             gameState = new GameState();
+            gameState.LoadContent(Content); // hack
 
-            input = new MouseController(this, gameState, buffer);
+
+            try
+            {
+                input = new WiiController(this, gameState, buffer);
+            }
+            catch (WiimoteLib.WiimoteNotFoundException)
+            {
+                input = new MouseController(this, gameState, buffer);
+            }
+            
 
             Services.AddService(typeof(GameState), gameState);
 
@@ -74,6 +84,8 @@ namespace EnsemPro
             Components.Add(new GamerServicesComponent(this));
             Components.Add(new Components.SaveManager(this));
 
+            Components.Add(new BatonView(this, spriteBatch));
+
             base.Initialize();
             
         }
@@ -84,7 +96,7 @@ namespace EnsemPro
         /// </summary>
         protected override void LoadContent()
         {
-            gameState.LoadContent(Content);
+            
 
             // Deprecated
             WIDTH = gameState.ViewPort.Width;

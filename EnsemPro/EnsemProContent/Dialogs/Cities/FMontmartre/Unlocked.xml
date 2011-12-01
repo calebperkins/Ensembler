@@ -14,9 +14,8 @@
       </Item>
     </Colors>
     <Faces>
-      <Item>
-        <FaceAssetName>null</FaceAssetName>
-      </Item>
     </Faces>
+    <CutScenes>
+    </CutScenes>
   </Asset>
 </XnaContent>

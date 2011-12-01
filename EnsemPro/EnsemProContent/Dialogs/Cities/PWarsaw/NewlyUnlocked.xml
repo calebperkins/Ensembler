@@ -3,20 +3,116 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol newly unlocked</Line>
+        <Character>Game</Character>
+        <Line>(Upon arriving Warsaw, you spot a familiar figure immediately.)</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Frederic!</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>Hello my friend, I assume everything is well?</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Yes, I got the recommendation letters required to enter the competition!</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>Great. I also found out something about your rival.</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>It turns out his parents are also famous musicians, but they were completely overshadowed by your parents.</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>Out of jealousy, his parents might had hired assassins to get rid of your parents.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>.....!!!</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>I am very sorry, but I am afraid this is what happened. His parents commited suicide shortly afterwards, maybe out of guilt and regret.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>.....</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>The reason the green hair boy provokes you, I believe, is because he feels guilty of his parents' evil deed.</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>Although he is very talented, he does not want to compete in the same competition as you.</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>He mocked you in Montmartre because he wanted to motivate you to improve.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>I don't even know his name yet!</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>Worry not. If you win the competition this year, he will return as a strong challenger next year, that is for sure.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Alright, let's go to Vienna!</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>Wait. Before that, I want to personally seen how much you have grown.</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>Here, why don't you perform this piece that I have just finished writing.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>You are my friend, Frederic, but why are you suddenly judging me?</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>Because I was one of the six grand masters. Lang Lang replaced me after I quitted, because I wanted to focus on composing music.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>You were a grand master...?</Line>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Line>My full name is Frederic Chopin. People call me the poet of the piano.</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
+        <Character>Game</Character>
         <Color>Red</Color>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+      <Item>
+        <Character>Frederic</Character>
+        <Color>DarkViolet</Color>
       </Item>
     </Colors>
     <Faces>
-      <Item>
-        <FaceAssetName>null</FaceAssetName>
-      </Item>
     </Faces>
+    <CutScenes>
+      <Item>
+        <Picture>Images\\CutScene\\FrederickIsBack_small</Picture>
+        <StartCue>Hello my friend, I assume everything is well?</StartCue>
+        <StopCue>It turns out his parents are also famous musicians, but they were completely overshadowed by your parents.</StopCue>
+      </Item>
+    </CutScenes>
   </Asset>
 </XnaContent>

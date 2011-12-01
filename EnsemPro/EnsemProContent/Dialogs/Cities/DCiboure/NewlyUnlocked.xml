@@ -8,7 +8,7 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>The hall is full of practice room. You feel like you are surrounded by music.</Line>
+        <Line>(The hall is full of practice rooms. You feel like you are surrounded by music.)</Line>
       </Item>
       <Item>
         <Character>Frederic</Character>
@@ -16,7 +16,7 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>Frederic leads you to a room upstairs. A string trio is playing Ravel's Bolero inside. You stand there and listen for a while.</Line>
+        <Line>(Frederic leads you to a room upstairs. A string trio is playing Ravel's Bolero inside. You stand there and listen for a while.)</Line>
       </Item>
       <Item>
         <Character>Frederic</Character>
@@ -71,7 +71,7 @@
       </Item>
       <Item>
         <Character>Frederic</Character>
-        <Color>Aqua</Color>
+        <Color>DarkViolet</Color>
       </Item>
       <Item>
         <Character>Student 1</Character>
@@ -90,9 +90,8 @@
       <Item>
         <FaceAssetName>Images\\DialogueFace\\Frederic</FaceAssetName>
       </Item>
-      <Item>
-        <FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName>
-      </Item>
     </Faces>
+    <CutScenes>
+    </CutScenes>
   </Asset>
 </XnaContent>

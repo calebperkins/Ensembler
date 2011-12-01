@@ -12,25 +12,29 @@ namespace EnsemPro
         {
             Story,
             Free,
-            Exit
+            Exit,
+            None
         }
 
         public Game game;
         public GameState gameState;
         public MenuView menuView;
-        public Hover hover;
-        KeyboardState lastState = Keyboard.GetState();
+        public Hover hover = Hover.None;
+        Hover lastHover = Hover.None;
 
         SoundEffect TitleMove;
         SoundEffect TitleSelect;
 
+        // todo: remove magic numbers
+        Rectangle storyBox = new Rectangle(300, 390, 310, 40);
+        Rectangle freeBox = new Rectangle(460, 440, 240, 40);
+        Rectangle exitBox = new Rectangle(630, 490, 110, 40);
+
         public MenuController(Game g, GameState gm, SpriteBatch sb)
-            //: base(g)
         {
             game = g;
             gameState = gm;
-            menuView = new MenuView(sb);
-            hover = Hover.Story;
+            menuView = new MenuView(g, sb, this);
         }
 
         public void Initialize()
@@ -44,20 +48,31 @@ namespace EnsemPro
             TitleSelect = cm.Load<SoundEffect>("Sounds//TitleSelect");
         }
 
+        bool Contains(Rectangle box)
+        {
+            Vector2 p = gameState.Input.Position;
+            if (p.X < box.Left) return false;
+            if (p.X > box.Right) return false;
+            if (p.Y < box.Top) return false;
+            if (p.Y > box.Bottom) return false;
+            return true;
+        }
+
         public void Update(GameTime gameTime)
         {
-            KeyboardState ks = Keyboard.GetState();
-            if (ks.IsKeyDown(Keys.Down) && lastState.IsKeyUp(Keys.Down))
-            {
-                NextHover(hover);
+            if (Contains(storyBox))
+                hover = Hover.Story;
+            else if (Contains(freeBox))
+                hover = Hover.Free;
+            else if (Contains(exitBox))
+                hover = Hover.Exit;
+            else
+                hover = Hover.None;
+
+            if (hover != lastHover && hover != Hover.None)
                 TitleMove.Play();
-            }
-            else if (ks.IsKeyDown(Keys.Up) && lastState.IsKeyUp(Keys.Up))
-            {
-                PreviousHover(hover);
-                TitleMove.Play();
-            }
-            else if (gameState.Input.Confirm)
+
+            if (gameState.Input.Confirm)
             {
                 TitleSelect.Play();
                 switch (hover)
@@ -74,48 +89,12 @@ namespace EnsemPro
                 }
 
             }
-            lastState = ks;
-        }
-
-        public void NextHover(Hover h)
-        {
-            switch (h)
-            {
-                case Hover.Story:
-                    hover = Hover.Free;
-                    break;
-                case Hover.Free:
-                    hover = Hover.Exit;
-                    break;
-                case Hover.Exit:
-                    hover = Hover.Story;
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        public void PreviousHover(Hover h)
-        {
-            switch (h)
-            {
-                case Hover.Story:
-                    hover = Hover.Exit;
-                    break;
-                case Hover.Free:
-                    hover = Hover.Story;
-                    break;
-                case Hover.Exit:
-                    hover = Hover.Free;
-                    break;
-                default:
-                    break;
-            }
+            lastHover = hover;
         }
 
         public void Draw(GameTime gameTime)
         {
-            menuView.Draw(hover);
+            menuView.Draw(gameTime);
         }
 
 
