@@ -118,7 +118,7 @@ namespace EnsemPro
                     {
                         if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared)
                             currentState = State.inMap;
-                        else if (SelectedCity.DialogControl.Dialog.DialogFileName == "Introduction" || SelectedCity.DialogControl.Dialog == SelectedCity.successDialogue)
+                        else if (SelectedCity.DialogControl.Dialog.DialogFileName == "Introduction2" || SelectedCity.DialogControl.Dialog == SelectedCity.successDialogue)
                         {
                             currentState = State.inMap;
                         }

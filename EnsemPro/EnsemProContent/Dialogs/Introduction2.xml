@@ -17,56 +17,43 @@
       <!-- show screenshot from game manual! -->
       <Item>
         <Character>???</Character>
-        <Line>During a performance, you are expected to do 3 things.</Line>
+        <Line>During a performance, you are expected to do 3 things: trace, shake, and do nothing.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-        <Line>The most important is trace: trace the flashing grey notes.</Line>
+        <Line>The most important one is trace: trace the flashing grey notes as they appear.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-        <Line>Good trace will increase your score, bad trace will decrease your score.</Line>
+        <Line>A good trace will increase your score, while a bad trace will decrease your score.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-        <Line>In the performance interface, you will see the following things: volume, score, and combo on top of the screen.</Line>
+        <Line>Shake means you move your baton as quickly as possible.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-        <Line>Volume can be increased by pressing "A", and decreased by pressing "Z"</Line>
+        <Line>The more the movements, the more score awarded.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-        <Line>Score shows how well you are doing in a level.</Line>
+        <Line>As for doing nothing... well, when you are not prompted to trace or shake, don't do anything.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-        <Line>Consecutive correct moves will result in the score accumulating in an increasing rate.</Line>
+        <Line>Try moving at your own risk. Watch out for your score.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-        <Line>Lastly, Combo shows the number of consecutive right moves you have done in the level.</Line>
+        <Line>If you do well, the number of combos will increase, which gives you bonus scores.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-        <Line>Now, to the actual game play.</Line>
-      </Item>
-      <!-- show another screenshot from game manual! -->
-      <Item>
-        <Character>???</Character>
-        <Line>To conduct your ensemble, simply move your baton according to the notes that appear in the screen.</Line>
+        <Line>You can change the volume as well by pressing "A" or "Z" while playing, although volume does not affect your score.</Line>
       </Item>
       <Item>
         <Character>???</Character>
-        <Line>Trace your baton from the initial note to the note that appears next.</Line>
-      </Item>
-      <Item>
-        <Character>???</Character>
-        <Line>This is almost everything you need to know to play this game.</Line>
-      </Item>
-      <Item>
-        <Character>???</Character>
-        <Line>One last thing, notice the trail of stars that follow your baton?</Line>
+        <Line>One last thing, notice the trail of shapes that follow your baton?</Line>
       </Item>
       <Item>
         <Character>???</Character>
@@ -74,11 +61,7 @@
       </Item>
       <Item>
         <Character>???</Character>
-        <Line>While the score determines if you have passed a level, the trail of stars determines if you have failed a level.</Line>
-      </Item>
-      <Item>
-        <Character>???</Character>
-        <Line>Consecutive incorrect moves will result in decreasing the number of stars that follow your baton.</Line>
+        <Line>Consecutive incorrect moves will result in decreasing the number of shapes that follow your baton.</Line>
       </Item>
       <Item>
         <Character>???</Character>
@@ -86,7 +69,7 @@
       </Item>
       <Item>
         <Character>???</Character>
-        <Line>Alright, this is all you need to know about conducting in the world of Ensembler. Good luck and have fun!</Line>
+        <Line>Alright, this is all you need to know about conducting in the world of Ensembler. Click on Forest Home, and have fun!</Line>
       </Item>
     </Content>
     <Colors>
