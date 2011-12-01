@@ -271,7 +271,7 @@ namespace EnsemPro
                     if (current_act != null)
                     {
                         Movement.Types type = current_act.myType;
-                        float score = moveEval.Accuracy(current_act, buffer, (current_beat ==0 ? true : startTiming&&endTiming), gameTime);
+                        float score = moveEval.Accuracy(current_act, buffer, (current_beat ==0 || current_beat ==1 ? true : startTiming&&endTiming), gameTime);
 
                         gainedScore = (int)(score * 10);
                         
@@ -410,7 +410,7 @@ namespace EnsemPro
 
             foreach (Musician m in musicians)
             {
-                m.Draw(t, !failed, tint);
+                m.Draw(t, !failed, tint, CountDownDone());
             }
             // sort it in ascending way
             var drawing =
