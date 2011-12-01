@@ -1028,7 +1028,7 @@
       <Name>normalbox</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-	</Compile>
+    </Compile>
     <Compile Include="Levels\William Tell\level.xml">
       <Name>level</Name>
       <Importer>XmlImporter</Importer>
@@ -1038,6 +1038,13 @@
       <Name>song</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Introduction2.xml">
+      <Name>Introduction2</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

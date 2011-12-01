@@ -99,9 +99,9 @@ namespace EnsemPro
             if (!start)
             {
                 start = true;
-                DialogModel dm = new DialogModel("Introduction");
+                DialogModel dm = new DialogModel("Introduction2");
                 dm.LoadContent(game.Content);
-                SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "Welcome", game.Content);
+                SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "Tutorial", game.Content);
                 SelectedCity.DialogControl.Initialize();
                 SelectedCity.DialogControl.LoadContent(game.Content); 
                 currentState = State.inDialog;
