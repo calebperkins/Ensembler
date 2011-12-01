@@ -31,6 +31,14 @@
         <DeveloperHighCombo>30</DeveloperHighCombo>
       </Item>
       <Item>
+        <Title>William tell</Title>
+        <AssetName>Levels//William tell//level</AssetName>
+        <HighScore>0</HighScore>
+        <DeveloperHighScore>500</DeveloperHighScore>
+        <HighCombo>0</HighCombo>
+        <DeveloperHighCombo>50</DeveloperHighCombo>
+      </Item>
+      <Item>
         <Title>Bolero 2</Title>
         <AssetName>Levels\\Bolero\\level</AssetName>
         <HighScore>0</HighScore>
