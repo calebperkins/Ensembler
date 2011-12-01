@@ -510,21 +510,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\SelectionScreen\background.jpg">
-      <Name>background</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\SelectionScreen\normalbox.png">
-      <Name>normalbox</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\SelectionScreen\selectedbox.png">
-      <Name>selectedbox</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Images\SelectionScreen\win.png">
       <Name>win</Name>
       <Importer>TextureImporter</Importer>
@@ -1029,6 +1014,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Images\SelectionScreen\selectedbox.png">
+      <Name>selectedbox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\SelectionScreen\background.png">
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\SelectionScreen\normalbox.png">
+      <Name>normalbox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+	</Compile>
     <Compile Include="Levels\William Tell\level.xml">
       <Name>level</Name>
       <Importer>XmlImporter</Importer>
