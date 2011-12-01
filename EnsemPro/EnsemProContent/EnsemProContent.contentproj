@@ -276,6 +276,7 @@
       <Name>NewlyUnlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
     <Compile Include="Dialogs\Cities\QVienna\Unlocked.xml">
       <Name>Unlocked</Name>

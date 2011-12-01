@@ -37,7 +37,8 @@ namespace EnsemPro
             input.Acceleration = newAcc;
 
             input.Confirm = lastMouse.LeftButton == ButtonState.Released && ms.LeftButton == ButtonState.Pressed;
-            
+            input.Cancel = lastMouse.RightButton == ButtonState.Released && ms.RightButton == ButtonState.Pressed;
+ 
             input.Pause = ks.IsKeyDown(Keys.Escape);
             if (ks.IsKeyDown(Keys.A) && ks.IsKeyDown(Keys.Z)) { }
             else if (ks.IsKeyDown(Keys.A))

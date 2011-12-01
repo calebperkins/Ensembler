@@ -131,7 +131,17 @@ namespace EnsemPro
                             currentState = State.inGame;
                         }
                     }
-                    else SelectedCity.DialogControl.Update(gameTime);
+                    else
+                    {
+                        if (!gameState.Input.Cancel)
+                        {
+                            SelectedCity.DialogControl.Update(gameTime);
+                        }
+                        else
+                        {
+                            currentState = State.inMap;
+                        }
+                    }
                     break;
 
                 /// code for inGame
