@@ -54,7 +54,16 @@ namespace EnsemPro
             gameState = new GameState();
             gameState.LoadContent(Content); // hack
 
-            input = new MouseController(this, gameState, buffer);
+
+            try
+            {
+                input = new WiiController(this, gameState, buffer);
+            }
+            catch (WiimoteLib.WiimoteNotFoundException)
+            {
+                input = new MouseController(this, gameState, buffer);
+            }
+            
 
             Services.AddService(typeof(GameState), gameState);
 

@@ -22,6 +22,9 @@ namespace EnsemPro
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
+            if (!Game.IsActive)
+                return;
+
             input = new InputState();
             WiimoteLib.PointF ws = wm.WiimoteState.IRState.Midpoint;
             input.Position.X = GameEngine.WIDTH * (1 - ws.X);
@@ -31,6 +34,9 @@ namespace EnsemPro
             input.Velocity = posDiff / time;
             WiimoteLib.Point3F acc = wm.WiimoteState.AccelState.Values;
             input.Acceleration = new Vector2(acc.X, acc.Y);
+
+            input.Pause = wm.WiimoteState.ButtonState.Home;
+            input.Confirm = wm.WiimoteState.ButtonState.A;
 
             if (ws.X == 0.0f && ws.Y == 0.0f) // sensor bar out of range
             {
