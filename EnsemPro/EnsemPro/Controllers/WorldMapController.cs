@@ -179,7 +179,7 @@ namespace EnsemPro
                         }
                         DialogModel dm = SelectedCity.successDialogue;
                         dm.LoadContent(game.Content);
-                        SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "Cleared!", game.Content);
+                        SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "(Success!)", game.Content);
                         SelectedCity.DialogControl.Initialize();
                         SelectedCity.DialogControl.LoadContent(game.Content);
                         currentState = State.inDialog;

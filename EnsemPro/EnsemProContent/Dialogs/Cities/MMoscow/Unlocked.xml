@@ -3,14 +3,22 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol unlocked</Line>
+        <Character>Horowitz</Character>
+        <Line>There is a fine difference between entertainment and art.</Line>
+      </Item>
+      <Item>
+        <Character>Horowitz</Character>
+        <Line>Art requires effort, while entertainment does not.</Line>
+      </Item>
+      <Item>
+        <Character>Horowitz</Character>
+        <Line>But I assure you, the satisfaction you gain from art is much more rewarding than that from entertainment.</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
-        <Color>Red</Color>
+        <Character>Horowitz</Character>
+        <Color>DarkSlateGray</Color>
       </Item>
     </Colors>
     <Faces>

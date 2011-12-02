@@ -3,14 +3,14 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol unlocked</Line>
+        <Character>Rimsky Korsakov</Character>
+        <Line>Don't worry if you cannot master it yet. This piece is famous for its difficulty.</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
-        <Color>Red</Color>
+        <Character>Rimsky Korsakov</Character>
+        <Color>Yellow</Color>
       </Item>
     </Colors>
     <Faces>

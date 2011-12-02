@@ -3,14 +3,14 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol unlocked</Line>
+        <Character>Player</Character>
+        <Line>I must not give up here!</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
-        <Color>Red</Color>
+        <Character>Player</Character>
+        <Color>Blue</Color>
       </Item>
     </Colors>
     <Faces>

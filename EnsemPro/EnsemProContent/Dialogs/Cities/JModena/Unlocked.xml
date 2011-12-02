@@ -3,14 +3,14 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol unlocked</Line>
+        <Character>Pavarotti</Character>
+        <Line>Listen to the pulse of the music, and beware of the tempo changes.</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
-        <Color>Red</Color>
+        <Character>Pavarotti</Character>
+        <Color>LightCoral</Color>
       </Item>
     </Colors>
     <Faces>
