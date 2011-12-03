@@ -39,40 +39,17 @@
         <DeveloperHighCombo>50</DeveloperHighCombo>
       </Item>
       <Item>
-        <Title>Bolero 2</Title>
+        <Title>Bolero</Title>
         <AssetName>Levels\\Bolero\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>400</DeveloperHighScore>
         <HighCombo>0</HighCombo>
         <DeveloperHighCombo>40</DeveloperHighCombo>
       </Item>
+  
       <Item>
-        <Title>Symphony No. 5 2</Title>
-        <AssetName>Levels\\B5\\b5-edited-2</AssetName>
-        <HighScore>0</HighScore>
-        <DeveloperHighScore>100</DeveloperHighScore>
-        <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>10</DeveloperHighCombo>
-      </Item>
-      <Item>
-        <Title>Aquarium 2</Title>
-        <AssetName>Levels\\Aquarium\\aqu</AssetName>
-        <HighScore>0</HighScore>
-        <DeveloperHighScore>200</DeveloperHighScore>
-        <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>20</DeveloperHighCombo>
-      </Item>
-      <Item>
-        <Title>Air On G String 2</Title>
-        <AssetName>Levels\\AirOnGString\\level</AssetName>
-        <HighScore>0</HighScore>
-        <DeveloperHighScore>300</DeveloperHighScore>
-        <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>30</DeveloperHighCombo>
-      </Item>
-      <Item>
-        <Title>Bolero 3</Title>
-        <AssetName>Levels\\Bolero\\level</AssetName>
+        <Title>Winter</Title>
+        <AssetName>Levels\\Winter\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>400</DeveloperHighScore>
         <HighCombo>0</HighCombo>

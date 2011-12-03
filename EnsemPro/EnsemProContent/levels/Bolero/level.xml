@@ -9,7 +9,7 @@
     <Background>Levels\\B5\\background</Background>
     <Movements>
       <Item>
-        <Kind>Shake</Kind>
+        <Kind>Wave</Kind>
         <ShowBeat>1</ShowBeat>
         <StartBeat>1</StartBeat>
         <EndBeat>2</EndBeat>
