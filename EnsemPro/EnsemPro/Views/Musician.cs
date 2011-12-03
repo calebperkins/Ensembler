@@ -24,9 +24,10 @@ namespace EnsemPro
             spriteBatch = sb;
         }
 
-        public void Draw(GameTime t, bool update, Color tint)
+        public void Draw(GameTime t, bool update, Color tint, bool countDownDone)
         {
-            if (update) src = map[(int)(t.TotalGameTime.TotalSeconds * frameRate) % map.Length];
+            if (!countDownDone) src = map[0];
+            else if (update) src = map[(int)(t.TotalGameTime.TotalSeconds * frameRate) % map.Length];
             spriteBatch.Draw(texture, position, src, tint);
         }
 

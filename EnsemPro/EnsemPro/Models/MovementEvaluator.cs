@@ -29,7 +29,7 @@ namespace EnsemPro
                 //  Console.WriteLine("coords is " + coords);
                 //  Console.WriteLine("pos is " + pos);
                 //  Console.WriteLine("difference in pos is " + Vector2.Distance(coords, pos)+"\n");
-                return Vector2.Distance(coords, pos) <= 70;
+                return Vector2.Distance(coords, pos) <= 100;
             }
             else
             {

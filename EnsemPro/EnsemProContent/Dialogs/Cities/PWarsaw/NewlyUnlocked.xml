@@ -109,7 +109,7 @@
     </Faces>
     <CutScenes>
       <Item>
-        <Picture>Images\\CutScene\\FrederickIsBack_small</Picture>
+        <Picture>Images\\CutScene\\FederickIsBack_small</Picture>
         <StartCue>Hello my friend, I assume everything is well?</StartCue>
         <StopCue>It turns out his parents are also famous musicians, but they were completely overshadowed by your parents.</StopCue>
       </Item>

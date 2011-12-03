@@ -632,7 +632,7 @@
       </Item>
       <Item>
         <Kind>Wave</Kind>
-        <ShowBeat>54</ShowBeat>
+        <ShowBeat>55</ShowBeat>
         <StartBeat>55</StartBeat>
         <EndBeat>56</EndBeat>
         <FadeBeat>57</FadeBeat>
@@ -1278,6 +1278,13 @@
         <EndBeat>126</EndBeat>
         <FadeBeat>126</FadeBeat>
       </Item>
+        <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>126</ShowBeat>
+        <StartBeat>126</StartBeat>
+        <EndBeat>127</EndBeat>
+        <FadeBeat>127</FadeBeat>
+       </Item>
       <Item>
         <Kind>Noop</Kind>
         <ShowBeat>126</ShowBeat>

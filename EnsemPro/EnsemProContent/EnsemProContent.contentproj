@@ -52,11 +52,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\BParis\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Dialogs\Cities\CReine\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -64,11 +59,6 @@
     </Compile>
     <Compile Include="Dialogs\Cities\CReine\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-    <Compile Include="Dialogs\Cities\CReine\Unlocked.xml">
-      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -82,11 +72,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\DCiboure\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Dialogs\Cities\ELondon\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -94,11 +79,6 @@
     </Compile>
     <Compile Include="Dialogs\Cities\ELondon\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-    <Compile Include="Dialogs\Cities\ELondon\Unlocked.xml">
-      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -112,11 +92,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\FMontmartre\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Dialogs\Cities\GMilan\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -124,11 +99,6 @@
     </Compile>
     <Compile Include="Dialogs\Cities\GMilan\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-    <Compile Include="Dialogs\Cities\GMilan\Unlocked.xml">
-      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -142,11 +112,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\HSaltzburg\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Dialogs\Cities\IBonn\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -154,11 +119,6 @@
     </Compile>
     <Compile Include="Dialogs\Cities\IBonn\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-    <Compile Include="Dialogs\Cities\IBonn\Unlocked.xml">
-      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -172,11 +132,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\JModena\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Dialogs\Cities\KNewYorkCity\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -184,11 +139,6 @@
     </Compile>
     <Compile Include="Dialogs\Cities\KNewYorkCity\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-    <Compile Include="Dialogs\Cities\KNewYorkCity\Unlocked.xml">
-      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -202,11 +152,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\LHamburg\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Dialogs\Cities\MMoscow\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -214,11 +159,6 @@
     </Compile>
     <Compile Include="Dialogs\Cities\MMoscow\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-    <Compile Include="Dialogs\Cities\MMoscow\Unlocked.xml">
-      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -247,11 +187,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\OBerlin\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Dialogs\Cities\PWarsaw\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -259,11 +194,6 @@
     </Compile>
     <Compile Include="Dialogs\Cities\PWarsaw\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-    <Compile Include="Dialogs\Cities\PWarsaw\Unlocked.xml">
-      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -282,6 +212,21 @@
       <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\FederickIsBack_small.jpg">
+      <Name>FederickIsBack_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\GoodbyeAlice.jpg">
+      <Name>GoodbyeAlice</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\rival_small.jpg">
+      <Name>rival_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
     <Compile Include="Images\dot.png">
       <Name>dot</Name>
@@ -332,6 +277,11 @@
       <Name>note_yellow</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\SelectionScreen\PillboxOpaque.bmp">
+      <Name>PillboxOpaque</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>FontTextureProcessor</Processor>
     </Compile>
     <Compile Include="journey.mp3">
       <Name>journey</Name>
@@ -510,21 +460,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\SelectionScreen\background.jpg">
-      <Name>background</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\SelectionScreen\normalbox.png">
-      <Name>normalbox</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\SelectionScreen\selectedbox.png">
-      <Name>selectedbox</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Images\SelectionScreen\win.png">
       <Name>win</Name>
       <Importer>TextureImporter</Importer>
@@ -615,6 +550,7 @@
       <Name>level</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
     <Compile Include="Levels\Bolero\song.mp3">
       <Name>song</Name>
@@ -874,13 +810,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\CutScene\GoodbyeAlice.jpg">
-      <Name>GoodbyeAlice</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Dialogs\Cities\AForestHome\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
@@ -891,29 +820,13 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\AForestHome\Unlocked.xml">
-      <Name>Unlocked</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\CutScene\FederickIsBack_small.jpg">
-      <Name>FederickIsBack_small</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\CutScene\rival_small.jpg">
-      <Name>rival_small</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dialogs\Cities\AForestHome\Success.xml">
       <Name>Success</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1029,6 +942,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Images\SelectionScreen\selectedbox.png">
+      <Name>selectedbox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\SelectionScreen\background.png">
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\SelectionScreen\normalbox.png">
+      <Name>normalbox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Levels\William Tell\level.xml">
       <Name>level</Name>
       <Importer>XmlImporter</Importer>
@@ -1044,15 +972,189 @@
   <ItemGroup>
     <Compile Include="Levels\Winter\level.xml">
       <Name>level</Name>
+	</Compile>
+    <Compile Include="Images\SelectionScreen\VTKAnimal2.bmp">
+      <Name>VTKAnimal2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>FontTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\SelectionScreen\GermanUnderground.bmp">
+      <Name>GermanUnderground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>FontTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\fbg_edited.png">
+      <Name>fbg_edited</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\CutScene\Tutorial_Bad.jpg">
+      <Name>Tutorial_Bad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\Tutorial_Fail.jpg">
+      <Name>Tutorial_Fail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\Tutorial_Noop.jpg">
+      <Name>Tutorial_Noop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\Tutorial_Shake.jpg">
+      <Name>Tutorial_Shake</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\Tutorial_Trace.jpg">
+      <Name>Tutorial_Trace</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\PauseScreen_temp.jpg">
+      <Name>PauseScreen_temp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\PauseScreen\PauseScreen_temp.jpg">
+      <Name>PauseScreen_temp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Dialogs\Introduction2.xml">
+      <Name>Introduction2</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\AForestHome\Unlocked.xml">
+      <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\BParis\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\CReine\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\DCiboure\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\ELondon\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\FMontmartre\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\GMilan\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\HSaltzburg\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\IBonn\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\JModena\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\KNewYorkCity\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\LHamburg\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\MMoscow\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\OBerlin\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\Cities\PWarsaw\Unlocked.xml">
+      <Name>Unlocked</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Levels\Winter\song.mp3">
       <Name>song</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\stop.png">
+      <Name>stop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

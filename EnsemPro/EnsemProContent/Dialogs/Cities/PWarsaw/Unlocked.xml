@@ -3,14 +3,22 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol unlocked</Line>
+        <Character>Chopin</Character>
+        <Line>Music is a form of self expression. Through sound, one can convey messages intense emotions and experiences beyond words.</Line>
+      </Item>
+      <Item>
+        <Character>Chopin</Character>
+        <Line>So, when you perform, make sure you understand what you are trying to convey.</Line>
+      </Item>
+      <Item>
+        <Character>Chopin</Character>
+        <Line>Once your message is clear, the audience is more likely to be touched by your music.</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
-        <Color>Red</Color>
+        <Character>Chopin</Character>
+        <Color>DarkViolet</Color>
       </Item>
     </Colors>
     <Faces>

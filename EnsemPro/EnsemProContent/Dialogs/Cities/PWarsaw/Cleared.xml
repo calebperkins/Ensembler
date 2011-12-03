@@ -3,13 +3,13 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol cleared</Line>
+        <Character>Game</Character>
+        <Line>(Chopin's set of etudes is a favourite among pianists. Each etude concentrate on a technical skill, but every one of them is musically interesting to play.)</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
+        <Character>Game</Character>
         <Color>Red</Color>
       </Item>
     </Colors>
