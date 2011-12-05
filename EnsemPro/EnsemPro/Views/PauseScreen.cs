@@ -13,6 +13,9 @@ namespace EnsemPro
         SpriteFont menuFont;
         GameState state;
 
+        Rectangle titleBox;
+        Vector2 textCenter;
+
         public PauseScreenController(Game game, SpriteBatch sb)
             : base(game)
         {
@@ -46,7 +49,9 @@ namespace EnsemPro
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            if (state.Input.Confirm)
+            textCenter = new Vector2(Game.GraphicsDevice.Viewport.Width/2, Game.GraphicsDevice.Viewport.Height/2);
+            titleBox = new Rectangle(400 - 134 / 2, 300 - 40 / 2 + 100, 200, 40);
+            if (state.Input.Confirm && state.Input.Inside(titleBox))
             {
                 state.CurrentScreen = DataTypes.Screens.Title;
             }
@@ -55,16 +60,13 @@ namespace EnsemPro
 
         public override void Draw(GameTime gameTime)
         {
-            string pauseText = "- Paused -";
-            string backText = "Back (esc)";
-            string titleText = "To title screen (spacebar)";
+            string pauseText = "~ Paused ~";
+            string titleText = "Exit level";
             Vector2 pauseSize = menuFont.MeasureString(pauseText);
-            Vector2 backSize = menuFont.MeasureString(backText);
             Vector2 titleSize = menuFont.MeasureString(titleText);
-            Vector2 textCenter = new Vector2(Game.GraphicsDevice.Viewport.Width/2, Game.GraphicsDevice.Viewport.Height/2);
+            GraphicsDevice.Clear(Color.Black);
             spriteBatch.DrawString(menuFont, pauseText, textCenter - pauseSize/2 - new Vector2(0,50), Color.White);
-            spriteBatch.DrawString(menuFont, backText, textCenter - backSize / 2 + new Vector2(0, 50), Color.White);
-            spriteBatch.DrawString(menuFont, titleText, textCenter - titleSize / 2 + new Vector2(0, 100), Color.White);
+            spriteBatch.DrawString(menuFont, titleText, textCenter - titleSize / 2 + new Vector2(0, 100), state.Input.Inside(titleBox) ? Color.Yellow : Color.White);
             base.Draw(gameTime);
         }
 
