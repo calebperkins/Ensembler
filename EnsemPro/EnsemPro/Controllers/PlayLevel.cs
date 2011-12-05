@@ -13,7 +13,7 @@ namespace EnsemPro
     public class PlayLevel : DrawableGameComponent
     {
         // For adjusting curMaxAge of satisfaction queue
-        public const int AGE_DECR = 2;
+        public const int AGE_DECR = 0;
         public const int AGE_INCR = 1;
         bool failed;
 
@@ -28,6 +28,7 @@ namespace EnsemPro
         int last_beat;
         // beat_sum is for the purpose of beat time change
         int beat_sum = 0;
+        int accumulated_ms = 0;
         int countDownBeatSum = 0;
         int beatTime;
         int c = 0;
@@ -218,7 +219,9 @@ namespace EnsemPro
                             }
                         }
                     }
+
                     last_beat = current_beat;
+                    
                     if (current_act != null && current_act.endBeat < current_beat)
                     {
                         current_act = null;
@@ -253,13 +256,13 @@ namespace EnsemPro
                             if (current_act.myType != Movement.Types.Control)
                             {
                                 actionList.RemoveFirst();
-
                                 c++;
                                 newMovement = true;
                             }
                             else
                             {
                                 beat_sum = current_beat;
+                                accumulated_ms = accumulated_ms + (int)watch.ElapsedMilliseconds;
                                 beatTime = 60000 / current_act.BPM;
                                 actionList.RemoveFirst();
                                 watch.Restart();
@@ -271,7 +274,7 @@ namespace EnsemPro
                     if (current_act != null)
                     {
                         Movement.Types type = current_act.myType;
-                        float score = moveEval.Accuracy(current_act, buffer, startTiming&&endTiming, gameTime);
+                        float score = moveEval.Accuracy(current_act, buffer, (current_beat ==0 || current_beat ==1 ? true : startTiming&&endTiming), gameTime);
 
                         gainedScore = (int)(score * 10);
                         
@@ -410,7 +413,7 @@ namespace EnsemPro
 
             foreach (Musician m in musicians)
             {
-                m.Draw(t, !failed, tint);
+                m.Draw(t, !failed, tint, CountDownDone());
             }
             // sort it in ascending way
             var drawing =
@@ -475,7 +478,9 @@ namespace EnsemPro
         private float Alpha(int a, int b)
         {
             float total = (a-b) * beatTime / 2;
-            return Math.Max(0, (int)watch.ElapsedMilliseconds - b * beatTime)/ total;
+            //Console.WriteLine(watch.ElapsedMilliseconds + " " + " " + (b - beat_sum) * beatTime + " "+ total + " " + b);
+            return Math.Max(0, (int)watch.ElapsedMilliseconds - (b - beat_sum) * beatTime) / total;
+
         }
 
         private bool CountDownDone()

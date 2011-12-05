@@ -22,7 +22,7 @@ namespace EnsemPro
 
         public override void Update(GameTime gameTime)
         {
-            if (input.Pause && !lastState.Pause)
+            if (input.Pause && !lastState.Pause && (gameState.CurrentScreen == DataTypes.Screens.PlayLevel || gameState.CurrentScreen == DataTypes.Screens.Pause))
             {
                 if (gameState.CurrentScreen == DataTypes.Screens.Pause)
                 {

@@ -3,14 +3,62 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>A</Character>
-        <Line>Lol newly unlocked</Line>
+        <Character>Rimsky Korsakov</Character>
+        <Line>Hello, welcome to my home. How may I help you?</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>I am currenting collecting recommendation letters from the six grand masters.</Line>
+      </Item>
+      <Item>
+        <Character>Rimsky Korsakov</Character>
+        <Line>Aha, so you must be aiming for the international conducting competition.</Line>
+      </Item>
+      <Item>
+        <Character>Rimsky Korsakov</Character>
+        <Line>Let me tell you a secret: the piece you are going to perform in the competition will be composed by a Russian composer.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Thank you, but how do you know that?</Line>
+      </Item>
+      <Item>
+        <Character>Rimsky Korsakov</Character>
+        <Line>Well, I was one of the judges in the competition last year.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Wow cool! Do you have any more advice for me?</Line>
+      </Item>
+      <Item>
+        <Character>Rimsky Korsakov</Character>
+        <Line>Here, check out this piece when you are free.</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>*Player receives the piece "Flight of the Bumble Bee"*</Line>
+      </Item>
+      <Item>
+        <Character>Rimsky Korsakov</Character>
+        <Line>If you can master this piece, you should be more than prepared for the competition.</Line>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Line>Thanks!</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>A</Character>
+        <Character>Game</Character>
         <Color>Red</Color>
+      </Item>
+      <Item>
+        <Character>Player</Character>
+        <Color>Blue</Color>
+      </Item>
+      <Item>
+        <Character>Rimsky Korsakov</Character>
+        <Color>Yellow</Color>
       </Item>
     </Colors>
     <Faces>

@@ -7,6 +7,20 @@
     <SatisfactionAssetName>Images\\aquarium</SatisfactionAssetName>
     <Artist>Beethoven</Artist>
     <Background>Levels\\B5\\background</Background>
+    <Musicians>
+      <Item>
+        <Texture>Characters\\alice_sprite</Texture>
+        <SpriteMap>Characters\\alice_map</SpriteMap>
+        <Position>430 400</Position>
+        <FrameRate>8</FrameRate>
+      </Item>
+      <Item>
+        <Texture>Characters\\Lance_sprite</Texture>
+        <SpriteMap>Characters\\Lance_map</SpriteMap>
+        <Position>280 400</Position>
+        <FrameRate>8</FrameRate>
+      </Item>
+    </Musicians>
     <Movements>
       <Item>
         <Kind>Wave</Kind>
@@ -641,7 +655,7 @@
         <StartX>600</StartX>
         <StartY>500</StartY>
         <EndX>200</EndX>
-        <EndY>600</EndY>
+        <EndY>550</EndY>
         <A>0</A>
       </Item>
       <Item>
@@ -708,15 +722,15 @@
         <StartX>600</StartX>
         <StartY>500</StartY>
         <EndX>200</EndX>
-        <EndY>600</EndY>
+        <EndY>550</EndY>
         <A>0</A>
       </Item>
       <Item>
         <Kind>Noop</Kind>
         <ShowBeat>62</ShowBeat>
         <StartBeat>62</StartBeat>
-        <EndBeat>64</EndBeat>
-        <FadeBeat>64</FadeBeat>
+        <EndBeat>65</EndBeat>
+        <FadeBeat>65</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -729,6 +743,13 @@
         <EndX>700</EndX>
         <EndY>500</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>66</ShowBeat>
+        <StartBeat>66</StartBeat>
+        <EndBeat>68</EndBeat>
+        <FadeBeat>68</FadeBeat>
       </Item>
       <Item>
         <Kind>Shake</Kind>
@@ -748,6 +769,13 @@
         <EndX>100</EndX>
         <EndY>500</EndY>
         <A>0</A>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>70</ShowBeat>
+        <StartBeat>70</StartBeat>
+        <EndBeat>72</EndBeat>
+        <FadeBeat>72</FadeBeat>
       </Item>
       <Item>
         <Kind>Shake</Kind>
@@ -817,11 +845,18 @@
         <A>0</A>
       </Item>
       <Item>
-        <Kind>Shake</Kind>
-        <ShowBeat>79</ShowBeat>
-        <StartBeat>79</StartBeat>
+        <Kind>Noop</Kind>
+        <ShowBeat>78</ShowBeat>
+        <StartBeat>78</StartBeat>
         <EndBeat>80</EndBeat>
         <FadeBeat>80</FadeBeat>
+      </Item>
+      <Item>
+        <Kind>Shake</Kind>
+        <ShowBeat>80</ShowBeat>
+        <StartBeat>80</StartBeat>
+        <EndBeat>81</EndBeat>
+        <FadeBeat>81</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -836,11 +871,18 @@
         <A>0</A>
       </Item>
       <Item>
-        <Kind>Shake</Kind>
-        <ShowBeat>83</ShowBeat>
-        <StartBeat>83</StartBeat>
+        <Kind>Noop</Kind>
+        <ShowBeat>82</ShowBeat>
+        <StartBeat>82</StartBeat>
         <EndBeat>84</EndBeat>
         <FadeBeat>84</FadeBeat>
+      </Item>
+      <Item>
+        <Kind>Shake</Kind>
+        <ShowBeat>84</ShowBeat>
+        <StartBeat>84</StartBeat>
+        <EndBeat>86</EndBeat>
+        <FadeBeat>86</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>
@@ -980,6 +1022,13 @@
         <StartBeat>97</StartBeat>
         <EndBeat>100</EndBeat>
         <FadeBeat>100</FadeBeat>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>100</ShowBeat>
+        <StartBeat>100</StartBeat>
+        <EndBeat>101</EndBeat>
+        <FadeBeat>101</FadeBeat>
       </Item>
       <Item>
         <Kind>Wave</Kind>

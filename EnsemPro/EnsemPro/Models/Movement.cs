@@ -33,7 +33,7 @@ namespace EnsemPro
         Texture2D current_trace;
         Texture2D current_circle;
         Texture2D current_shake;
-
+        static Texture2D endTexture;
         static Texture2D circleTexture;
         static Texture2D circleReadyTexture;
         static Texture2D ringTexture;
@@ -50,6 +50,7 @@ namespace EnsemPro
         public static void LoadContent(ContentManager content)
         {
             circleTexture = content.Load<Texture2D>("images\\circle");
+            endTexture = content.Load<Texture2D>("images\\stop");
             circleReadyTexture = content.Load<Texture2D>("images\\circle_ready");
             shakeTexture = content.Load<Texture2D>("images\\shake");
             traceTexture = content.Load<Texture2D>("images\\line");
@@ -217,7 +218,7 @@ namespace EnsemPro
                                 cnt++;
                                     
                             }
-                            spriteBatch.Draw(circleReadyTexture, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, Color.Lerp(Color.White, Color.Transparent, progress), 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
+                        spriteBatch.Draw(endTexture, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, Color.Lerp(Color.White, Color.Transparent, progress), 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
                             break;
                     case Stages.Fade:
                         Color alpha = Color.Lerp(Color.White, Color.Transparent, progress);
@@ -232,7 +233,7 @@ namespace EnsemPro
                                 lPy2 = p.Y;
                            
                         }
-                        spriteBatch.Draw(circleTexture, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, alpha, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
+                        spriteBatch.Draw(endTexture, new Vector2(endCoordinate.X, GameEngine.HEIGHT - endCoordinate.Y), null, alpha, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
                        
                         break;
                     default:

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="DataTypes.DialogData">
+    <Content>
+      <Item>
+        <Character>???</Character>
+        <Line>Welcome to the world of Ensembler!</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>You will embark on a journey to become the greatest conductor and ensembler.</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>But before that, you will need to learn the basics of conducting in this world.</Line>
+      </Item>
+      <!-- show screenshot from game manual! -->
+      <Item>
+        <Character>???</Character>
+        <Line>During a performance, you are expected to do 3 things: trace, shake, and do nothing.</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>The most important one is trace: trace the flashing grey notes as they appear.</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>A good trace will increase your score, while a bad trace will decrease your score.</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>Shake means you move your baton as quickly as possible.</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>The more the movements, the more score awarded.</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>As for doing nothing... well, when you are not prompted to trace or shake, don't do anything.</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>Try moving at your own risk. Watch out for your score.</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>If you do well, the number of combos will increase, which gives you bonus scores.</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>You can change the volume as well by pressing "A" or "Z" while playing, although volume does not affect your score.</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>One last thing, notice the trail of shapes that follow your baton?</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>It is also an indication on how well you are doing in the level.</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>Consecutive incorrect moves will result in decreasing the number of shapes that follow your baton.</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>When the number of stars reaches zero, you will have to try the level again.</Line>
+      </Item>
+      <Item>
+        <Character>???</Character>
+        <Line>Alright, this is all you need to know about conducting in the world of Ensembler. Click on Forest Home, and have fun!</Line>
+      </Item>
+    </Content>
+    <Colors>
+      <Item>
+        <Character>???</Character>
+        <Color>Black</Color>
+      </Item>
+    </Colors>
+    <Faces>
+    </Faces>
+    <CutScenes>
+      <Item>
+        <Picture>Images\\CutScene\\Tutorial_Trace</Picture>
+        <StartCue>The most important one is trace: trace the flashing grey notes as they appear.</StartCue>
+        <StopCue>Shake means you move your baton as quickly as possible.</StopCue>
+      </Item>
+      <Item>
+        <Picture>Images\\CutScene\\Tutorial_Shake</Picture>
+        <StartCue>Shake means you move your baton as quickly as possible.</StartCue>
+        <StopCue>As for doing nothing... well, when you are not prompted to trace or shake, don't do anything.</StopCue>
+      </Item>
+      <Item>
+        <Picture>Images\\CutScene\\Tutorial_Noop</Picture>
+        <StartCue>As for doing nothing... well, when you are not prompted to trace or shake, don't do anything.</StartCue>
+        <StopCue>Try moving at your own risk. Watch out for your score.</StopCue>
+      </Item>
+      <Item>
+        <Picture>Images\\CutScene\\Tutorial_Bad</Picture>
+        <StartCue>Consecutive incorrect moves will result in decreasing the number of shapes that follow your baton.</StartCue>
+        <StopCue>When the number of stars reaches zero, you will have to try the level again.</StopCue>
+      </Item>
+      <Item>
+        <Picture>Images\\CutScene\\Tutorial_Fail</Picture>
+        <StartCue>When the number of stars reaches zero, you will have to try the level again.</StartCue>
+        <StopCue>Alright, this is all you need to know about conducting in the world of Ensembler. Click on Forest Home, and have fun!</StopCue>
+      </Item>
+    </CutScenes>
+  </Asset>
+</XnaContent>

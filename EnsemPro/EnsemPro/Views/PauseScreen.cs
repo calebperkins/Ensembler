@@ -12,6 +12,7 @@ namespace EnsemPro
         SpriteBatch spriteBatch;
         SpriteFont menuFont;
         GameState state;
+        Texture2D background;
 
         Rectangle titleBox;
         Vector2 textCenter;
@@ -26,7 +27,8 @@ namespace EnsemPro
 
         protected override void LoadContent()
         {
-            menuFont = Game.Content.Load<SpriteFont>("images/Lucidia");
+            menuFont = Game.Content.Load<SpriteFont>("Images//SelectionScreen//GermanUnderground");
+            background = Game.Content.Load<Texture2D>("Images//PauseScreen//PauseScreen_temp");
             base.LoadContent();
         }
 
@@ -62,9 +64,9 @@ namespace EnsemPro
         {
             string pauseText = "~ Paused ~";
             string titleText = "Exit level";
+            spriteBatch.Draw(background, new Vector2(), Color.White);
             Vector2 pauseSize = menuFont.MeasureString(pauseText);
             Vector2 titleSize = menuFont.MeasureString(titleText);
-            GraphicsDevice.Clear(Color.Black);
             spriteBatch.DrawString(menuFont, pauseText, textCenter - pauseSize/2 - new Vector2(0,50), Color.White);
             spriteBatch.DrawString(menuFont, titleText, textCenter - titleSize / 2 + new Vector2(0, 100), state.Input.Inside(titleBox) ? Color.Yellow : Color.White);
             base.Draw(gameTime);

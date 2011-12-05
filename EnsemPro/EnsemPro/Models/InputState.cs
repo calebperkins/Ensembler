@@ -8,6 +8,7 @@ public struct InputState
     public Vector2 Acceleration;
     public bool Pause;
     public bool Confirm;
+    public bool Cancel;
     public Keys Key;
 
     public bool Inside(Rectangle box)

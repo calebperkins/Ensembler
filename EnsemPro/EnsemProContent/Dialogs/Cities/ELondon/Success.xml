@@ -1,20 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
-  <Asset Type="DataTypes.DialogData"> 
+  <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>Player</Character>
-        <Line>null</Line>
+        <Character>Old woman</Character>
+        <Line>Memories...they are coming back to me. Oh thank you, young man.</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>Player</Character>
-        <Color>Blue</Color>
+        <Character>Olde woman</Character>
+        <Color>Azure</Color>
       </Item>
     </Colors>
     <Faces>
     </Faces>
-    <CutScenes></CutScenes>
+    <CutScenes>
+    </CutScenes>
   </Asset>
 </XnaContent>

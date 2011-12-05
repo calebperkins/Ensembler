@@ -25,6 +25,7 @@ namespace EnsemPro
         HashSet<Models.City> Cities = new HashSet<Models.City>();
 
         bool start = false;
+        int big_Six = 0;
 
         public enum State { 
             inDialog,
@@ -99,9 +100,9 @@ namespace EnsemPro
             if (!start)
             {
                 start = true;
-                DialogModel dm = new DialogModel("Introduction");
+                DialogModel dm = new DialogModel("Introduction2");
                 dm.LoadContent(game.Content);
-                SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "Welcome", game.Content);
+                SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "Tutorial", game.Content);
                 SelectedCity.DialogControl.Initialize();
                 SelectedCity.DialogControl.LoadContent(game.Content); 
                 currentState = State.inDialog;
@@ -118,7 +119,7 @@ namespace EnsemPro
                     {
                         if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared)
                             currentState = State.inMap;
-                        else if (SelectedCity.DialogControl.Dialog.DialogFileName == "Introduction" || SelectedCity.DialogControl.Dialog == SelectedCity.successDialogue)
+                        else if (SelectedCity.DialogControl.Dialog.DialogFileName == "Introduction2" || SelectedCity.DialogControl.Dialog == SelectedCity.successDialogue)
                         {
                             currentState = State.inMap;
                         }
@@ -131,7 +132,17 @@ namespace EnsemPro
                             currentState = State.inGame;
                         }
                     }
-                    else SelectedCity.DialogControl.Update(gameTime);
+                    else
+                    {
+                        if (!gameState.Input.Cancel)
+                        {
+                            SelectedCity.DialogControl.Update(gameTime);
+                        }
+                        else
+                        {
+                            currentState = State.inMap;
+                        }
+                    }
                     break;
 
                 /// code for inGame
@@ -147,9 +158,28 @@ namespace EnsemPro
                                 c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
                             }
                         }
+                        if (SelectedCity.Data.BigSix)
+                        {
+                            this.big_Six++;
+                            if (big_Six >= 4)
+                            {
+                                foreach (Models.City c in Cities)
+                                {
+                                    if (c.Data.ID == 15) c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
+                                }
+                            }
+                            else if (big_Six == 6)
+                            {
+                                foreach (Models.City c in Cities)
+                                {
+                                    if (c.Data.ID == 14) c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
+                                }
+                            }
+
+                        }
                         DialogModel dm = SelectedCity.successDialogue;
                         dm.LoadContent(game.Content);
-                        SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "Cleared!", game.Content);
+                        SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "(Success!)", game.Content);
                         SelectedCity.DialogControl.Initialize();
                         SelectedCity.DialogControl.LoadContent(game.Content);
                         currentState = State.inDialog;
