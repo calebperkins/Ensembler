@@ -5,8 +5,6 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using XnaColor = Microsoft.Xna.Framework.Color;
-
 
 namespace Ensembler
 {
@@ -18,14 +16,14 @@ namespace Ensembler
 
         Queue<String> names;
         Queue<String> lines;
-        Dictionary<String,XnaColor> colors;
+        Dictionary<String,Color> colors;
         Dictionary<String,Texture2D> faces;
         Dictionary<String, Texture2D> cutscenes;
         Dictionary<String, String> startStopCues;
 
         String speaker;
         String speech;
-        XnaColor color;
+        Color color;
         Texture2D face;
         Texture2D cutscene;
         String stopCue;
@@ -45,14 +43,14 @@ namespace Ensembler
 
             names = new Queue<String>();
             lines = new Queue<String>();
-            colors = new Dictionary<String,XnaColor>();
+            colors = new Dictionary<String,Color>();
             faces = new Dictionary<String,Texture2D>();
             cutscenes = new Dictionary<String, Texture2D>();
             startStopCues = new Dictionary<String, String>();
             Parse();
             speaker = "";
             speech = cityName;
-            color = XnaColor.Black;
+            color = Color.Black;
             screen = new DialogView(sb);
             stopCue = "";
         }
@@ -81,7 +79,7 @@ namespace Ensembler
                 string characterName = dialogModel.Colors[i].Character;
                 string colorName = dialogModel.Colors[i].Color;
                 System.Drawing.Color color = System.Drawing.Color.FromName(colorName);
-                XnaColor xnaColor = new XnaColor(color.R, color.G, color.B, color.A);
+                Color xnaColor = new Color(color.R, color.G, color.B, color.A);
                 colors.Add(characterName, xnaColor);
             }
             for (int i = 0; i < dialogModel.Faces.Length; i++)
