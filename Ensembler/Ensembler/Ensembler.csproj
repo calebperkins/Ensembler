@@ -153,7 +153,7 @@
       <Project>{57D880B7-17CB-41FA-825E-BB6408093DE0}</Project>
       <Name>DataTypes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EnsemProContent\EnsemblerContent.contentproj">
+    <ProjectReference Include="..\EnsemblerContent\EnsemblerContent.contentproj">
       <Name>EnsemblerContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
       <Project>{81B4C940-B261-49D4-BF51-7FF754B67067}</Project>
