@@ -48,23 +48,13 @@ namespace EnsemPro
             TitleSelect = cm.Load<SoundEffect>("Sounds//TitleSelect");
         }
 
-        bool Contains(Rectangle box)
-        {
-            Vector2 p = gameState.Input.Position;
-            if (p.X < box.Left) return false;
-            if (p.X > box.Right) return false;
-            if (p.Y < box.Top) return false;
-            if (p.Y > box.Bottom) return false;
-            return true;
-        }
-
         public void Update(GameTime gameTime)
         {
-            if (Contains(storyBox))
+            if (gameState.Input.Inside(storyBox))
                 hover = Hover.Story;
-            else if (Contains(freeBox))
+            else if (gameState.Input.Inside(freeBox))
                 hover = Hover.Free;
-            else if (Contains(exitBox))
+            else if (gameState.Input.Inside(exitBox))
                 hover = Hover.Exit;
             else
                 hover = Hover.None;

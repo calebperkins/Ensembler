@@ -10,4 +10,13 @@ public struct InputState
     public bool Confirm;
     public bool Cancel;
     public Keys Key;
+
+    public bool Inside(Rectangle box)
+    {
+        if (Position.X < box.Left) return false;
+        if (Position.X > box.Right) return false;
+        if (Position.Y < box.Top) return false;
+        if (Position.Y > box.Bottom) return false;
+        return true;
+    }
 }
