@@ -14,7 +14,16 @@
         <DeveloperHighScore>400</DeveloperHighScore>
         <HighCombo>0</HighCombo>
         <DeveloperHighCombo>40</DeveloperHighCombo>
-      </Item><Item>
+      </Item>
+      <Item>
+        <Title>Symphony no.25</Title>
+        <AssetName>Levels\\M25\\level</AssetName>
+        <HighScore>0</HighScore>
+        <DeveloperHighScore>100</DeveloperHighScore>
+        <HighCombo>0</HighCombo>
+        <DeveloperHighCombo>10</DeveloperHighCombo>
+      </Item>
+      <Item>
         <Title>Symphony No. 5</Title>
         <AssetName>Levels\\B5\\b5-edited-2</AssetName>
         <HighScore>0</HighScore>
