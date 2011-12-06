@@ -22,15 +22,25 @@ namespace EnsemPro
 
         public override void Update(GameTime gameTime)
         {
-            if (input.Pause && !lastState.Pause && (gameState.CurrentScreen == DataTypes.Screens.PlayLevel || gameState.CurrentScreen == DataTypes.Screens.Pause))
+            // TODO: move this to better location
+            if (input.Pause && !lastState.Pause)
             {
-                if (gameState.CurrentScreen == DataTypes.Screens.Pause)
+                switch (gameState.CurrentScreen)
                 {
-                    gameState.CurrentScreen = gameState.PreviousScreen;
-                }
-                else
-                {
-                    gameState.CurrentScreen = DataTypes.Screens.Pause;
+                    case DataTypes.Screens.Title:
+                        break;
+                    case DataTypes.Screens.SelectLevel:
+                        gameState.CurrentScreen = DataTypes.Screens.Title;
+                        break;
+                    case DataTypes.Screens.WorldMap:
+                        gameState.CurrentScreen = DataTypes.Screens.Title;
+                        break;
+                    case DataTypes.Screens.Pause:
+                        gameState.CurrentScreen = gameState.PreviousScreen;
+                        break;
+                    default:
+                        gameState.CurrentScreen = DataTypes.Screens.Pause;
+                        break;
                 }
             }
 
