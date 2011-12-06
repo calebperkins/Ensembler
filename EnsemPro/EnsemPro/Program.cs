@@ -1,5 +1,5 @@
 
-namespace EnsemPro
+namespace Ensembler
 {
 #if WINDOWS || XBOX
     static class Program

@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using XnaColor = Microsoft.Xna.Framework.Color;
 
 
-namespace EnsemPro
+namespace Ensembler
 {
     public class DialogController
     {

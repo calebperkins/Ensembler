@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace EnsemPro
+namespace Ensembler
 {
     public class Function
     {

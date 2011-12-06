@@ -1,5 +1,5 @@
 ﻿
-namespace EnsemPro.Models
+namespace Ensembler.Models
 {
     class World
     {

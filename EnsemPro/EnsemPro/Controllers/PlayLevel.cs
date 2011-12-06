@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace EnsemPro
+namespace Ensembler
 {
     public class PlayLevel : DrawableGameComponent
     {

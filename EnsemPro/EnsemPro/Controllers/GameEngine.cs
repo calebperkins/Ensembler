@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace EnsemPro
+namespace Ensembler
 {
     /// <summary>
     /// This is the main type for your game

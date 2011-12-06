@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace EnsemPro
+namespace Ensembler
 {
     /// <summary>
     /// Provides getters and setters for "global" game properties, such as the current resolution and screen.

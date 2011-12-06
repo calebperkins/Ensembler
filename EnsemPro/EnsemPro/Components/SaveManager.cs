@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Storage;
 
-namespace EnsemPro.Components
+namespace Ensembler.Components
 {
     /// <summary>
     /// This is a game component that saves the game asynchronously (mostly).

@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 
-namespace EnsemPro
+namespace Ensembler
 {
     /// <summary>
     /// This is a game component that implements IUpdateable.

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace EnsemPro
+namespace Ensembler
 {
     /// <summary>
     /// The stars following the baton

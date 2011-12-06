@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Content;
 
-namespace EnsemPro
+namespace Ensembler
 {
     public class DialogModel
     {

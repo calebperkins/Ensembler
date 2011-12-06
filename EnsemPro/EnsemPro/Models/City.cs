@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace EnsemPro.Models
+namespace Ensembler.Models
 {
     public class City
     {
