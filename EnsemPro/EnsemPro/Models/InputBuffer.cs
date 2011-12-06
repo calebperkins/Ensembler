@@ -13,7 +13,6 @@ namespace EnsemPro
             items.Add(s);
             CurrentPosition = s.Position;
             VolumeChange = s.Key;
-            //Console.WriteLine("KEYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY " + s.key);
         }
 
         public Keys VolumeChange

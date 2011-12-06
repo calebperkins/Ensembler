@@ -116,7 +116,7 @@
     <Compile Include="Components\SaveManager.cs" />
     <Compile Include="Views\BatonView.cs" />
     <Compile Include="Views\LevelSelectView.cs" />
-    <Compile Include="Controllers\ScreenManager.cs" />
+    <Compile Include="Components\ScreenManager.cs" />
     <Compile Include="Controllers\DialogController.cs" />
     <Compile Include="Models\DialogModel.cs" />
     <Compile Include="Views\DialogView.cs" />

@@ -16,7 +16,7 @@ namespace EnsemPro
         public GameState()
         {
             // todo: remove these!!!
-            SelectedLevel = "Levels/B5/b5-edited-2";
+            SelectedLevel = "Levels/Default";
             //SaveRequested = true;
         }
 
@@ -119,11 +119,9 @@ namespace EnsemPro
         public void UpdateStats()
         {
             int index;
-            Console.WriteLine("SELECTED IS " + SelectedLevel);
             // Finds index of city with SelectedLevel in Levels
             for (index = 0; index < Levels.Length; index++)
             {
-                Console.WriteLine(index + " " + Levels[index].AssetName);
                 if (Levels[index].AssetName == SelectedLevel)
                 {
                     break;

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="DataTypes.LevelData">
+    <Title>The Default Level</Title>
+    <BPM>666</BPM>
+    <SongAssetName>Levels\\B5\\b5complete</SongAssetName>
+    <SatisfactionAssetName>Images\\sparkle</SatisfactionAssetName>
+    <Artist>Caleb</Artist>
+    <Background>Levels\\B5\\background</Background>
+    <Musicians>
+    </Musicians>
+    <Movements>
+    </Movements>
+  </Asset>
+</XnaContent>
