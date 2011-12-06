@@ -972,7 +972,7 @@
   <ItemGroup>
     <Compile Include="Levels\Winter\level.xml">
       <Name>level</Name>
-	</Compile>
+    </Compile>
     <Compile Include="Images\SelectionScreen\VTKAnimal2.bmp">
       <Name>VTKAnimal2</Name>
       <Importer>TextureImporter</Importer>
@@ -1143,7 +1143,7 @@
       <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-     </Compile>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Levels\Winter\song.mp3">
@@ -1155,6 +1155,21 @@
       <Name>stop</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Levels\M25\song.mp3">
+      <Name>song</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Levels\M25\level.xml">
+      <Name>level</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
