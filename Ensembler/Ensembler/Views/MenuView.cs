@@ -34,6 +34,7 @@ namespace Ensembler
             exitHover = cm.Load<Texture2D>("Images\\MainMenu\\exitmode_hover");
             song = cm.Load<Song>("journey");
             MediaPlayer.Play(song);
+            MediaPlayer.IsRepeating = true;
             MediaPlayer.Volume = 0.3f;
         }
 

@@ -118,7 +118,7 @@ namespace Ensembler
         public void Update(GameTime t)
         {
             KeyboardState ks = Keyboard.GetState();
-            if (names.Count == 0 && gameState.Input.Confirm || ks.IsKeyDown(Keys.Q) && lastState.IsKeyUp(Keys.Q)) // end of this dialog mode, move on to playlevel or map
+            if (names.Count == 0 && gameState.Input.Confirm || ks.IsKeyDown(Keys.S) && lastState.IsKeyUp(Keys.S)) // end of this dialog mode, move on to playlevel or map
             {
                
                 Finished = true;
@@ -150,7 +150,7 @@ namespace Ensembler
                         string subSpeech = secondPart.Substring(0,55);
                         int lastSpace = subSpeech.LastIndexOf(" ");
                         firstPart = firstPart + secondPart.Substring(0, lastSpace) + "\n";
-                        secondPart = secondPart.Substring(lastSpace, secondPart.Length - lastSpace);
+                        secondPart = secondPart.Substring(lastSpace+1, secondPart.Length - lastSpace - 1);
                     }
                     speech = firstPart + secondPart;
                 }
