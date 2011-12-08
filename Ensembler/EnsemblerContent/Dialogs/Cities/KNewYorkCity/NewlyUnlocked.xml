@@ -8,15 +8,11 @@
       </Item>
       <Item>
         <Character>Callas</Character>
-        <Line>So, you managed to please Pavarotti? Impressive, let me give you something mroe challenging.</Line>
-      </Item>
-      <Item>
-        <Character>Player</Character>
-        <Line>Sure.</Line>
+        <Line>So, you managed to please Pavarotti? Impressive, let me give you something more challenging.</Line>
       </Item>
       <Item>
         <Character>Callas</Character>
-        <Line>Here, play me the Queen of Night aria from Mozart's Magic Flute.</Line>
+        <Line>Here, play me the Queen of Night Aria from Mozart's Magic Flute.</Line>
       </Item>
     </Content>
     <Colors>

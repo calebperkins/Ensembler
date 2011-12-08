@@ -4,11 +4,7 @@
     <Content>
       <Item>
         <Character>Game</Character>
-        <Line>("...it seemed impossible to leave the world until I had produced all that I felt called upon me to produce, and so I endured this wretched existence")</Line>
-      </Item>
-      <Item>
-        <Character>Game</Character>
-        <Line>(From the Heiligenstadt Testament, Beethoven explains why he could not suicide after he became deaf.)</Line>
+        <Line>("...It seemed impossible to leave the world until I had produced all that I felt called upon me to produce, and so I endured this wretched existence."       - Beethoven's determination to live with deafness)</Line>
       </Item>
     </Content>
     <Colors>

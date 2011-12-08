@@ -12,7 +12,7 @@
       </Item>
       <Item>
         <Character>Rimsky Korsakov</Character>
-        <Line>Aha, so you must be aiming for the international conducting competition.</Line>
+        <Line>Aha, so you must be aiming for the International Conducting Competition.</Line>
       </Item>
       <Item>
         <Character>Rimsky Korsakov</Character>
@@ -36,7 +36,7 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>*Player receives the piece "Flight of the Bumble Bee"*</Line>
+        <Line>(*Player receives the piece "Flight of the Bumble Bee"*)</Line>
       </Item>
       <Item>
         <Character>Rimsky Korsakov</Character>
@@ -44,7 +44,7 @@
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>Thanks!</Line>
+        <Line>...I would be believe so too.</Line>
       </Item>
     </Content>
     <Colors>

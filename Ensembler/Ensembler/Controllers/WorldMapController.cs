@@ -100,7 +100,7 @@ namespace Ensembler
             if (!start)
             {
                 start = true;
-                DialogModel dm = new DialogModel("Introduction2");
+                DialogModel dm = new DialogModel("Introduction");
                 dm.LoadContent(game.Content);
                 SelectedCity.DialogControl = new DialogController(gameState, spriteBatch, dm, "Tutorial", game.Content);
                 SelectedCity.DialogControl.Initialize();
@@ -119,7 +119,7 @@ namespace Ensembler
                     {
                         if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared)
                             currentState = State.inMap;
-                        else if (SelectedCity.DialogControl.Dialog.DialogFileName == "Introduction2" || SelectedCity.DialogControl.Dialog == SelectedCity.successDialogue)
+                        else if (SelectedCity.DialogControl.Dialog.DialogFileName == "Introduction" || SelectedCity.DialogControl.Dialog == SelectedCity.successDialogue)
                         {
                             currentState = State.inMap;
                         }

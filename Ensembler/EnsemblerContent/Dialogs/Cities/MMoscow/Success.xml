@@ -8,7 +8,7 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>*Received recommendation letter from Horowitz!*</Line>
+        <Line>(*Player receives recommendation letter from Horowitz!*)</Line>
       </Item>
     </Content>
     <Colors>
