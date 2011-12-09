@@ -50,10 +50,10 @@ namespace Ensembler
                 input.Key = Keys.Z;
             }
 
-            //if (Math.Abs(posDiff.X) > POS_DIFF_THRESHOLD || Math.Abs(posDiff.Y) > POS_DIFF_THRESHOLD && !input.Pause) // add only only if the baton has moved at least a decent amount of distance 
-            //{
+            if ((Math.Abs(posDiff.X) > POS_DIFF_THRESHOLD || Math.Abs(posDiff.Y) > POS_DIFF_THRESHOLD) && !input.Pause) // add only only if the baton has moved at least a decent amount of distance 
+            {
                 buffer.Add(input);
-            //}
+            }
 
             lastKs = ks;
             lastMouse = ms;
