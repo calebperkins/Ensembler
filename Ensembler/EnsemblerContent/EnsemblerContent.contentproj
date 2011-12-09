@@ -319,6 +319,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Levels\AirOnGString\song.mp3">
+      <Name>song</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Levels\AirOnGString\song_distorted.mp3">
+      <Name>song_distorted</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
     <Compile Include="Levels\B5\b5complete.mp3">
       <Name>b5complete</Name>
       <Importer>Mp3Importer</Importer>
@@ -366,6 +376,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Levels\B5\b5complete_distorted.mp3">
+      <Name>b5complete_distorted</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
     <Compile Include="Levels\B5\b5short.xml">
       <Name>b5short</Name>
       <Importer>XmlImporter</Importer>
@@ -457,6 +472,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Levels\Bolero\song.mp3">
+      <Name>song</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Levels\Bolero\song_distorted.mp3">
+      <Name>song_distorted</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
     <Compile Include="Levels\Index.xml">
       <Name>Index</Name>
       <Importer>XmlImporter</Importer>
@@ -525,11 +550,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Levels\AirOnGString\song.mp3">
-      <Name>song</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Images\WorldMap\map1.jpg">
@@ -556,11 +576,6 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <SubType>Designer</SubType>
-    </Compile>
-    <Compile Include="Levels\Bolero\song.mp3">
-      <Name>song</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1195,6 +1210,20 @@
       <Name>fbg_edited2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Levels\Aquarium\aquarium_distorted.mp3">
+      <Name>aquarium_distorted</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Levels\William Tell\song_distorted.mp3">
+      <Name>song_distorted</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

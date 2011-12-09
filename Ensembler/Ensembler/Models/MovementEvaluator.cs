@@ -42,7 +42,7 @@ namespace Ensembler
         {
             int totalInput = inputs.Count;
             int correct = 0;
-
+           // Console.WriteLine("movement starts at beat " + CurrentMovement.startBeat + " has input number " + totalInput);
             if (CurrentMovement != null)
             {
                 switch (CurrentMovement.myType)
