@@ -49,7 +49,7 @@ namespace Ensembler
             float lastPy = -1;
             foreach (Vector2 p in Positions)
             {
-                if ((lastPx < 0 || Math.Sqrt((lastPx - p.X) * (lastPx - p.X) + (lastPy - p.Y) * (lastPy - p.Y)) > Movement.circleR))
+                if ((lastPx < 0 || Math.Sqrt((lastPx - p.X) * (lastPx - p.X) + (lastPy - p.Y) * (lastPy - p.Y)) > 5))
                 {
                     draw.Add(p);
                     lastPx = p.X;
@@ -70,7 +70,7 @@ namespace Ensembler
         public Function(Movement movement, int bpm, float amp)
         {
             this.movement = movement;
-            Size = (int)((movement.endBeat - movement.startBeat + 1) / (float)bpm * 60 / INTERVAL_TIME);
+            Size = (int)((movement.endBeat - movement.startBeat + 1) / (float)bpm * 60 / INTERVAL_TIME) * 8;
             Positions = new Vector2[Size + 1];
 
             // Change coordinates so that (0,0) is bottom left
