@@ -21,9 +21,14 @@ namespace Ensembler
 
         Song bgSong;
 
+        int page = 0;
+        Rectangle nextBox = new Rectangle(0, 0, 40, 40);
+        int PAGES;
+
         public LevelSelectController(GameState gm, SpriteBatch sb)
         {
             gameState = gm;
+            PAGES = (gm.Levels.Length + LevelSelectView.PER_PAGE - 1) / LevelSelectView.PER_PAGE;
             spriteBatch = sb;
             levelSelectScreen = new LevelSelectView(sb, gameState);
         }
@@ -45,9 +50,8 @@ namespace Ensembler
         {
             // TODO: remove these magic constants :)
             Vector2 p = gameState.Input.Position;
-            if (p.X < GameEngine.WIDTH/2)
-                return;
-            selected = Math.Max(0,(int) (p.Y-120) / 105);
+            if (p.X >= GameEngine.WIDTH/2)
+                selected = Math.Max(0, (int)(p.Y - 120) / 105);
         }
 
         public void Update(GameTime t)
@@ -62,7 +66,12 @@ namespace Ensembler
 
             lastSelected = selected;
 
-            if (gameState.Input.Confirm)
+            if (gameState.Input.Confirm && gameState.Input.Inside(nextBox))
+            {
+                page = (page + 1) % PAGES;
+                MenuSelect.Play();
+            }
+            else if (gameState.Input.Confirm)
             {
                 MenuSelect.Play();
                 MediaPlayer.Stop();
@@ -77,7 +86,7 @@ namespace Ensembler
         /// <param name="t"></param>
         public void Draw(GameTime t)
         {
-            levelSelectScreen.Draw(t, gameState.Levels, selected);
+            levelSelectScreen.Draw(t, page, selected);
         }
     }
 }
