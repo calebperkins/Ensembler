@@ -12,45 +12,11 @@
       </Item>
       <Item>
         <Character>Alice</Character>
-        <Line>I know you are determined to leave, no matter what I say...</Line>
+        <Line>You can do better than that, can't you?</Line>
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>I have made up my mind.</Line>
-      </Item>
-      <Item>
-        <Character>Alice</Character>
-        <Line>But!... At least take this with you...</Line>
-      </Item>
-      <Item>
-        <Character>Game</Character>
-        <Line>*player receives baton*</Line>
-      </Item>
-      <Item>
-        <Character>Alice</Character>
-        <Line>
-          You don't have to thank me, this belongs to your father
-        </Line>
-      </Item>
-      <Item>
-        <Character>Player</Character>
-        <Line>Father......</Line>
-      </Item>
-      <Item>
-        <Character>Alice</Character>
-        <Line>Hey player...</Line>
-      </Item>
-      <Item>
-        <Character>Player</Character>
-        <Line>Yes?</Line>
-      </Item>
-      <Item>
-        <Character>Alice</Character>
-        <Line>Can you wave that baton one last time... for me? I will play my favourite piece: Air on G String.</Line>
-      </Item>
-      <Item>
-        <Character>Player</Character>
-        <Line>Of course.</Line>
+        <Line>Yes I can. Give me one more chance.</Line>
       </Item>
     </Content>
     <Colors>

@@ -4,7 +4,7 @@
     <Content>
       <Item>
         <Character>Game</Character>
-        <Line>(A guy with green hair from the audience did not clap at the end of your performance. He has a smirk on his face.)</Line>
+        <Line>(A guy with green hair from the audience did not clap at the end of your performance. Instead, he has a smirk on his face.)</Line>
       </Item>
       <Item>
         <Character>Student 1</Character>
@@ -28,7 +28,7 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>(The guy with green hair finishes playing, and the audience clapped for over a minute.)</Line>
+        <Line>(The guy with green hair finishes playing, and the audience went wild.)</Line>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -36,7 +36,7 @@
       </Item>
       <Item>
         <Character>Rival</Character>
-        <Line>I...will be the winner of the next International Conducting Competition, so you better remember me.</Line>
+        <Line>I...will be the winner of the next International Conducting Competition. You'd better remember me.</Line>
       </Item>
       <Item>
         <Character>Game</Character>
@@ -52,11 +52,9 @@
       </Item>
       <Item>
         <Character>Frederic</Character>
-        <Line>That green hair reminds me of someone I know from a long time ago. I think I should follow him and see what he is up to. You should proceed without me.</Line>
+        <Line>That green hair reminds me of someone I know from a long time ago. I think I should follow him and see what he is up to. Go on proceed without me.</Line>
       </Item>
     </Content>
-    <!-- A lot of pre-game dialogue waiting to be inserted! -->
-
     <Colors>
       <Item>
         <Character>Game</Character>

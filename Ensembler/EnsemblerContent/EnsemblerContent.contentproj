@@ -1053,12 +1053,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Introduction2.xml">
-      <Name>Introduction2</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <SubType>Designer</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dialogs\Cities\AForestHome\Unlocked.xml">

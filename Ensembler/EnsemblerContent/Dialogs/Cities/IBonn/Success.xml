@@ -8,11 +8,11 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>*Received recommendation letter from Beethoven!*</Line>
+        <Line>(*Player receives recommendation letter from Beethoven!*)</Line>
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>(Although you are not entirely sure, you saw the grumpy Beethoven had a brief smile on his face when you left.)</Line>
+        <Line>(As you will recall years later, there was a slight smile on the grumpy man's face as he handed you the letter.)</Line>
       </Item>
     </Content>
     <Colors>

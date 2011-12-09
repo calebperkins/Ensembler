@@ -12,7 +12,7 @@
       </Item>
       <Item>
         <Character>Old man</Character>
-        <Line>Then you must have heard of the international conducting competition.</Line>
+        <Line>Then you must have heard of the International Conducting Competition.</Line>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -20,11 +20,11 @@
       </Item>
       <Item>
         <Character>Old man</Character>
-        <Line>It is held in Vienna, which is not too far from here.But to be qualified to enter the competition, you must first get recognition from four of the six grand masters.</Line>
+        <Line>It is held in Vienna, which is not too far from here. But to be qualified to enter the competition, you must first get recognition from four of the six grand masters.</Line>
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>What grand masters...?</Line>
+        <Line>Grand masters?</Line>
       </Item>
       <Item>
         <Character>Old man</Character>
@@ -32,7 +32,7 @@
       </Item>
       <Item>
         <Character>Old man</Character>
-        <Line>They will give you a letter of recommendation if you can please them with your music. Remember, you only need play for four out of the six grand masters!</Line>
+        <Line>They will give you letters of recommendation if you can please them with your music. Remember, you need play for at least four out of the six grand masters!</Line>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -45,10 +45,6 @@
       <Item>
         <Character>Player</Character>
         <Line>Deal!</Line>
-      </Item>
-      <Item>
-        <Character>Game</Character>
-        <Line>(Bruce Lee and his brother have joined your ensemble!)</Line>
       </Item>
     </Content>
     <Colors>

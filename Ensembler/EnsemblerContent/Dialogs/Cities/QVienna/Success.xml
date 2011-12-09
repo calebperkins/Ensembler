@@ -68,7 +68,7 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>*Father scores unlocked in free mode*</Line>
+        <Line>(*Father scores unlocked in free mode*)</Line>
       </Item>
     </Content>
     <Colors>

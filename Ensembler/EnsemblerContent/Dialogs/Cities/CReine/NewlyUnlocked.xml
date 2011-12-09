@@ -8,32 +8,23 @@
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>I would like some apple cider please. 
-        </Line>
+        <Line>I would like some apple cider please.</Line>
       </Item>
       <Item>
         <Character>Bartender</Character>
-        <Line>
-          You got it.
-        </Line>
+        <Line>You got it.</Line>
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line> .......Wow, is this place usually this crowded?
-        </Line>
+        <Line>...Wow, is this place usually this crowded?</Line>
       </Item>
       <Item>
         <Character>Bartender</Character>
-        <Line>Yes, and it is all thanks to Frederic.
-        </Line>
+        <Line>Yes, and it is all thanks to Frederic.</Line>
       </Item>
       <Item>
       <Character>Player</Character>
       <Line>Who is Frederic?</Line>
-      </Item>
-      <Item>
-        <Character>Bartender</Character>
-        <Line>You will see. Here he comes!</Line>
       </Item>
       <Item>
         <Character>Game</Character>
@@ -41,12 +32,11 @@
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>Is he Frederic?</Line>
+        <Line>Is he...?</Line>
       </Item>
       <Item>
         <Character>Bartender</Character>
-        <Line>sshhhh!
-        </Line>
+        <Line>sshhhh!</Line>
       </Item>
       <Item>
         <Character>Game</Character>
@@ -58,8 +48,7 @@
       </Item>
       <Item>
         <Character>Bartender</Character>
-        <Line>I'd say he is even better than the professionals out there. But let me tell you a secret... Violin is not his main instrument.
-        </Line>
+        <Line>I'd say he is even better than the professionals out there. But let me tell you a secret... Violin is not his main instrument.</Line>
       </Item>
       <Item>
         <Character>Player</Character>
@@ -75,12 +64,11 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>(Frederic finishes playing, and sits down at a corner. He starts to drink a cup of apple cider nonchalantly. You decided to approach him.)</Line>
+        <Line>(Frederic finishes playing, and sits down at a corner. He starts to drink a cup of apple cider nonchalantly.)</Line>
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>Hey... your playing was great! And I don't say this to just anyone... My mother was a professional violinist, so I know it when I hear a good musician play.
-        </Line>
+        <Line>Hey... your playing was great! And I don't say this to just anyone... My mother was a professional violinist, so I know it when I hear a good musician.</Line>
       </Item>
       <Item>
         <Character>Frederic</Character>
@@ -88,7 +76,7 @@
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>She... was dead 10 years ago.
+        <Line>She... died 10 years ago.
         </Line>
       </Item>
       <Item>
@@ -97,47 +85,23 @@
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>My dad was also a musician too. And he left this baton for me.
-        </Line>
+        <Line>My dad was also a musician too. And he left this baton for me.</Line>
       </Item>
         <Item>
           <Character>Frederic</Character>
-          <Line>!!This baton belongs to a legendary conductor. And you are his son?</Line>
+          <Line>!! This baton belongs to a legendary conductor. Who are you?</Line>
         </Item>
       <Item>
         <Character>Player</Character>
-        <Line>Yes.
-        </Line>
+        <Line>I'm his son. I will become the greatest condutor in the world.</Line>
       </Item>
       <Item>
         <Character>Frederic</Character>
-        <Line>Interesting. So tell me, what brings you here?
-        </Line>
+        <Line>That's an ambitious. Tell you what, I am an instructor at the local conservatory. If you can impress me with your conducting, not only will I join your ensemble, I will also urge my students to.</Line>
       </Item>
       <Item>
         <Character>Player</Character>
-        <Line>I want to become a conductor as well. I heard there is a conservatory in this city, so I thought I might recruit some players for my ensemble here.
-        </Line>
-      </Item>
-      <Item>
-        <Character>Frederic</Character>
-        <Line>Indeed, and I happen to be one of the instructors of that conservatory.
-        </Line>
-      </Item>
-      <Item>
-        <Character>Player</Character>
-        <Line>Cool!
-        </Line>
-      </Item>
-      <Item>
-        <Character>Frederic</Character>
-        <Line>I have an idea. If you can impress me with your conducting, not only I will join your ensemble, but I will also urge my students to join.
-        </Line>
-      </Item>
-      <Item>
-        <Character>Player</Character>
-        <Line>Okay!
-        </Line>
+        <Line>Awesome! I have been wondering about how to recruit people from this city. Let the concert begin.</Line>
       </Item>
     </Content>
     <Colors>

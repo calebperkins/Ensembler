@@ -4,11 +4,11 @@
     <Content>
       <Item>
         <Character>Frederic</Character>
-        <Line>This is Montmartre, where musicians gather and perform around the streets.I have just purchased a new piece of music for us to perform later.</Line>
+        <Line>This is Montmartre, where musicians gather and perform around the streets. I have just purchased a new piece of music for us to perform later.</Line>
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>*You have received a new piece: "Spring" by Vivaldi!*</Line>
+        <Line>(*You have received a new piece: "Spring" by Vivaldi*)</Line>
       </Item>
       <Item>
         <Character>Frederic</Character>
