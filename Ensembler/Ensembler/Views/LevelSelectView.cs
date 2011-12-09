@@ -19,6 +19,8 @@ namespace Ensembler
         GameState state;
         float offsetBottom;
 
+        public const int PER_PAGE = 5;
+
         public LevelSelectView(SpriteBatch sb, GameState s)
         {
             spriteBatch = sb;
@@ -38,13 +40,16 @@ namespace Ensembler
             bgSong = cm.Load<Song>("journey");
         }
 
-        public void Draw(GameTime t, DataTypes.LevelSummary[] levels, int selected)
+        public void Draw(GameTime t, int page, int selected)
         {
+            DataTypes.LevelSummary[] levels = state.Levels;
             spriteBatch.Draw(background, new Vector2(), Color.White);
-            for (int i = 0; i < levels.Length; i++)
+            int limit = System.Math.Min(page * PER_PAGE + PER_PAGE, state.Levels.Length);
+            for (int i = page * PER_PAGE; i < limit; i++)
             {
-                spriteBatch.Draw(i == selected ? selectedTexture : normalTexture, new Rectangle(400, 120+i * 100, 400, 100), Color.White);
-                spriteBatch.DrawString(songFont, levels[i].Title, new Vector2(450, 140+i*100), songColor);
+                int j = i % PER_PAGE; // geometric position on page
+                spriteBatch.Draw(j == selected ? selectedTexture : normalTexture, new Rectangle(400, 120+j * 100, 400, 100), Color.White);
+                spriteBatch.DrawString(songFont, levels[i].Title, new Vector2(450, 140+j*100), songColor);
             }
             
             // Draws data about the selected level
