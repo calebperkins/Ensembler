@@ -52,7 +52,7 @@ namespace Ensembler
             circleTexture = content.Load<Texture2D>("images\\circle");
             endTexture = content.Load<Texture2D>("images\\stop");
             circleReadyTexture = content.Load<Texture2D>("images\\circle_ready");
-            shakeTexture = content.Load<Texture2D>("images\\shake");
+            shakeTexture = content.Load<Texture2D>("images\\shake_improved");
             traceTexture = content.Load<Texture2D>("images\\line");
             traceTexture_s = content.Load<Texture2D>("images\\dot_win");
             traceTexture_f = content.Load<Texture2D>("images\\dot_fail");
@@ -173,7 +173,7 @@ namespace Ensembler
 
             if (myType == Movement.Types.Shake)
             {
-                spriteBatch.Draw(current_shake, shakePos, Color.White);
+                spriteBatch.Draw(current_shake, new Vector2(), Color.White);
             }
 
             else if (myType == Movement.Types.Wave)
