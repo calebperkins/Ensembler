@@ -33,8 +33,8 @@ namespace Ensembler
 
         public override void Draw(GameTime t)
         {
-            spriteBatch.Draw(batonTexture, state.Input.Position, null, Color.White, 0.0f, new Vector2(), 0.35f, SpriteEffects.None, 0.0f);
-            spriteBatch.Draw(batonTexture, state.Input.Position + new Vector2(3.0f), null, shadow, 0.0f, new Vector2(), 0.35f, SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(batonTexture, state.Input.Position, null, Color.White, 6.0f, new Vector2(), 0.5f, SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(batonTexture, state.Input.Position + new Vector2(3.0f), null, shadow, 6.0f, new Vector2(), 0.5f, SpriteEffects.None, 0.0f);
         }
 
     }
