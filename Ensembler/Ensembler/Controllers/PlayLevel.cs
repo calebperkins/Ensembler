@@ -58,6 +58,7 @@ namespace Ensembler
         InputBuffer buffer;
         SatisfactionQueue satisfaction;
         Song song;
+        SoundEffectInstance distorted;
         float volume = 0.5f;
 
         SoundEffect SmallApplause;
@@ -90,6 +91,8 @@ namespace Ensembler
             // todo: dynamic loading
             DataTypes.LevelData data = Game.Content.Load<DataTypes.LevelData>(gameState.SelectedLevel);
             song = Game.Content.Load<Song>(data.SongAssetName);
+            distorted = Game.Content.Load<SoundEffect>(data.SongAssetName + "_distorted").CreateInstance();
+            distorted.Volume = 0.0f;
             satisfactionImagePath = data.SatisfactionAssetName;
             satisfaction.LoadContent(Game.Content, satisfactionImagePath);
 
@@ -142,9 +145,15 @@ namespace Ensembler
             {
                 countdownWatch.Stop();
                 if (MediaPlayer.State == MediaState.Paused)
+                {
                     MediaPlayer.Resume();
+                    distorted.Resume();
+                }
                 else
+                {
                     MediaPlayer.Play(song);
+                    distorted.Play();
+                }
                 watch.Start();
             }
             else
@@ -159,6 +168,7 @@ namespace Ensembler
             {
                 watch.Stop();
                 MediaPlayer.Pause();
+                distorted.Pause();
             }
         }
 
@@ -174,6 +184,7 @@ namespace Ensembler
                 if (!failed)
                 {
                     MediaPlayer.Stop();
+                    distorted.Stop();
                     MediaPlayer.Play(LevelFail);
                 }
                 failed = true;
@@ -283,10 +294,14 @@ namespace Ensembler
                         {
                             if (satisfaction.maxAge < 5) satisfaction.maxAge = 0;
                             else satisfaction.maxAge = Math.Max(4, satisfaction.maxAge - AGE_DECR);
+                            MediaPlayer.IsMuted = true;
+                            distorted.Volume = 0.3f;
                         }
                         else
                         {
                             satisfaction.maxAge = Math.Min(SatisfactionQueue.MAX_AGE, satisfaction.maxAge + AGE_INCR);
+                            MediaPlayer.IsMuted = false;
+                            distorted.Volume = 0.0f;
                         }
 
                         /* Keep the combo on if it is now Wave and the most recent gainedScore is greater than 0 (i.e. success continues),
@@ -357,10 +372,12 @@ namespace Ensembler
             if (Enabled)
             {
                 MediaPlayer.Resume();
+                distorted.Resume();
             }
             else
             {
                 MediaPlayer.Pause();
+                distorted.Pause();
             }
             
             base.OnEnabledChanged(sender, args);
