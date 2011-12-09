@@ -41,19 +41,19 @@ namespace Ensembler
  
             input.Pause = ks.IsKeyDown(Keys.Escape);
             if (ks.IsKeyDown(Keys.A) && ks.IsKeyDown(Keys.Z)) { }
-            else if (ks.IsKeyDown(Keys.A))
+            else if (ks.IsKeyDown(Keys.A) && !lastKs.IsKeyDown(Keys.A))
             {
                 input.Key = Keys.A;
             }
-            else if (ks.IsKeyDown(Keys.Z))
+            else if (ks.IsKeyDown(Keys.Z) && !lastKs.IsKeyDown(Keys.Z))
             {
                 input.Key = Keys.Z;
             }
 
-            if (Math.Abs(posDiff.X) > POS_DIFF_THRESHOLD || Math.Abs(posDiff.Y) > POS_DIFF_THRESHOLD && !input.Pause) // add only only if the baton has moved at least a decent amount of distance 
-            {
+            //if (Math.Abs(posDiff.X) > POS_DIFF_THRESHOLD || Math.Abs(posDiff.Y) > POS_DIFF_THRESHOLD && !input.Pause) // add only only if the baton has moved at least a decent amount of distance 
+            //{
                 buffer.Add(input);
-            }
+            //}
 
             lastKs = ks;
             lastMouse = ms;

@@ -13,7 +13,7 @@ namespace Ensembler
     public class PlayLevel : DrawableGameComponent
     {
         // For adjusting curMaxAge of satisfaction queue
-        public const int AGE_DECR = 2;
+        public const int AGE_DECR = 0;
         public const int AGE_INCR = 1;
         bool failed;
 
@@ -188,13 +188,13 @@ namespace Ensembler
                 {
                     if (key == Keys.A)
                     {
-                        volume = MathHelper.Clamp(volume + 0.01f, 0.1f, 1);
+                        volume = MathHelper.Clamp(volume + 0.1f, 0.1f, 1);
                     }
                     else if (key == Keys.Z)
                     {
-                        volume = MathHelper.Clamp(volume - 0.01f, 0.1f, 1);
+                        volume = MathHelper.Clamp(volume - 0.1f, 0.1f, 1);
                     }
-                    MediaPlayer.Volume = volume;
+                    MediaPlayer.Volume = (float) (0.524 * Math.Pow (Math.E, volume) - 0.424); // exponential scale
                 }
 
                 //watch = watch.Add(gameTime.ElapsedGameTime);

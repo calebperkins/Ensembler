@@ -24,7 +24,7 @@ namespace Ensembler
         {
             if (inputs.Count != 0)
             {
-                Vector2 coords = new Vector2(p.X, 600 - p.Y);
+                Vector2 coords = new Vector2(p.X, GameEngine.HEIGHT - p.Y);
                 Vector2 pos = (start ? inputs[0].Position : inputs[inputs.Count - 1].Position);
                 //  Console.WriteLine("coords is " + coords);
                 //  Console.WriteLine("pos is " + pos);
