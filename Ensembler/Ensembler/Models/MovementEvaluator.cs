@@ -5,10 +5,9 @@ namespace Ensembler
 {
     public class MovementEvaluator
     {
-        public const float FAIL_THRESHOLD = 0.0f;
+        public const float FAIL_THRESHOLD = 0.3f;
         public const float ACC_THRESHOLD = 0.05f;
         public const float MAGIC_WAVE_THRESHOLD = 0.6f / 1f;
-
         public Movement CurrentMovement
         {
             get;
