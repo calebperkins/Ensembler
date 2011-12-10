@@ -213,6 +213,11 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
+    <Compile Include="Images\baton.png">
+      <Name>baton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Images\CutScene\FederickIsBack_small.jpg">
       <Name>FederickIsBack_small</Name>
       <Importer>TextureImporter</Importer>
@@ -283,6 +288,11 @@
       <Importer>TextureImporter</Importer>
       <Processor>FontTextureProcessor</Processor>
     </Compile>
+    <Compile Include="Images\shake.png">
+      <Name>shake</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Images\WorldMap\Nosferatu.bmp">
       <Name>Nosferatu</Name>
       <Importer>TextureImporter</Importer>
@@ -295,11 +305,6 @@
     </Compile>
     <Compile Include="Images\star.bmp">
       <Name>star</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\baton.png">
-      <Name>baton</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -333,13 +338,6 @@
       <Name>b5complete</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\shake.png">
-      <Name>shake</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>

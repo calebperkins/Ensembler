@@ -45,7 +45,7 @@ namespace Ensembler
         public static float circleR;
         static Vector2 CircleOrigin;
         static Vector2 RingOrigin;
-        static Vector2 shakePos = new Vector2(130, 300);
+        static Vector2 shakePos = new Vector2(200, 150);
 
         public static void LoadContent(ContentManager content)
         {
@@ -53,14 +53,14 @@ namespace Ensembler
             endTexture = content.Load<Texture2D>("images\\stop");
             circleReadyTexture = content.Load<Texture2D>("images\\circle_ready");
             shakeTexture = content.Load<Texture2D>("images\\shake");
-            traceTexture = content.Load<Texture2D>("images\\line");
+            traceTexture = content.Load<Texture2D>("images\\dot");
             traceTexture_s = content.Load<Texture2D>("images\\dot_win");
             traceTexture_f = content.Load<Texture2D>("images\\dot_fail");
             traceTexture_r = content.Load<Texture2D>("images\\dot_ready");
             ringTexture = content.Load<Texture2D>("images\\ring");
             CircleOrigin = new Vector2(circleTexture.Width / 2, circleTexture.Height / 2);
             RingOrigin = new Vector2(ringTexture.Width / 2, ringTexture.Height / 2);
-            circleR = circleTexture.Width / 2;
+            circleR = traceTexture.Width / 2;
         }
 
         public Types myType
@@ -202,7 +202,7 @@ namespace Ensembler
                             
                         break;
                     case Stages.Ready:
-                        spriteBatch.Draw(circleReadyTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.White, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
+                        spriteBatch.Draw(circleTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, Color.Lerp(Color.White, Color.Transparent, progress), 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
                         float lPx = -1;
                         float lPy = -1;
                         int cnt = 1;
@@ -222,7 +222,7 @@ namespace Ensembler
                             break;
                     case Stages.Fade:
                         Color alpha = Color.Lerp(Color.White, Color.Transparent, progress);
-                        spriteBatch.Draw(circleTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, alpha, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
+                       // spriteBatch.Draw(circleTexture, new Vector2(startCoordinate.X, GameEngine.HEIGHT - startCoordinate.Y), null, alpha, 0.0f, CircleOrigin, 1.0f, SpriteEffects.None, 0.0f);
                         float lPx2 = -1;
                         float lPy2 = -1;
                         foreach (Vector2 p in f.drawPositions)

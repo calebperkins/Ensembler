@@ -59,7 +59,8 @@ namespace Ensembler
         SatisfactionQueue satisfaction;
         Song song;
         SoundEffectInstance distorted;
-        float volume = 0.5f;
+        float volume;
+        float scaledVol;
 
         SoundEffect SmallApplause;
         SoundEffect LargeApplause;
@@ -80,6 +81,9 @@ namespace Ensembler
             comboOn = false;
             comboCount = -1;
             failed = false;
+
+            volume = 0.5f;
+            scaledVol = (float)(0.524 * Math.Pow(Math.E, volume) - 0.425);
         }
 
 
@@ -199,13 +203,18 @@ namespace Ensembler
                 {
                     if (key == Keys.A)
                     {
-                        volume = MathHelper.Clamp(volume + 0.01f, 0.1f, 1);
+                        volume = MathHelper.Clamp(volume + 0.1f, 0.1f, 1);
                     }
                     else if (key == Keys.Z)
                     {
-                        volume = MathHelper.Clamp(volume - 0.01f, 0.1f, 1);
+                        volume = MathHelper.Clamp(volume - 0.1f, 0.1f, 1);
                     }
-                    MediaPlayer.Volume = volume;
+
+                    scaledVol = (float)(0.524 * Math.Pow(Math.E, volume) - 0.425); // exponential scale
+                    Console.WriteLine(volume);
+                    Console.WriteLine("ACTUAL " + scaledVol);
+                    MediaPlayer.Volume = scaledVol;
+                    distorted.Volume = scaledVol;
                 }
 
                 //watch = watch.Add(gameTime.ElapsedGameTime);
@@ -295,7 +304,7 @@ namespace Ensembler
                             if (satisfaction.maxAge < 5) satisfaction.maxAge = 0;
                             else satisfaction.maxAge = Math.Max(4, satisfaction.maxAge - AGE_DECR);
                             MediaPlayer.IsMuted = true;
-                            distorted.Volume = 0.3f;
+                            distorted.Volume = scaledVol;
                         }
                         else
                         {
