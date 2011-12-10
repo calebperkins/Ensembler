@@ -16,6 +16,7 @@ namespace DataTypes
     public struct LevelSummary
     {
         public string Title;
+        public byte Difficulty;
         public string AssetName;
         public int HighScore;
         public int DeveloperHighScore;
