@@ -91,8 +91,8 @@ namespace Ensembler
             ended = false;
             failCount = 0;
 
-            volume = 0.5f;
-            scaledVol = (float)(0.524 * Math.Pow(Math.E, volume) - 0.425);
+            volume = 5;
+            scaledVol = (float)(0.524 * Math.Pow(Math.E, volume / 10) - 0.425);
 
             BrokenStrings = new SoundEffect[3];
         }
@@ -227,14 +227,14 @@ namespace Ensembler
                 {
                     if (key == Keys.A)
                     {
-                        volume = MathHelper.Clamp(volume + 0.1f, 0.1f, 1);
+                        volume = MathHelper.Clamp(volume + 1, 1, 10);
                     }
                     else if (key == Keys.Z)
                     {
-                        volume = MathHelper.Clamp(volume - 0.1f, 0.1f, 1);
+                        volume = MathHelper.Clamp(volume - 1, 1, 10);
                     }
 
-                    scaledVol = (float)(0.524 * Math.Pow(Math.E, volume) - 0.425); // exponential scale
+                    scaledVol = (float)(0.524 * Math.Pow(Math.E, volume / 10) - 0.425); // exponential scale
                     if (MediaPlayer.IsMuted) distorted.Volume = scaledVol;
                     else MediaPlayer.Volume = scaledVol;
                 }
@@ -433,7 +433,7 @@ namespace Ensembler
             // Vector2 FontOrigin = font.MeasureString(output) / 2;
             //string vol = "volume: " + (int) (volume * 10);
             spriteBatch.DrawString(font, "volume", new Vector2(35, 0), Color.White);
-            for (int i = 0; i < (int)(volume * 10); i++)
+            for (int i = 0; i < (int)(volume); i++)
             {
                 spriteBatch.Draw(volumeTexture, new Vector2(120 + i * 20, 6), null, Color.White, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
             }

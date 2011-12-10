@@ -283,12 +283,12 @@
         <Down>0</Down>
         <Name>SaintPetersburg</Name>
         <Position>323 102</Position>
-        <State>NewlyUnlocked</State>
+        <State>Locked</State>
         <ClearedDialogAsset>Cities\\NSaintPetersburg\\Cleared</ClearedDialogAsset>
         <UnlockedDialogAsset>Cities\\NSaintPetersburg\\Unlocked</UnlockedDialogAsset>
         <NewlyUnlockedDialogAsset>Cities\\NSaintPetersburg\\NewlyUnlocked</NewlyUnlockedDialogAsset>
         <SuccessAsset>Cities\\NSaintPetersburg\\Success</SuccessAsset>
-        <PlayLevel>Levels\\AirOnGString\\level</PlayLevel>
+        <PlayLevel>NoLevel</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>0</ScoreReq>
         <Unlock1>0</Unlock1>
