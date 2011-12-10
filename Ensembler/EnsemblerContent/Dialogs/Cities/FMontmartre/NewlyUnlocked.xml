@@ -4,15 +4,19 @@
     <Content>
       <Item>
         <Character>Frederic</Character>
-        <Line>This is Montmartre, where musicians gather and perform around the streets. I have just purchased a new piece of music for us to perform later.</Line>
+        <Line>This is Montmartre, where musicians gather and perform around the streets. </Line>
       </Item>
       <Item>
-        <Character>Game</Character>
-        <Line>(*You have received a new piece: "Spring" by Vivaldi*)</Line>
+        <Character>Student 1</Character>
+        <Line>What piece should we perform?</Line>
       </Item>
       <Item>
-        <Character>Frederic</Character>
-        <Line>Since the piece is not too difficult, let's start playing NOW!</Line>
+        <Character>Student 2</Character>
+        <Line>How about Bolero?</Line>
+      </Item>
+      <Item>
+        <Character>Student 3</Character>
+        <Line>Good idea! Now that we've improved so much, let's aim for a score higher than 1500!</Line>
       </Item>
     </Content>
     <Colors>

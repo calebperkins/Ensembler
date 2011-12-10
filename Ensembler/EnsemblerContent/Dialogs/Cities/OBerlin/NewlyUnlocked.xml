@@ -18,6 +18,10 @@
         <Character>Player</Character>
         <Line>You will be blown away.</Line>
       </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>1500 is the minimal score to impress your rival!</Line>
+      </Item>
     </Content>
     <Colors>
       <Item>
