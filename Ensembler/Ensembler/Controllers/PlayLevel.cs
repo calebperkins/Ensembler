@@ -13,7 +13,7 @@ namespace Ensembler
     public class PlayLevel : DrawableGameComponent
     {
         // For adjusting curMaxAge of satisfaction queue
-        public const int AGE_DECR = 0;
+        public const int AGE_DECR = 2;
         public const int AGE_INCR = 1;
         bool started;
         bool failed;
@@ -336,7 +336,7 @@ namespace Ensembler
                          * or if combo is on before a Shake phase is entered,
                          * otherwise break the combo. */
                        // comboOn = !(gainedScore < 0 && type == Movement.Types.Wave /* and last is also wave */);
-                        comboOn = gainedScore > 0 || (comboOn && gainedScore == 0);
+                        comboOn = gainedScore > 3 || (comboOn && gainedScore == 0);
                         /** Add to combo count if it is now Wave and combo is on,
                          * else if it is now Wave but combo is broken, reset count to 0,
                          * else if combo is on but a Shape or Noop phase is entered, keep the count until next Wave. */
