@@ -790,7 +790,7 @@
         <StartBeat>65</StartBeat>
         <EndBeat>66</EndBeat>
         <FadeBeat>67</FadeBeat>
-        <StartX>100</StartX>
+        <StartX>300</StartX>
         <StartY>300</StartY>
         <EndX>250</EndX>
         <EndY>500</EndY>
