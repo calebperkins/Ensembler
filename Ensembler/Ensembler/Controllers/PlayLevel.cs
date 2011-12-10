@@ -38,6 +38,7 @@ namespace Ensembler
         int comboCount;
         int maxCombo;
         int backToMenu;
+        int failCount;
         String satisfactionImagePath="Images\\aquarium"; // stubbed, but doesnt matter
 
         SpriteFont font;
@@ -66,6 +67,7 @@ namespace Ensembler
         SoundEffect SmallApplause;
         SoundEffect LargeApplause;
         SoundEffect CountDown;
+        SoundEffect[] BrokenStrings;
         Song LevelFail;
 
         List<Musician> musicians = new List<Musician>();
@@ -82,9 +84,12 @@ namespace Ensembler
             comboOn = false;
             comboCount = -1;
             failed = false;
+            failCount = 0;
 
             volume = 0.5f;
             scaledVol = (float)(0.524 * Math.Pow(Math.E, volume) - 0.425);
+
+            BrokenStrings = new SoundEffect[3];
         }
 
 
@@ -108,6 +113,10 @@ namespace Ensembler
             SmallApplause = Game.Content.Load<SoundEffect>("Sounds//SmallApplause");
             LargeApplause = Game.Content.Load<SoundEffect>("Sounds//LargeApplause");
             LevelFail = Game.Content.Load<Song>("Sounds//LevelFail");
+
+            BrokenStrings[0] = LargeApplause = Game.Content.Load<SoundEffect>("Sounds//BrokenString1");
+            BrokenStrings[1] = LargeApplause = Game.Content.Load<SoundEffect>("Sounds//BrokenString2");
+            BrokenStrings[2] = LargeApplause = Game.Content.Load<SoundEffect>("Sounds//BrokenString3");
 
             background = Game.Content.Load<Texture2D>(data.Background);
             volumeTexture = Game.Content.Load<Texture2D>("images\\vol");
@@ -191,6 +200,7 @@ namespace Ensembler
                 {
                     MediaPlayer.Stop();
                     distorted.Stop();
+                    MediaPlayer.IsMuted = false;
                     MediaPlayer.Play(LevelFail);
                 }
                 failed = true;
@@ -301,13 +311,28 @@ namespace Ensembler
                         // Adjusts age of satisfaction queue
                         if (gainedScore < 0)
                         {
+                            failCount++;
+                            Console.WriteLine("fail count is " + failCount);
                             if (satisfaction.maxAge < 5) satisfaction.maxAge = 0;
                             else satisfaction.maxAge = Math.Max(4, satisfaction.maxAge - AGE_DECR);
-                            MediaPlayer.IsMuted = true;
-                            distorted.Volume = scaledVol;
+                            if (failCount == 3 && current_act.myType == Movement.Types.Wave)
+                            {
+                                Random rand = new Random();
+                                BrokenStrings[rand.Next(3)].Play();
+                            }
+                            else
+                            {
+                                if (failCount >= 5)
+                                {
+                                    MediaPlayer.IsMuted = true;
+                                    distorted.Volume = scaledVol;
+                                }
+                            }
+                            
                         }
                         else
                         {
+                            failCount = 0;
                             satisfaction.maxAge = Math.Min(SatisfactionQueue.MAX_AGE, satisfaction.maxAge + AGE_INCR);
                             MediaPlayer.IsMuted = false;
                             distorted.Volume = 0.0f;
