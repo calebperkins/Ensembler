@@ -1203,6 +1203,13 @@
         <EndBeat>105</EndBeat>
         <FadeBeat>105</FadeBeat>
       </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>105</ShowBeat>
+        <StartBeat>106</StartBeat>
+        <EndBeat>110</EndBeat>
+        <FadeBeat>110</FadeBeat>
+      </Item>
     </Movements>
   </Asset>
 </XnaContent>

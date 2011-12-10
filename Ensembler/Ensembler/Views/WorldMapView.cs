@@ -65,7 +65,6 @@ namespace Ensembler
 
                 if (node == selected)
                 {
-                    //System.Console.Write("here");
                     spriteBatch.DrawString(font, node.Data.Name, new Vector2(node.AbsolutePosition.X + 8, node.AbsolutePosition.Y - 7), Color.Black);
                 }
             }

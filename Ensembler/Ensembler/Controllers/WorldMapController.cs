@@ -123,7 +123,7 @@ namespace Ensembler
                             currentState = State.inMap;
                             if (SelectedCity.Data.PlayLevel == "NoLevel")
                             {
-                                SelectedCity.State = DataTypes.WorldData.CityState.Success; // For Milan
+                                SelectedCity.State = DataTypes.WorldData.CityState.Cleared; // For Milan
                             }
                         }
                         else if (SelectedCity.DialogControl.Dialog.DialogFileName == "Introduction" || SelectedCity.DialogControl.Dialog == SelectedCity.successDialogue)
@@ -134,7 +134,7 @@ namespace Ensembler
                         {
                             MediaPlayer.Stop();
                             gameState.SelectedLevel = SelectedCity.Data.PlayLevel;
-                            Console.WriteLine(gameState.SelectedLevel);
+                            // Console.WriteLine(gameState.SelectedLevel);
                             gameState.CurrentScreen = DataTypes.Screens.PlayLevel;
                             currentState = State.inGame;
                         }
@@ -162,7 +162,7 @@ namespace Ensembler
                         {
                             if (c != null)
                             {
-                                Console.WriteLine("here at city" + c.Data.Name);
+                                // Console.WriteLine("here at city" + c.Data.Name);
                                 c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
                             }
                         }

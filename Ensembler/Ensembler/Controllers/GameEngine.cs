@@ -54,7 +54,6 @@ namespace Ensembler
             gameState = new GameState();
             gameState.LoadContent(Content); // hack
 
-
             try
             {
                 input = new WiiController(this, gameState, buffer);
