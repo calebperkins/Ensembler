@@ -1946,8 +1946,8 @@
       </Item>
       <Item>
         <Kind>Noop</Kind>
-        <ShowBeat>202</ShowBeat>
-        <StartBeat>202</StartBeat>
+        <ShowBeat>204</ShowBeat>
+        <StartBeat>204</StartBeat>
         <EndBeat>207</EndBeat>
         <FadeBeat>207</FadeBeat>
       </Item>
