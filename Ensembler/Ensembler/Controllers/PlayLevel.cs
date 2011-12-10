@@ -13,7 +13,7 @@ namespace Ensembler
     public class PlayLevel : DrawableGameComponent
     {
         // For adjusting curMaxAge of satisfaction queue
-        public const int AGE_DECR = 0;
+        public const int AGE_DECR = 2;
         public const int AGE_INCR = 1;
         bool failed;
 
@@ -45,6 +45,14 @@ namespace Ensembler
         SpriteBatch spriteBatch;
         Texture2D background;
         Texture2D failTexture;
+
+        Texture2D threeTex;
+        Texture2D twoTex;
+        Texture2D oneTex;
+        Texture2D goTex;
+
+        Dictionary<int, Texture2D> countDown = new Dictionary<int, Texture2D>(4);
+
         float failScale = 2;
 
         LinkedList<Movement> actionList;
@@ -117,6 +125,11 @@ namespace Ensembler
             BrokenStrings[0] = LargeApplause = Game.Content.Load<SoundEffect>("Sounds//BrokenString1");
             BrokenStrings[1] = LargeApplause = Game.Content.Load<SoundEffect>("Sounds//BrokenString2");
             BrokenStrings[2] = LargeApplause = Game.Content.Load<SoundEffect>("Sounds//BrokenString3");
+
+            countDown.Add(3, Game.Content.Load<Texture2D>("Images//3"));
+            countDown.Add(2, Game.Content.Load<Texture2D>("Images//2"));
+            countDown.Add(1, Game.Content.Load<Texture2D>("Images//1"));
+            countDown.Add(0, Game.Content.Load<Texture2D>("Images//GO"));
 
             background = Game.Content.Load<Texture2D>(data.Background);
             volumeTexture = Game.Content.Load<Texture2D>("images\\vol");
@@ -507,17 +520,15 @@ namespace Ensembler
                         if (increment <= COUNTDOWN) CountDown.Play();
                         countDownBeatSum++; 
                     }
-                    string counter = countDownBeatSum < COUNTDOWN ? (COUNTDOWN - countDownBeatSum).ToString() : "Go!";
-                    Vector2 textCenter = new Vector2(Game.GraphicsDevice.Viewport.Width, Game.GraphicsDevice.Viewport.Height);
-                    Vector2 counterSize = font.MeasureString(counter);
-                    spriteBatch.DrawString(font, counter, (textCenter - counterSize) / 2, Color.White);
+                    int c = Math.Max(COUNTDOWN - countDownBeatSum, 0);
+                    spriteBatch.Draw(countDown[c], new Vector2(400, 300) - new Vector2(countDown[c].Width, countDown[c].Height)/2, Color.White);
                 }
             }
 
             // Draw to screen if level failed
             if (failed)
             {
-                Vector2 center = gameState.ScreenCenter();
+                Vector2 center = gameState.ScreenCenter() + new Vector2 (0, 20);
                 Vector2 origin = gameState.ScreenCenter();
                 failScale = Math.Max(1, failScale - 0.01f);
                 spriteBatch.Draw(failTexture, center, null, Color.White, 0.0f, origin, failScale, SpriteEffects.None, 0);
