@@ -263,8 +263,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\line.png">
-      <Name>line</Name>
+    <Compile Include="Images\vol.png">
+      <Name>vol</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

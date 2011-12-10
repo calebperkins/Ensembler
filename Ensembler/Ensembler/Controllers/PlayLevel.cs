@@ -13,7 +13,7 @@ namespace Ensembler
     public class PlayLevel : DrawableGameComponent
     {
         // For adjusting curMaxAge of satisfaction queue
-        public const int AGE_DECR = 2;
+        public const int AGE_DECR = 0;
         public const int AGE_INCR = 1;
         bool failed;
 
@@ -61,6 +61,7 @@ namespace Ensembler
         SoundEffectInstance distorted;
         float volume;
         float scaledVol;
+        Texture2D volumeTexture;
 
         SoundEffect SmallApplause;
         SoundEffect LargeApplause;
@@ -109,6 +110,7 @@ namespace Ensembler
             LevelFail = Game.Content.Load<Song>("Sounds//LevelFail");
 
             background = Game.Content.Load<Texture2D>(data.Background);
+            volumeTexture = Game.Content.Load<Texture2D>("images\\vol");
 
             beatTime = 60000 / data.BPM;
 
@@ -211,10 +213,8 @@ namespace Ensembler
                     }
 
                     scaledVol = (float)(0.524 * Math.Pow(Math.E, volume) - 0.425); // exponential scale
-                    Console.WriteLine(volume);
-                    Console.WriteLine("ACTUAL " + scaledVol);
-                    MediaPlayer.Volume = scaledVol;
-                    distorted.Volume = scaledVol;
+                    if (MediaPlayer.IsMuted) distorted.Volume = scaledVol;
+                    else MediaPlayer.Volume = scaledVol;
                 }
 
                 //watch = watch.Add(gameTime.ElapsedGameTime);
@@ -404,23 +404,27 @@ namespace Ensembler
 #if DEBUG
             // Draw beat and score
             string beat = "beat " + current_beat;
-            spriteBatch.DrawString(font, beat, new Vector2(0, 0), Color.White);
+            spriteBatch.DrawString(font, beat, new Vector2(350, 30), Color.White);
 #endif
 
 
             // Find the center of the string
             // Vector2 FontOrigin = font.MeasureString(output) / 2;
-            string vol = "volume: " + (int) (volume * 10);
-            // Draw the string
-            spriteBatch.DrawString(font, vol, new Vector2(125, 0), Color.White);
-            spriteBatch.DrawString(font, "score " + current_score, new Vector2(300, 0), Color.White);
-            spriteBatch.DrawString(font, actionList.Count!=0 ? (gainedScore >= 0 ? "+"+gainedScore : ""+gainedScore) : "", new Vector2(460, 0), 
+            //string vol = "volume: " + (int) (volume * 10);
+            spriteBatch.DrawString(font, "volume", new Vector2(35, 0), Color.White);
+            for (int i = 0; i < (int)(volume * 10); i++)
+            {
+                spriteBatch.Draw(volumeTexture, new Vector2(120 + i * 20, 6), null, Color.White, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
+            }
+
+            spriteBatch.DrawString(font, "score " + current_score, new Vector2(350, 0), Color.White);
+            spriteBatch.DrawString(font, actionList.Count!=0 ? (gainedScore >= 0 ? "+"+gainedScore : ""+gainedScore) : "", new Vector2(500, 0), 
                 (gainedScore > 0 ? Color.YellowGreen : (gainedScore < 0 ? Color.Red : Color.White)));
             if (comboCount >= 2) 
             {
                 if (gainedScore > 0) // only add combo bonus when the last movement is successful
                 {
-                    spriteBatch.DrawString(font, "+ " + comboCount + " combo bonus", new Vector2(460, 30), Color.Violet, 0.0f, new Vector2(0, 0), 0.75f, SpriteEffects.None, 0.0f);
+                    spriteBatch.DrawString(font, "+ " + comboCount + " combo bonus", new Vector2(500, 30), Color.Violet, 0.0f, new Vector2(0, 0), 0.75f, SpriteEffects.None, 0.0f);
                 }
                 spriteBatch.DrawString(font, comboCount + " Combo", new Vector2(650, 0), Color.White); 
             }
