@@ -53,7 +53,7 @@ namespace Ensembler
             for (int i = page * PER_PAGE; i < limit; i++)
             {
                 int j = i % PER_PAGE; // geometric position on page
-                spriteBatch.Draw(j == selected ? selectedTexture : normalTexture, new Rectangle(400, 120+j * 100, 400, 100), Color.White);
+                spriteBatch.Draw(i == selected ? selectedTexture : normalTexture, new Rectangle(400, 120+j * 100, 400, 100), Color.White);
                 spriteBatch.DrawString(songFont, levels[i].Title, new Vector2(450, 140+j*100), songColor);
             }
 
@@ -63,10 +63,18 @@ namespace Ensembler
             // Draws data about the selected level
             if (selected >= 0)
             {
-                spriteBatch.DrawString(scoreFont, "High Score: " + levels[selected].HighScore, new Vector2(10, offsetBottom - 150), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
-                spriteBatch.DrawString(scoreFont, "Developer High Score: " + levels[selected].DeveloperHighScore, new Vector2(10, offsetBottom - 100), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
-                spriteBatch.DrawString(scoreFont, "High Combo: " + levels[selected].HighCombo, new Vector2(10, offsetBottom - 50), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
-                spriteBatch.DrawString(scoreFont, "Developer High Combo: " + levels[selected].DeveloperHighCombo, new Vector2(10, offsetBottom), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
+                try
+                {
+                    spriteBatch.DrawString(scoreFont, "High Score: " + levels[selected].HighScore, new Vector2(10, offsetBottom - 150), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
+                    spriteBatch.DrawString(scoreFont, "Developer High Score: " + levels[selected].DeveloperHighScore, new Vector2(10, offsetBottom - 100), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
+                    spriteBatch.DrawString(scoreFont, "High Combo: " + levels[selected].HighCombo, new Vector2(10, offsetBottom - 50), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
+                    spriteBatch.DrawString(scoreFont, "Developer High Combo: " + levels[selected].DeveloperHighCombo, new Vector2(10, offsetBottom), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
+                }
+                catch (System.IndexOutOfRangeException)
+                {
+                }
+
+               
             }
             
         }

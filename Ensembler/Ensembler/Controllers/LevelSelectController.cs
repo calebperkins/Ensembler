@@ -52,7 +52,7 @@ namespace Ensembler
             // TODO: remove these magic constants :)
             Vector2 p = gameState.Input.Position;
             if (p.X >= GameEngine.WIDTH / 2)
-                selected = Math.Max(0, (int)(p.Y - 120) / 105);
+                selected = Math.Max(0, (int)(p.Y - 120) / 105 ) + page* LevelSelectView.PER_PAGE;
             else
                 selected = -1;
         }
