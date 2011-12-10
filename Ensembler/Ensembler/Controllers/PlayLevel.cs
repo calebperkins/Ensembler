@@ -455,14 +455,14 @@ namespace Ensembler
                 spriteBatch.Draw(volumeTexture, new Vector2(120 + i * 20, 6), null, Color.White, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
             }
 
-            spriteBatch.DrawString(font, "score " + current_score, new Vector2(350, 0), Color.White);
-            spriteBatch.DrawString(font, actionList.Count!=0 ? (gainedScore >= 0 ? "+"+gainedScore : ""+gainedScore) : "", new Vector2(500, 0), 
+            spriteBatch.DrawString(font, "score " + current_score, new Vector2(342, 0), Color.White);
+            spriteBatch.DrawString(font, actionList.Count!=0 ? (gainedScore >= 0 ? "+"+gainedScore : ""+gainedScore) : "", new Vector2(480, 0), 
                 (gainedScore > 0 ? Color.YellowGreen : (gainedScore < 0 ? Color.Red : Color.White)));
             if (comboCount >= 2) 
             {
                 if (gainedScore > 0) // only add combo bonus when the last movement is successful
                 {
-                    spriteBatch.DrawString(font, "+ " + comboCount + " combo bonus", new Vector2(500, 30), Color.Violet, 0.0f, new Vector2(0, 0), 0.75f, SpriteEffects.None, 0.0f);
+                    spriteBatch.DrawString(font, "+ " + comboCount + " combo bonus", new Vector2(480, 30), Color.Violet, 0.0f, new Vector2(0, 0), 0.75f, SpriteEffects.None, 0.0f);
                 }
                 spriteBatch.DrawString(font, comboCount + " Combo", new Vector2(650, 0), Color.White); 
             }
