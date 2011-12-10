@@ -66,6 +66,8 @@ namespace Ensembler
             set;
         }
 
+        public WorldMapController world;
+
         public void LoadContent(ContentManager cm)
         {
             DataTypes.GameData data = cm.Load<DataTypes.GameData>("Levels\\Index");
@@ -109,6 +111,14 @@ namespace Ensembler
             data.Height = ViewPort.Height;
             data.Width = ViewPort.Width;
             data.Levels = Levels;
+            return data;
+        }
+        
+
+        public DataTypes.WorldData Serialized2()
+        {
+            DataTypes.WorldData data = new DataTypes.WorldData();
+            //data.Cities = new Models.City[WorldMapController.];
             return data;
         }
 

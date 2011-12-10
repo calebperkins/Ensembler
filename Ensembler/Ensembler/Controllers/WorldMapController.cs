@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Ensembler
 {
-    class WorldMapController
+    public class WorldMapController
     {
         GameEngine game;
         SpriteBatch spriteBatch;

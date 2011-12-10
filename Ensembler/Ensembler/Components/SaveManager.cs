@@ -101,7 +101,7 @@ namespace Ensembler.Components
                 StorageDevice device = StorageDevice.EndShowSelector(gameSaveResult);
                 if (device != null && device.IsConnected)
                 {
-                    try
+                    //try
                     {
                         IAsyncResult result = device.BeginOpenContainer(dir, null, null);
                         result.AsyncWaitHandle.WaitOne(); // todo: replace
@@ -130,11 +130,11 @@ namespace Ensembler.Components
                         XmlSerializer serializer2 = new XmlSerializer(typeof(DataTypes.WorldData));
 
                         serializer.Serialize(stream, state.Serialized());
-                        //serializer2.Serialize(stream2, state.Serialized());
+                        serializer2.Serialize(stream2, state.Serialized2());
 
                         container.Dispose();
                     }
-                    catch { }
+                    //catch { }
                 }
                 // Reset the request initiation flag
                 saveInitiated = false;

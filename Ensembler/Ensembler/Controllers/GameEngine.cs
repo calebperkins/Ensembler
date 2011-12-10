@@ -78,6 +78,7 @@ namespace Ensembler
 
             worldController = new WorldMapController(this, gameState, spriteBatch, buffer);
             worldController.Initialize();
+            gameState.world = worldController;
             pauseController = new PauseScreenController(this, spriteBatch);
             pauseController.Initialize();
 
