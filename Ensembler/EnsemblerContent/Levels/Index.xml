@@ -8,70 +8,78 @@
       <!--Please use only "\\" for subdirectories in AssetName-->
 
       <Item>
-        <Title>Air On G String</Title>
+        <Title>Air on the G String</Title>
+        <Artist>Bach</Artist>
         <Difficulty>1</Difficulty>
         <AssetName>Levels\\AirOnGString\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>100</DeveloperHighScore>
+        <DeveloperHighScore>2000</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>10</DeveloperHighCombo>
+        <DeveloperHighCombo>60</DeveloperHighCombo>
       </Item>
       <Item>
-        <Title>Aquarium</Title>
+        <Title>The Aquarium</Title>
+        <Artist>Saint-Saens</Artist>
         <Difficulty>3</Difficulty>
         <AssetName>Levels\\Aquarium\\aqu</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>200</DeveloperHighScore>
-        <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>20</DeveloperHighCombo>
-      </Item>
-      <Item>
-        <Title>Bolero</Title>
-        <Difficulty>2</Difficulty>
-        <AssetName>Levels\\Bolero\\level</AssetName>
-        <HighScore>0</HighScore>
-        <DeveloperHighScore>300</DeveloperHighScore>
-        <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>30</DeveloperHighCombo>
-      </Item>
-      <Item>
-        <Title>Symphony No.25</Title>
-        <Difficulty>3</Difficulty>
-        <AssetName>Levels\\M25\\level</AssetName>
-        <HighScore>0</HighScore>
-        <DeveloperHighScore>400</DeveloperHighScore>
+        <DeveloperHighScore>2000</DeveloperHighScore>
         <HighCombo>0</HighCombo>
         <DeveloperHighCombo>40</DeveloperHighCombo>
       </Item>
       <Item>
-        <Title>Symphony No. 5</Title>
+        <Title>Bolero</Title>
+        <Artist>Ravel</Artist>
+        <Difficulty>2</Difficulty>
+        <AssetName>Levels\\Bolero\\level</AssetName>
+        <HighScore>0</HighScore>
+        <DeveloperHighScore>3154</DeveloperHighScore>
+        <HighCombo>0</HighCombo>
+        <DeveloperHighCombo>68</DeveloperHighCombo>
+      </Item>
+      <Item>
+        <Title>Symphony No.25</Title>
+        <Artist>Mozart</Artist>
+        <Difficulty>3</Difficulty>
+        <AssetName>Levels\\M25\\level</AssetName>
+        <HighScore>0</HighScore>
+        <DeveloperHighScore>1590</DeveloperHighScore>
+        <HighCombo>0</HighCombo>
+        <DeveloperHighCombo>21</DeveloperHighCombo>
+      </Item>
+      <Item>
+        <Title>Symphony No.5</Title>
+        <Artist>Beethoven</Artist>
         <Difficulty>5</Difficulty>
         <AssetName>Levels\\B5\\b5-edited-2</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>500</DeveloperHighScore>
+        <DeveloperHighScore>1195</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>50</DeveloperHighCombo>
+        <DeveloperHighCombo>28</DeveloperHighCombo>
       </Item>
       <Item>
         <Title>William Tell Overture</Title>
+        <Artist>Rossini</Artist>
         <Difficulty>3</Difficulty>
-        <AssetName>Levels//William tell//level</AssetName>
+        <AssetName>Levels\\William tell\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>600</DeveloperHighScore>
+        <DeveloperHighScore>2325</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>50</DeveloperHighCombo>
+        <DeveloperHighCombo>57</DeveloperHighCombo>
       </Item>
       <Item>
-        <Title>Queen of Night</Title>
+        <Title>Queen of the Night</Title>
+        <Artist>Mozart</Artist>
         <Difficulty>4</Difficulty>
         <AssetName>Levels\\Queen of Night\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>700</DeveloperHighScore>
+        <DeveloperHighScore>1204</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>50</DeveloperHighCombo>
+        <DeveloperHighCombo>16</DeveloperHighCombo>
       </Item>
       <Item>
-        <Title>Piano Concerto 21</Title>
+        <Title>Piano Concerto No.21</Title>
+        <Artist>Mozart</Artist>
         <Difficulty>3</Difficulty>
         <AssetName>Levels\\Piano Concerto 21\\level</AssetName>
         <HighScore>0</HighScore>
@@ -80,40 +88,44 @@
         <DeveloperHighCombo>50</DeveloperHighCombo>
       </Item>
       <Item>
-        <Title>Rach 2</Title>
+        <Title>Piano Concerto No.2</Title>
+        <Artist>Rachmaninoff</Artist>
         <Difficulty>5</Difficulty>
         <AssetName>Levels\\Rach 2\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>900</DeveloperHighScore>
+        <DeveloperHighScore>1967</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>50</DeveloperHighCombo>
+        <DeveloperHighCombo>39</DeveloperHighCombo>
       </Item>
       <Item>
         <Title>Winter</Title>
+        <Artist>Vivaldi</Artist>
         <Difficulty>4</Difficulty>
         <AssetName>Levels\\Winter\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>1000</DeveloperHighScore>
+        <DeveloperHighScore>1533</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>50</DeveloperHighCombo>
+        <DeveloperHighCombo>32</DeveloperHighCombo>
       </Item>
       <Item>
-        <Title>Ocean Etude</Title>
+        <Title>Etude Op.25 No.12</Title>
+        <Artist>Chopin</Artist>
         <Difficulty>6</Difficulty>
         <AssetName>Levels\\Ocean Etude\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>1100</DeveloperHighScore>
+        <DeveloperHighScore>2100</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>50</DeveloperHighCombo>
+        <DeveloperHighCombo>37</DeveloperHighCombo>
       </Item>
       <Item>
         <Title>1812 Overture</Title>
+        <Artist>Tchaikovsky</Artist>
         <Difficulty>7</Difficulty>
         <AssetName>Levels\\1812 Overture\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>1200</DeveloperHighScore>
+        <DeveloperHighScore>2130</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>50</DeveloperHighCombo>
+        <DeveloperHighCombo>52</DeveloperHighCombo>
       </Item>  
     </Levels>
   </Asset>

@@ -162,17 +162,17 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\NSaintPetersburg\Cleared.xml">
+    <Compile Include="Dialogs\Cities\zNSaintPetersburg\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\NSaintPetersburg\NewlyUnlocked.xml">
+    <Compile Include="Dialogs\Cities\zNSaintPetersburg\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\NSaintPetersburg\Unlocked.xml">
+    <Compile Include="Dialogs\Cities\zNSaintPetersburg\Unlocked.xml">
       <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -233,6 +233,36 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="Images\CutScene\Tutorial_Bad.jpg">
+      <Name>Tutorial_Bad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\Tutorial_Fail.jpg">
+      <Name>Tutorial_Fail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\Tutorial_Noop.jpg">
+      <Name>Tutorial_Noop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\Tutorial_Shake.jpg">
+      <Name>Tutorial_Shake</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\CutScene\Tutorial_Trace.jpg">
+      <Name>Tutorial_Trace</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\DialogueFace\Frederic.png">
+      <Name>Frederic</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Images\dot.png">
       <Name>dot</Name>
       <Importer>TextureImporter</Importer>
@@ -263,8 +293,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\vol.png">
-      <Name>vol</Name>
+    <Compile Include="Images\line.png">
+      <Name>line</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -782,18 +812,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\DialogueFace\Player.png">
-      <Name>Player</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\DialogueFace\Frederic.png">
-      <Name>Frederic</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Images\MainMenu\exitmode_hover.png">
@@ -939,7 +957,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dialogs\Cities\NSaintPetersburg\Success.xml">
+    <Compile Include="Dialogs\Cities\zNSaintPetersburg\Success.xml">
       <Name>Success</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -1014,47 +1032,6 @@
   <ItemGroup>
     <Compile Include="Images\fbg_edited.png">
       <Name>fbg_edited</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\CutScene\Tutorial_Bad.jpg">
-      <Name>Tutorial_Bad</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\CutScene\Tutorial_Fail.jpg">
-      <Name>Tutorial_Fail</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\CutScene\Tutorial_Noop.jpg">
-      <Name>Tutorial_Noop</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\CutScene\Tutorial_Shake.jpg">
-      <Name>Tutorial_Shake</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\CutScene\Tutorial_Trace.jpg">
-      <Name>Tutorial_Trace</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\PauseScreen_temp.jpg">
-      <Name>PauseScreen_temp</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\PauseScreen\PauseScreen_temp.jpg">
-      <Name>PauseScreen_temp</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -1347,11 +1324,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\dot_fail_glow.png">
-      <Name>dot_fail_glow</Name>
+    <Compile Include="Images\DialogueFace\Rival.png">
+      <Name>Rival</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\vol.png">
+      <Name>vol</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Images\dot_win_glow.png">
       <Name>dot_win_glow</Name>
       <Importer>TextureImporter</Importer>
@@ -1359,6 +1345,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Images\dot_fail_glow.png">
+      <Name>dot_fail_glow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Images\dot_normal_glow.png">
       <Name>dot_normal_glow</Name>
       <Importer>TextureImporter</Importer>
@@ -1366,6 +1357,13 @@
     </Compile>
     <Compile Include="Images\dot_ready_glow.png">
       <Name>dot_ready_glow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\CutScene\Tutorial_Score.jpg">
+      <Name>Tutorial_Score</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -1386,10 +1384,55 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Images\GO.png">
       <Name>GO</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\CutScene\Tutorial_Combo.jpg">
+      <Name>Tutorial_Combo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\CutScene\Tutorial_Volume.jpg">
+      <Name>Tutorial_Volume</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\CutScene\Tutorial_Actions.jpg">
+      <Name>Tutorial_Actions</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\SelectionScreen\background2.png">
+      <Name>background2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Characters\gabriel_map.xml">
+      <Name>gabriel_map</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Characters\gabriel_sprite.png">
+      <Name>gabriel_sprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\PauseScreen\pause.png">
+      <Name>pause</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

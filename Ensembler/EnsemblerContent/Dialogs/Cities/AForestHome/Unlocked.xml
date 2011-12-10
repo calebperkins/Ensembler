@@ -41,8 +41,8 @@
     <CutScenes>
       <Item>
         <Picture>Images\\CutScene\\GoodbyeAlice</Picture>
-        <StartCue>But!... At least take this with you...</StartCue>
-        <StopCue>Hey player...</StopCue>
+        <StartCue>But! At least take this with you... You don't have to thank me, this belongs to your father.</StartCue>
+        <StopCue>Hey player... Can you wave that baton one last time... for me? I will play my favorite piece: Air on G String.</StopCue>
       </Item>
     </CutScenes>
   </Asset>

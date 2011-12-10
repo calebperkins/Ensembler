@@ -19,6 +19,7 @@ namespace Ensembler
         Vector2 dialogBoxPos;
         Vector2 namePos;
         Vector2 linePos;
+        Vector2 linePosForLong;
 
         public DialogView(SpriteBatch sb)
         {
@@ -29,6 +30,7 @@ namespace Ensembler
             facePos = new Vector2(40, 170);
             namePos = new Vector2(142, 365);
             linePos = new Vector2(90, 440);
+            linePosForLong = new Vector2(90, 430);
             nameScale = 0.9f;
         }
 
@@ -51,7 +53,7 @@ namespace Ensembler
             spriteBatch.DrawString(nameFont, n, new Vector2(namePos.X - nameOrigin.X + 1, namePos.Y - 1), outlineColor, 0.0f, new Vector2(), nameScale, SpriteEffects.None, 0.0f);
             spriteBatch.DrawString(nameFont, n, new Vector2(namePos.X - nameOrigin.X - 1, namePos.Y + 1), outlineColor, 0.0f, new Vector2(), nameScale, SpriteEffects.None, 0.0f);
             spriteBatch.DrawString(nameFont, n, new Vector2(namePos.X - nameOrigin.X, namePos.Y), c, 0.0f, new Vector2(), 0.90f, SpriteEffects.None, 0.0f);
-            spriteBatch.DrawString(lineFont, s, linePos, Color.Black, 0.0f, new Vector2(), 0.75f, SpriteEffects.None, 0.0f);
+            spriteBatch.DrawString(lineFont, s, s.Length>=230 ? linePosForLong : linePos, Color.Black, 0.0f, new Vector2(), 0.75f, SpriteEffects.None, 0.0f);
             if (f != null) spriteBatch.Draw(f, facePos, Color.White);
         }
     }

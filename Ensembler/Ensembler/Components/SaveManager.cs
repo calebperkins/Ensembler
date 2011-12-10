@@ -21,6 +21,7 @@ namespace Ensembler.Components
 
         const string dir = "Scores";
         const string filename = "scores.xml";
+        const string filename2 = "cities.xml";
 
         public SaveManager(Game game)
             : base(game)
@@ -65,7 +66,7 @@ namespace Ensembler.Components
                 }
                 catch (ArgumentException)
                 {
-                    Console.Error.WriteLine("Save file corrupted.");
+                    // Console.Error.WriteLine("Save file corrupted.");
                     scoredLevels = new Dictionary<string, DataTypes.LevelSummary>();
                 }
                 for (int i = 0; i < state.Levels.Length; i++)
@@ -100,26 +101,40 @@ namespace Ensembler.Components
                 StorageDevice device = StorageDevice.EndShowSelector(gameSaveResult);
                 if (device != null && device.IsConnected)
                 {
-                    IAsyncResult result = device.BeginOpenContainer(dir, null, null);
-                    result.AsyncWaitHandle.WaitOne(); // todo: replace
-                    StorageContainer container = device.EndOpenContainer(result);
-                    // Close the wait handle.
-                    result.AsyncWaitHandle.Close();
+                    //try
+                    {
+                        IAsyncResult result = device.BeginOpenContainer(dir, null, null);
+                        result.AsyncWaitHandle.WaitOne(); // todo: replace
+                        StorageContainer container = device.EndOpenContainer(result);
+                        // Close the wait handle.
+                        result.AsyncWaitHandle.Close();
 
-                    // Check to see whether the save exists.
-                    if (container.FileExists(filename))
-                        // Delete it so that we can create one fresh.
-                        container.DeleteFile(filename);
+                        // Check to see whether the save exists.
+                        if (container.FileExists(filename))
+                        {
+                            // Delete it so that we can create one fresh.
+                            container.DeleteFile(filename);
+                        }
 
-                    // Create the file.
-                    Stream stream = container.CreateFile(filename);
+                        if (container.FileExists(filename2))
+                        {
+                            container.DeleteFile(filename2);
+                        }
 
-                    // Convert the object to XML data and put it in the stream.
-                    XmlSerializer serializer = new XmlSerializer(typeof(DataTypes.GameData));
+                        // Create the file.
+                        Stream stream = container.CreateFile(filename);
+                        Stream stream2 = container.CreateFile(filename2);
 
-                    serializer.Serialize(stream, state.Serialized());
+                        // Convert the object to XML data and put it in the stream.
+                        XmlSerializer serializer = new XmlSerializer(typeof(DataTypes.GameData));
+                        XmlSerializer serializer2 = new XmlSerializer(typeof(DataTypes.WorldData));
 
-                    container.Dispose();
+                        serializer.Serialize(stream, state.Serialized());
+                        serializer2.Serialize(stream2, state.Serialized2());
+
+                        container.Dispose();
+                    }
+                    //catch { }
                 }
                 // Reset the request initiation flag
                 saveInitiated = false;

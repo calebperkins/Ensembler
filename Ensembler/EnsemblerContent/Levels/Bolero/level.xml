@@ -7,6 +7,26 @@
     <SatisfactionAssetName>Images\\sparkle</SatisfactionAssetName>
     <Artist>Ravel</Artist>
     <Background>Levels\\B5\\background</Background>
+    <Musicians>
+      <Item>
+        <Texture>Characters\\bella_sprite</Texture>
+        <SpriteMap>Characters\\bella_map</SpriteMap>
+        <Position>330 400</Position>
+        <FrameRate>8</FrameRate>
+      </Item>
+      <Item>
+        <Texture>Characters\\thorsten_sprite</Texture>
+        <SpriteMap>Characters\\thorsten_map</SpriteMap>
+        <Position>130 400</Position>
+        <FrameRate>8</FrameRate>
+      </Item>
+      <Item>
+        <Texture>Characters\\dante_sprite</Texture>
+        <SpriteMap>Characters\\dante_map</SpriteMap>
+        <Position>500 400</Position>
+        <FrameRate>8</FrameRate>
+      </Item>
+    </Musicians>
     <Movements>
       <Item>
         <Kind>Wave</Kind>
@@ -1202,6 +1222,13 @@
         <StartBeat>100</StartBeat>
         <EndBeat>105</EndBeat>
         <FadeBeat>105</FadeBeat>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>105</ShowBeat>
+        <StartBeat>106</StartBeat>
+        <EndBeat>110</EndBeat>
+        <FadeBeat>110</FadeBeat>
       </Item>
     </Movements>
   </Asset>

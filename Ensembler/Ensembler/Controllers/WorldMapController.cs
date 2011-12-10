@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Ensembler
 {
-    class WorldMapController
+    public class WorldMapController
     {
         GameEngine game;
         SpriteBatch spriteBatch;
@@ -22,7 +22,7 @@ namespace Ensembler
         State currentState;
         InputBuffer buffer;
 
-        HashSet<Models.City> Cities = new HashSet<Models.City>();
+        public HashSet<Models.City> Cities = new HashSet<Models.City>();
 
         bool start = false;
         int big_Six = 0;
@@ -45,6 +45,7 @@ namespace Ensembler
             worldView = new WorldMapView(sb);
             spriteBatch = sb;
             buffer = bf;
+            MediaPlayer.IsRepeating = true;
         }
 
         public void Initialize() 
@@ -118,7 +119,13 @@ namespace Ensembler
                     if (SelectedCity.DialogControl.Finished)
                     {
                         if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared || SelectedCity.Data.PlayLevel == "NoLevel")
+                        {
                             currentState = State.inMap;
+                            if (SelectedCity.Data.PlayLevel == "NoLevel")
+                            {
+                                SelectedCity.State = DataTypes.WorldData.CityState.Cleared; // For Milan
+                            }
+                        }
                         else if (SelectedCity.DialogControl.Dialog.DialogFileName == "Introduction" || SelectedCity.DialogControl.Dialog == SelectedCity.successDialogue)
                         {
                             currentState = State.inMap;
@@ -127,7 +134,7 @@ namespace Ensembler
                         {
                             MediaPlayer.Stop();
                             gameState.SelectedLevel = SelectedCity.Data.PlayLevel;
-                            Console.WriteLine(gameState.SelectedLevel);
+                            // Console.WriteLine(gameState.SelectedLevel);
                             gameState.CurrentScreen = DataTypes.Screens.PlayLevel;
                             currentState = State.inGame;
                         }
@@ -155,7 +162,7 @@ namespace Ensembler
                         {
                             if (c != null)
                             {
-                                Console.WriteLine("here at city" + c.Data.Name);
+                                // Console.WriteLine("here at city" + c.Data.Name);
                                 c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
                             }
                         }

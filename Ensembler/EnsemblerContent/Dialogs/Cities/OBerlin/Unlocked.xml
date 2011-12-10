@@ -14,6 +14,9 @@
       </Item>
     </Colors>
     <Faces>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Rival</FaceAssetName>
+      </Item>
     </Faces>
     <CutScenes>
     </CutScenes>

@@ -13,9 +13,11 @@ namespace Ensembler
     public class PlayLevel : DrawableGameComponent
     {
         // For adjusting curMaxAge of satisfaction queue
-        public const int AGE_DECR = 0;
+        public const int AGE_DECR = 2;
         public const int AGE_INCR = 1;
+        bool started;
         bool failed;
+        bool ended;
 
         Stopwatch countdownWatch = new Stopwatch();
         public const int COUNTDOWN = 4;
@@ -34,9 +36,10 @@ namespace Ensembler
         int c = 0;
         int current_score;
         int gainedScore;
-        bool comboOn;
+        public bool comboOn { get; set; }
         int comboCount;
         int maxCombo;
+        int untilClapping;
         int backToMenu;
         int failCount;
         String satisfactionImagePath="Images\\aquarium"; // stubbed, but doesnt matter
@@ -54,9 +57,6 @@ namespace Ensembler
         HashSet<Movement> drawSet;
 
         Movement current_act;
-
-        bool startTiming;
-        bool endTiming;
         
         MovementEvaluator moveEval;
         InputBuffer buffer;
@@ -86,11 +86,13 @@ namespace Ensembler
             DrawOrder = 0;
             comboOn = false;
             comboCount = -1;
+            started = false;
             failed = false;
+            ended = false;
             failCount = 0;
 
-            volume = 0.5f;
-            scaledVol = (float)(0.524 * Math.Pow(Math.E, volume) - 0.425);
+            volume = 5;
+            scaledVol = (float)(0.524 * Math.Pow(Math.E, volume / 10) - 0.425);
 
             BrokenStrings = new SoundEffect[3];
         }
@@ -110,16 +112,16 @@ namespace Ensembler
             satisfaction.LoadContent(Game.Content, satisfactionImagePath);
 
             MediaPlayer.IsRepeating = false;
-            Console.WriteLine(gameState.SelectedLevel);
+            // Console.WriteLine(gameState.SelectedLevel);
 
             CountDown = Game.Content.Load<SoundEffect>("Sounds//CountDown");
             SmallApplause = Game.Content.Load<SoundEffect>("Sounds//SmallApplause");
             LargeApplause = Game.Content.Load<SoundEffect>("Sounds//LargeApplause");
             LevelFail = Game.Content.Load<Song>("Sounds//LevelFail");
 
-            BrokenStrings[0] = LargeApplause = Game.Content.Load<SoundEffect>("Sounds//BrokenString1");
-            BrokenStrings[1] = LargeApplause = Game.Content.Load<SoundEffect>("Sounds//BrokenString2");
-            BrokenStrings[2] = LargeApplause = Game.Content.Load<SoundEffect>("Sounds//BrokenString3");
+            BrokenStrings[0] = Game.Content.Load<SoundEffect>("Sounds//BrokenString1");
+            BrokenStrings[1] = Game.Content.Load<SoundEffect>("Sounds//BrokenString2");
+            BrokenStrings[2] = Game.Content.Load<SoundEffect>("Sounds//BrokenString3");
 
             countDown.Add(3, Game.Content.Load<Texture2D>("Images//3"));
             countDown.Add(2, Game.Content.Load<Texture2D>("Images//2"));
@@ -164,6 +166,7 @@ namespace Ensembler
 
         public void Start()
         {
+            started = true;
             if (CountDownDone())
             {
                 countdownWatch.Stop();
@@ -183,6 +186,7 @@ namespace Ensembler
             {
                 countdownWatch.Start();
             }
+            buffer.Clear();
         }
 
         public void Pause()
@@ -223,14 +227,14 @@ namespace Ensembler
                 {
                     if (key == Keys.A)
                     {
-                        volume = MathHelper.Clamp(volume + 0.1f, 0.1f, 1);
+                        volume = MathHelper.Clamp(volume + 1, 1, 10);
                     }
                     else if (key == Keys.Z)
                     {
-                        volume = MathHelper.Clamp(volume - 0.1f, 0.1f, 1);
+                        volume = MathHelper.Clamp(volume - 1, 1, 10);
                     }
 
-                    scaledVol = (float)(0.524 * Math.Pow(Math.E, volume) - 0.425); // exponential scale
+                    scaledVol = (float)(0.524 * Math.Pow(Math.E, volume / 10) - 0.425); // exponential scale
                     if (MediaPlayer.IsMuted) distorted.Volume = scaledVol;
                     else MediaPlayer.Volume = scaledVol;
                 }
@@ -239,24 +243,8 @@ namespace Ensembler
 
                 current_beat = beat_sum + (int)Math.Round((float)watch.ElapsedMilliseconds / beatTime);
                 bool newMovement = false;
-                startTiming = true;
-                endTiming = true;
                 if (current_beat > last_beat) // new beat
                 {
-                    if (current_act != null)
-                    {
-                        if (current_act.myType == Movement.Types.Wave)
-                        {
-                            if (Alpha(current_act.endBeat, current_act.startBeat) > 0.0f)
-                            {
-                                startTiming = moveEval.Timing(buffer, current_act.startCoordinate, true);
-                            }
-                            if (current_beat == current_act.endBeat)
-                            {
-                                endTiming = moveEval.Timing(buffer, current_act.endCoordinate, false);
-                            }
-                        }
-                    }
 
                     last_beat = current_beat;
                     
@@ -287,10 +275,7 @@ namespace Ensembler
                         // check and remove the head of the list
                         if (actionList.First != null && actionList.First.Value.startBeat == current_beat)
                         {
-                         //   buffer.Clear();
                             current_act = actionList.First.Value;
-                         //   moveEval.currentMovement = current_act;
-                           // evalBeat = current_beat + 1;
                             if (current_act.myType != Movement.Types.Control)
                             {
                                 actionList.RemoveFirst();
@@ -312,15 +297,15 @@ namespace Ensembler
                     if (current_act != null)
                     {
                         Movement.Types type = current_act.myType;
-                        float score = moveEval.Accuracy(current_act, buffer, (current_beat ==0 || current_beat ==1 ? true : startTiming&&endTiming), gameTime);
+                        float score = moveEval.Accuracy(current_act, buffer, gameTime);
 
                         gainedScore = (int)(score * 10);
-                        
+                       // comboOn = moveEval.CurrentMovement !=null && moveEval.CurrentMovement.myType == Movement.Types.Wave ? gainedScore > 0 : true;
+
                         // Adjusts age of satisfaction queue
                         if (gainedScore < 0)
                         {
-                            failCount++;
-                            Console.WriteLine("fail count is " + failCount);
+                            if (moveEval.CurrentMovement.myType == Movement.Types.Wave ) failCount++;
                             if (satisfaction.maxAge < 5) satisfaction.maxAge = 0;
                             else satisfaction.maxAge = Math.Max(4, satisfaction.maxAge - AGE_DECR);
                             if (failCount == 3 && current_act.myType == Movement.Types.Wave)
@@ -345,25 +330,26 @@ namespace Ensembler
                             MediaPlayer.IsMuted = false;
                             distorted.Volume = 0.0f;
                         }
-
+                        
+                        moveEval.Update(current_act, score, (newMovement || actionList.Count == 0), gameTime, this);
                         /* Keep the combo on if it is now Wave and the most recent gainedScore is greater than 0 (i.e. success continues),
                          * or if combo is on before a Shake phase is entered,
                          * otherwise break the combo. */
-                        comboOn = !(gainedScore < 0 && type == Movement.Types.Wave /* and last is also wave */);
-
+                       // comboOn = !(gainedScore < 0 && type == Movement.Types.Wave /* and last is also wave */);
+                        comboOn = gainedScore > 0 || (comboOn && gainedScore == 0);
                         /** Add to combo count if it is now Wave and combo is on,
                          * else if it is now Wave but combo is broken, reset count to 0,
                          * else if combo is on but a Shape or Noop phase is entered, keep the count until next Wave. */
-                        comboCount = comboOn && type == Movement.Types.Wave ? comboCount += 1 : (type == Movement.Types.Wave ? 0 : comboCount);
+                        comboCount = comboOn && moveEval.CurrentMovement.myType == Movement.Types.Wave ? comboCount + 1 : (type == Movement.Types.Wave ? 0 : comboCount);
                         if (comboCount > maxCombo) maxCombo = comboCount;
                         //  if (actionList.First != null) // prevents score from endlessly increasing
 
                         /** Add gainedScore to current_score.
                          * If there is a combo and the most recent score is non-negative (e.g. Shaking is succuessful), also add the current combo count to the score */
-                        current_score += (gainedScore + (comboCount > 1 && gainedScore > 0 ? comboCount : 0));
+                        if (actionList.Count != 0) current_score += (gainedScore + (comboCount > 1 && gainedScore > 0 ? comboCount : 0));
                         current_score = Math.Max(0, current_score);
                         
-                        moveEval.Update(current_act, score, (newMovement || actionList.Count == 0), gameTime);
+                        
                         if (newMovement) { buffer.Clear();  }
                     }
                 }
@@ -371,7 +357,9 @@ namespace Ensembler
 
             if (actionList.Count == 0 || failed) 
             {
-                if (!failed && backToMenu == 0)
+                untilClapping++;
+                if (untilClapping == 150) ended = true;
+                if (!failed && untilClapping == 150)
                 {
                     if (current_score < 1000)
                     {
@@ -445,19 +433,19 @@ namespace Ensembler
             // Vector2 FontOrigin = font.MeasureString(output) / 2;
             //string vol = "volume: " + (int) (volume * 10);
             spriteBatch.DrawString(font, "volume", new Vector2(35, 0), Color.White);
-            for (int i = 0; i < (int)(volume * 10); i++)
+            for (int i = 0; i < (int)(volume); i++)
             {
                 spriteBatch.Draw(volumeTexture, new Vector2(120 + i * 20, 6), null, Color.White, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
             }
 
-            spriteBatch.DrawString(font, "score " + current_score, new Vector2(350, 0), Color.White);
-            spriteBatch.DrawString(font, actionList.Count!=0 ? (gainedScore >= 0 ? "+"+gainedScore : ""+gainedScore) : "", new Vector2(500, 0), 
+            spriteBatch.DrawString(font, "score " + current_score, new Vector2(320, 0), Color.White);
+            spriteBatch.DrawString(font, actionList.Count!=0 ? (gainedScore >= 0 ? "+"+gainedScore : ""+gainedScore) : "", new Vector2(470, 0), 
                 (gainedScore > 0 ? Color.YellowGreen : (gainedScore < 0 ? Color.Red : Color.White)));
             if (comboCount >= 2) 
             {
                 if (gainedScore > 0) // only add combo bonus when the last movement is successful
                 {
-                    spriteBatch.DrawString(font, "+ " + comboCount + " combo bonus", new Vector2(500, 30), Color.Violet, 0.0f, new Vector2(0, 0), 0.75f, SpriteEffects.None, 0.0f);
+                    spriteBatch.DrawString(font, "+ " + comboCount + " combo bonus", new Vector2(470, 30), Color.Violet, 0.0f, new Vector2(0, 0), 0.75f, SpriteEffects.None, 0.0f);
                 }
                 spriteBatch.DrawString(font, comboCount + " Combo", new Vector2(650, 0), Color.White); 
             }
@@ -466,17 +454,21 @@ namespace Ensembler
                 else spriteBatch.DrawString(font, "Great!", new Vector2(670, 30), Color.Tomato); 
             }
             
-            if (actionList.Count == 0)
+            if (actionList.Count == 0 && started && untilClapping>=100)
             {
-                spriteBatch.DrawString(font, "Score is " + current_score, new Vector2(200, 150), Color.Black, 0.0f, new Vector2(0, 0),
-                    1.4f, SpriteEffects.None, 0.0f);
-                spriteBatch.DrawString(font, "Max Combo is " + (maxCombo > 1 ? maxCombo : 0), new Vector2(200, 200), Color.Black, 0.0f, new Vector2(0, 0),
-                    1.4f, SpriteEffects.None, 0.0f);
+                String scoreString = "Score is " + current_score;
+                String comboString = "Max Combo is " + (maxCombo > 1 ? maxCombo : 0);
+                Vector2 scoreOrigin = font.MeasureString(scoreString) / 2;
+                Vector2 comboOrigin = font.MeasureString(comboString) / 2;
+                spriteBatch.DrawString(font, scoreString, new Vector2(GameEngine.WIDTH/2-scoreOrigin.X,GameEngine.HEIGHT/2 - 50),Color.White, 0.0f, new Vector2(0, 0),
+                    1.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.DrawString(font, comboString, new Vector2(GameEngine.WIDTH/2 - comboOrigin.X, GameEngine.HEIGHT/2 + 50), Color.White, 0.0f, new Vector2(0, 0),
+                    1.0f, SpriteEffects.None, 0.0f);
             }
 
             foreach (Musician m in musicians)
             {
-                m.Draw(t, !failed, tint, CountDownDone());
+                m.Draw(t, !failed, tint, CountDownDone(), ended);
             }
             // sort it in ascending way
             var drawing =
@@ -523,7 +515,7 @@ namespace Ensembler
             // Draw to screen if level failed
             if (failed)
             {
-                Vector2 center = gameState.ScreenCenter();
+                Vector2 center = gameState.ScreenCenter() + new Vector2 (0, 20);
                 Vector2 origin = gameState.ScreenCenter();
                 failScale = Math.Max(1, failScale - 0.01f);
                 spriteBatch.Draw(failTexture, center, null, Color.White, 0.0f, origin, failScale, SpriteEffects.None, 0);

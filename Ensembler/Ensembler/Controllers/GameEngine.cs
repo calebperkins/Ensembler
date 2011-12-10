@@ -54,7 +54,6 @@ namespace Ensembler
             gameState = new GameState();
             gameState.LoadContent(Content); // hack
 
-
             try
             {
                 input = new WiiController(this, gameState, buffer);
@@ -78,6 +77,7 @@ namespace Ensembler
 
             worldController = new WorldMapController(this, gameState, spriteBatch, buffer);
             worldController.Initialize();
+            gameState.world = worldController;
             pauseController = new PauseScreenController(this, spriteBatch);
             pauseController.Initialize();
 
@@ -102,6 +102,7 @@ namespace Ensembler
 
             graphics.PreferredBackBufferWidth = gameState.ViewPort.Width;
             graphics.PreferredBackBufferHeight = gameState.ViewPort.Height;
+            graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
 

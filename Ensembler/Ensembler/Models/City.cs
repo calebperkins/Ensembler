@@ -49,6 +49,8 @@ namespace Ensembler.Models
             set;
         }
 
+        public City() { }
+
         public City(DataTypes.WorldData.City c)
         {
             AbsolutePosition = c.Position;

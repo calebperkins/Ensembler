@@ -42,7 +42,7 @@
       </Item>
     </Colors>
     <Faces>
-      <Item><FaceAssetName>Images\\DialogueFace\\Player</FaceAssetName></Item>
+      <Item><FaceAssetName>Images\\DialogueFace\\Rival</FaceAssetName></Item>
     </Faces>
     <CutScenes></CutScenes>
   </Asset>

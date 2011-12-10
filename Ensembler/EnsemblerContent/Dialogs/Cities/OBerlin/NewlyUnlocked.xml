@@ -20,10 +20,14 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>1500 is the minimal score to impress your rival!</Line>
+        <Line>(1500 is the minimal score to impress your rival!)</Line>
       </Item>
     </Content>
     <Colors>
+      <Item>
+        <Character>Game</Character>
+        <Color>Red</Color>
+      </Item>
       <Item>
         <Character>Player</Character>
         <Color>Blue</Color>
@@ -34,6 +38,9 @@
       </Item>
     </Colors>
     <Faces>
+      <Item>
+        <FaceAssetName>Images\\DialogueFace\\Rival</FaceAssetName>
+      </Item>
     </Faces>
     <CutScenes>
       <Item>

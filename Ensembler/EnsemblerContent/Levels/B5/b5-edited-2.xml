@@ -9,8 +9,8 @@
     <Background>Levels\\B5\\background</Background>
     <Musicians>
       <Item>
-        <Texture>Characters\\alice_sprite</Texture>
-        <SpriteMap>Characters\\alice_map</SpriteMap>
+        <Texture>Characters\\bella_sprite</Texture>
+        <SpriteMap>Characters\\bella_map</SpriteMap>
         <Position>430 400</Position>
         <FrameRate>8</FrameRate>
       </Item>
