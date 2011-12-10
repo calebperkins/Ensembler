@@ -45,6 +45,7 @@ namespace Ensembler
             MenuMove = cm.Load<SoundEffect>("Sounds//MenuMove");
             MenuSelect = cm.Load<SoundEffect>("Sounds//MenuSelect");
             bgSong = cm.Load<Song>("journey");
+            MediaPlayer.IsRepeating = true;
         }
 
         void SetSelected()

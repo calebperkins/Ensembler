@@ -5,7 +5,7 @@ namespace Ensembler
 {
     public class MovementEvaluator
     {
-        public const float FAIL_THRESHOLD = 0.4f;
+        public const float FAIL_THRESHOLD = 0.0f;
         public const float ACC_THRESHOLD = 0.05f;
         public const float MAGIC_WAVE_THRESHOLD = 0.6f / 1f;
 
@@ -20,6 +20,7 @@ namespace Ensembler
             CurrentMovement = m;
         }
 
+        /**
         public bool Timing(InputBuffer inputs, Point p, bool start)
         {
             if (inputs.Count != 0)
@@ -35,14 +36,13 @@ namespace Ensembler
             {
                 return false;
             }
-        }
+        } */
 
         /*Returns a floating number 0 to 1 which indicates how well the input is matching the movement */
-        public float Accuracy(Movement m, InputBuffer inputs, bool timing, GameTime t)
+        public float Accuracy(Movement m, InputBuffer inputs, GameTime t)
         {
             int totalInput = inputs.Count;
             int correct = 0;
-           // Console.WriteLine("movement starts at beat " + CurrentMovement.startBeat + " has input number " + totalInput);
             if (CurrentMovement != null)
             {
                 switch (CurrentMovement.myType)
@@ -66,7 +66,7 @@ namespace Ensembler
                             return (float)correct / totalInput / 2;
                         }
                     case Movement.Types.Wave:
-                        if (totalInput < 5 || !timing)
+                        if (totalInput < 5)
                         {
                             return -0.3f;
                         }
@@ -107,7 +107,7 @@ namespace Ensembler
             }
         }
 
-        public void Update(Movement m, float score, bool newMovement, GameTime t)
+        public void Update(Movement m, float score, bool newMovement, GameTime t, PlayLevel level)
         {
             if (newMovement) // current movement is over, set state accordingly
             {
@@ -115,11 +115,11 @@ namespace Ensembler
                 // send score back to Movement
                 if (CurrentMovement != null)
                 {
-                    if (score <= FAIL_THRESHOLD)
+                    if (score < FAIL_THRESHOLD)
                     {
                         CurrentMovement.setState(Movement.States.Fail);
                     }
-                    else if (score > FAIL_THRESHOLD)
+                    else if (score >= FAIL_THRESHOLD)
                     {
                         CurrentMovement.setState(Movement.States.Succeed);
                     }

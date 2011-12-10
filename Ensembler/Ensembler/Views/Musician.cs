@@ -24,9 +24,9 @@ namespace Ensembler
             spriteBatch = sb;
         }
 
-        public void Draw(GameTime t, bool update, Color tint, bool countDownDone)
+        public void Draw(GameTime t, bool update, Color tint, bool countDownDone, bool ended)
         {
-            if (!countDownDone) src = map[0];
+            if (!countDownDone || ended) src = map[0];
             else if (update) src = map[(int)(t.TotalGameTime.TotalSeconds * frameRate) % map.Length];
             spriteBatch.Draw(texture, position, src, tint);
         }

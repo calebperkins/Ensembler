@@ -12,7 +12,7 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>The most important one is trace: trace the flashing grey notes as they appear. A good trace will increase your score, while a bad trace will decrease your score.</Line>
+        <Line>The most important one is trace: trace the dots as they TURN YELLOW (or as you see the ring around the circle start to shrink), NOT when you see them appear. A good trace will increase your score, while a bad trace will decrease your score.</Line>
       </Item>
       <Item>
         <Character>Game</Character>
@@ -20,7 +20,7 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>As for doing nothing... well, when you are not prompted to trace or shake, don't do anything.</Line>
+        <Line>As for doing nothing... Well, when you are not prompted to trace or shake, don't do anything.</Line>
       </Item>
       <Item>
         <Character>Game</Character>
@@ -61,28 +61,48 @@
     </Faces>
     <CutScenes>
       <Item>
+        <Picture>Images\\CutScene\\Tutorial_Actions</Picture>
+        <StartCue>During a performance, you are expected to do 3 things: trace, shake, and do nothing.</StartCue>
+        <StopCue>The most important one is trace: trace the flashing grey notes as they appear. A good trace will increase your score, while a bad trace will decrease your score.</StopCue>
+      </Item>
+      <Item>
         <Picture>Images\\CutScene\\Tutorial_Trace</Picture>
-        <StartCue>The most important one is trace: trace the flashing grey notes as they appear.</StartCue>
-        <StopCue>Shake means you move your baton as quickly as possible.</StopCue>
+        <StartCue>The most important one is trace: trace the trail of dots as they TURN YELLOW, NOT when you see them appear. A good trace will increase your score, while a bad trace will decrease your score.</StartCue>
+        <StopCue>Shake means you move your baton as quickly as possible. The more the movements, the more score awarded.</StopCue>
       </Item>
       <Item>
         <Picture>Images\\CutScene\\Tutorial_Shake</Picture>
-        <StartCue>Shake means you move your baton as quickly as possible.</StartCue>
-        <StopCue>As for doing nothing... well, when you are not prompted to trace or shake, don't do anything.</StopCue>
+        <StartCue>Shake means you move your baton as quickly as possible. The more the movements, the more score awarded.</StartCue>
+        <StopCue>As for doing nothing... Well, when you are not prompted to trace or shake, don't do anything.</StopCue>
       </Item>
       <Item>
         <Picture>Images\\CutScene\\Tutorial_Noop</Picture>
-        <StartCue>As for doing nothing... well, when you are not prompted to trace or shake, don't do anything.</StartCue>
+        <StartCue>As for doing nothing... Well, when you are not prompted to trace or shake, don't do anything.</StartCue>
         <StopCue>Try moving at your own risk. Watch out for your score.</StopCue>
       </Item>
       <Item>
+        <Picture>Images\\CutScene\\Tutorial_Score</Picture>
+        <StartCue>Try moving at your own risk. Watch out for your score.</StartCue>
+        <StopCue>If you do well, the number of combos will increase, which gives you bonus scores.</StopCue>
+      </Item>
+      <Item>
+        <Picture>Images\\CutScene\\Tutorial_Combo</Picture>
+        <StartCue>If you do well, the number of combos will increase, which gives you bonus scores.</StartCue>
+        <StopCue>You can change the volume as well by pressing "A" or "Z" while playing, although volume does not affect your score.</StopCue>
+      </Item>
+      <Item>
+        <Picture>Images\\CutScene\\Tutorial_Volume</Picture>
+        <StartCue>You can change the volume as well by pressing "A" or "Z" while playing, although volume does not affect your score.</StartCue>
+        <StopCue>One last thing, the trail of shapes that follows your baton is also an indication on how well you are doing in the level.</StopCue>
+      </Item>
+      <Item>
         <Picture>Images\\CutScene\\Tutorial_Bad</Picture>
-        <StartCue>Consecutive incorrect moves will result in decreasing the number of shapes that follow your baton.</StartCue>
-        <StopCue>When the number of stars reaches zero, you will have to try the level again.</StopCue>
+        <StartCue>One last thing, the trail of shapes that follows your baton is also an indication on how well you are doing in the level.</StartCue>
+        <StopCue>Consecutive incorrect moves will result in decrease of your baton's trail. At the same time, your screen will dim. When the length of trail reaches zero, you will have to try the level again.</StopCue>
       </Item>
       <Item>
         <Picture>Images\\CutScene\\Tutorial_Fail</Picture>
-        <StartCue>When the number of stars reaches zero, you will have to try the level again.</StartCue>
+        <StartCue>Consecutive incorrect moves will result in decrease of your baton's trail. At the same time, your screen will dim. When the length of trail reaches zero, you will have to try the level again.</StartCue>
         <StopCue>Alright, this is all you need to know about conducting in the world of Ensembler. Click on Forest Home, and have fun!</StopCue>
       </Item>
     </CutScenes>

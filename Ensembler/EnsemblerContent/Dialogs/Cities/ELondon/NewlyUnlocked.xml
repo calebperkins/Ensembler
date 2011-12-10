@@ -28,10 +28,14 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>In order for your performance to be strong enough to invoke the old woman's memories, you must achieve a score of 1000 or higher.</Line>
+        <Line>(In order for your performance to be strong enough to invoke the old woman's memories, you must achieve a score of 1000 or higher.)</Line>
       </Item>
       </Content>
       <Colors>
+        <Item>
+          <Character>Game</Character>
+          <Color>Red</Color>
+        </Item>
         <Item>
           <Character>Player</Character>
           <Color>Blue</Color>

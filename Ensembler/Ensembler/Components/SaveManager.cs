@@ -66,7 +66,7 @@ namespace Ensembler.Components
                 }
                 catch (ArgumentException)
                 {
-                    Console.Error.WriteLine("Save file corrupted.");
+                    // Console.Error.WriteLine("Save file corrupted.");
                     scoredLevels = new Dictionary<string, DataTypes.LevelSummary>();
                 }
                 for (int i = 0; i < state.Levels.Length; i++)
