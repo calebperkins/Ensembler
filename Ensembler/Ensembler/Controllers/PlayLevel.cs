@@ -208,7 +208,7 @@ namespace Ensembler
                 satisfaction.Update(gameTime);
 
                 // Adjusts volume
-                Keys key = buffer.VolumeChange;
+                Keys key = gameState.Input.Key;
                 if (key != Keys.None)
                 {
                     if (key == Keys.A)
