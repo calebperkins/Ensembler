@@ -46,11 +46,6 @@ namespace Ensembler
         Texture2D background;
         Texture2D failTexture;
 
-        Texture2D threeTex;
-        Texture2D twoTex;
-        Texture2D oneTex;
-        Texture2D goTex;
-
         Dictionary<int, Texture2D> countDown = new Dictionary<int, Texture2D>(4);
 
         float failScale = 2;
