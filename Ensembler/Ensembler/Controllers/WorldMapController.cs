@@ -207,7 +207,7 @@ namespace Ensembler
                         MapMove.Play();
                     LastCity = SelectedCity;
 
-                    if (gameState.Input.Confirm)
+                    if (gameState.Input.Confirm && SelectedCity.NotLocked)
                     {
                         DialogModel toLoad = null;
                         switch (SelectedCity.State)
