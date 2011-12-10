@@ -142,7 +142,7 @@ namespace Ensembler
                         cutscene = cutscenes[speech];
                         stopCue = startStopCues[speech];
                     } 
-                    if (speech.Length != 0 && speech[0] == '*') ReceiveItem.Play();
+                    if (speech.Length >2 && speech[0] == '(' && speech[1] == '*') ReceiveItem.Play();
                     string firstPart = "";
                     string secondPart = speech;
                     while (secondPart.Length > 55)

@@ -45,6 +45,7 @@ namespace Ensembler
             worldView = new WorldMapView(sb);
             spriteBatch = sb;
             buffer = bf;
+            MediaPlayer.IsRepeating = true;
         }
 
         public void Initialize() 
@@ -118,7 +119,13 @@ namespace Ensembler
                     if (SelectedCity.DialogControl.Finished)
                     {
                         if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared || SelectedCity.Data.PlayLevel == "NoLevel")
+                        {
                             currentState = State.inMap;
+                            if (SelectedCity.Data.PlayLevel == "NoLevel")
+                            {
+                                SelectedCity.State = DataTypes.WorldData.CityState.Success; // For Milan
+                            }
+                        }
                         else if (SelectedCity.DialogControl.Dialog.DialogFileName == "Introduction" || SelectedCity.DialogControl.Dialog == SelectedCity.successDialogue)
                         {
                             currentState = State.inMap;

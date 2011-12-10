@@ -4,13 +4,13 @@
     <Content>
       <Item>
         <Character>Game</Character>
-        <Line>Frederic will not be satisfied by any score lower than 900! </Line>
+        <Line>(Frederic will not be satisfied by any score lower than 900!)</Line>
       </Item>
     </Content>
     <Colors>
       <Item>
-        <Character>Player</Character>
-        <Color>Blue</Color>
+        <Character>Game</Character>
+        <Color>Red</Color>
       </Item>
     </Colors>
     <Faces>

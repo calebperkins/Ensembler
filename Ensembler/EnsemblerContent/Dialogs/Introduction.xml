@@ -20,7 +20,7 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>As for doing nothing... well, when you are not prompted to trace or shake, don't do anything.</Line>
+        <Line>As for doing nothing... Well, when you are not prompted to trace or shake, don't do anything.</Line>
       </Item>
       <Item>
         <Character>Game</Character>
@@ -58,18 +58,23 @@
     <CutScenes>
       <Item>
         <Picture>Images\\CutScene\\Tutorial_Trace</Picture>
-        <StartCue>The most important one is trace: trace the flashing grey notes as they appear.</StartCue>
-        <StopCue>Shake means you move your baton as quickly as possible.</StopCue>
+        <StartCue>The most important one is trace: trace the flashing grey notes as they appear. A good trace will increase your score, while a bad trace will decrease your score.</StartCue>
+        <StopCue>Shake means you move your baton as quickly as possible. The more the movements, the more score awarded.</StopCue>
       </Item>
       <Item>
         <Picture>Images\\CutScene\\Tutorial_Shake</Picture>
-        <StartCue>Shake means you move your baton as quickly as possible.</StartCue>
-        <StopCue>As for doing nothing... well, when you are not prompted to trace or shake, don't do anything.</StopCue>
+        <StartCue>Shake means you move your baton as quickly as possible. The more the movements, the more score awarded.</StartCue>
+        <StopCue>As for doing nothing... Well, when you are not prompted to trace or shake, don't do anything.</StopCue>
       </Item>
       <Item>
         <Picture>Images\\CutScene\\Tutorial_Noop</Picture>
-        <StartCue>As for doing nothing... well, when you are not prompted to trace or shake, don't do anything.</StartCue>
+        <StartCue>As for doing nothing... Well, when you are not prompted to trace or shake, don't do anything.</StartCue>
         <StopCue>Try moving at your own risk. Watch out for your score.</StopCue>
+      </Item>
+      <Item>
+        <Picture>Images\\CutScene\\Tutorial_Score</Picture>
+        <StartCue>Try moving at your own risk. Watch out for your score.</StartCue>
+        <StopCue>If you do well, the number of combos will increase, which gives you bonus scores.</StopCue>
       </Item>
       <Item>
         <Picture>Images\\CutScene\\Tutorial_Bad</Picture>

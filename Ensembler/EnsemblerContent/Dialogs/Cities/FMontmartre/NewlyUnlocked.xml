@@ -21,12 +21,20 @@
     </Content>
     <Colors>
       <Item>
-        <Character>Game</Character>
-        <Color>Red</Color>
-      </Item>
-      <Item>
         <Character>Frederic</Character>
         <Color>DarkViolet</Color>
+      </Item>
+      <Item>
+        <Character>Student 1</Character>
+        <Color>Maroon</Color>
+      </Item>
+      <Item>
+        <Character>Student 2</Character>
+        <Color>Tomato</Color>
+      </Item>
+      <Item>
+        <Character>Student 3</Character>
+        <Color>Wheat</Color>
       </Item>
     </Colors>
     <Faces>
