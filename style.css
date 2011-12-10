@@ -1,0 +1,11 @@
+body {
+	padding-top: 60px;
+}
+
+.hero-unit {
+	background: url("cover.jpg") no-repeat top center fixed;
+}
+
+.hero-unit p {
+	color: #362a1c;
+}
