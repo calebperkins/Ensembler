@@ -517,7 +517,7 @@ namespace Ensembler
             // Draw to screen if level failed
             if (failed)
             {
-                Vector2 center = gameState.ScreenCenter();
+                Vector2 center = gameState.ScreenCenter() + new Vector2 (0, 20);
                 Vector2 origin = gameState.ScreenCenter();
                 failScale = Math.Max(1, failScale - 0.01f);
                 spriteBatch.Draw(failTexture, center, null, Color.White, 0.0f, origin, failScale, SpriteEffects.None, 0);
