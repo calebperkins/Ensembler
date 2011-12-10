@@ -64,16 +64,18 @@ namespace Ensembler
 
             if (gameState.Input.Confirm)
             {
-                TitleSelect.Play();
                 switch (hover)
                 {
                     case Hover.Story:
+                        TitleSelect.Play();
                         gameState.CurrentScreen = DataTypes.Screens.WorldMap;
                         break;
                     case Hover.Free:
+                        TitleSelect.Play();
                         gameState.CurrentScreen = DataTypes.Screens.SelectLevel;
                         break;
                     case Hover.Exit:
+                        TitleSelect.Play();
                         game.Exit();
                         break;                        
                 }
