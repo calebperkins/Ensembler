@@ -102,6 +102,7 @@ namespace Ensembler
 
             graphics.PreferredBackBufferWidth = gameState.ViewPort.Width;
             graphics.PreferredBackBufferHeight = gameState.ViewPort.Height;
+            graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
 
