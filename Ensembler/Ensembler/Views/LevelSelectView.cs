@@ -65,6 +65,8 @@ namespace Ensembler
             {
                 try
                 {
+                    string difficulty = new string('*', levels[selected].Difficulty);
+                    spriteBatch.DrawString(scoreFont, "Difficulty: " + difficulty, new Vector2(10, offsetBottom - 200), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
                     spriteBatch.DrawString(scoreFont, "High Score: " + levels[selected].HighScore, new Vector2(10, offsetBottom - 150), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
                     spriteBatch.DrawString(scoreFont, "Developer High Score: " + levels[selected].DeveloperHighScore, new Vector2(10, offsetBottom - 100), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
                     spriteBatch.DrawString(scoreFont, "High Combo: " + levels[selected].HighCombo, new Vector2(10, offsetBottom - 50), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);

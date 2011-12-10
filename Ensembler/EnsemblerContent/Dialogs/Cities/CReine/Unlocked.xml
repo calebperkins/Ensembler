@@ -3,8 +3,8 @@
   <Asset Type="DataTypes.DialogData">
     <Content>
       <Item>
-        <Character>Player</Character>
-        <Line>I must make Frederic join my ensemble!!</Line>
+        <Character>Game</Character>
+        <Line>Frederic will not be satisfied by any score lower than 900! </Line>
       </Item>
     </Content>
     <Colors>

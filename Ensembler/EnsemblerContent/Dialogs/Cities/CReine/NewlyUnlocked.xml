@@ -97,11 +97,15 @@
       </Item>
       <Item>
         <Character>Frederic</Character>
-        <Line>That's an ambitious. Tell you what, I am an instructor at the local conservatory. If you can impress me with your conducting, not only will I join your ensemble, I will also urge my students to.</Line>
+        <Line>That's ambitious. Tell you what, I am an instructor at the local conservatory. If you can impress me with your conducting, not only will I join your ensemble, I will also urge my students to.</Line>
       </Item>
       <Item>
         <Character>Player</Character>
         <Line>Awesome! I have been wondering about how to recruit people from this city. Let the concert begin.</Line>
+      </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>Frederic will not be impressed by any score lower than 900.</Line>
       </Item>
     </Content>
     <Colors>
