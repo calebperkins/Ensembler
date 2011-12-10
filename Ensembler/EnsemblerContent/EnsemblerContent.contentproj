@@ -288,6 +288,11 @@
       <Importer>TextureImporter</Importer>
       <Processor>FontTextureProcessor</Processor>
     </Compile>
+    <Compile Include="Images\shake.png">
+      <Name>shake</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Images\WorldMap\Nosferatu.bmp">
       <Name>Nosferatu</Name>
       <Importer>TextureImporter</Importer>
@@ -333,13 +338,6 @@
       <Name>b5complete</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\shake.png">
-      <Name>shake</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1218,13 +1216,6 @@
       <Name>song_distorted</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\shake_improved.png">
-      <Name>shake_improved</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
