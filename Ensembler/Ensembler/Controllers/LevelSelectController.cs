@@ -22,8 +22,8 @@ namespace Ensembler
         Song bgSong;
 
         int page = 0;
-        Rectangle nextBox = new Rectangle(300, 500, 40, 100);
-        Rectangle prevBox = new Rectangle(300, 400, 40, 40);
+        Rectangle nextBox = new Rectangle(300, 550, 40, 40);
+        Rectangle prevBox = new Rectangle(300, 500, 40, 40);
         int PAGES;
 
         public LevelSelectController(GameState gm, SpriteBatch sb)
@@ -72,6 +72,14 @@ namespace Ensembler
             if (gameState.Input.Confirm && gameState.Input.Inside(nextBox))
             {
                 page = (page + 1) % PAGES;
+                selected = -1;
+                MenuSelect.Play();
+            }
+            else if (gameState.Input.Confirm && gameState.Input.Inside(prevBox))
+            {
+                page -= 1;
+                if (page < 0)
+                    page = PAGES - 1;
                 selected = -1;
                 MenuSelect.Play();
             }
