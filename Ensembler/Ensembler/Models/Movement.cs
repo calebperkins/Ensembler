@@ -54,9 +54,9 @@ namespace Ensembler
             circleReadyTexture = content.Load<Texture2D>("images\\circle_ready");
             shakeTexture = content.Load<Texture2D>("images\\shake");
             traceTexture = content.Load<Texture2D>("images\\dot");
-            traceTexture_s = content.Load<Texture2D>("images\\dot_win_glow");
-            traceTexture_f = content.Load<Texture2D>("images\\dot_fail_glow");
-            traceTexture_r = content.Load<Texture2D>("images\\dot_ready_glow");
+            traceTexture_s = content.Load<Texture2D>("images\\dot_win");
+            traceTexture_f = content.Load<Texture2D>("images\\dot_fail");
+            traceTexture_r = content.Load<Texture2D>("images\\dot_ready");
             ringTexture = content.Load<Texture2D>("images\\ring");
             CircleOrigin = new Vector2(circleTexture.Width / 2, circleTexture.Height / 2);
             RingOrigin = new Vector2(ringTexture.Width / 2, ringTexture.Height / 2);
