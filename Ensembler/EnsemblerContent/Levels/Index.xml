@@ -13,7 +13,7 @@
         <Difficulty>1</Difficulty>
         <AssetName>Levels\\AirOnGString\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>2000</DeveloperHighScore>
+        <DeveloperHighScore>3240</DeveloperHighScore>
         <HighCombo>0</HighCombo>
         <DeveloperHighCombo>60</DeveloperHighCombo>
       </Item>
@@ -23,9 +23,9 @@
         <Difficulty>3</Difficulty>
         <AssetName>Levels\\Aquarium\\aqu</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>2000</DeveloperHighScore>
+        <DeveloperHighScore>2970</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>40</DeveloperHighCombo>
+        <DeveloperHighCombo>51</DeveloperHighCombo>
       </Item>
       <Item>
         <Title>Bolero</Title>
@@ -43,9 +43,9 @@
         <Difficulty>3</Difficulty>
         <AssetName>Levels\\M25\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>1590</DeveloperHighScore>
+        <DeveloperHighScore>2190</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>21</DeveloperHighCombo>
+        <DeveloperHighCombo>31</DeveloperHighCombo>
       </Item>
       <Item>
         <Title>Symphony No.5</Title>
@@ -53,9 +53,9 @@
         <Difficulty>5</Difficulty>
         <AssetName>Levels\\B5\\b5-edited-2</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>1195</DeveloperHighScore>
+        <DeveloperHighScore>2795</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>28</DeveloperHighCombo>
+        <DeveloperHighCombo>37</DeveloperHighCombo>
       </Item>
       <Item>
         <Title>William Tell Overture</Title>
@@ -65,7 +65,7 @@
         <HighScore>0</HighScore>
         <DeveloperHighScore>2325</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>57</DeveloperHighCombo>
+        <DeveloperHighCombo>41</DeveloperHighCombo>
       </Item>
       <Item>
         <Title>Queen of the Night</Title>
@@ -73,9 +73,9 @@
         <Difficulty>4</Difficulty>
         <AssetName>Levels\\Queen of Night\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>1204</DeveloperHighScore>
+        <DeveloperHighScore>2204</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>16</DeveloperHighCombo>
+        <DeveloperHighCombo>34</DeveloperHighCombo>
       </Item>
       <Item>
         <Title>Piano Concerto No.21</Title>
@@ -83,9 +83,9 @@
         <Difficulty>3</Difficulty>
         <AssetName>Levels\\Piano Concerto 21\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>800</DeveloperHighScore>
+        <DeveloperHighScore>2104</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>50</DeveloperHighCombo>
+        <DeveloperHighCombo>38</DeveloperHighCombo>
       </Item>
       <Item>
         <Title>Piano Concerto No.2</Title>
@@ -93,7 +93,7 @@
         <Difficulty>5</Difficulty>
         <AssetName>Levels\\Rach 2\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>1967</DeveloperHighScore>
+        <DeveloperHighScore>2567</DeveloperHighScore>
         <HighCombo>0</HighCombo>
         <DeveloperHighCombo>39</DeveloperHighCombo>
       </Item>
@@ -103,7 +103,7 @@
         <Difficulty>4</Difficulty>
         <AssetName>Levels\\Winter\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>1533</DeveloperHighScore>
+        <DeveloperHighScore>2333</DeveloperHighScore>
         <HighCombo>0</HighCombo>
         <DeveloperHighCombo>32</DeveloperHighCombo>
       </Item>
@@ -113,7 +113,7 @@
         <Difficulty>6</Difficulty>
         <AssetName>Levels\\Ocean Etude\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>2100</DeveloperHighScore>
+        <DeveloperHighScore>1800</DeveloperHighScore>
         <HighCombo>0</HighCombo>
         <DeveloperHighCombo>37</DeveloperHighCombo>
       </Item>
