@@ -84,7 +84,7 @@ namespace Ensembler
                 selected = -1;
                 MenuSelect.Play();
             }
-            else if (gameState.Input.Confirm && selected >= 0)
+            else if (gameState.Input.Confirm && selected >= 0 && selected < gameState.Levels.Length)
             {
                 MenuSelect.Play();
                 MediaPlayer.Stop();
