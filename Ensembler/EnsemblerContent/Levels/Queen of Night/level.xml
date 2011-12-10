@@ -9,9 +9,27 @@
     <Background>Levels\\B5\\background</Background>
     <Musicians>
       <Item>
-        <Texture>Characters\\alice_sprite</Texture>
-        <SpriteMap>Characters\\alice_map</SpriteMap>
-        <Position>350 400</Position>
+        <Texture>Characters\\gabriel_sprite</Texture>
+        <SpriteMap>Characters\\gabriel_map</SpriteMap>
+        <Position>415 400</Position>
+        <FrameRate>8</FrameRate>
+      </Item>
+      <Item>
+        <Texture>Characters\\Lance_sprite</Texture>
+        <SpriteMap>Characters\\Lance_map</SpriteMap>
+        <Position>280 400</Position>
+        <FrameRate>8</FrameRate>
+      </Item>
+      <Item>
+        <Texture>Characters\\dante_sprite</Texture>
+        <SpriteMap>Characters\\dante_map</SpriteMap>
+        <Position>550 400</Position>
+        <FrameRate>8</FrameRate>
+      </Item>
+      <Item>
+        <Texture>Characters\\thorsten_sprite</Texture>
+        <SpriteMap>Characters\\thorsten_map</SpriteMap>
+        <Position>100 400</Position>
         <FrameRate>8</FrameRate>
       </Item>
     </Musicians>

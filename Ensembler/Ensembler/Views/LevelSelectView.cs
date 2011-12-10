@@ -67,10 +67,11 @@ namespace Ensembler
                 {
                     string difficulty = new string('*', levels[selected].Difficulty);
                     spriteBatch.DrawString(scoreFont, "Difficulty: " + difficulty, new Vector2(10, offsetBottom - 180), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
+                    spriteBatch.DrawString(scoreFont, "Composer: " + levels[selected].HighScore, new Vector2(10, offsetBottom - 130), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
                     spriteBatch.DrawString(scoreFont, "High Score: " + levels[selected].HighScore, new Vector2(10, offsetBottom - 130), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
                     spriteBatch.DrawString(scoreFont, "Developer High Score: " + levels[selected].DeveloperHighScore, new Vector2(10, offsetBottom - 80), scoreColor, 0.0f, new Vector2(), 0.6f, SpriteEffects.None, 0.0f);
                     spriteBatch.DrawString(scoreFont, "High Combo: " + levels[selected].HighCombo, new Vector2(10, offsetBottom - 30), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
-                    spriteBatch.DrawString(scoreFont, "Developer High Combo: " + levels[selected].DeveloperHighCombo, new Vector2(10, offsetBottom+20), scoreColor, 0.0f, new Vector2(), 0.6f, SpriteEffects.None, 0.0f);
+                    spriteBatch.DrawString(scoreFont, "Developer High Combo: " + levels[selected].DeveloperHighCombo, new Vector2(10, offsetBottom + 20), scoreColor, 0.0f, new Vector2(), 0.6f, SpriteEffects.None, 0.0f);
                 }
                 catch (System.IndexOutOfRangeException)
                 {

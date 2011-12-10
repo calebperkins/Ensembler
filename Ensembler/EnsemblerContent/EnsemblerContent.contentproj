@@ -162,17 +162,17 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\NSaintPetersburg\Cleared.xml">
+    <Compile Include="Dialogs\Cities\zNSaintPetersburg\Cleared.xml">
       <Name>Cleared</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\NSaintPetersburg\NewlyUnlocked.xml">
+    <Compile Include="Dialogs\Cities\zNSaintPetersburg\NewlyUnlocked.xml">
       <Name>NewlyUnlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Dialogs\Cities\NSaintPetersburg\Unlocked.xml">
+    <Compile Include="Dialogs\Cities\zNSaintPetersburg\Unlocked.xml">
       <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -957,7 +957,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dialogs\Cities\NSaintPetersburg\Success.xml">
+    <Compile Include="Dialogs\Cities\zNSaintPetersburg\Success.xml">
       <Name>Success</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -1428,6 +1428,18 @@
   <ItemGroup>
     <Compile Include="Images\SelectionScreen\background2.png">
       <Name>background2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Characters\gabriel_map.xml">
+      <Name>gabriel_map</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Characters\gabriel_sprite.png">
+      <Name>gabriel_sprite</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -5,8 +5,40 @@
     <BPM>140</BPM>
     <SongAssetName>Levels\\Winter\\song</SongAssetName>
     <SatisfactionAssetName>Images\\aquarium</SatisfactionAssetName>
-    <Artist>Ravel</Artist>
+    <Artist>Vivaldi</Artist>
     <Background>Levels\\B5\\background</Background>
+    <Musicians>
+      <Item>
+        <Texture>Characters\\bella_sprite</Texture>
+        <SpriteMap>Characters\\bella_map</SpriteMap>
+        <Position>460 400</Position>
+        <FrameRate>8</FrameRate>
+      </Item>
+      <Item>
+        <Texture>Characters\\Lance_sprite</Texture>
+        <SpriteMap>Characters\\Lance_map</SpriteMap>
+        <Position>335 400</Position>
+        <FrameRate>8</FrameRate>
+      </Item>
+      <Item>
+        <Texture>Characters\\dante_sprite</Texture>
+        <SpriteMap>Characters\\dante_map</SpriteMap>
+        <Position>580 400</Position>
+        <FrameRate>8</FrameRate>
+      </Item>
+      <Item>
+        <Texture>Characters\\clara_sprite</Texture>
+        <SpriteMap>Characters\\clara_map</SpriteMap>
+        <Position>70 400</Position>
+        <FrameRate>8</FrameRate>
+      </Item>
+      <Item>
+        <Texture>Characters\\thorsten_sprite</Texture>
+        <SpriteMap>Characters\\thorsten_map</SpriteMap>
+        <Position>200 400</Position>
+        <FrameRate>8</FrameRate>
+      </Item>
+    </Musicians>
     <Movements>
       <Item>
         <Kind>Wave</Kind>

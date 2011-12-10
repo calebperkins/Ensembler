@@ -22,7 +22,7 @@ namespace Ensembler
         State currentState;
         InputBuffer buffer;
 
-        HashSet<Models.City> Cities = new HashSet<Models.City>();
+        public HashSet<Models.City> Cities = new HashSet<Models.City>();
 
         bool start = false;
         int big_Six = 0;

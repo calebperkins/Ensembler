@@ -118,7 +118,8 @@ namespace Ensembler
         public DataTypes.WorldData Serialized2()
         {
             DataTypes.WorldData data = new DataTypes.WorldData();
-            //data.Cities = new Models.City[WorldMapController.];
+            //Vector2[] vs = new Vector2[10];
+            //data.Cities = new Models.City[world.Cities.Count];
             return data;
         }
 

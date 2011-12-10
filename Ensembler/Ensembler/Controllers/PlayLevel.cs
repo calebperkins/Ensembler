@@ -13,7 +13,7 @@ namespace Ensembler
     public class PlayLevel : DrawableGameComponent
     {
         // For adjusting curMaxAge of satisfaction queue
-        public const int AGE_DECR = 2;
+        public const int AGE_DECR = 0;
         public const int AGE_INCR = 1;
         bool started;
         bool failed;
