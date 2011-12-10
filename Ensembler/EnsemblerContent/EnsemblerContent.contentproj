@@ -1037,20 +1037,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\PauseScreen_temp.jpg">
-      <Name>PauseScreen_temp</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\PauseScreen\PauseScreen_temp.jpg">
-      <Name>PauseScreen_temp</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Dialogs\Cities\AForestHome\Unlocked.xml">
       <Name>Unlocked</Name>
       <Importer>XmlImporter</Importer>
@@ -1440,6 +1426,13 @@
     </Compile>
     <Compile Include="Characters\gabriel_sprite.png">
       <Name>gabriel_sprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\PauseScreen\pause.png">
+      <Name>pause</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
