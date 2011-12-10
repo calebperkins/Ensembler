@@ -1221,20 +1221,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\shake_improved.png">
-      <Name>shake_improved</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\SelectionScreen\right.png">
-      <Name>right</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Images\SelectionScreen\down.png">
       <Name>down</Name>
       <Importer>TextureImporter</Importer>

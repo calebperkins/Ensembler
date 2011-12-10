@@ -45,14 +45,14 @@ namespace Ensembler
         public static float circleR;
         static Vector2 CircleOrigin;
         static Vector2 RingOrigin;
-        static Vector2 shakePos = new Vector2(130, 300);
+        static Vector2 shakePos = new Vector2(200, 150);
 
         public static void LoadContent(ContentManager content)
         {
             circleTexture = content.Load<Texture2D>("images\\circle");
             endTexture = content.Load<Texture2D>("images\\stop");
             circleReadyTexture = content.Load<Texture2D>("images\\circle_ready");
-            shakeTexture = content.Load<Texture2D>("images\\shake_improved");
+            shakeTexture = content.Load<Texture2D>("images\\shake");
             traceTexture = content.Load<Texture2D>("images\\dot");
             traceTexture_s = content.Load<Texture2D>("images\\dot_win");
             traceTexture_f = content.Load<Texture2D>("images\\dot_fail");
@@ -173,7 +173,7 @@ namespace Ensembler
 
             if (myType == Movement.Types.Shake)
             {
-                spriteBatch.Draw(current_shake, new Vector2(), Color.White);
+                spriteBatch.Draw(current_shake, shakePos, Color.White);
             }
 
             else if (myType == Movement.Types.Wave)
