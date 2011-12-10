@@ -44,7 +44,7 @@
       </Item>
       <Item>
         <Character>Game</Character>
-        <Line>Consecutive incorrect moves will result in decreasing the number of shapes that follow your baton. When the number of stars reaches zero, you will have to try the level again.</Line>
+        <Line>Consecutive incorrect moves will result in decrease of your baton's trail. At the same time, your screen will dim. When the length of trail reaches zero, you will have to try the level again.</Line>
       </Item>
       <Item>
         <Character>Game</Character>
