@@ -8,40 +8,8 @@
       <!--Please use only "\\" for subdirectories in AssetName-->
 
       <Item>
-        <Title>William tell</Title>
-        <AssetName>Levels//William tell//level</AssetName>
-        <HighScore>0</HighScore>
-        <DeveloperHighScore>500</DeveloperHighScore>
-        <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>50</DeveloperHighCombo>
-      </Item>
-      <Item>
-        <Title>Bolero</Title>
-        <AssetName>Levels\\Bolero\\level</AssetName>
-        <HighScore>0</HighScore>
-        <DeveloperHighScore>400</DeveloperHighScore>
-        <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>40</DeveloperHighCombo>
-      </Item>
-      <Item>
-        <Title>Winter</Title>
-        <AssetName>Levels\\Winter\\level</AssetName>
-        <HighScore>0</HighScore>
-        <DeveloperHighScore>400</DeveloperHighScore>
-        <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>40</DeveloperHighCombo>
-      </Item>
-      <Item>
-        <Title>Symphony no.25</Title>
-        <AssetName>Levels\\M25\\level</AssetName>
-        <HighScore>0</HighScore>
-        <DeveloperHighScore>100</DeveloperHighScore>
-        <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>10</DeveloperHighCombo>
-      </Item>
-      <Item>
-        <Title>Symphony No. 5</Title>
-        <AssetName>Levels\\B5\\b5-edited-2</AssetName>
+        <Title>Air On G String</Title>
+        <AssetName>Levels\\AirOnGString\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>100</DeveloperHighScore>
         <HighCombo>0</HighCombo>
@@ -56,15 +24,85 @@
         <DeveloperHighCombo>20</DeveloperHighCombo>
       </Item>
       <Item>
-        <Title>Air On G String</Title>
-        <AssetName>Levels\\AirOnGString\\level</AssetName>
+        <Title>Bolero</Title>
+        <AssetName>Levels\\Bolero\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>300</DeveloperHighScore>
         <HighCombo>0</HighCombo>
         <DeveloperHighCombo>30</DeveloperHighCombo>
       </Item>
-      
-      
+      <Item>
+        <Title>Symphony No.25</Title>
+        <AssetName>Levels\\M25\\level</AssetName>
+        <HighScore>0</HighScore>
+        <DeveloperHighScore>400</DeveloperHighScore>
+        <HighCombo>0</HighCombo>
+        <DeveloperHighCombo>40</DeveloperHighCombo>
+      </Item>
+      <Item>
+        <Title>Symphony No. 5</Title>
+        <AssetName>Levels\\B5\\b5-edited-2</AssetName>
+        <HighScore>0</HighScore>
+        <DeveloperHighScore>500</DeveloperHighScore>
+        <HighCombo>0</HighCombo>
+        <DeveloperHighCombo>50</DeveloperHighCombo>
+      </Item>
+      <Item>
+        <Title>William tell</Title>
+        <AssetName>Levels//William tell//level</AssetName>
+        <HighScore>0</HighScore>
+        <DeveloperHighScore>600</DeveloperHighScore>
+        <HighCombo>0</HighCombo>
+        <DeveloperHighCombo>50</DeveloperHighCombo>
+      </Item>
+      <Item>
+        <Title>Queen of Night</Title>
+        <AssetName>Levels\\Queen of Night\\level</AssetName>
+        <HighScore>0</HighScore>
+        <DeveloperHighScore>700</DeveloperHighScore>
+        <HighCombo>0</HighCombo>
+        <DeveloperHighCombo>50</DeveloperHighCombo>
+      </Item>
+      <Item>
+        <Title>Piano Concerto 21</Title>
+        <AssetName>Levels\\Piano Concerto 21\\level</AssetName>
+        <HighScore>0</HighScore>
+        <DeveloperHighScore>800</DeveloperHighScore>
+        <HighCombo>0</HighCombo>
+        <DeveloperHighCombo>50</DeveloperHighCombo>
+      </Item>
+      <Item>
+        <Title>Rach 2</Title>
+        <AssetName>Levels\\Rach 2\\level</AssetName>
+        <HighScore>0</HighScore>
+        <DeveloperHighScore>900</DeveloperHighScore>
+        <HighCombo>0</HighCombo>
+        <DeveloperHighCombo>50</DeveloperHighCombo>
+      </Item>
+      <Item>
+        <Title>Winter</Title>
+        <AssetName>Levels\\Winter\\level</AssetName>
+        <HighScore>0</HighScore>
+        <DeveloperHighScore>1000</DeveloperHighScore>
+        <HighCombo>0</HighCombo>
+        <DeveloperHighCombo>50</DeveloperHighCombo>
+      </Item>
+      <Item>
+        <Title>Ocean Etude</Title>
+        <AssetName>Levels\\Ocean Etude\\level</AssetName>
+        <HighScore>0</HighScore>
+        <DeveloperHighScore>1100</DeveloperHighScore>
+        <HighCombo>0</HighCombo>
+        <DeveloperHighCombo>50</DeveloperHighCombo>
+      </Item>
+      <Item>
+        <Title>1812 Overture</Title>
+        <AssetName>Levels\\1812 Overture\\level</AssetName>
+        <HighScore>0</HighScore>
+        <DeveloperHighScore>1200</DeveloperHighScore>
+        <HighCombo>0</HighCombo>
+        <DeveloperHighCombo>50</DeveloperHighCombo>
+      </Item>  
     </Levels>
   </Asset>
 </XnaContent>

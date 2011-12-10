@@ -117,7 +117,7 @@ namespace Ensembler
                 case State.inDialog:
                     if (SelectedCity.DialogControl.Finished)
                     {
-                        if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared)
+                        if (SelectedCity.State == DataTypes.WorldData.CityState.Cleared || SelectedCity.Data.PlayLevel == "NoLevel")
                             currentState = State.inMap;
                         else if (SelectedCity.DialogControl.Dialog.DialogFileName == "Introduction" || SelectedCity.DialogControl.Dialog == SelectedCity.successDialogue)
                         {
@@ -150,6 +150,7 @@ namespace Ensembler
                     if (gameState.Score > SelectedCity.Data.ScoreReq && gameState.Combo > SelectedCity.Data.ComboReq)
                     {
                         SelectedCity.State = DataTypes.WorldData.CityState.Cleared;
+                        LevelUnlock.Play();
                         foreach (Models.City c in SelectedCity.Unlocked)
                         {
                             if (c != null)
