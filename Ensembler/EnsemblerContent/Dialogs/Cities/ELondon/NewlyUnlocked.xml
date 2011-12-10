@@ -26,6 +26,10 @@
         <Character>Player</Character>
         <Line>I think we might just have the right piece.</Line>
       </Item>
+      <Item>
+        <Character>Game</Character>
+        <Line>In order for your performance to be strong enough to invoke the old woman's memories, you must achieve a score of 1000 or higher.</Line>
+      </Item>
       </Content>
       <Colors>
         <Item>

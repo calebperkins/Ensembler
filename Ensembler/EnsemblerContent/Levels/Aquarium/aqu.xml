@@ -748,11 +748,18 @@
         <Kind>Noop</Kind>
         <ShowBeat>66</ShowBeat>
         <StartBeat>66</StartBeat>
+        <EndBeat>67</EndBeat>
+        <FadeBeat>67</FadeBeat>
+      </Item>
+      <Item>
+        <Kind>Shake</Kind>
+        <ShowBeat>67</ShowBeat>
+        <StartBeat>67</StartBeat>
         <EndBeat>68</EndBeat>
         <FadeBeat>68</FadeBeat>
       </Item>
       <Item>
-        <Kind>Shake</Kind>
+        <Kind>Noop</Kind>
         <ShowBeat>68</ShowBeat>
         <StartBeat>68</StartBeat>
         <EndBeat>69</EndBeat>
@@ -774,11 +781,18 @@
         <Kind>Noop</Kind>
         <ShowBeat>70</ShowBeat>
         <StartBeat>70</StartBeat>
+        <EndBeat>71</EndBeat>
+        <FadeBeat>71</FadeBeat>
+      </Item>
+      <Item>
+        <Kind>Shake</Kind>
+        <ShowBeat>71</ShowBeat>
+        <StartBeat>71</StartBeat>
         <EndBeat>72</EndBeat>
         <FadeBeat>72</FadeBeat>
       </Item>
       <Item>
-        <Kind>Shake</Kind>
+        <Kind>Noop</Kind>
         <ShowBeat>72</ShowBeat>
         <StartBeat>72</StartBeat>
         <EndBeat>73</EndBeat>
@@ -848,11 +862,18 @@
         <Kind>Noop</Kind>
         <ShowBeat>78</ShowBeat>
         <StartBeat>78</StartBeat>
+        <EndBeat>79</EndBeat>
+        <FadeBeat>79</FadeBeat>
+      </Item>
+      <Item>
+        <Kind>Shake</Kind>
+        <ShowBeat>79</ShowBeat>
+        <StartBeat>79</StartBeat>
         <EndBeat>80</EndBeat>
         <FadeBeat>80</FadeBeat>
       </Item>
       <Item>
-        <Kind>Shake</Kind>
+        <Kind>Noop</Kind>
         <ShowBeat>80</ShowBeat>
         <StartBeat>80</StartBeat>
         <EndBeat>81</EndBeat>
@@ -874,13 +895,20 @@
         <Kind>Noop</Kind>
         <ShowBeat>82</ShowBeat>
         <StartBeat>82</StartBeat>
-        <EndBeat>84</EndBeat>
-        <FadeBeat>84</FadeBeat>
+        <EndBeat>83</EndBeat>
+        <FadeBeat>83</FadeBeat>
       </Item>
       <Item>
         <Kind>Shake</Kind>
-        <ShowBeat>84</ShowBeat>
-        <StartBeat>84</StartBeat>
+        <ShowBeat>83</ShowBeat>
+        <StartBeat>83</StartBeat>
+        <EndBeat>85</EndBeat>
+        <FadeBeat>85</FadeBeat>
+      </Item>
+      <Item>
+        <Kind>Noop</Kind>
+        <ShowBeat>85</ShowBeat>
+        <StartBeat>85</StartBeat>
         <EndBeat>86</EndBeat>
         <FadeBeat>86</FadeBeat>
       </Item>
