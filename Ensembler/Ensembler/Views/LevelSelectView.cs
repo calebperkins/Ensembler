@@ -18,6 +18,8 @@ namespace Ensembler
         Song bgSong;
         GameState state;
         float offsetBottom;
+        Texture2D downButton;
+        Texture2D upButton;
 
         public const int PER_PAGE = 5;
 
@@ -38,6 +40,9 @@ namespace Ensembler
             scoreFont = cm.Load<SpriteFont>("Images//SelectionScreen//VTKAnimal2");
             songFont = cm.Load<SpriteFont>("Images//SelectionScreen//GermanUnderground");
             bgSong = cm.Load<Song>("journey");
+            downButton = cm.Load<Texture2D>("Images//SelectionScreen//down");
+            upButton = cm.Load<Texture2D>("Images//SelectionScreen//up");
+
         }
 
         public void Draw(GameTime t, int page, int selected)
@@ -51,12 +56,19 @@ namespace Ensembler
                 spriteBatch.Draw(j == selected ? selectedTexture : normalTexture, new Rectangle(400, 120+j * 100, 400, 100), Color.White);
                 spriteBatch.DrawString(songFont, levels[i].Title, new Vector2(450, 140+j*100), songColor);
             }
+
+            spriteBatch.Draw(downButton, new Vector2(300, 550), Color.White);
+            spriteBatch.Draw(upButton, new Vector2(300, 500), Color.White);
             
             // Draws data about the selected level
-            spriteBatch.DrawString(scoreFont, "High Score: " + levels[selected].HighScore, new Vector2(10, offsetBottom - 150), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
-            spriteBatch.DrawString(scoreFont, "Developer High Score: " + levels[selected].DeveloperHighScore, new Vector2(10, offsetBottom - 100), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
-            spriteBatch.DrawString(scoreFont, "High Combo: " + levels[selected].HighCombo, new Vector2(10, offsetBottom - 50), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
-            spriteBatch.DrawString(scoreFont, "Developer High Combo: " + levels[selected].DeveloperHighCombo, new Vector2(10, offsetBottom), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
+            if (selected >= 0)
+            {
+                spriteBatch.DrawString(scoreFont, "High Score: " + levels[selected].HighScore, new Vector2(10, offsetBottom - 150), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
+                spriteBatch.DrawString(scoreFont, "Developer High Score: " + levels[selected].DeveloperHighScore, new Vector2(10, offsetBottom - 100), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
+                spriteBatch.DrawString(scoreFont, "High Combo: " + levels[selected].HighCombo, new Vector2(10, offsetBottom - 50), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
+                spriteBatch.DrawString(scoreFont, "Developer High Combo: " + levels[selected].DeveloperHighCombo, new Vector2(10, offsetBottom), scoreColor, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
+            }
+            
         }
     }
 }
