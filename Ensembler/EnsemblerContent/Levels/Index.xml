@@ -9,6 +9,7 @@
 
       <Item>
         <Title>Air On G String</Title>
+        <Difficulty>1</Difficulty>
         <AssetName>Levels\\AirOnGString\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>100</DeveloperHighScore>
@@ -17,6 +18,7 @@
       </Item>
       <Item>
         <Title>Aquarium</Title>
+        <Difficulty>3</Difficulty>
         <AssetName>Levels\\Aquarium\\aqu</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>200</DeveloperHighScore>
@@ -25,6 +27,7 @@
       </Item>
       <Item>
         <Title>Bolero</Title>
+        <Difficulty>2</Difficulty>
         <AssetName>Levels\\Bolero\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>300</DeveloperHighScore>
@@ -33,6 +36,7 @@
       </Item>
       <Item>
         <Title>Symphony No.25</Title>
+        <Difficulty>3</Difficulty>
         <AssetName>Levels\\M25\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>400</DeveloperHighScore>
@@ -41,6 +45,7 @@
       </Item>
       <Item>
         <Title>Symphony No. 5</Title>
+        <Difficulty>5</Difficulty>
         <AssetName>Levels\\B5\\b5-edited-2</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>500</DeveloperHighScore>
@@ -49,6 +54,7 @@
       </Item>
       <Item>
         <Title>William Tell Overture</Title>
+        <Difficulty>3</Difficulty>
         <AssetName>Levels//William tell//level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>600</DeveloperHighScore>
@@ -57,6 +63,7 @@
       </Item>
       <Item>
         <Title>Queen of Night</Title>
+        <Difficulty>4</Difficulty>
         <AssetName>Levels\\Queen of Night\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>700</DeveloperHighScore>
@@ -65,6 +72,7 @@
       </Item>
       <Item>
         <Title>Piano Concerto 21</Title>
+        <Difficulty>3</Difficulty>
         <AssetName>Levels\\Piano Concerto 21\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>800</DeveloperHighScore>
@@ -73,6 +81,7 @@
       </Item>
       <Item>
         <Title>Rach 2</Title>
+        <Difficulty>5</Difficulty>
         <AssetName>Levels\\Rach 2\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>900</DeveloperHighScore>
@@ -81,6 +90,7 @@
       </Item>
       <Item>
         <Title>Winter</Title>
+        <Difficulty>4</Difficulty>
         <AssetName>Levels\\Winter\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>1000</DeveloperHighScore>
@@ -89,6 +99,7 @@
       </Item>
       <Item>
         <Title>Ocean Etude</Title>
+        <Difficulty>6</Difficulty>
         <AssetName>Levels\\Ocean Etude\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>1100</DeveloperHighScore>
@@ -97,6 +108,7 @@
       </Item>
       <Item>
         <Title>1812 Overture</Title>
+        <Difficulty>7</Difficulty>
         <AssetName>Levels\\1812 Overture\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>1200</DeveloperHighScore>
