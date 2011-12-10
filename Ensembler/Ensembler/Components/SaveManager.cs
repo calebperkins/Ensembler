@@ -21,7 +21,7 @@ namespace Ensembler.Components
 
         const string dir = "Scores";
         const string filename = "scores.xml";
-        const string filename2 = "cities.xml";
+        //const string filename2 = "cities.xml";
 
         public SaveManager(Game game)
             : base(game)
@@ -116,21 +116,21 @@ namespace Ensembler.Components
                             container.DeleteFile(filename);
                         }
 
-                        if (container.FileExists(filename2))
-                        {
-                            container.DeleteFile(filename2);
-                        }
+                        //if (container.FileExists(filename2))
+                        //{
+                        //    container.DeleteFile(filename2);
+                        //}
 
                         // Create the file.
                         Stream stream = container.CreateFile(filename);
-                        Stream stream2 = container.CreateFile(filename2);
+                        //Stream stream2 = container.CreateFile(filename2);
 
                         // Convert the object to XML data and put it in the stream.
                         XmlSerializer serializer = new XmlSerializer(typeof(DataTypes.GameData));
-                        XmlSerializer serializer2 = new XmlSerializer(typeof(DataTypes.WorldData));
+                        //XmlSerializer serializer2 = new XmlSerializer(typeof(DataTypes.WorldData));
 
                         serializer.Serialize(stream, state.Serialized());
-                        serializer2.Serialize(stream2, state.Serialized2());
+                        //serializer2.Serialize(stream2, state.Serialized2());
 
                         container.Dispose();
                     }

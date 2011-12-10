@@ -28,7 +28,7 @@ namespace Ensembler
         protected override void LoadContent()
         {
             menuFont = Game.Content.Load<SpriteFont>("Images//SelectionScreen//GermanUnderground");
-            background = Game.Content.Load<Texture2D>("Images//PauseScreen//PauseScreen_temp");
+            background = Game.Content.Load<Texture2D>("Images//PauseScreen//pause");
             base.LoadContent();
         }
 
