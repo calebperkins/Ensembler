@@ -20,7 +20,7 @@
       <Item>
         <Title>The Aquarium</Title>
         <Artist>Saint-Saens</Artist>
-        <Difficulty>3</Difficulty>
+        <Difficulty>2</Difficulty>
         <AssetName>Levels\\Aquarium\\aqu</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>2444</DeveloperHighScore>
@@ -50,7 +50,7 @@
       <Item>
         <Title>Symphony No.5</Title>
         <Artist>Beethoven</Artist>
-        <Difficulty>5</Difficulty>
+        <Difficulty>4</Difficulty>
         <AssetName>Levels\\B5\\b5-edited-2</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>2055</DeveloperHighScore>
@@ -60,7 +60,7 @@
       <Item>
         <Title>William Tell Overture</Title>
         <Artist>Rossini</Artist>
-        <Difficulty>3</Difficulty>
+        <Difficulty>5</Difficulty>
         <AssetName>Levels\\William tell\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>2060</DeveloperHighScore>
@@ -80,7 +80,7 @@
       <Item>
         <Title>Piano Concerto No.21</Title>
         <Artist>Mozart</Artist>
-        <Difficulty>3</Difficulty>
+        <Difficulty>4</Difficulty>
         <AssetName>Levels\\Piano Concerto 21\\level</AssetName>
         <HighScore>0</HighScore>
         <DeveloperHighScore>2104</DeveloperHighScore>
