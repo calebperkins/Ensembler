@@ -23,9 +23,9 @@
         <Difficulty>3</Difficulty>
         <AssetName>Levels\\Aquarium\\aqu</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>2970</DeveloperHighScore>
+        <DeveloperHighScore>2444</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>51</DeveloperHighCombo>
+        <DeveloperHighCombo>57</DeveloperHighCombo>
       </Item>
       <Item>
         <Title>Bolero</Title>
@@ -33,9 +33,9 @@
         <Difficulty>2</Difficulty>
         <AssetName>Levels\\Bolero\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>3154</DeveloperHighScore>
+        <DeveloperHighScore>2195</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>68</DeveloperHighCombo>
+        <DeveloperHighCombo>43</DeveloperHighCombo>
       </Item>
       <Item>
         <Title>Symphony No.25</Title>
@@ -43,9 +43,9 @@
         <Difficulty>3</Difficulty>
         <AssetName>Levels\\M25\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>2190</DeveloperHighScore>
+        <DeveloperHighScore>2054</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>31</DeveloperHighCombo>
+        <DeveloperHighCombo>35</DeveloperHighCombo>
       </Item>
       <Item>
         <Title>Symphony No.5</Title>
@@ -53,7 +53,7 @@
         <Difficulty>5</Difficulty>
         <AssetName>Levels\\B5\\b5-edited-2</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>2795</DeveloperHighScore>
+        <DeveloperHighScore>2055</DeveloperHighScore>
         <HighCombo>0</HighCombo>
         <DeveloperHighCombo>37</DeveloperHighCombo>
       </Item>
@@ -63,9 +63,9 @@
         <Difficulty>3</Difficulty>
         <AssetName>Levels\\William tell\\level</AssetName>
         <HighScore>0</HighScore>
-        <DeveloperHighScore>2325</DeveloperHighScore>
+        <DeveloperHighScore>2060</DeveloperHighScore>
         <HighCombo>0</HighCombo>
-        <DeveloperHighCombo>41</DeveloperHighCombo>
+        <DeveloperHighCombo>50</DeveloperHighCombo>
       </Item>
       <Item>
         <Title>Queen of the Night</Title>

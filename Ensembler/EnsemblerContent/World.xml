@@ -103,7 +103,7 @@
         <ComboReq>0</ComboReq>
         <ScoreReq>1000</ScoreReq>
         <Unlock1>6</Unlock1>
-        <Unlock2>0</Unlock2>
+        <Unlock2>8</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>false</BigSix>
       </Item>
@@ -124,8 +124,8 @@
         <ComboReq>0</ComboReq>
         <ScoreReq>1500</ScoreReq>
         <Unlock1>7</Unlock1>
-        <Unlock2>0</Unlock2>
-        <Unlock3>0</Unlock3>
+        <Unlock2>10</Unlock2>
+        <Unlock3>12</Unlock3>
         <BigSix>false</BigSix>
       </Item>
       <Item>
