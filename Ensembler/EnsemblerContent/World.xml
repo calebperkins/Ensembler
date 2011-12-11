@@ -270,7 +270,7 @@
         <PlayLevel>Levels\\Rach 2\\level</PlayLevel>
         <ComboReq>0</ComboReq>
         <ScoreReq>800</ScoreReq>
-        <Unlock1>0</Unlock1>
+        <Unlock1>15</Unlock1>
         <Unlock2>0</Unlock2>
         <Unlock3>0</Unlock3>
         <BigSix>true</BigSix>
