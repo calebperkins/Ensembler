@@ -1260,6 +1260,7 @@
       <Name>level</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
     <Compile Include="Levels\Piano Concerto 21\song.mp3">
       <Name>song</Name>

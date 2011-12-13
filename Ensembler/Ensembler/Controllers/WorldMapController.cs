@@ -123,7 +123,16 @@ namespace Ensembler
                             currentState = State.inMap;
                             if (SelectedCity.Data.PlayLevel == "NoLevel")
                             {
-                                SelectedCity.State = DataTypes.WorldData.CityState.Cleared; // For Milan
+                                if (SelectedCity.State != DataTypes.WorldData.CityState.Cleared)
+                                {
+                                    LevelUnlock.Play();
+                                    SelectedCity.State = DataTypes.WorldData.CityState.Cleared; // For Milan
+                                    foreach (Models.City c in Cities)
+                                    {
+                                        if (c.Data.ID == SelectedCity.Data.Unlock1 || c.Data.ID == SelectedCity.Data.Unlock2 ||
+                                            c.Data.ID == SelectedCity.Data.Unlock3) c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
+                                    }
+                                }
                             }
                         }
                         else if (SelectedCity.DialogControl.Dialog.DialogFileName == "Introduction" || SelectedCity.DialogControl.Dialog == SelectedCity.successDialogue)
