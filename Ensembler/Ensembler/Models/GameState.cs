@@ -118,8 +118,14 @@ namespace Ensembler
         public DataTypes.WorldData Serialized2()
         {
             DataTypes.WorldData data = new DataTypes.WorldData();
-            //Vector2[] vs = new Vector2[10];
-            //data.Cities = new Models.City[world.Cities.Count];
+            data.Cities = new DataTypes.WorldData.City[world.Cities.Count];
+            Models.City[] mCities = new Models.City[world.Cities.Count];
+            world.Cities.CopyTo(mCities);
+            for (int i = 0; i < world.Cities.Count; i++)
+            {
+                data.Cities[i] = mCities[i].Data;
+                data.Cities[i].State = mCities[i].State;
+            }
             return data;
         }
 
@@ -142,7 +148,8 @@ namespace Ensembler
             Levels[index].HighScore = Math.Max(Levels[index].HighScore, Score);
             Levels[index].HighCombo = Math.Max(Levels[index].HighCombo, Combo);
 
-            SaveRequested = true;  
+            // value changed to true in update of WorldMapController instead, after city unlock are updated too
+            //SaveRequested = true;  
         }
     }
 }

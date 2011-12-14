@@ -21,7 +21,7 @@ namespace Ensembler.Components
 
         const string dir = "Scores";
         const string filename = "scores.xml";
-        //const string filename2 = "cities.xml";
+        const string filename2 = "cities.xml";
 
         public SaveManager(Game game)
             : base(game)
@@ -78,8 +78,21 @@ namespace Ensembler.Components
                     }
                     catch (KeyNotFoundException) { }
                 }
-
             }
+
+            // Load world data
+            if (container.FileExists(filename2))
+            {
+                Stream stream = container.OpenFile(filename2, FileMode.Open);
+                XmlSerializer serializer = new XmlSerializer(typeof(DataTypes.WorldData));
+                DataTypes.WorldData data = serializer.Deserialize(stream) as DataTypes.WorldData;
+
+                foreach (DataTypes.WorldData.City c in data.Cities)
+                {
+                    state.world.Cities.Add (new Models.City (c));
+                }
+            }
+
             container.Dispose();
             base.Initialize();
         }
@@ -116,21 +129,21 @@ namespace Ensembler.Components
                             container.DeleteFile(filename);
                         }
 
-                        //if (container.FileExists(filename2))
-                        //{
-                        //    container.DeleteFile(filename2);
-                        //}
+                        if (container.FileExists(filename2))
+                        {
+                            container.DeleteFile(filename2);
+                        }
 
                         // Create the file.
                         Stream stream = container.CreateFile(filename);
-                        //Stream stream2 = container.CreateFile(filename2);
+                        Stream stream2 = container.CreateFile(filename2);
 
                         // Convert the object to XML data and put it in the stream.
                         XmlSerializer serializer = new XmlSerializer(typeof(DataTypes.GameData));
-                        //XmlSerializer serializer2 = new XmlSerializer(typeof(DataTypes.WorldData));
+                        XmlSerializer serializer2 = new XmlSerializer(typeof(DataTypes.WorldData));
 
                         serializer.Serialize(stream, state.Serialized());
-                        //serializer2.Serialize(stream2, state.Serialized2());
+                        serializer2.Serialize(stream2, state.Serialized2());
 
                         container.Dispose();
                     }

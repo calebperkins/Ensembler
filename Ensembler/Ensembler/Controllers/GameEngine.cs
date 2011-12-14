@@ -196,7 +196,7 @@ namespace Ensembler
                     playlevel.Update(gameTime);
                     break;
                 case DataTypes.Screens.WorldMap:
-                    worldController.Update(gameTime,true);
+                    worldController.Update(gameTime, true);
                     break;
                 case DataTypes.Screens.Pause:
                     pauseController.Update(gameTime);

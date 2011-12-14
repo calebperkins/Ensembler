@@ -88,7 +88,10 @@ namespace Ensembler
                     c.Unlocked[2] = map[city_data.Unlock3];
             }
 
-            Cities = new HashSet<Models.City>(map.Values);
+            if (Cities.Count == 0)
+            {
+                Cities = new HashSet<Models.City>(map.Values);
+            }
             SelectedCity = map[1];
             LastCity = SelectedCity;
 
@@ -185,6 +188,7 @@ namespace Ensembler
                                     if (c.Data.ID == 15) c.State = DataTypes.WorldData.CityState.NewlyUnlocked;
                                 }
                             }
+                            // City with ID 14 doesn't exist anymore (flight of bumblebee was not arranged)
                             else if (big_Six == 6)
                             {
                                 foreach (Models.City c in Cities)
@@ -206,7 +210,9 @@ namespace Ensembler
                         SelectedCity.State = DataTypes.WorldData.CityState.Unlocked;
                         currentState = State.inMap;
                     }
-                    // TODO
+
+                    gameState.SaveRequested = true;
+
                     break;
 
                 default: //inMap
