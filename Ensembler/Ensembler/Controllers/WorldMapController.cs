@@ -92,7 +92,17 @@ namespace Ensembler
             {
                 Cities = new HashSet<Models.City>(map.Values);
             }
-            SelectedCity = map[1];
+
+            foreach (Models.City c in Cities)
+            {
+                if (c.AbsolutePosition == map[1].AbsolutePosition)
+                {
+                    SelectedCity = c;
+                    break;
+                }
+            }
+
+            //SelectedCity = map[1];
             LastCity = SelectedCity;
 
         }
@@ -100,6 +110,12 @@ namespace Ensembler
         public void Update(GameTime gameTime, bool stayInDialogue)
         {
             KeyboardState ks = Keyboard.GetState();
+            // If player wants to see introduction dialogue again
+            if (ks.IsKeyDown(Keys.I))
+            {
+                if (currentState != State.inDialog)
+                    start = false;
+            }
 
             if (!start)
             {
