@@ -436,10 +436,10 @@ namespace Ensembler
             spriteBatch.DrawString(font, "volume", new Vector2(35, 0), Color.White);
             for (int i = 0; i < (int)(volume); i++)
             {
-                spriteBatch.Draw(volumeTexture, new Vector2(120 + i * 20, 6), null, Color.White, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
+                spriteBatch.Draw(volumeTexture, new Vector2(115 + i * 20, 6), null, Color.White, 0.0f, new Vector2(), 0.8f, SpriteEffects.None, 0.0f);
             }
 
-            spriteBatch.DrawString(font, "score " + current_score, new Vector2(320, 0), Color.White);
+            spriteBatch.DrawString(font, "score " + current_score, new Vector2(330, 0), Color.White);
             spriteBatch.DrawString(font, actionList.Count!=0 ? (gainedScore >= 0 ? "+"+gainedScore : ""+gainedScore) : "", new Vector2(470, 0), 
                 (gainedScore > 0 ? Color.YellowGreen : (gainedScore < 0 ? Color.Red : Color.White)));
             if (comboCount >= 2) 
