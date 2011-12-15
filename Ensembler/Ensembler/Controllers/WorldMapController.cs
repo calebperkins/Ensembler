@@ -142,7 +142,7 @@ namespace Ensembler
                             currentState = State.inMap;
                             if (SelectedCity.Data.PlayLevel == "NoLevel")
                             {
-                                if (SelectedCity.State != DataTypes.WorldData.CityState.Cleared)
+                                if (SelectedCity.State != DataTypes.WorldData.CityState.Cleared && SelectedCity.Name == "Milan")
                                 {
                                     LevelUnlock.Play();
                                     SelectedCity.State = DataTypes.WorldData.CityState.Cleared; // For Milan
